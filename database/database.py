@@ -2,7 +2,8 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session, sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
 
-engine = create_engine('sqlite:///C://Users//Athithyaa//Downloads//sqlite-tools-win32-x86-3140200//sqlite-tools-win32-x86-3140200//fse.db', convert_unicode=True)
+# fill out the path to sqlite engine
+engine = create_engine('')
 db_session = scoped_session(sessionmaker(autocommit=False,
                                          autoflush=False,
                                          bind=engine))
