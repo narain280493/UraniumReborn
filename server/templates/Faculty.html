@@ -87,18 +87,20 @@
 		</tr>
 		<tr>
 			<td><span style="font-weight: bold;">3)</span></td>
-			<td><textarea name="specialRequirement3">​</textarea></td>
+			<td><textarea name="specialRequirement3"></textarea></td>
 		</tr>
 		<tr>
 			<td><span style="font-weight: bold;">4)</span></td>
-			<td><textarea name="specialRequirement4">​</textarea></td>
+			<td><textarea name="specialRequirement4"></textarea></td>
 		</tr>
 		<tr>
 			<td><span style="font-weight: bold;">5)</span></td>
-			<td><textarea name="specialRequirement5">​</textarea></td>
+			<td><textarea name="specialRequirement5"></textarea></td>
 		</tr>
 	</tbody>
 </table>
+
+<p>&nbsp;</p>
 
 <p><strong>Applicants Major Field of Study:</strong></p>
 
@@ -151,10 +153,70 @@
 
 <p>&nbsp;</p>
 
+<p>&nbsp;</p>
 
+<p><strong>Amount of supervision required / interaction available:</strong><br />
+<input name="isLittle" type="radio" />Very little supervision; student will need to work largely independently<br />
+<input name="isModerate" type="radio" />Moderate amount of supervision and interaction with others<br />
+<input name="isGood" type="radio" />Good deal of supervision; student will work as an integral part of a research team</p>
 
+<p><strong>Primary supervision provided by:<br />
+<input name="isFaculty" type="radio" /></strong>Faculty<br />
+<input name="isGraduateStudent" type="radio" />Graduate Student<br />
+<input name="isCombination" type="radio" />Combination of Faculty and Graduate Students</p>
 
+<p><strong>Primary Nature of work:<br />
+<input name="isTheoritical" type="radio" /></strong>Theoretical, most work on paper/electronic medium<br />
+<strong><input name="isExperimental" type="radio" /></strong>Experimental, requiring hands-on work in a lab<br />
+<strong><input name="isFieldBased" type="radio" /></strong>Field based, requiring hands-on work in the field<br />
+<strong><input name="isComputerRelated" type="radio" /></strong>Computer-related, involving coding/analysis<br />
+<strong><input name="isCombination" type="radio" /></strong>Combination of several types of work<br />
+<strong><input name="isOther" type="radio" /></strong>Other, specify:<br />
+<strong><input maxlength="100" name="otherNatureOfWork" size="50" type="text" /></strong></p>
 
+<p><strong>Amount of prior work conducted in assocication with the project:<br />
+<input name="isNoWork" type="radio" /></strong>No prior work; student will be starting from basic idea<br />
+<strong><input name="isSomeWork" type="radio" /></strong>Some prior work; student will build on work of others<br />
+<strong><input name="isWellEstablishedWork" type="radio" /></strong>Well-established body of work; student will refine/improved upon efforts of others<br />
+<strong><input name="isOthers" type="radio" /></strong>Other, specify:<br />
+<strong><input maxlength="100" name="otherAmountOfWork" size="50" type="text" /></strong></p>
+
+<p><strong>Name of specific desired student:&nbsp;<input maxlength="50" name="desiredStudentName" size="30" type="text" /></strong></p>
+
+<p><span style="font-size: 20px; font-weight: bold;">Finances</span></p>
+
+<hr />
+<table border="0" cellpadding="1" cellspacing="1" style="width:600px;">
+	<tbody>
+		<tr>
+			<td>What speed type will you use for<br />
+			your 50% match of the funding?</td>
+			<td><input name="speedType" type="text" /></td>
+			<td>or&nbsp;<input name="isNotSure" type="checkbox" />Not sure</td>
+		</tr>
+		<tr>
+			<td>Accounting contact for your project</td>
+			<td><input maxlength="50" name="accountingContactName" size="20" type="text" /></td>
+			<td>&nbsp;</td>
+		</tr>
+	</tbody>
+</table>
+
+<p><span style="font-size: 20px;"><b>Other</b></span></p>
+
+<hr />
+<table border="0" cellpadding="1" cellspacing="1" style="width:500px;">
+	<tbody>
+		<tr>
+			<td>Have you supervised a Discovery Learning Apprentice<br />
+			in the past?</td>
+			<td><input name="Yes" type="radio" value="yes" />Yes&nbsp;<input name="No" type="radio" value="no" />No</td>
+		</tr>
+	</tbody>
+</table>
+
+<p style="text-align: center;"><input name="Submit" type="submit" value="Submit" /></p>
+</div>
 
 <div>&nbsp;</div>
 
