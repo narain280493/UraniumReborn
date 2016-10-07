@@ -20,43 +20,53 @@ def shutdown_session(exception=None):
 def mainpage():
     if request.method == 'POST':
         f_name = request.form['facultyName']
-        f_ph = request.form['']
-        f_email = request.form['']
-        f_dept = request.form['']
+        f_ph = request.form['facultyPhone']
+        f_email = request.form['facultyEmail']
+        f_dept = request.form['departmentOrProgram']
         f = faculty(f_name,f_ph,f_email,f_dept,False)
         sf = None
         g = None
 
-        sf_name = request.form['']
-        sf_ph = request.form['']
-        sf_email = request.form['']
-        sf_dept = request.form['']
+        sf_name = request.form['secondFacultyName']
+        sf_ph = request.form['secondFacultyPhone']
+        sf_email = request.form['secondFacultyEmail']
+        sf_dept = request.form['secondDepartmentOrProgram']
 
         if sf_name:
         	sf = faculty(sf_name,sf_ph,sf_email,sf_dept,False)
 
-        g_name = request.form['']
-        g_ph = request.form['']
-        g_email = request.form['']
-        g_dept = request.form['']
+        g_name = request.form['gradStudentName']
+        g_ph = request.form['gradStudentPhone']
+        g_email = request.form['gradStudentEmail']
+        
 
         if g_name:
-        	g = faculty(g_name,g_ph,g_email,g_dept,True)
+        	g = faculty(g_name,g_ph,g_email,None,True)
 
-        is_focus = request.form['']
-        p_title = request.form['']
-		p_website = request.form['']
-		p_req = request.form['']
-		p_desc = request.form['']
-		p_dept_n = request.form['']
-		p_amt_sup = request.form['']
-		p_sup_prov = request.form['']
-		p_nat_w = request.form['']
-		p_amt_pr = request.form['']
-		p_n_spec_stud = request.form['']
-		p_sp_typ = request.form['']
-		p_acc_cnt = request.form['']
-		p_has_sup_dla = request.form['']
+        is_focus = False
+        #request.form['']
+
+        p_title = request.form['apprenticeshipTitle']
+		p_website = request.form['apprenticeshipWebLink']
+		p_req = request.form['specialRequirement1'] +'::'+ request.form['specialRequirement2'] +'::'+ request.form['specialRequirement3'] + '::'+ request.form['specialRequirement4'] + '::'+ request.form['specialRequirement5'] 
+		p_desc = request.form['apprenticeshipDescription']
+		p_dept_n = None
+		#request.form['']
+		
+		p_amt_sup = None
+		#request.form['']
+		p_sup_prov = None
+		#request.form['']
+		p_nat_w = None
+		#request.form['']
+		p_amt_pr = None
+		#request.form['']
+		p_n_spec_stud = request.form['desiredStudentName']
+		p_sp_typ = None
+		#request.form['']
+		p_acc_cnt = request.form['accountingContactName']
+		p_has_sup_dla = False
+		#request.form['']
 
 		p = project(p_title, is_focus, p_website, p_req, p_desc, p_dept_n,p_amt_sup,p_sup_prov, p_nat_w, p_amt_pr,p_n_spec_stud, p_sp_typ, p_acc_cnt, p_has_sup_dla)
 
@@ -73,7 +83,7 @@ def mainpage():
         result = project.query.all()
         return str(result).replace("<", "").replace(">", "")
     else:
-        return render_template("mainpage.html")
+        return render_template("Faculty.html")
 
 
 
