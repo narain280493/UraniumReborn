@@ -7,7 +7,7 @@ import os
 
 urlparse.uses_netloc.append("postgres")
 url = urlparse.urlparse(os.environ["DATABASE_URL"])
-
+print(url)
 
 # fill out the path to sqlite engine
 '''def get_username(file):
