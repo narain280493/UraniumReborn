@@ -2,8 +2,28 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session, sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
 
+
 # fill out the path to sqlite engine
-engine = create_engine('')
+def get_username(file):
+    f = open(file)
+    uname = ""
+    pword = ""
+    host = ""
+    for line in f:
+        split_str = line.split("=")
+        if split_str[0] == "username":
+            uname = split_str[1]
+        if split_str[0] == "password":
+            pword = split_str[1]
+        if split_str[0] == "host":
+            host = split_str[1]
+    return [uname, pword, host]
+
+
+file = "../database/config.properties"
+config = get_username(file)
+engine = create_engine('postgresql+psycopg2://' + config[0].replace("\n", "") + ':' + config[1].replace("\n", "") +
+                       '@' + config[2].replace("\n", "") + '/fse_db')
 db_session = scoped_session(sessionmaker(autocommit=False,
                                          autoflush=False,
                                          bind=engine))
@@ -18,5 +38,3 @@ def init_db():
     # you will have to import them first before calling init_db()
     import models
     Base.metadata.create_all(bind=engine)
-
-
