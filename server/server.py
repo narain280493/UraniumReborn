@@ -55,6 +55,8 @@ def mainpage():
 		p_website = request.form['apprenticeshipWebLink']
 		p_req = request.form['specialRequirement1'] +'::'+ request.form['specialRequirement2'] +'::'+ request.form['specialRequirement3'] + '::'+ request.form['specialRequirement4'] + '::'+ request.form['specialRequirement5'] 
 		p_desc = request.form['apprenticeshipDescription']
+
+		print p_desc
 		p_dept_n = None
 		#request.form['']
 		
@@ -67,9 +69,13 @@ def mainpage():
 		p_amt_pr = None
 		#request.form['']
 		p_n_spec_stud = request.form['desiredStudentName']
+
+		print p_n_spec_stud
 		p_sp_typ = None
 		#request.form['']
 		p_acc_cnt = request.form['accountingContactName']
+
+		print p_acc_cnt
 		p_has_sup_dla = False
 		#request.form['']
 
