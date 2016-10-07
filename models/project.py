@@ -1,5 +1,5 @@
 from database.database import Base
-from sqlalchemy import Column, Integer, String
+from sqlalchemy import Column, Integer, String, Boolean
 import uuid
 
 
@@ -7,7 +7,6 @@ class project(Base):
     __tablename__ = 'project'
     id = Column(String, primary_key=True)
     title = Column(String(100))
-    f_id = Column(String, ForeignKey("faculty.id"), nullable=False)
     is_focused_engg_comm = Column(Boolean)
     website = Column(String(100))
     requirements = Column(String(1000))
@@ -23,10 +22,9 @@ class project(Base):
     has_supervised_dla = Column(Boolean)
 
 
-    def __init__(self,p_title, p_f_id, p_is_focused_engg_comm, p_website, p_requirements, p_description, p_dept_name,p_amt_supervision_req,p_supervision_provided, p_nature_of_work, p_amt_prior_work,p_name_specific_student, p_speed_type, p_accounting_contact, p_has_supervised_dla):
+    def __init__(self,p_title, p_is_focused_engg_comm, p_website, p_requirements, p_description, p_dept_name,p_amt_supervision_req,p_supervision_provided, p_nature_of_work, p_amt_prior_work,p_name_specific_student, p_speed_type, p_accounting_contact, p_has_supervised_dla):
         self.id = str(uuid.uuid4())
         self.title = p_title
-        self.f_id = p_f_id
         is_focused_engg_comm = p_is_focused_engg_comm
         website = p_website
         requirements = p_requirements
