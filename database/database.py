@@ -26,7 +26,7 @@ url = urlparse.urlparse(os.environ["DATABASE_URL"])
 #file = "../database/config.properties"
 #config = get_username(file)
 engine = create_engine('postgresql+psycopg2://' + url.username + ':' + url.password +
-                       '@' +url.hostname +':' + url.port +'/'+ url.path[1:])
+                       '@' +url.hostname +':' + str(url.port) +'/'+ url.path[1:])
 db_session = scoped_session(sessionmaker(autocommit=False,
                                          autoflush=False,
                                          bind=engine))
