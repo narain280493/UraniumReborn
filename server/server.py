@@ -13,40 +13,40 @@ app = Flask("UraniumReborn",template_folder=tmpl_dir)
 
 @app.teardown_appcontext
 def shutdown_session(exception=None):
-    db_session.remove()
+	db_session.remove()
 
 
 @app.route("/", methods=['POST', 'GET'])
 def mainpage():
-    if request.method == 'POST':
-        f_name = request.form['facultyName']
-        f_ph = request.form['facultyPhone']
-        f_email = request.form['facultyEmail']
-        f_dept = request.form['departmentOrProgram']
-        f = faculty(f_name,f_ph,f_email,f_dept,False)
-        sf = None
-        g = None
+	if request.method == 'POST':
+		f_name = request.form['facultyName']
+		f_ph = request.form['facultyPhone']
+		f_email = request.form['facultyEmail']
+		f_dept = request.form['departmentOrProgram']
+		f = faculty(f_name,f_ph,f_email,f_dept,False)
+		sf = None
+		g = None
 
-        sf_name = request.form['secondFacultyName']
-        sf_ph = request.form['secondFacultyPhone']
-        sf_email = request.form['secondFacultyEmail']
-        sf_dept = request.form['secondDepartmentOrProgram']
+		sf_name = request.form['secondFacultyName']
+		sf_ph = request.form['secondFacultyPhone']
+		sf_email = request.form['secondFacultyEmail']
+		sf_dept = request.form['secondDepartmentOrProgram']
 
-        if sf_name:
-        	sf = faculty(sf_name,sf_ph,sf_email,sf_dept,False)
+		if sf_name:
+			sf = faculty(sf_name,sf_ph,sf_email,sf_dept,False)
 
-        g_name = request.form['gradStudentName']
-        g_ph = request.form['gradStudentPhone']
-        g_email = request.form['gradStudentEmail']
-        
+		g_name = request.form['gradStudentName']
+		g_ph = request.form['gradStudentPhone']
+		g_email = request.form['gradStudentEmail']
+		
 
-        if g_name:
-        	g = faculty(g_name,g_ph,g_email,None,True)
+		if g_name:
+			g = faculty(g_name,g_ph,g_email,None,True)
 
-        is_focus = False
-        #request.form['']
+		is_focus = False
+		#request.form['']
 
-        p_title = request.form['apprenticeshipTitle']
+		p_title = request.form['apprenticeshipTitle']
 		p_website = request.form['apprenticeshipWebLink']
 		p_req = request.form['specialRequirement1'] +'::'+ request.form['specialRequirement2'] +'::'+ request.form['specialRequirement3'] + '::'+ request.form['specialRequirement4'] + '::'+ request.form['specialRequirement5'] 
 		p_desc = request.form['apprenticeshipDescription']
@@ -70,20 +70,20 @@ def mainpage():
 
 		p = project(p_title, is_focus, p_website, p_req, p_desc, p_dept_n,p_amt_sup,p_sup_prov, p_nat_w, p_amt_pr,p_n_spec_stud, p_sp_typ, p_acc_cnt, p_has_sup_dla)
 
-        db_session.add(p)
+		db_session.add(p)
 
-        if g:
-        	db_session.add(g)
-        if sf:
-        	db_session.add(sf)
-        
-        db_session.add(f)
+		if g:
+			db_session.add(g)
+		if sf:
+			db_session.add(sf)
+		
+		db_session.add(f)
 
-        db_session.commit()
-        result = project.query.all()
-        return str(result).replace("<", "").replace(">", "")
-    else:
-        return render_template("Faculty.html")
+		db_session.commit()
+		result = project.query.all()
+		return str(result).replace("<", "").replace(">", "")
+	else:
+		return render_template("Faculty.html")
 
 
 
