@@ -1,6 +1,8 @@
 from database.database import Base
 from sqlalchemy import Column, Integer, String
 import uuid
+from sqlalchemy import ForeignKey
+
 
 
 class faculty(Base):
