@@ -1,17 +1,12 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session, sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
-import psycopg2
-import urlparse
 import os
-
-urlparse.uses_netloc.append("postgres")
-url = urlparse.urlparse(os.environ["DATABASE_URL"])
-print(url)
+import urlparse
 
 # fill out the path to sqlite engine
 '''def get_username(file):
-    f = open(file)
+        f = open(file)
     uname = ""
     pword = ""
     host = ""
@@ -26,9 +21,12 @@ print(url)
     return [uname, pword, host]
 
 '''
+
+url = urlparse.urlparse(os.environ["DATABASE_URL"])
 #file = "../database/config.properties"
 #config = get_username(file)
-engine = create_engine(url)
+engine = create_engine('postgresql+psycopg2://' + url.username + ':' + url.password +
+                       '@' +url.hostname +':' + url.port +'/'+ url.path[1:])
 db_session = scoped_session(sessionmaker(autocommit=False,
                                          autoflush=False,
                                          bind=engine))
