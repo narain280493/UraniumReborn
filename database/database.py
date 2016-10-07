@@ -5,7 +5,7 @@ import os
 import urlparse
 
 def get_username(file):
-        f = open(file)
+    f = open(file)
     uname = ""
     pword = ""
     host = ""
