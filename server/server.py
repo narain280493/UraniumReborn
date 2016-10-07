@@ -6,7 +6,8 @@ from database.database import init_db
 from models.project_name import project_name
 import os
 
-app = Flask("UraniumReborn")
+tmpl_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'templates')
+app = Flask("UraniumReborn",template_folder=tmpl_dir)
 
 
 @app.teardown_appcontext
