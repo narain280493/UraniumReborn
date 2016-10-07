@@ -27,11 +27,15 @@ def mainpage():
 		sf = None
 		g = None
 
+		print f_dept
+
+
 		sf_name = request.form['secondFacultyName']
 		sf_ph = request.form['secondFacultyPhone']
 		sf_email = request.form['secondFacultyEmail']
 		sf_dept = request.form['secondDepartmentOrProgram']
 
+		print sf_dept
 		if sf_name:
 			sf = faculty(sf_name,sf_ph,sf_email,sf_dept,False)
 
@@ -39,6 +43,7 @@ def mainpage():
 		g_ph = request.form['gradStudentPhone']
 		g_email = request.form['gradStudentEmail']
 		
+		print g_email
 
 		if g_name:
 			g = faculty(g_name,g_ph,g_email,None,True)
