@@ -35,55 +35,40 @@ def mainpage():
         g_ph = request.form['gradStudentPhone']
         g_email = request.form['gradStudentEmail']
 
-        is_focus = False
-        # request.form['']
-
+        is_focus = request.form['isDevelopingCommunities'] == 'yes' if True else False
         p_title = request.form['apprenticeshipTitle']
-        p_website = request.form['apprenticeshipWebLink']
+        p_website = "abc"
+        #request.form['apprenticeshipWebLink']
         p_req = request.form['specialRequirement1'] + '::' + request.form['specialRequirement2'] + '::' + request.form[
             'specialRequirement3'] + '::' + request.form['specialRequirement4'] + '::' + request.form[
                     'specialRequirement5']
         p_desc = request.form['apprenticeshipDescription']
-        p_dept_n = None
-        # request.form['']
-
-        p_amt_sup = None
-        # request.form['']
-        p_sup_prov = None
-        # request.form['']
-        p_nat_w = None
-        # request.form['']
-        p_amt_pr = None
-        # request.form['']
+        p_dept_n = str(request.form.getlist('fieldOfStudy[]'))
+        p_amt_sup = request.form['amountOfSupervision']
+        p_sup_prov = request.form['primarySupervisor']
+        p_nat_w = request.form['primaryNature']
+        p_amt_pr = request.form['priorWork']
         p_n_spec_stud = request.form['desiredStudentName']
-        p_sp_typ = None
-        # request.form['']
+        p_sp_typ = request.form['speedType']
         p_acc_cnt = request.form['accountingContactName']
-        p_has_sup_dla = False
-        # request.form['']
+        p_has_sup_dla = request.form['other'] == 'yes' if True else False
 
         p = project(p_title, is_focus, p_website, p_req, p_desc, p_dept_n, p_amt_sup, p_sup_prov, p_nat_w, p_amt_pr,
                     p_n_spec_stud, p_sp_typ, p_acc_cnt, p_has_sup_dla)
 
         f = faculty(f_name, f_ph, f_email, f_dept, False, p.get_id())
-
         if sf_name:
             sf = faculty(sf_name, sf_ph, sf_email, sf_dept, False, p.get_id())
-
         if g_name:
             g = faculty(g_name, g_ph, g_email, None, True, p.get_id())
 
         db_session.add(p)
-
         db_session.commit()
-
         db_session.add(f)
-
         if g:
             db_session.add(g)
         if sf:
             db_session.add(sf)
-
         db_session.commit()
 
         result = project.query.all()
