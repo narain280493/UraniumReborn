@@ -2,7 +2,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session, sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
 import os
-import urllib.urlparse
+import urlparse
 
 
 def get_username(file):
@@ -24,7 +24,8 @@ def get_username(file):
 url = None
 
 try:
-    url = urlparse(os.environ["DATABASE_URL"])
+    url = urlparse.urlparse(os.environ["DATABASE_URL"])
+
 except KeyError:
     print("cannot find environment variable")
 
