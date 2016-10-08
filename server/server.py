@@ -93,15 +93,19 @@ def mainpage():
 			g = faculty(g_name,g_ph,g_email,None,True,p.get_id())
 
 
+		db_session.add(f)
 
-		db_session.add(p)
-
+		
 		if g:
 			db_session.add(g)
 		if sf:
 			db_session.add(sf)
 		
-		db_session.add(f)
+
+		db_session.add(p)
+
+
+		
 
 		db_session.commit()
 		result = project.query.all()
