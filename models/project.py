@@ -42,3 +42,6 @@ class project(Base):
 
     def __repr__(self):
         return '<b>faculty name %r<b>' % self.faculty_name
+
+    def get_id(self):
+        return self.id

@@ -24,7 +24,6 @@ def mainpage():
 		f_ph = request.form['facultyPhone']
 		f_email = request.form['facultyEmail']
 		f_dept = request.form['departmentOrProgram']
-		f = faculty(f_name,f_ph,f_email,f_dept,False)
 		sf = None
 		g = None
 
@@ -37,17 +36,14 @@ def mainpage():
 		sf_dept = request.form['secondDepartmentOrProgram']
 
 		print sf_dept
-		if sf_name:
-			sf = faculty(sf_name,sf_ph,sf_email,sf_dept,False)
-
+		
 		g_name = request.form['gradStudentName']
 		g_ph = request.form['gradStudentPhone']
 		g_email = request.form['gradStudentEmail']
 		
 		print g_email
 
-		if g_name:
-			g = faculty(g_name,g_ph,g_email,None,True)
+		
 
 		is_focus = False
 		#request.form['']
@@ -87,6 +83,16 @@ def mainpage():
 		#request.form['']
 
 		p = project(p_title, is_focus, p_website, p_req, p_desc, p_dept_n,p_amt_sup,p_sup_prov, p_nat_w, p_amt_pr,p_n_spec_stud, p_sp_typ, p_acc_cnt, p_has_sup_dla)
+
+		f = faculty(f_name,f_ph,f_email,f_dept,False,p.get_id())
+
+		if sf_name:
+			sf = faculty(sf_name,sf_ph,sf_email,sf_dept,False,p.get_id())
+
+		if g_name:
+			g = faculty(g_name,g_ph,g_email,None,True,p.get_id())
+
+
 
 		db_session.add(p)
 
