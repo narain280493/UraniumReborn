@@ -19,38 +19,38 @@ def shutdown_session(exception=None):
 @app.route("/", methods=['POST', 'GET'])
 def mainpage():
     if request.method == 'POST':
-        f_name = request.form['facultyName']
-        f_ph = request.form['facultyPhone']
-        f_email = request.form['facultyEmail']
-        f_dept = request.form['departmentOrProgram']
+        f_name = request.form.get('facultyName', None)
+        f_ph = request.form.get('facultyPhone', None)
+        f_email = request.form.get('facultyEmail', None)
+        f_dept = request.form.get('departmentOrProgram', None)
         sf = None
         g = None
 
-        sf_name = request.form['secondFacultyName']
-        sf_ph = request.form['secondFacultyPhone']
-        sf_email = request.form['secondFacultyEmail']
-        sf_dept = request.form['secondDepartmentOrProgram']
+        sf_name = request.form.get('secondFacultyName',None)
+        sf_ph = request.form.get('secondFacultyPhone',None)
+        sf_email = request.form.get('secondFacultyEmail',None)
+        sf_dept = request.form.get('secondDepartmentOrProgram',None)
 
-        g_name = request.form['gradStudentName']
-        g_ph = request.form['gradStudentPhone']
-        g_email = request.form['gradStudentEmail']
+        g_name = request.form.get('gradStudentName',None)
+        g_ph = request.form.get('gradStudentPhone',None)
+        g_email = request.form.get('gradStudentEmail',None)
 
-        is_focus = request.form['isDevelopingCommunities'] == 'yes' if True else False
-        p_title = request.form['apprenticeshipTitle']
-        p_website = request.form['weblink']
-        p_req = request.form['specialRequirement1'] + '::' + request.form['specialRequirement2'] + '::' + request.form[
-            'specialRequirement3'] + '::' + request.form['specialRequirement4'] + '::' + request.form[
-                    'specialRequirement5']
-        p_desc = request.form['apprenticeshipDescription']
+        is_focus = request.form.get('isDevelopingCommunities','yes') == 'yes' if True else False
+        p_title = request.form.get('apprenticeshipTitle',None)
+        p_website = request.form.get('weblink',None)
+        p_req = request.form.get('specialRequirement1',None) + '::' + request.form.get('specialRequirement2', None) + '::' + request.form.get(
+            'specialRequirement3', None) + '::' + request.form.get('specialRequirement4', None) + '::' + request.form.get(
+                    'specialRequirement5', None)
+        p_desc = request.form.get('apprenticeshipDescription',None)
         p_dept_n = str(request.form.getlist('fieldOfStudy[]'))
-        p_amt_sup = request.form['amountOfSupervision']
-        p_sup_prov = request.form['primarySupervisor']
-        p_nat_w = request.form['primaryNature']
-        p_amt_pr = request.form['priorWork']
-        p_n_spec_stud = request.form['desiredStudentName']
-        p_sp_typ = request.form['speedType']
-        p_acc_cnt = request.form['accountingContactName']
-        p_has_sup_dla = request.form['other'] == 'yes' if True else False
+        p_amt_sup = request.form.get('amountOfSupervision', None)
+        p_sup_prov = request.form.get('primarySupervisor', None)
+        p_nat_w = request.form.get('primaryNature', None)
+        p_amt_pr = request.form.get('priorWork', None)
+        p_n_spec_stud = request.form.get('desiredStudentName', None)
+        p_sp_typ = request.form.get('speedType', None)
+        p_acc_cnt = request.form.get('accountingContactName', None)
+        p_has_sup_dla = request.form.get('other', 'yes') == 'yes' if True else False
 
         p = project(p_title, is_focus, p_website, p_req, p_desc, p_dept_n, p_amt_sup, p_sup_prov, p_nat_w, p_amt_pr,
                     p_n_spec_stud, p_sp_typ, p_acc_cnt, p_has_sup_dla)
