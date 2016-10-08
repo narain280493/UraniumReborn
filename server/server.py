@@ -6,6 +6,7 @@ from database.database import init_db
 from models.faculty import faculty
 from models.project import project
 import os
+import urlparse
 
 tmpl_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'templates')
 app = Flask("UraniumReborn",template_folder=tmpl_dir)
@@ -55,8 +56,7 @@ def mainpage():
 		p_title = request.form['apprenticeshipTitle']
 
 		print p_title
-		p_website = None
-		#request.form['apprenticeshipWebLink']
+		p_website = url = urlparse.urlparse(request.form['apprenticeshipWebLink'])
 		print p_website
 		p_req = request.form['specialRequirement1'] +'::'+ request.form['specialRequirement2'] +'::'+ request.form['specialRequirement3'] + '::'+ request.form['specialRequirement4'] + '::'+ request.form['specialRequirement5'] 
 		print p_req
