@@ -1,5 +1,5 @@
 from database.database import Base
-from sqlalchemy import Column, Integer, String
+from sqlalchemy import Column, BigIntegerField, String
 import uuid
 from sqlalchemy import ForeignKey, Boolean
 
@@ -10,7 +10,7 @@ class faculty(Base):
     id = Column(String, primary_key=True)
     p_id = Column(String, ForeignKey("project.id"), nullable=False)
     faculty_name = Column(String(50))
-    faculty_phone = Column(String(15))
+    faculty_phone = Column(BigIntegerField)
     email_addr = Column(String(50))
     dept_name = Column(String(100)) 
     is_grad =  Column(Boolean)
