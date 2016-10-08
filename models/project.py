@@ -21,8 +21,7 @@ class project(Base):
     accounting_contact = Column(String(50))
     has_supervised_dla = Column(Boolean)
 
-
-    def __init__(self,p_title, p_is_focused_engg_comm, p_website, p_requirements, p_description, p_dept_name,p_amt_supervision_req,p_supervision_provided, p_nature_of_work, p_amt_prior_work,p_name_specific_student, p_speed_type, p_accounting_contact, p_has_supervised_dla):
+    def __init__(self,p_title, p_is_focused_engg_comm, p_website, p_requirements, p_description, p_dept_name, p_amt_supervision_req,p_supervision_provided, p_nature_of_work, p_amt_prior_work,p_name_specific_student, p_speed_type, p_accounting_contact, p_has_supervised_dla):
         self.id = str(uuid.uuid4())
         self.title = p_title
         is_focused_engg_comm = p_is_focused_engg_comm
@@ -38,7 +37,6 @@ class project(Base):
         speed_type = p_speed_type
         accounting_contact = p_accounting_contact
         has_supervised_dla = p_has_supervised_dla
-       
 
     def __repr__(self):
         return '<b>faculty name %r<b>' % self.faculty_name
