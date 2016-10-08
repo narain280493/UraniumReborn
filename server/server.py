@@ -52,8 +52,8 @@ def mainpage():
 		p_title = request.form['apprenticeshipTitle']
 
 		print p_title
-		p_website = 'abc'
-		#urlparse.urlparse(request.form['apprenticeshipWebLink'])
+		p_website = request.form['weblink']
+		#urlparse.urlparse(request.form['apprenticeshipWeblink'])
 		print p_website
 		p_req = request.form['specialRequirement1'] +'::'+ request.form['specialRequirement2'] +'::'+ request.form['specialRequirement3'] + '::'+ request.form['specialRequirement4'] + '::'+ request.form['specialRequirement5'] 
 		print p_req
