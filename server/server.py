@@ -27,7 +27,7 @@ def mainpage():
 		sf = None
 		g = None
 
-		print f_dept
+		#print f_dept
 
 
 		sf_name = request.form['secondFacultyName']
@@ -35,13 +35,13 @@ def mainpage():
 		sf_email = request.form['secondFacultyEmail']
 		sf_dept = request.form['secondDepartmentOrProgram']
 
-		print sf_dept
+		#print sf_dept
 		
 		g_name = request.form['gradStudentName']
 		g_ph = request.form['gradStudentPhone']
 		g_email = request.form['gradStudentEmail']
 		
-		print g_email
+		#print g_email
 
 		
 
@@ -51,15 +51,15 @@ def mainpage():
 
 		p_title = request.form['apprenticeshipTitle']
 
-		print p_title
+		#print p_title
 		p_website = request.form['weblink']
 		#urlparse.urlparse(request.form['apprenticeshipWeblink'])
-		print p_website
+		#print p_website
 		p_req = request.form['specialRequirement1'] +'::'+ request.form['specialRequirement2'] +'::'+ request.form['specialRequirement3'] + '::'+ request.form['specialRequirement4'] + '::'+ request.form['specialRequirement5'] 
-		print p_req
+		#print p_req
 		p_desc = request.form['apprenticeshipDescription']
 
-		print p_desc
+		#print p_desc
 		p_dept_n = None
 		#request.form['']
 		
@@ -73,12 +73,12 @@ def mainpage():
 		#request.form['']
 		p_n_spec_stud = request.form['desiredStudentName']
 
-		print p_n_spec_stud
+		#print p_n_spec_stud
 		p_sp_typ = None
 		#request.form['']
 		p_acc_cnt = request.form['accountingContactName']
 
-		print p_acc_cnt
+		#print p_acc_cnt
 		p_has_sup_dla = False
 		#request.form['']
 
