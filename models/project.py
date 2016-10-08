@@ -41,7 +41,7 @@ class project(Base):
 	   
 
 	def __repr__(self):
-		return 'Project Name: %r' % self.title
+		return 'Project Name: %r' % self.title.encode('ascii','ignore')
 
 	def get_id(self):
 		return self.id
