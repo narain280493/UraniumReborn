@@ -1,5 +1,5 @@
 from database.database import Base
-from sqlalchemy import Column, Integer, String, Boolean
+from sqlalchemy import Column, String, Boolean
 import uuid
 
 
@@ -39,7 +39,7 @@ class project(Base):
         has_supervised_dla = p_has_supervised_dla
 
     def __repr__(self):
-        return '<b> project website %r<b>' % self.website
+        return 'Project Name: %r' % self.title.encode('ascii','ignore')
 
     def get_id(self):
         return self.id

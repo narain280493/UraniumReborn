@@ -37,8 +37,7 @@ def mainpage():
 
         is_focus = request.form['isDevelopingCommunities'] == 'yes' if True else False
         p_title = request.form['apprenticeshipTitle']
-        p_website = "abc"
-        #request.form['apprenticeshipWebLink']
+        p_website = request.form['weblink']
         p_req = request.form['specialRequirement1'] + '::' + request.form['specialRequirement2'] + '::' + request.form[
             'specialRequirement3'] + '::' + request.form['specialRequirement4'] + '::' + request.form[
                     'specialRequirement5']
