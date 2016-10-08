@@ -39,4 +39,7 @@ class project(Base):
         has_supervised_dla = p_has_supervised_dla
 
     def __repr__(self):
-        return '<b>faculty name %r<b>' % self.faculty_name
+        return '<b> project website %r<b>' % self.website
+
+    def get_id(self):
+        return self.id
