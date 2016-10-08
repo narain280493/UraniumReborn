@@ -52,8 +52,7 @@ def mainpage():
 		p_title = request.form['apprenticeshipTitle']
 
 		print p_title
-		p_website = 'abc'
-		#urlparse.urlparse(request.form['apprenticeshipWebLink'])
+		p_website = urlparse.urlparse(request.form['apprenticeshipWebLink'])
 		print p_website
 		p_req = request.form['specialRequirement1'] +'::'+ request.form['specialRequirement2'] +'::'+ request.form['specialRequirement3'] + '::'+ request.form['specialRequirement4'] + '::'+ request.form['specialRequirement5'] 
 		print p_req
@@ -92,16 +91,7 @@ def mainpage():
 		if g_name:
 			g = faculty(g_name,g_ph,g_email,None,True,p.get_id())
 
-
-		
-		
-
 		db_session.add(p)
-
-
-
-
-		
 
 		db_session.commit()
 
@@ -114,7 +104,7 @@ def mainpage():
 			db_session.add(sf)
 
 		db_session.commit()
-		
+
 		result = project.query.all()
 		return str(result).replace("<", "").replace(">", "")
 	else:

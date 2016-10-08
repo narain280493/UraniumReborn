@@ -41,7 +41,7 @@ class project(Base):
        
 
     def __repr__(self):
-        return '<b>description %r<b>' % self.description
+        return '<b> project website %r<b>' % self.website
 
     def get_id(self):
         return self.id
