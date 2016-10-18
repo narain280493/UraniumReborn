@@ -4,14 +4,22 @@
     <meta charset="UTF-8">
     <title>Flask React</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+      <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="../static/css/style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <!-- styles -->
   </head>
   <body>
-    <div class="container">
-      <h1>Flask React</h1>
+   <!-- <div class="pageheader" >
+      <h2>Discovery Learning Apprenticeship Program</h2>
       <br>
       <div id="content"></div>
-    </div>
+    </div> -->
     <!-- scripts -->
 <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.1.0/react.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.1.0/react-dom.min.js"></script>-->
@@ -19,6 +27,7 @@
 <script src="{{ url_for('static', filename='bower_components/react/react.min.js') }}"></script>
 <script src="{{ url_for('static', filename='bower_components/react/react-dom.min.js') }}"></script>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/JSXTransformer.js"></script> 
+
 <!--
 <script type="text/jsx">
 /** @jsx React.DOM */
@@ -80,13 +89,28 @@ ReactDOM.render(
 
 -->
 
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Discovery Learning Apprenticeship Program</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">Home</a></li>
+      <li><a href="#">Student form</a></li>
+      <li><a href="#">Faculty form</a></li>
+      <li><a href="#">List of Projects</li>
+    </ul>
+  </div>
+</nav>
 
+<div class="Description">
+  
+<p>Whether helping develop new diagnostic techniques for heart disease, or detecting the effects of nuclear waste, discovery learning apprentices make the most of their time at CU Boulder by supplementing classroom instruction with real-world engineering experience.</p> </div> </br>
 
-<div id="container"> </div>
-<div id="header"> Header Goes Here</div>
-<div id="sidebar"> Left Navigation Goes Here</div>
-<div id="content"> <p>Content Goes Here</p></div>
-<div id="footer"> Footer Goes Here </div>
+<p> Undergraduate engineering students in the apprenticeship program earn hourly wages while engaging in research with college faculty and graduate students. Positions are announced in early April, and applications are accepted through the end of April for apprenticeships during the following academic year.</p> </br>
+
+<p> As an undergraduate discovery learning apprentice, you’ll work alongside graduate students, post-doctoral fellows, faculty, and industry representatives, as collaborative partners on original research. We find that students bring a fresh perspective to the research team while also learning from their more experienced partners..</p> </br>
+</div>
 
 
   </body>
