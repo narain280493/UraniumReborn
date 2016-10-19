@@ -2,6 +2,7 @@ from database.database import Base
 from sqlalchemy import Column, String
 import uuid
 from sqlalchemy import ForeignKey, Boolean
+from sqlalchemy.orm import relationship
 
 
 class faculty(Base):
@@ -13,6 +14,7 @@ class faculty(Base):
     email_addr = Column(String(50))
     dept_name = Column(String(100))
     is_grad = Column(Boolean)
+    projects = relationship("project", back_populates="fac")
 
     def __init__(self, f_name, f_phone, f_email_addr, f_dept_name, f_is_grad, f_p_id):
         self.id = str(uuid.uuid4())
@@ -24,4 +26,4 @@ class faculty(Base):
         self.p_id = f_p_id
 
     def __repr__(self):
-        return '<b>faculty name %r<b>' % self.faculty_name
+        return self.faculty_name

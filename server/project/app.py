@@ -2,6 +2,8 @@ from flask import Flask, render_template
 from database.database import init_db
 from database.database import db_session
 import os
+from models.project import project
+from models.faculty import faculty
 
 tmpl_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'templates')
 app = Flask("UraniumReborn", template_folder=tmpl_dir)
@@ -33,13 +35,19 @@ def student():
 
 
 @app.route('/faculty')
-def faculty():
+def faculty_page():
     return render_template('faculty.html')
 
 
 @app.route('/listofprojects')
 def listofprojects():
-    return render_template('listofprojects.html')
+    facs = faculty.query.all()
+    fpMap = {}
+
+    for f in facs:
+        fpMap[f] = f.projects
+
+    return render_template('listofprojects.html', facMap=fpMap)
 
 
 if __name__ == '__main__':

@@ -1,6 +1,7 @@
 from database.database import Base
 from sqlalchemy import Column, String, Boolean
 import uuid
+from sqlalchemy.orm import relationship
 
 
 class project(Base):
@@ -20,6 +21,7 @@ class project(Base):
     speed_type = Column(String(50))
     accounting_contact = Column(String(50))
     has_supervised_dla = Column(Boolean)
+    fac = relationship("faculty", back_populates="projects")
 
     def __init__(self,p_title, p_is_focused_engg_comm, p_website, p_requirements, p_description, p_dept_name, p_amt_supervision_req,p_supervision_provided, p_nature_of_work, p_amt_prior_work,p_name_specific_student, p_speed_type, p_accounting_contact, p_has_supervised_dla):
         self.id = str(uuid.uuid4())
@@ -39,7 +41,7 @@ class project(Base):
         has_supervised_dla = p_has_supervised_dla
 
     def __repr__(self):
-        return 'Project Name: %r' % self.title.encode('ascii','ignore')
+        return self.title
 
     def get_id(self):
         return self.id
