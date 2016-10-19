@@ -1,16 +1,19 @@
 from flask import Flask, render_template, request
 from forms import SignupForm
+#from database.database import init_db
+#from database.database import db_session
 import os
 
-tmpl_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'templates')
-app = Flask("UraniumReborn", template_folder=tmpl_dir)
+#tmpl_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'templates')
+#app = Flask("UraniumReborn", template_folder=tmpl_dir)
+app = Flask(__name__)
 
 
-@app.teardown_appcontext
-def shutdown_session(exception=None):
-    db_session.remove()
+#@app.teardown_appcontext
+#def shutdown_session(exception=None):
+ #   db_session.remove()
 
-app.secret_key = "dev-key"	#CSRF
+#app.secret_key = "dev-key"	#CSRF 
 
 @app.route('/')
 def index():
