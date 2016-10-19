@@ -15,8 +15,12 @@
 
 body {
   background: url("http://www.colorado.edu/engineering/sites/default/files/Engineering%20Center%20-%20admissions.jpeg");
-  background-size: 1300px 750px; 
-  background-repeat: no-repeat;
+    /*background-size: 1300px 750px; */
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
 .jumbotron {

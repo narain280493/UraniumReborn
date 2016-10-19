@@ -13,7 +13,7 @@ app = Flask(__name__)
 #def shutdown_session(exception=None):
  #   db_session.remove()
 
-#app.secret_key = "dev-key"	#CSRF 
+app.secret_key = "dev-key"	#CSRF 
 
 @app.route('/')
 def index():
