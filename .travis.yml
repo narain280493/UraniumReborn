@@ -3,7 +3,7 @@ python:
   - "3.4.3"
   - "3.5"
 install: "pip install -r requirements.txt"
-script: python test/server.py true
+script: python test/flaskr_tests.py true
 deploy:
   provider: heroku
   api_key: 4c0de70c-1815-4b3c-bf52-6cf4c28cf46a
