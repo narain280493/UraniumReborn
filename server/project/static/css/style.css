@@ -5,3 +5,29 @@
   color:white;
 }/* custom styles */
 
+.navbar-inverse .navbar-nav  > li > a {
+  color : black;
+}
+
+.navbar-inverse .navbar-header > a {
+  color : black;
+}
+
+body {
+  background: url("http://www.colorado.edu/engineering/sites/default/files/Engineering%20Center%20-%20admissions.jpeg");
+  background-size: 1300px 750px; 
+  background-repeat: no-repeat;
+}
+
+.jumbotron {
+    padding: 1em 2em;
+    h1 {
+        font-size: 2em;
+    }
+    p {
+        font-size: 1.0em;
+        .btn {
+            padding: 0.5em;
+        }
+    }
+}
