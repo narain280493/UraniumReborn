@@ -1,0 +1,32 @@
+{% extends "navigation.html" %}
+
+{% block content %}
+<script type="text/jsx">
+    var Table = Reactabular.Table;
+    var rows = '{{pRows|e}}'.replace(new RegExp("&#39;",'g'),'"')
+    const crows = JSON.parse(rows)
+    const columns = [
+        {
+            property: 'Faculty Name',
+            header: {
+                label: 'Faculty Name'
+            }
+        },
+        {
+            property: 'Project Name',
+            header: {
+                label: 'Project Name'
+            }
+        }
+    ];
+
+    ReactDOM.render(<Table.Provider className="table table-striped" columns={columns}>
+        <Table.Header />
+        <Table.Body rows={crows} rowKey="id" />
+    </Table.Provider>,document.getElementById("projectList"))
+</script>
+<div id="projectList">
+
+</div>
+
+{% endblock %}
