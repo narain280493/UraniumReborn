@@ -1,5 +1,5 @@
-from flask import Flask, render_template
-from database.database import init_db
+from flask import Flask, render_template, request
+from forms import SignupForm
 from database.database import db_session
 import os
 from models.faculty import faculty
@@ -13,15 +13,24 @@ app = Flask("UraniumReborn", template_folder=tmpl_dir)
 def shutdown_session(exception=None):
     db_session.remove()
 
+app.secret_key = "dev-key"
+
 
 @app.route('/')
 def index():
     return render_template('home.html')
 
 
-@app.route('/signup')
-def signup():
-    return render_template('signup.html')
+@app.route('/signup', methods = ['GET', 'POST'])
+def signup():    
+    form = SignupForm()
+    if request.method == 'POST':
+        if form.validate() == False:
+            return render_template('signup.html', form=form)
+        else:
+            return "Dummy Signup"
+    elif request.method == 'GET':
+        return render_template('signup.html', form=form)
 
 
 @app.route('/login')
@@ -50,8 +59,5 @@ def listofprojects():
 
     return render_template('listofprojects.html', pRows=rows)
 
-
 if __name__ == '__main__':
-    init_db()
-    port = int(os.environ.get("PORT", 5000))
-    app.run(host='0.0.0.0', port=port, debug=True)
+    app.run(debug=True)
