@@ -1,6 +1,6 @@
 import os
-from server.project.app import app as flaskApp
-from server.project.app import init_db
+from server.app import app as flaskApp
+from server.app import init_db
 import unittest
 import tempfile
 
