@@ -224,6 +224,7 @@
         <label class="control-label col-sm-2" for="graduationDate">Anticipated Graduation Date:</label>
           <div class="col-sm-10">
             <select class="form-control" id="graduationMonth">
+              <option>Month</option>
               <option>May</option>
               <option>August</option>
               <option>December</option>
@@ -231,6 +232,7 @@
           </div>
           <div class="col-sm-10">
             <select class="form-control" id="graduationYear">
+              <option>Year</option>
               <option>2016</option>
               <option>2017</option>
               <option>2018</option>
@@ -242,7 +244,7 @@
       </div>   
 
       <div class="form-group">
-        <label class="control-label col-sm-2" for="isResearchExperience">Do you have research experience?:</label>
+        <label class="control-label col-sm-2" for="isResearchExperience">Do you have research experience?</label>
         <div class="col-sm-10">
           <div class="radio">
             <label><input type="radio" name="isResearchExperience">Yes</label>
@@ -252,16 +254,146 @@
           </div>
         </div>
       </div>
-
-
     </div>
 
+  <h2>Apprenticeship Information</h2>
+    <div class="form-group">
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="isAppliedBefore">Have you applied for Discovery Learning Apprenticeship before?</label>
+        <div class="col-sm-10">
+          <div class="radio">
+            <label><input type="radio" name="isAppliedBefore">Yes</label>
+          </div>
+          <div class="radio">
+            <label><input type="radio" name="isAppliedBefore">No</label>
+          </div>
+        </div>
+      </div>
 
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="otherFallEmployment">Other Fall Employment Planned:</label>
+        <div class="col-sm-10">
+          <textarea class="form-control" rows="5" id="otherFallEmployment"></textarea>
+        </div>
+      </div>
 
+      <div class="form-group">
+        <p><b>Please make sure you selected a major before proceeding!</b></p>
+        <p>Indicate up to five research projects in order of interest:</p>
+        <p><b>Please note that some projects have special requirements that you must meet.</b></p>
+        <p>To see requirements and longer descriptions of the project, look at the projects available for your major here.</p>
+        <p>For a full listing of projects, look <a href="projects" target="_blank">here</a></p>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="projectPreferences">(1 is most interested, 5 is moderately interested):</label>
+           <div class="col-sm-10">
+            <label for="projectPreference1">1:</label>
+            <select class="form-control" id="projectPreference1">
+              <option>Select Project</option>
+            </select>
+            <label for="projectPreference2">2:</label>
+            <select class="form-control" id="projectPreference2">
+              <option>Select Project</option>
+            </select>
+            <label for="projectPreference3">3:</label>
+            <select class="form-control" id="projectPreference3">
+              <option>Select Project</option>
+            </select>
+            <label for="projectPreference4">4:</label>
+            <select class="form-control" id="projectPreference4">
+              <option>Select Project</option>
+            </select>
+            <label for="projectPreference5">5:</label>
+            <select class="form-control" id="projectPreference5">
+              <option>Select Project</option>
+            </select>           
+          </div>  
+      </div>
+
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="isBackgroundCheckDone">Have you had a background check done?</label>
+        <div class="col-sm-10">
+          <div class="radio">
+            <label><input type="radio" name="isBackgroundCheckDone">Yes</label>
+          </div>
+          <div class="radio">
+            <label><input type="radio" name="isBackgroundCheckDone">No</label>
+          </div>
+        </div>
+        <label class="control-label col-sm-2" for="lastBackgroundCheckDate">If yes, when? (Take your best guess if not sure)</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="lastBackgroundCheckMonth" placeholder="MMM">
+          <input type="text" class="form-control" id="lastBackgroundCheckYear" placeholder="YYYY">
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="isHarassmentTrainingDone">Have you had Discrimination and Harassment Awareness training yet (at CU) done?</label>
+        <div class="col-sm-10">
+          <div class="radio">
+            <label><input type="radio" name="isHarassmentTrainingDone">Yes</label>
+          </div>
+          <div class="radio">
+            <label><input type="radio" name="isHarassmentTrainingDone">No</label>
+          </div>
+        </div>
+        <label class="control-label col-sm-2" for="lastHarassmentTrainingDate">If yes, when? (Take your best guess if not sure)</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="lastHarassmentTrainingMonth" placeholder="MMM">
+          <input type="text" class="form-control" id="lastHarassmentTrainingYear" placeholder="YYYY">
+        </div>
+      </div>
+    </div>
+
+  <h2>Skills, Resume, and Cover Letter</h2>
+
+    <div class="form-group">
+      <div class="form-group">
+        <p>Please list the three skills or qualifications that you feel make you a great candidate for the positions you selected:
+        (Could be knowledge of a programming language, knowledge of a field, courses taken, personal characteristics, etc. If appropriate, note your match to requirements in job description. Please note responses are limited to 75 characters.)</p>
+          <label class="control-label col-sm-2" for="skill1">1:</label>
+        <div class="col-sm-10">
+          <input class="form-control" type="text" size="30" maxlength="75" class="form-control" id="skill1">
+        </div>
+        <label class="control-label col-sm-2" for="skill2">2:</label>
+        <div class="col-sm-10">
+          <input class="form-control" type="text" size="30" maxlength="75" class="form-control" id="skill2">
+        </div>
+        <label class="control-label col-sm-2" for="skill3">3:</label>
+        <div class="col-sm-10">
+          <input class="form-control" type="text" size="30" maxlength="75" class="form-control" id="skill3">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <p>to complete the application, you must submit a resume and a cover letter. You can submit both using the form below. Please use either the pdf format or a text document. To improve your chances of being selected for an apprenticeship, please take the time to construct a well-written cover letter and resume.</p>
+        <p>Click <a href="Writing%20Tips%20for%20Cover%20Letters%20and%20Resumes.doc" target="_blank">here</a> for some tips, which we highly recommend you review before submitting your cover letter and resume. </p>
+
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="resumeFile">Resume:</label>
+          <div class="col-sm-10">
+            <label class="btn btn-file">
+              <input type="file" name="resumeFile" id="resumeFile" onclick="Submit_Click" />
+            </label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="coverLetterFile">Cover Letter:</label>
+          <div class="col-sm-10">
+            <label class="btn btn-file">
+              <input type="file" name="coverLetterFile" id="coverLetterFile" onclick="Submit_Click" />
+            </label>
+          </div>
+        </div>
+
+      </div>
+    </div>
 
     <div class="form-group"> 
       <div class="col-sm-offset-2 col-sm-10">
-        <button type="submit" class="btn btn-default">Submit</button>
+        <button type="submit" class="btn center-block btn-default">Submit</button>
       </div>
     </div>
   </form>
@@ -269,7 +401,9 @@
 
 <!-- TODO 
 Secondary Major - description to be added
-Anticipated grduation date Month & Year
+required fields check
+data validation
+mapping values/ids to the options chosen
 -->
 
 {% endblock %}
