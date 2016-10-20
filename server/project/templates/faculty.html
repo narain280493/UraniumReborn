@@ -1,0 +1,34 @@
+{% extends "navigation.html" %}
+
+{% block content %}
+<div style="background: rgba(0,0,0, 0.6)" class="jumbotron jumbotron-faculty" >
+<section class="loginform cf">
+<form name="faculty" action="index_submit" method="get" accept-charset="utf-8">
+  
+<div class="form-group">
+    <label for="email">Email address:</label>
+    <input type="email" class="form-control" id="email" style="width: 320px;>
+  </div>
+
+  <div class="form-group">
+    <label for="pwd">Password:</label>
+    <input type="password" class="form-control" id="pwd" style="width: 320px;>
+  </div>
+
+  <div class="checkbox">
+    <label><input type="checkbox"> Remember me</label>
+  </div>
+
+
+
+
+  <button type="submit" class="btn btn-default">Submit</button>
+
+
+
+</form>
+</section>
+</div>
+
+{% endblock %}
+

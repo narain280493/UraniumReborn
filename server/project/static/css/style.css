@@ -8,6 +8,24 @@
 }
 
 
+.jumbotron-faculty{
+    margin-bottom: 0px;
+    background-position: 0% 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+    width:70%;
+   min-height: 600px;
+  left: 15%;
+  position: relative;
+    text-shadow: black 0.2em 0.2em 0.2em;
+    padding-top: 40px;
+    margin-top: 30px;
+
+
+
+}
+
 .pageheader{
   background-color: black;
   padding-top: -30px; 
