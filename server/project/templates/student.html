@@ -3,352 +3,367 @@
 {% block content %}
 
 <div class="container">
-    <form class="well form-horizontal" action=" " method="post"  id="studentform">
+    <form class="form-horizontal" action=" " method="post"  id="studentform">
         <fieldset>
 
-            <h2>Demographic Information</h2>
+            <div class="well well-sm">
+                <h2 style="text-align: center">Demographic Information</h2>
+                <div>&nbsp</div>
 
-
-            <div class="form-group">
-                <label class="control-label col-md-2" for="firstname">First Name</label>
-                <div class="col-md-5">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                        <input type="text" name="firstname" class="form-control" placeholder="First Name">
-                    </div>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label class="control-label col-md-2" for="lastName">Last Name</label>
-                <div class="col-md-5">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                        <input type="text" class="form-control" name="lastName" placeholder="Last Name"></div>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label class="control-label col-md-2" for="gender"> Gender </label>
-                <div class="col-md-5">
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-primary" >Male</button>
-                        <button type="button" class="btn btn-primary">Female</button>
-                        <button type="button" class="btn btn-primary">Other</button>
-                    </div>
-                </div></div>
-
-            <!-- <div class="form-group">
-               <label class="control-label col-md-2" for="gender">Gender</label>
-               <div class="col-md-5">
-                 <div class="radio">
-                   <label><input type="radio" name="gender">Male</label>
-                 </div>
-                 <div class="radio">
-                   <label><input type="radio" name="gender">Female</label>
-                 </div>
-               </div>
-             </div> -->
-
-
-            <div class="form-group">
-                <label class="control-label col-md-2" for="isSpanishOrigin"> Are you Hispanic, Chicano, Mexican, Latino, Cuban, Puerto Rican, South or Central American, or Spanish Origin? </label>
-                <div class="col-md-5"></br>
-                    </br>
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-primary">Yes</button>
-                        <button type="button" class="btn btn-primary">No</button>
-                        <button type="button" class="btn btn-primary">Do not wish to disclose</button>
-                    </div>
-                </div></div>
-
-            <!--
                 <div class="form-group">
-                  <label class="control-label col-md-2" for="isSpanishOrigin">Are you Hispanic, Chicano, Mexican, Latino, Cuban, Puerto Rican, South or Central American, or Spanish Origin?</label>
-                  <div class="col-md-5">
-                    <div class="radio">
-                      <label><input type="radio" name="isSpanishOrigin">Yes</label>
+                    <label class="control-label col-md-2" for="firstname">First Name</label>
+                    <div class="col-md-5">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                            <input type="text" name="firstname" class="form-control" placeholder="First Name">
+                        </div>
                     </div>
-                    <div class="radio">
-                      <label><input type="radio" name="isSpanishOrigin">No</label>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-2" for="lastName">Last Name</label>
+                    <div class="col-md-5">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                            <input type="text" class="form-control" name="lastName" placeholder="Last Name"></div>
                     </div>
-                    <div class="radio">
-                      <label><input type="radio" name="isSpanishOrigin">Do not wish to disclose</label>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-2" for="gender"> Gender </label>
+                    <div class="col-md-5">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-primary" >Male</button>
+                            <button type="button" class="btn btn-primary">Female</button>
+                            <button type="button" class="btn btn-primary">Other</button>
+                        </div>
                     </div>
-                  </div>
-                </div> -->
+                </div>
+
+                <!-- <div class="form-group">
+                   <label class="control-label col-md-2" for="gender">Gender</label>
+                   <div class="col-md-5">
+                     <div class="radio">
+                       <label><input type="radio" name="gender">Male</label>
+                     </div>
+                     <div class="radio">
+                       <label><input type="radio" name="gender">Female</label>
+                     </div>
+                   </div>
+                 </div> -->
+
+
+                <div class="form-group">
+                    <label class="control-label col-md-2" for="isSpanishOrigin"> Are you Hispanic, Chicano, Mexican, Latino, Cuban, Puerto Rican, South or Central American, or Spanish Origin? </label>
+                    <div class="col-md-5"></br>
+                        </br>
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-primary">Yes</button>
+                            <button type="button" class="btn btn-primary">No</button>
+                            <button type="button" class="btn btn-primary">Do not wish to disclose</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!--
+                    <div class="form-group">
+                      <label class="control-label col-md-2" for="isSpanishOrigin">Are you Hispanic, Chicano, Mexican, Latino, Cuban, Puerto Rican, South or Central American, or Spanish Origin?</label>
+                      <div class="col-md-5">
+                        <div class="radio">
+                          <label><input type="radio" name="isSpanishOrigin">Yes</label>
+                        </div>
+                        <div class="radio">
+                          <label><input type="radio" name="isSpanishOrigin">No</label>
+                        </div>
+                        <div class="radio">
+                          <label><input type="radio" name="isSpanishOrigin">Do not wish to disclose</label>
+                        </div>
+                      </div>
+                    </div> -->
 
 
 
-            <div class="form-group">
-                <label class="control-label col-md-2" for="race">Please check your race (select all that apply): </label>
-                <div class="col-md-5">
-                    <div class="checkbox">
-                        <label><input type="checkbox" name="race">American Indian or Alaskan Native</label>
-                    </div>
-                    <div class="checkbox">
-                        <label><input type="checkbox" name="race">Black or African-American</label>
-                    </div>
-                    <div class="checkbox">
-                        <label><input type="checkbox" name="race">Native Hawaiian or other Pacific Islander</label>
-                    </div>
-                    <div class="checkbox">
-                        <label><input type="checkbox" name="race">Asian</label>
-                    </div>
-                    <div class="checkbox">
-                        <label><input type="checkbox" name="race">White</label>
-                    </div>
-                    <div class="checkbox">
-                        <label><input type="checkbox" name="race">Other</label>
-                    </div>
-                    <div class="checkbox">
-                        <label><input type="checkbox" name="race">Do not wish to disclose</label>
+                <div class="form-group">
+                    <label class="control-label col-md-2" for="race">Please check your race (select all that apply): </label>
+                    <div class="col-md-5">
+                        <div class="checkbox">
+                            <label><input type="checkbox" name="race">American Indian or Alaskan Native</label>
+                        </div>
+                        <div class="checkbox">
+                            <label><input type="checkbox" name="race">Black or African-American</label>
+                        </div>
+                        <div class="checkbox">
+                            <label><input type="checkbox" name="race">Native Hawaiian or other Pacific Islander</label>
+                        </div>
+                        <div class="checkbox">
+                            <label><input type="checkbox" name="race">Asian</label>
+                        </div>
+                        <div class="checkbox">
+                            <label><input type="checkbox" name="race">White</label>
+                        </div>
+                        <div class="checkbox">
+                            <label><input type="checkbox" name="race">Other</label>
+                        </div>
+                        <div class="checkbox">
+                            <label><input type="checkbox" name="race">Do not wish to disclose</label>
+                        </div>
                     </div>
                 </div>
             </div>
 
+            <div>&nbsp</div>
 
-            <!-- Local Address -->
-            <h2>&nbspContact Information</h2>
-            <h4>&nbsp&nbsp&nbsp&nbspLocal Address</h4>
+            <div class="well well-sm">
+                <h2 style="text-align: center">&nbspContact Information</h2>
+                <div>&nbsp</div>
 
+                <!-- Local Address -->
+                <div class="well" style="background-color: lightgray">
+                    <h4>&nbsp&nbsp&nbsp&nbspLocal Address</h4>
 
-            <div class="form-group">
-                <label class="control-label col-md-2" for="localAddressLine1">Address Line 1</label>
-                <div class="col-md-5" inputGroupContainer>
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
-                        <input type="text" class="form-control" name="localAddressLine1" placeholder="Number, Street" >
+                    <div class="form-group">
+                        <label class="control-label col-md-2" for="localAddressLine1">Address Line 1</label>
+                        <div class="col-md-5" inputGroupContainer>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+                                <input type="text" class="form-control" name="localAddressLine1" placeholder="Number, Street" >
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-md-2" for="localAddressLine2">Address Line 2</label>
+                        <div class="col-md-5">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+                                <input type="text" class="form-control" name="localAddressLine2" placeholder="Apt" >
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-md-2" for="localAddressCity">City</label>
+                        <div class="col-md-5">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+                                <input type="text" class="form-control" name="localAddressCity" placeholder="Boulder" >
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-md-2" for="localAddressState">State</label>
+                        <div class="col-md-5 selectContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+                                <select name="localAddressState" class="form-control selectpicker" >
+                                    <option value=" " >Please select your state</option>
+                                    <option>Alabama</option>
+                                    <option>Alaska</option>
+                                    <option >Arizona</option>
+                                    <option >Arkansas</option>
+                                    <option >California</option>
+                                    <option >Colorado</option>
+                                    <option >Connecticut</option>
+                                    <option >Delaware</option>
+                                    <option >District of Columbia</option>
+                                    <option> Florida</option>
+                                    <option >Georgia</option>
+                                    <option >Hawaii</option>
+                                    <option >daho</option>
+                                    <option >Illinois</option>
+                                    <option >Indiana</option>
+                                    <option >Iowa</option>
+                                    <option> Kansas</option>
+                                    <option >Kentucky</option>
+                                    <option >Louisiana</option>
+                                    <option>Maine</option>
+                                    <option >Maryland</option>
+                                    <option> Mass</option>
+                                    <option >Michigan</option>
+                                    <option >Minnesota</option>
+                                    <option>Mississippi</option>
+                                    <option>Missouri</option>
+                                    <option>Montana</option>
+                                    <option>Nebraska</option>
+                                    <option>Nevada</option>
+                                    <option>New Hampshire</option>
+                                    <option>New Jersey</option>
+                                    <option>New Mexico</option>
+                                    <option>New York</option>
+                                    <option>North Carolina</option>
+                                    <option>North Dakota</option>
+                                    <option>Ohio</option>
+                                    <option>Oklahoma</option>
+                                    <option>Oregon</option>
+                                    <option>Pennsylvania</option>
+                                    <option>Rhode Island</option>
+                                    <option>South Carolina</option>
+                                    <option>South Dakota</option>
+                                    <option>Tennessee</option>
+                                    <option>Texas</option>
+                                    <option> Uttah</option>
+                                    <option>Vermont</option>
+                                    <option>Virginia</option>
+                                    <option >Washington</option>
+                                    <option >West Virginia</option>
+                                    <option>Wisconsin</option>
+                                    <option >Wyoming</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-md-2" for="localAddressZip">Zip</label>
+                        <div class="col-md-5">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+                                <input type="text" class="form-control" name="localAddressZip" placeholder="Zip" >
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Summer Address -->
+                <div class="well" style="background-color: lightgray">
+
+                    <h4>&nbsp&nbsp&nbsp&nbspSummer Address (if different)</h4>
+
+                    <div class="form-group">
+                        <label class="control-label col-md-2" for="summerAddressLine1">Address Line 1</label>
+                        <div class="col-md-5">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+                                <input type="text" class="form-control" name="summerAddressLine1" placeholder="Number, Street" >
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-md-2" for="summerAddressLine2">Address Line 2</label>
+                        <div class="col-md-5">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+                                <input type="text" class="form-control" name="summerAddressLine2" placeholder="Apt">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-md-2" for="summerAddressCity">City</label>
+                        <div class="col-md-5">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+                                <input type="text" class="form-control" name="summerAddressCity" placeholder="Boulder" >
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-md-2" for="summerAddressState">State</label>
+                        <div class="col-md-5 selectContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+                                <select name="summerAddressState" class="form-control selectpicker" >
+                                    <option value=" " >Please select your state</option>
+                                    <option>Alabama</option>
+                                    <option>Alaska</option>
+                                    <option >Arizona</option>
+                                    <option >Arkansas</option>
+                                    <option >California</option>
+                                    <option >Colorado</option>
+                                    <option >Connecticut</option>
+                                    <option >Delaware</option>
+                                    <option >District of Columbia</option>
+                                    <option> Florida</option>
+                                    <option >Georgia</option>
+                                    <option >Hawaii</option>
+                                    <option >daho</option>
+                                    <option >Illinois</option>
+                                    <option >Indiana</option>
+                                    <option >Iowa</option>
+                                    <option> Kansas</option>
+                                    <option >Kentucky</option>
+                                    <option >Louisiana</option>
+                                    <option>Maine</option>
+                                    <option >Maryland</option>
+                                    <option> Mass</option>
+                                    <option >Michigan</option>
+                                    <option >Minnesota</option>
+                                    <option>Mississippi</option>
+                                    <option>Missouri</option>
+                                    <option>Montana</option>
+                                    <option>Nebraska</option>
+                                    <option>Nevada</option>
+                                    <option>New Hampshire</option>
+                                    <option>New Jersey</option>
+                                    <option>New Mexico</option>
+                                    <option>New York</option>
+                                    <option>North Carolina</option>
+                                    <option>North Dakota</option>
+                                    <option>Ohio</option>
+                                    <option>Oklahoma</option>
+                                    <option>Oregon</option>
+                                    <option>Pennsylvania</option>
+                                    <option>Rhode Island</option>
+                                    <option>South Carolina</option>
+                                    <option>South Dakota</option>
+                                    <option>Tennessee</option>
+                                    <option>Texas</option>
+                                    <option> Uttah</option>
+                                    <option>Vermont</option>
+                                    <option>Virginia</option>
+                                    <option >Washington</option>
+                                    <option >West Virginia</option>
+                                    <option>Wisconsin</option>
+                                    <option >Wyoming</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-md-2" for="summerAddressZip">Zip</label>
+                        <div class="col-md-5">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+                                <input type="text" class="form-control" name="summerAddressZip" placeholder="Zip" >
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-2" for="phone">Phone: </label>
+                    <div class="col-md-5">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
+                            <input type="tel" class="form-control" size="10" maxlength="10" name="phone" data-format="+1 (ddd) ddd-dddd">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-2" for="email">Email:</label>
+                    <div class="col-md-5">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                            <input class="form-control" type="email" size="30" class="form-control" name="email">
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="form-group">
-                <label class="control-label col-md-2" for="localAddressLine2">Address Line 2</label>
-                <div class="col-md-5">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
-                        <input type="text" class="form-control" name="localAddressLine2" placeholder="Apt" >
-                    </div>
-                </div>
-            </div>
+            <div>&nbsp</div>
 
-            <div class="form-group">
-                <label class="control-label col-md-2" for="localAddressCity">City</label>
-                <div class="col-md-5">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
-                        <input type="text" class="form-control" name="localAddressCity" placeholder="Boulder" >
-                    </div>
-                </div>
-            </div>
+            <div class="well well-sm">
+                <h2 style="text-align: center">Academic Information</h2>
+                <div>&nbsp</div>
 
-            <div class="form-group">
-                <label class="control-label col-md-2" for="localAddressState">State</label>
-                <div class="col-md-5 selectContainer">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
-                        <select name="localAddressState" class="form-control selectpicker" >
-                            <option value=" " >Please select your state</option>
-                            <option>Alabama</option>
-                            <option>Alaska</option>
-                            <option >Arizona</option>
-                            <option >Arkansas</option>
-                            <option >California</option>
-                            <option >Colorado</option>
-                            <option >Connecticut</option>
-                            <option >Delaware</option>
-                            <option >District of Columbia</option>
-                            <option> Florida</option>
-                            <option >Georgia</option>
-                            <option >Hawaii</option>
-                            <option >daho</option>
-                            <option >Illinois</option>
-                            <option >Indiana</option>
-                            <option >Iowa</option>
-                            <option> Kansas</option>
-                            <option >Kentucky</option>
-                            <option >Louisiana</option>
-                            <option>Maine</option>
-                            <option >Maryland</option>
-                            <option> Mass</option>
-                            <option >Michigan</option>
-                            <option >Minnesota</option>
-                            <option>Mississippi</option>
-                            <option>Missouri</option>
-                            <option>Montana</option>
-                            <option>Nebraska</option>
-                            <option>Nevada</option>
-                            <option>New Hampshire</option>
-                            <option>New Jersey</option>
-                            <option>New Mexico</option>
-                            <option>New York</option>
-                            <option>North Carolina</option>
-                            <option>North Dakota</option>
-                            <option>Ohio</option>
-                            <option>Oklahoma</option>
-                            <option>Oregon</option>
-                            <option>Pennsylvania</option>
-                            <option>Rhode Island</option>
-                            <option>South Carolina</option>
-                            <option>South Dakota</option>
-                            <option>Tennessee</option>
-                            <option>Texas</option>
-                            <option> Uttah</option>
-                            <option>Vermont</option>
-                            <option>Virginia</option>
-                            <option >Washington</option>
-                            <option >West Virginia</option>
-                            <option>Wisconsin</option>
-                            <option >Wyoming</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label class="control-label col-md-2" for="localAddressZip">Zip</label>
-                <div class="col-md-5">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
-                        <input type="text" class="form-control" name="localAddressZip" placeholder="Zip" >
-                    </div>
-                </div>
-            </div>
-
-
-            <!-- Summer Address -->
-
-            <h4>&nbsp&nbsp&nbsp&nbspSummer Address (if different)</h4>
-
-
-            <div class="form-group">
-                <label class="control-label col-md-2" for="summerAddressLine1">Address Line 1</label>
-                <div class="col-md-5">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
-                        <input type="text" class="form-control" name="summerAddressLine1" placeholder="Number, Street" >
-                    </div>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label class="control-label col-md-2" for="summerAddressLine2">Address Line 2</label>
-                <div class="col-md-5">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
-                        <input type="text" class="form-control" name="summerAddressLine2" placeholder="Apt">
-                    </div>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label class="control-label col-md-2" for="summerAddressCity">City</label>
-                <div class="col-md-5">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
-                        <input type="text" class="form-control" name="summerAddressCity" placeholder="Boulder" >
-                    </div>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label class="control-label col-md-2" for="summerAddressState">State</label>
-                <div class="col-md-5 selectContainer">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
-                        <select name="summerAddressState" class="form-control selectpicker" >
-                            <option value=" " >Please select your state</option>
-                            <option>Alabama</option>
-                            <option>Alaska</option>
-                            <option >Arizona</option>
-                            <option >Arkansas</option>
-                            <option >California</option>
-                            <option >Colorado</option>
-                            <option >Connecticut</option>
-                            <option >Delaware</option>
-                            <option >District of Columbia</option>
-                            <option> Florida</option>
-                            <option >Georgia</option>
-                            <option >Hawaii</option>
-                            <option >daho</option>
-                            <option >Illinois</option>
-                            <option >Indiana</option>
-                            <option >Iowa</option>
-                            <option> Kansas</option>
-                            <option >Kentucky</option>
-                            <option >Louisiana</option>
-                            <option>Maine</option>
-                            <option >Maryland</option>
-                            <option> Mass</option>
-                            <option >Michigan</option>
-                            <option >Minnesota</option>
-                            <option>Mississippi</option>
-                            <option>Missouri</option>
-                            <option>Montana</option>
-                            <option>Nebraska</option>
-                            <option>Nevada</option>
-                            <option>New Hampshire</option>
-                            <option>New Jersey</option>
-                            <option>New Mexico</option>
-                            <option>New York</option>
-                            <option>North Carolina</option>
-                            <option>North Dakota</option>
-                            <option>Ohio</option>
-                            <option>Oklahoma</option>
-                            <option>Oregon</option>
-                            <option>Pennsylvania</option>
-                            <option>Rhode Island</option>
-                            <option>South Carolina</option>
-                            <option>South Dakota</option>
-                            <option>Tennessee</option>
-                            <option>Texas</option>
-                            <option> Uttah</option>
-                            <option>Vermont</option>
-                            <option>Virginia</option>
-                            <option >Washington</option>
-                            <option >West Virginia</option>
-                            <option>Wisconsin</option>
-                            <option >Wyoming</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label class="control-label col-md-2" for="summerAddressZip">Zip</label>
-                <div class="col-md-5">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
-                        <input type="text" class="form-control" name="summerAddressZip" placeholder="Zip" >
-                    </div>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label class="control-label col-md-2" for="phone">Phone: </label>
-                <div class="col-md-5">
-                <div class="input-group">
-        <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
-                    <input type="tel" class="form-control" size="10" maxlength="10" name="phone" data-format="+1 (ddd) ddd-dddd">
-                </div>
-            </div>
-            </div>
-
-            <div class="form-group">
-                <label class="control-label col-md-2" for="email">Email:</label>
-                <div class="col-md-5">
-                 <div class="input-group">
-                <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                    <input class="form-control" type="email" size="30" class="form-control" name="email">
-                </div>
-            </div>
-            </div>
-
-            <h2>Academic Information</h2>
-            <p> Please carefully enter your academic information. If you are still open option, indicate which major you plan to enter. </p>
-            <div class="form-group">
-                <label class="control-label col-md-2" for="primaryMajor">Primary Major:</label>
+                <p> Please carefully enter your academic information. If you are still open option, indicate which major you plan to enter. </p>
+                <div class="form-group">
+                    <label class="control-label col-md-2" for="primaryMajor">Primary Major:</label>
                 <div class="col-md-5">
                     <select class="form-control" name="primaryMajor" placeholder="Select Major">
                         <option>Aerospace Engineering</option>
@@ -451,16 +466,22 @@
                 </div>
             </div> -->
 
-                  <div class="form-group">
-                <label class="control-label col-md-2" for="isResearchExperience"> Do you have research experience? </label>
-                <div class="col-md-5"></br>
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-primary" >Yes</button>
-                        <button type="button" class="btn btn-primary">No (This will not affect your eligibility)</button>
+                <div class="form-group">
+                    <label class="control-label col-md-2" for="isResearchExperience"> Do you have research experience? </label>
+                    <div class="col-md-5"></br>
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-primary" >Yes</button>
+                            <button type="button" class="btn btn-primary">No (This will not affect your eligibility)</button>
+                        </div>
                     </div>
-                </div></div>
+                </div>
+            </div>
 
-            <h2>Apprenticeship Information</h2>
+            <div>&nbsp</div>
+
+            <div class="well well-sm">
+                <h2 style="text-align: center">Apprenticeship Information</h2>
+                <div>&nbsp</div>
 
                <!-- <div class="form-group">
                     <label class="control-label col-md-2" for="isAppliedBefore">Have you applied for Discovery Learning Apprenticeship before?</label>
@@ -476,15 +497,15 @@
 
 
 
-
-                  <div class="form-group">
-                <label class="control-label col-md-2" for="isAppliedBefore"> Have you applied for Discovery Learning Apprenticeship before? </label>
-                <div class="col-md-5"></br>
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-primary" >Yes</button>
-                        <button type="button" class="btn btn-primary">No </button>
+                <div class="form-group">
+                    <label class="control-label col-md-2" for="isAppliedBefore"> Have you applied for Discovery Learning Apprenticeship before? </label>
+                    <div class="col-md-5"></br>
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-primary" >Yes</button>
+                            <button type="button" class="btn btn-primary">No </button>
+                        </div>
                     </div>
-                </div></div>
+                </div>
 
 
 
@@ -530,30 +551,30 @@
                     </div>
                 </div>
 
-               <!-- <div class="form-group">
-                    <label class="control-label col-md-2" for="isBackgroundCheckDone">Have you had a background check done?</label>
-                    <div class="col-md-5">
-                        <div class="radio">
-                            <label><input type="radio" name="isBackgroundCheckDone">Yes</label>
+                   <!-- <div class="form-group">
+                        <label class="control-label col-md-2" for="isBackgroundCheckDone">Have you had a background check done?</label>
+                        <div class="col-md-5">
+                            <div class="radio">
+                                <label><input type="radio" name="isBackgroundCheckDone">Yes</label>
+                            </div>
+                            <div class="radio">
+                                <label><input type="radio" name="isBackgroundCheckDone">No</label>
+                            </div>
                         </div>
-                        <div class="radio">
-                            <label><input type="radio" name="isBackgroundCheckDone">No</label>
-                        </div>
-                    </div>
-                </div> -->
+                    </div> -->
 
-        <div class="form-group">
-                <label class="control-label col-md-2" for="isBackgroundCheckDone"> Have you had a background check done?</label>
-                <div class="col-md-5"></br>
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-primary" >Yes</button>
-                        <button type="button" class="btn btn-primary">No </button>
+                <div class="form-group">
+                    <label class="control-label col-md-2" for="isBackgroundCheckDone"> Have you had a background check done?</label>
+                    <div class="col-md-5"></br>
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-primary" >Yes</button>
+                            <button type="button" class="btn btn-primary">No </button>
+                        </div>
                     </div>
-                </div></div>
+                </div>
 
 
                 <div class="form-group">
-
                     <label class="control-label col-md-2" for="lastBackgroundCheckDate">If yes, when? (Take your best guess if not sure)</label>
                     <div class="col-md-5">
                         <input type="text" class="form-control" name="lastBackgroundCheckMonth" placeholder="MMM">
@@ -564,68 +585,72 @@
 
 
 
-<!--                <div class="form-group">
-                    <label class="control-label col-md-2" for="isHarassmentTrainingDone">Have you had Discrimination and Harassment Awareness training yet (at CU) done?</label>
-                    <div class="col-md-5">
-                        <div class="radio">
-                            <label><input type="radio" name="isHarassmentTrainingDone">Yes</label>
+    <!--                <div class="form-group">
+                        <label class="control-label col-md-2" for="isHarassmentTrainingDone">Have you had Discrimination and Harassment Awareness training yet (at CU) done?</label>
+                        <div class="col-md-5">
+                            <div class="radio">
+                                <label><input type="radio" name="isHarassmentTrainingDone">Yes</label>
+                            </div>
+                            <div class="radio">
+                                <label><input type="radio" name="isHarassmentTrainingDone">No</label>
+                            </div>
                         </div>
-                        <div class="radio">
-                            <label><input type="radio" name="isHarassmentTrainingDone">No</label>
-                        </div>
-                    </div>
-                </div> -->
+                    </div> -->
 
-
-  <div class="form-group">
-                <label class="control-label col-md-2" for="isHarassmentTrainingDone"> Have you had Discrimination and Harassment Awareness training yet (at CU) done?</label>
-                <div class="col-md-5"></br>
-                    <div class="btn-group"> 
-                        <button type="button" class="btn btn-primary" >Yes</button>
-                        <button type="button" class="btn btn-primary">No </button>
-                    </div>
-                </div></div>
 
                 <div class="form-group">
-
-
-                    <label class="control-label col-md-2" for="lastHarassmentTrainingDate">If yes, when? (Take your best guess if not sure)</label>
-                    <div class="col-md-5">
-                        <input type="text" class="form-control" name="lastHarassmentTrainingMonth" placeholder="MMM">
-                        <input type="text" class="form-control" name="lastHarassmentTrainingYear" placeholder="YYYY">
+                    <label class="control-label col-md-2" for="isHarassmentTrainingDone"> Have you had Discrimination and Harassment Awareness training yet (at CU) done?</label>
+                    <div class="col-md-5"></br>
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-primary" >Yes</button>
+                            <button type="button" class="btn btn-primary">No </button>
+                        </div>
                     </div>
-
                 </div>
 
-
-            <h2>Skills, Resume, and Cover Letter</h2>
-
-            
                 <div class="form-group">
-                    <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspPlease list the three skills or qualifications that you feel make you a great candidate for the positions you selected:</p>
-                        <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp(Could be knowledge of a programming language, knowledge of a field, courses taken, personal characteristics, etc. If appropriate, note your match to requirements in job &nbsp&nbsp&nbsp&nbsp&nbspdescription. Please note responses are limited to 75 characters.)</p></div>
 
-                        <div class="form-group">
+
+                        <label class="control-label col-md-2" for="lastHarassmentTrainingDate">If yes, when? (Take your best guess if not sure)</label>
+                        <div class="col-md-5">
+                            <input type="text" class="form-control" name="lastHarassmentTrainingMonth" placeholder="MMM">
+                            <input type="text" class="form-control" name="lastHarassmentTrainingYear" placeholder="YYYY">
+                        </div>
+
+                </div>
+            </div>
+
+            <div>&nbsp</div>
+
+            <div class="well well-sm">
+                <h2 style="text-align: center">Skills, Resume, and Cover Letter</h2>
+                <div>&nbsp</div>
+
+                <div class="form-group">
+                        <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspPlease list the three skills or qualifications that you feel make you a great candidate for the positions you selected:</p>
+                            <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp(Could be knowledge of a programming language, knowledge of a field, courses taken, personal characteristics, etc. If appropriate, note your match to requirements in job &nbsp&nbsp&nbsp&nbsp&nbspdescription. Please note responses are limited to 75 characters.)</p>
+                </div>
+
+                <div class="form-group">
                     <label class="control-label col-md-2" for="skill1">1:</label>
                     <div class="col-md-5">
                         <input class="form-control" type="text" size="30" maxlength="75" class="form-control" name="skill1">
                     </div>
-                    </div>
+                </div>
 
-                    <div class="form-group">
-
+                <div class="form-group">
                     <label class="control-label col-md-2" for="skill2">2:</label>
                     <div class="col-md-5">
                         <input class="form-control" type="text" size="30" maxlength="75" class="form-control" name="skill2">
                     </div>
-                    </div>
-                    <div class="form-group">
+                </div>
+
+                <div class="form-group">
                     <label class="control-label col-md-2" for="skill3">3:</label>
                     <div class="col-md-5">
                         <input class="form-control" type="text" size="30" maxlength="75" class="form-control" name="skill3">
                     </div>
                 </div>
-
 
                 <div class="form-group">
                     <p>&nbsp&nbsp&nbsp&nbspTo complete the application, you must submit a resume and a cover letter. You can submit both using the form below. Please use either the pdf format or a text document. To &nbsp&nbsp&nbspimprove your chances of being selected for an apprenticeship, please take the time to construct a well-written cover letter and resume.</p>
