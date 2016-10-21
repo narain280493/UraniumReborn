@@ -3,29 +3,34 @@
   <head lang="en">
     <meta charset="UTF-8">
     <title>Discovery Learning Apprenticeship Program</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/style.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/login.css">
+    <script src="../static/bower_components/js/login.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="{{ url_for('static', filename='bower_components/react/react.js') }}"></script>
+    <script src="{{ url_for('static', filename='bower_components/react/react-dom.js') }}"></script>
+    <script src="{{ url_for('static', filename='bower_components/react-bootstrap/react-bootstrap.js') }}"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/JSXTransformer.js">
+    </script> 
 
-      <title>Discovery Learning Apprenticeship Program</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="../static/css/style.css">
-  <link rel="stylesheet" type="text/css" href="../static/css/login.css">
-  <script src="../static/bower_components/js/login.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <!-- styles -->
+    <script type="text/jsx">
+      var Form = ReactBootstrap.Form
+      var FormGroup = ReactBootstrap.FormGroup
+      var Col = ReactBootstrap.Col
+      var ControlLabel = ReactBootstrap.ControlLabel
+      var FormControl = ReactBootstrap.FormControl
+      var Checkbox = ReactBootstrap.Checkbox
+      var Button = ReactBootstrap.Button
+    </script>
   </head>
   <body >
 
     <!-- scripts -->
 <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.1.0/react.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.1.0/react-dom.min.js"></script>-->
-   
-<script src="{{ url_for('static', filename='bower_components/react/react.min.js') }}"></script>
-<script src="{{ url_for('static', filename='bower_components/react/react-dom.min.js') }}"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/JSXTransformer.js"></script> 
-
 <nav class="navbar navbar-inverse" style="background: #f4bc42 ">
   <div class="container-fluid" >
     <div class="navbar-header">
