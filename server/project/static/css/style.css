@@ -1,3 +1,16 @@
+#success_message{ display: none;}
+
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance:textfield;
+}
+
+
 .jumbotron {
     margin-bottom: 0px;
     background-position: 0% 25%;

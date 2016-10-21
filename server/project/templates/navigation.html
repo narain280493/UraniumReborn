@@ -5,27 +5,163 @@
     <title>Discovery Learning Apprenticeship Program</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.0/css/bootstrapValidator.min.css">
     <link rel="stylesheet" type="text/css" href="../static/css/style.css">
     <link rel="stylesheet" type="text/css" href="../static/css/login.css">
-    <script src="../static/bower_components/js/login.js"></script>
+    <!-- <script src="../static/bower_components/js/login.js"></script>-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="{{ url_for('static', filename='bower_components/react/react.js') }}"></script>
     <script src="{{ url_for('static', filename='bower_components/react/react-dom.js') }}"></script>
     <script src="{{ url_for('static', filename='bower_components/react-bootstrap/react-bootstrap.js') }}"></script>
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/JSXTransformer.js">
-    </script> 
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/JSXTransformer.js"></script> 
 
-    <script type="text/jsx">
-      var Form = ReactBootstrap.Form
-      var FormGroup = ReactBootstrap.FormGroup
-      var Col = ReactBootstrap.Col
-      var ControlLabel = ReactBootstrap.ControlLabel
-      var FormControl = ReactBootstrap.FormControl
-      var Checkbox = ReactBootstrap.Checkbox
-      var Button = ReactBootstrap.Button
-      var HelpBlock = ReactBootstrap.HelpBlock
-    </script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/JSXTransformer.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.4.5/js/bootstrapvalidator.min.js"></script>
+
+
+     <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.js"></script>  
+  <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>  
+  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.3/css/bootstrapValidator.min.css"/>
+  <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"> </script>
+
+
+  <script>
+    $(document).ready(function() {
+    $('#studentform').bootstrapValidator({
+        feedbackIcons: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+
+        fields: {
+            firstname: {
+                validators: {
+                        stringLength: {
+                        min: 2,
+                    },
+                        notEmpty: {
+                        message: 'Please supply your first name'
+                    }
+                }
+            },
+             lastName: {
+                validators: {
+                     stringLength: {
+                        min: 2,
+                    },
+                    notEmpty: {
+                        message: 'Please supply your last name'
+                    }
+                }
+            },
+            email: {
+                validators: {
+                    notEmpty: {
+                        message: 'Please supply your email address'
+                    },
+                    emailAddress: {
+                        message: 'Please supply a valid email address'
+                    }
+                }
+            },
+            phone: {
+                validators: {
+                    notEmpty: {
+                        message: 'Please supply your phone number'
+                    },
+                    phone: {
+                        country: 'US',
+                        message: 'Please supply a vaild phone number with area code'
+                    }
+                }
+            },
+            localAddressLine1: {
+                validators: {
+                     stringLength: {
+                        min: 8,
+                    },
+                    notEmpty: {
+                        message: 'Please supply your street address'
+                    }
+                }
+            },
+            localAddressCity: {
+                validators: {
+                     stringLength: {
+                        min: 4,
+                    },
+                    notEmpty: {
+                        message: 'Please supply your city'
+                    }
+                }
+            },
+          localAddressState: {
+                validators: {
+                    notEmpty: {
+                        message: 'Please select your state'
+                    }
+                }
+            },
+            localAddressZip: {
+                validators: {
+                    notEmpty: {
+                        message: 'Please supply your zip code'
+                    },
+                    zipCode: {
+                        country: 'US',
+                        message: 'Please supply a vaild zip code'
+                    }
+                }
+            },
+            primaryMajor: {
+                validators: {
+                    notEmpty: {
+                        message: 'Please select your state'
+                    }
+                }
+            },
+
+            race: {
+                validators: {
+                    choice: {
+                        min: 1,
+                        max: 1,
+                        message: 'Please choose a option'
+                    }
+                }
+            },
+
+
+
+
+            }
+        })
+        .on('success.form.bv', function(e) {
+            $('#success_message').slideDown({ opacity: "show" }, "slow") // Do something ...
+                $('#studentform').data('bootstrapValidator').resetForm();
+
+            // Prevent form submission
+            e.preventDefault();
+
+            // Get the form instance
+            var $form = $(e.target);
+
+            // Get the BootstrapValidator instance
+            var bv = $form.data('bootstrapValidator');
+
+            // Use Ajax to submit form data
+            $.post($form.attr('action'), $form.serialize(), function(result) {
+                console.log(result);
+            }, 'json');
+        });
+});
+
+
+  </script>
+>>>>>>> Stashed changes
   </head>
   <body >
 
