@@ -10,51 +10,50 @@ input[type=number] {
     -moz-appearance:textfield;
 }
 
+.navbar-custom1 .nav > li > a:focus,
+.navbar-custom1 .nav > li > a:hover,
+.navbar-custom1 .nav > li.active > a {
+  background-color: black;
+}
+
+
+
+
+
 
 .jumbotron {
     margin-bottom: 0px;
     background-position: 0% 25%;
     background-size: cover;
     background-repeat: no-repeat;
-    color: white;
+    color:white;
+    font-family: 'Calibri';
     /*text-shadow: black 0.2em 0.2em 0.2em;*/
 }
 
 
-.jumbotron-faculty{
-    margin-bottom: 0px;
-    background-position: 0% 50%;
-    background-size: cover;
-    background-repeat: no-repeat;
-    color: white;
-    width:70%;
-   min-height: 600px;
-  left: 15%;
-  position: relative;
-    text-shadow: black 0.2em 0.2em 0.2em;
-    padding-top: 40px;
-    margin-top: 30px;
 
 
-
-}
 
 .pageheader{
   background-color: black;
   padding-top: -30px; 
   padding-bottom: -30px;
   color:black;
-}/* custom styles */
+}
 
-.navbar-inverse .navbar-nav  > li > a {
+.navbar-inverse .navbar-nav > li > a {
   color : black;
 }
 
 .navbar-inverse .navbar-header > a {
-  color : black;
+  color:black;
 }
 
+
+
 body {
+
     /*background-size: 1300px 750px; */
     background: url("http://www.colorado.edu/engineering/sites/default/files/Engineering%20Center%20-%20admissions.jpeg") no-repeat fixed center center;
     -webkit-background-size: cover;
@@ -62,7 +61,7 @@ body {
     -o-background-size: cover;
     background-size: cover;
 
-}
+}   
 
 .jumbotron {
     padding: 1em 2em;
@@ -76,3 +75,7 @@ body {
         }
     }
 }
+
+
+
+
