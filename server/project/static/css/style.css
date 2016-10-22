@@ -10,6 +10,15 @@ input[type=number] {
     -moz-appearance:textfield;
 }
 
+.navbar-custom1 .nav > li > a:focus,
+.navbar-custom1 .nav > li > a:hover,
+.navbar-custom1 .nav > li.active > a {
+  background-color: black;
+}
+
+
+
+
 
 
 .jumbotron {
@@ -17,8 +26,12 @@ input[type=number] {
     background-position: 0% 25%;
     background-size: cover;
     background-repeat: no-repeat;
+    color:white;
+    font-family: 'Calibri';
     /*text-shadow: black 0.2em 0.2em 0.2em;*/
 }
+
+
 
 
 
