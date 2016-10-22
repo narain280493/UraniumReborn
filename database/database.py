@@ -2,7 +2,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session, sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
 import os
-from urllib.parse import urlparse
+from urlparse import urlparse
 
 
 def get_username(file):
