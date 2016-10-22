@@ -3,47 +3,61 @@
 {% block content %}
 
     <div class="container">
-        <form class="form-horizontal">
+        <form class="form-horizontal" action=" " method="post"  id="facultyform" >
 
             <h2>Faculty Member Info</h2>
             <div class="well">
                 <div class="form-group">
-                    <label class="control-label col-md-2" for="facultyFirstName">First Name:</label>
+                    <label class="control-label col-md-2" for="facultyFirstName">First Name</label>
                     <div class="col-md-5">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
                         <input type="text" class="form-control" name="facultyFirstName" placeholder="First Name">
                     </div>
-                </div>
+                </div></div>
 
                 <div class="form-group">
-                    <label class="control-label col-md-2" for="facultyLastName">Last Name:</label>
+                    <label class="control-label col-md-2" for="facultyLastName">Last Name</label>
                     <div class="col-md-5">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
                         <input type="text" class="form-control" name="facultyLastName" placeholder="Last Name">
                     </div>
-                </div>
+                </div></div>
 
                 <div class="form-group">
-                    <label class="control-label col-md-2" for="facultyPhone">Phone: </label>
+                    <label class="control-label col-md-2" for="facultyPhone">Phone</label>
                     <div class="col-md-5">
                         <label>
+                         <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
                             <input type="tel" class="form-control" size="10" maxlength="10" name="facultyPhone" data-format="+1 (ddd) ddd-dddd">
+                            </div>
                         </label>
                     </div>
                 </div>
+                
 
                 <div class="form-group">
-                    <label class="control-label col-md-2" for="facultyEmail">Email:</label>
+                    <label class="control-label col-md-2" for="facultyEmail">Email</label>
                     <div class="col-md-5">
                         <label>
+                        <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
                             <input class="form-control" type="email" size="30" name="facultyEmail">
                         </label>
+                        </div>
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label class="control-label col-md-2" for="facultyDepartment">Department/Program:</label>
+                    <label class="control-label col-md-2" for="facultyDepartment">Department/Program</label>
                     <div class="col-md-5">
                         <label>
+                        <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
                             <select class="form-control" name="facultyDepartment">
+                             
                                 <option value="">Please Select</option>
                                 <option value="Aerospace Engineering">Aerospace Engineering</option>
                                 <option value="Electrical Engineering">Electrical Engineering</option>
@@ -61,11 +75,13 @@
                                 </option>
                                 <option value="Computer Science">Computer Science</option>
                                 <option value="Technology, Arts & Media">Technology, Arts & Media</option>
+                               
                             </select>
+                             </div>
                         </label>
                     </div>
                 </div>
-
+<!--
                 <div class="form-group">
                     <label class="control-label col-md-2" for="isDevelopingCommunities">Does this project have a focus on Engineering for Developing Communities?</label>
                     <div class="col-md-5">
@@ -79,45 +95,69 @@
                 </div>
             </div>
 
+            -->
+
+                <div class="form-group">
+                <label class="control-label col-md-2" for="isDevelopingCommunities"> Does this project have a focus on Engineering for Developing Communities? </label>
+                <div class="col-md-5">
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-primary" >Yes</button>
+                        <button type="button" class="btn btn-primary">No</button>
+
+                    </div>
+                </div></div>
+</div>
+
+
             <h2>Second Faculty Member (Optional)</h2>
             <div class="well ">
                 <div class="form-group">
                     <label class="control-label col-md-2" for="secondFacultyFirstName">First Name:</label>
                     <div class="col-md-5">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
                         <input type="text" class="form-control" name="secondFacultyFirstName" placeholder="First Name">
                     </div>
-                </div>
+                </div></div>
 
                 <div class="form-group">
                     <label class="control-label col-md-2" for="secondFacultyLastName">Last Name:</label>
                     <div class="col-md-5">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
                         <input type="text" class="form-control" name="secondFacultyLastName" placeholder="Last Name">
                     </div>
-                </div>
+                </div></div>
 
                 <div class="form-group">
                     <label class="control-label col-md-2" for="secondFacultyPhone">Phone: </label>
                     <div class="col-md-5">
                         <label>
+                        <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
                             <input type="tel" class="form-control" size="10" maxlength="10" name="secondFacultyPhone"
                                    data-format="+1 (ddd) ddd-dddd">
                         </label>
-                    </div>
+                    </div></div>
                 </div>
 
                 <div class="form-group">
                     <label class="control-label col-md-2" for="secondFacultyEmail">Email:</label>
                     <div class="col-md-5">
                         <label>
+                        <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
                             <input class="form-control" type="email" size="30" name="secondFacultyEmail">
                         </label>
-                    </div>
+                    </div></div>
                 </div>
 
                 <div class="form-group">
                     <label class="control-label col-md-2" for="secondFacultyDepartment">Department/Program:</label>
                     <div class="col-md-5">
                         <label>
+                         <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
                             <select class="form-control" name="secondFacultyDepartment">
                                 <option value="">Please Select</option>
                                 <option value="Aerospace Engineering">Aerospace Engineering</option>
@@ -136,7 +176,7 @@
                                 </option>
                                 <option value="Computer Science">Computer Science</option>
                                 <option value="Technology, Arts & Media">Technology, Arts & Media</option>
-                            </select>
+                            </select></div>
                         </label>
                     </div>
                 </div>
@@ -148,40 +188,50 @@
                 <div class="form-group">
                     <label class="control-label col-md-2" for="gradStudentFirstName">First Name:</label>
                     <div class="col-md-5">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
                         <input type="text" class="form-control" name="gradStudentFirstName" placeholder="First Name">
                     </div>
-                </div>
+                </div></div>
 
                 <div class="form-group">
                     <label class="control-label col-md-2" for="gradStudentLastName">Last Name:</label>
                     <div class="col-md-5">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
                         <input type="text" class="form-control" name="gradStudentLastName" placeholder="Last Name">
                     </div>
-                </div>
+                </div></div>
 
                 <div class="form-group">
                     <label class="control-label col-md-2" for="gradStudentPhone">Phone: </label>
                     <div class="col-md-5">
                         <label>
+                         <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
                             <input type="tel" class="form-control" size="10" maxlength="10" name="gradStudentPhone"
                                    data-format="+1 (ddd) ddd-dddd">
                         </label>
-                    </div>
+                    </div></div>
                 </div>
 
                 <div class="form-group">
                     <label class="control-label col-md-2" for="gradStudentEmail">Email:</label>
                     <div class="col-md-5">
                         <label>
+                        <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
                             <input class="form-control" type="email" size="30" name="gradStudentEmail">
                         </label>
-                    </div>
+                    </div></div>
                 </div>
 
                 <div class="form-group">
                     <label class="control-label col-md-2" for="gradStudentDepartment">Department/Program:</label>
                     <div class="col-md-5">
                         <label>
+                         <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
                             <select class="form-control" name="gradStudentDepartment">
                                 <option value="">Please Select</option>
                                 <option value="Aerospace Engineering">Aerospace Engineering</option>
@@ -200,7 +250,7 @@
                                 </option>
                                 <option value="Computer Science">Computer Science</option>
                                 <option value="Technology, Arts & Media">Technology, Arts & Media</option>
-                            </select>
+                            </select></div>
                         </label>
                     </div>
                 </div>
@@ -211,26 +261,32 @@
                 <div class="form-group">
                     <label class="control-label col-md-2" for="apprenticeshipTitle">Title(max 80 characters):</label>
                     <div class="col-md-5">
+                    <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
                         <input type="text" class="form-control" maxlength="80" name="apprenticeshipTitle" placeholder="Title for the apprenticeship">
                     </div>
-                </div>
+                </div></div>
 
                 <div class="form-group">
                     <label class="control-label col-md-2" for="apprenticeshipDescription">Description(max 1200 characters):</label>
                     <div class="col-md-5">
                         <label>
+                        <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
                             <textarea class="form-control" rows="5" maxlength="1200"
                                       name="apprenticeshipDescription"></textarea>
                         </label>
                     </div>
-                </div>
+                </div></div>
 
                 <div class="form-group">
                     <label class="control-label col-md-2" for="apprenticeshipWeblink">Weblink:</label>
                     <div class="col-md-5">
+                    <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-globe"></i></span>
                         <input type="text" class="form-control" name="apprenticeshipWeblink" placeholder="">
                     </div>
-                </div>
+                </div></div>
 
                 <div class="form-group">
                     <label class="control-label col-md-2" for="specialRequirements">Special Requirements to be met by applicants:</label>
@@ -421,7 +477,7 @@
                     </div>
                 </div>
             </div>
-
+        <div class="alert alert-success" role="alert" id="success_message">Success <i class="glyphicon glyphicon-thumbs-up"></i> Thanks for contacting us, we will get back to you shortly.</div> </div>
             <div class="form-group">
                 <div>
                     <button type="submit" class="btn center-block btn-default">Submit</button>

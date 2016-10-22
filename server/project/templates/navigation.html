@@ -44,10 +44,10 @@
                     },
                         notEmpty: {
                         message: 'Please supply your first name'
-                    }
+                   }
                 }
             },
-             lastName: {
+             last_Name: {
                 validators: {
                      stringLength: {
                         min: 2,
@@ -157,6 +157,244 @@
                 console.log(result);
             }, 'json');
         });
+
+
+
+
+      //  validation 2 
+        $('#facultyform').bootstrapValidator({
+                    feedbackIcons: {
+                        valid: 'glyphicon glyphicon-ok',
+                        invalid: 'glyphicon glyphicon-remove',
+                        validating: 'glyphicon glyphicon-refresh'
+                    },
+
+                    fields: {
+                        facultyFirstName: {
+                            validators: {
+                                stringLength: {
+                                    min: 2,
+                                },
+                                notEmpty: {
+                                    message: 'Please supply your first name'
+                                }
+                            }
+                        },
+                        facultyLastName: {
+                            validators: {
+                                stringLength: {
+                                    min: 2,
+                                },
+                                notEmpty: {
+                                    message: 'Please supply your last name'
+                                }
+                            }
+                        },
+                        facultyEmail: {
+                            validators: {
+                                notEmpty: {
+                                    message: 'Please supply your email address'
+                                },
+                                emailAddress: {
+                                    message: 'Please supply a valid email address'
+                                }
+                            }
+                        },
+                        facultyPhone: {
+                            validators: {
+                                notEmpty: {
+                                    message: 'Please supply your phone number'
+                                },
+                                phone: {
+                                    country: 'US',
+                                    message: 'Please supply a vaild phone number with area code'
+                                }
+                            }
+                        },
+
+                               facultyDepartment: {
+                              validators: {
+                                 notEmpty: {
+                             message: 'Please select the department'
+                                  }
+                                  }
+                              },
+
+                                 secondFacultyFirstName: {
+                            validators: {
+                                stringLength: {
+                                    min: 2,
+                                },
+                                notEmpty: {
+                                    message: 'Please supply your first name'
+                                }
+                            }
+                        },
+                        secondFacultyLastName: {
+                            validators: {
+                                stringLength: {
+                                    min: 2,
+                                },
+                                notEmpty: {
+                                    message: 'Please supply your last name'
+                                }
+                            }
+                        },
+                        secondFacultyEmail: {
+                            validators: {
+                                notEmpty: {
+                                    message: 'Please supply your email address'
+                                },
+                                emailAddress: {
+                                    message: 'Please supply a valid email address'
+                                }
+                            }
+                        },
+                        secondFacultyPhone: {
+                            validators: {
+                                notEmpty: {
+                                    message: 'Please supply your phone number'
+                                },
+                                phone: {
+                                    country: 'US',
+                                    message: 'Please supply a vaild phone number with area code'
+                                }
+                            }
+                        },
+
+                                 secondFacultyDepartment: {
+                              validators: {
+                                 notEmpty: {
+                             message: 'Please select the department'
+                                  }
+                                  }
+                              },
+
+                        gradStudentFirstName: {
+                            validators: {
+                                stringLength: {
+                                    min: 2,
+                                },
+                                notEmpty: {
+                                    message: 'Please supply your first name'
+                                }
+                            }
+                        },
+                        gradStudentLastName: {
+                            validators: {
+                                stringLength: {
+                                    min: 2,
+                                },
+                                notEmpty: {
+                                    message: 'Please supply your last name'
+                                }
+                            }
+                        },
+                        gradStudentEmail: {
+                            validators: {
+                                notEmpty: {
+                                    message: 'Please supply your email address'
+                                },
+                                emailAddress: {
+                                    message: 'Please supply a valid email address'
+                                }
+                            }
+                        },
+                        gradStudentPhone: {
+                            validators: {
+                                notEmpty: {
+                                    message: 'Please supply your phone number'
+                                },
+                                phone: {
+                                    country: 'US',
+                                    message: 'Please supply a vaild phone number with area code'
+                                }
+                            }
+                        },
+         gradStudentDepartment: {
+                              validators: {
+                                 notEmpty: {
+                             message: 'Please select the department'
+                                  }
+                                  }
+                              },
+
+
+                                     apprenticeshipTitle: {
+                            validators: {
+                                stringLength: {
+
+                                    min:2,
+                                    max: 80,
+                                },
+                                notEmpty: {
+                                    message: 'Please supply your Apprenticeship Title'
+                                }
+                            }
+                        },
+
+
+                                       apprenticeshipDescription: {
+                            validators: {
+                                stringLength: {
+
+                                    min:2,
+                                    max: 1200,
+                                },
+                                notEmpty: {
+                                    message: 'Please supply your Apprenticeship Description'
+                                }
+                            }
+                        },
+
+
+              'fieldOfStudy[]': {
+                validators: {
+                    choice: {
+                        min: 1,
+                        message: 'Please choose a option'
+                    }
+                }
+            },
+
+
+            apprenticeshipWeblink: {
+                validators: {
+                    uri: {
+                        message: 'The entered URL is not valid'
+                    }
+                }
+            },
+
+
+
+                    }
+                })
+                .on('success.form.bv', function(e) {
+                    $('#success_message').slideDown({ opacity: "show" }, "slow")
+                    $('#facultyform').data('bootstrapValidator').resetForm();
+
+                    // Prevent form submission
+                    e.preventDefault();
+
+                    // Get the form instance
+                    var $form = $(e.target);
+
+                    // Get the BootstrapValidator instance
+                    var bv = $form.data('bootstrapValidator');
+
+                    // Use Ajax to submit form data
+                    $.post($form.attr('action'), $form.serialize(), function(result) {
+                        console.log(result);
+                    }, 'json');
+                });
+
+
+
+
+
+
+
 });
 
 
