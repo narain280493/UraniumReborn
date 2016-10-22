@@ -26,7 +26,31 @@
   <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.3/css/bootstrapValidator.min.css"/>
   <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"> </script>
 
+<script type="text/javascript">
+  function primarynaturedisablechackebox(){
+    var pn = document.getElementById("otherPrimaryNature");
+    if(pn.checked)
+      document.getElementById("otherNatureOfWork").disabled = false;
+    else
+     document.getElementById("otherNatureOfWork").disabled = true;    
+  }
 
+   function priorWorkdisablechackebox(){
+    var pw = document.getElementById("otherPrimaryWork");
+    if(pw.checked)
+      document.getElementById("otherAmountOfWork").disabled = false;
+    else
+     document.getElementById("otherAmountOfWork").disabled = true;    
+  }
+
+    function financestextboxdisabled(){
+    var f = document.getElementById("isNotSure");
+    if(f.checked)
+      document.getElementById("speedType").disabled = true;
+    else
+     document.getElementById("speedType").disabled = false;    
+  }
+</script>
   <script>
     $(document).ready(function() {
     $('#studentform').bootstrapValidator({
@@ -405,12 +429,12 @@
     <!-- scripts -->
 <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.1.0/react.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.1.0/react-dom.min.js"></script>-->
-<nav class="navbar navbar-inverse" style="background: #f4bc42 ">
+<nav class="navbar navbar-inverse" style="background:#f4bc42">
   <div class="container-fluid" >
     <div class="navbar-header">
       <a class="navbar-brand" href="#">Discovery Learning Apprenticeship Program</a>
     </div>
-    <ul class="nav navbar-nav" style="font color:black">
+    <ul class="nav navbar-nav">
       <li class="active"><a href="#">Home</a></li>
       <li><a href="">Student form</a></li>
         <li><a href="faculty">Faculty form</a></li>
