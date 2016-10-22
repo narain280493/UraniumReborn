@@ -81,7 +81,7 @@ def listofprojects():
         g_email = request.form.get('gradStudentEmail',None)
         g_dept = str(request.form.get('gradStudentDepartment',None))
         is_focus = request.form.get('isDevelopingCommunities', False)
-        print is_focus
+        #print is_focus
 
         is_focus_value = False
         if is_focus == "yes":
