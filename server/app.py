@@ -2,6 +2,7 @@ from flask import Flask, render_template, request
 from forms import SignupForm
 from database.database import db_session
 import os
+import json
 from models.faculty import faculty
 from models.project import project
 
@@ -54,8 +55,9 @@ def listofprojects():
     rows = []
 
     for f in facs:
-        row = {"Faculty Name": f.faculty_name, "id": f.id, "Project Name": f.projects.title}
-        rows.append(row)
+        for p in f.projects:
+            row = {"Faculty Name": f.faculty_name, "id": p.id, "Project Name": p.title, "Project Description": p.description}
+            rows.append(row)
 
     return render_template('listofprojects.html', pRows=rows)
 
