@@ -1,0 +1,22 @@
+table .sort {
+  cursor: pointer;
+  cursor: hand;
+}
+table .sort:after {
+  padding-left: 1em;
+
+  font-size: 0.5em;
+}
+table .sort-none:after {
+  content: '\21D5';
+
+  padding-left: 0.5em;
+  font-size: 1em;
+}
+table .sort-asc:after {
+  content: '\25BC';
+
+}
+table .sort-desc:after {
+  content: '\25B2';
+}
