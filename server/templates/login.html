@@ -1,0 +1,26 @@
+{% extends "navigation.html" %}
+
+{% block content %}
+ <body class="loginbody">
+<div style="background: rgba(0,0,0, 0.6)" class="jumbotron jumbotron-login" >
+<section class="loginform cf">
+<form name="login" action="index_submit" method="get" accept-charset="utf-8">
+  <ul>
+    <li><label for="useremail">Email ID</label>
+    <input type="email" name="useremail" placeholder="yourname@colorado.edu" style="width: 220px;" required></li>
+    </ul>
+    <ul>
+    <li><label for="password">Password</label>
+    <input type="password" name="password" placeholder="password" style="width: 220px;" required></li>
+    </ul>
+    <ul>
+    <li>
+    <input type="submit" value="Login" align="right" style="margin: 10px 10px 10px 60px;"	></li>
+  </ul>
+</form>
+</section>
+</div>
+</body>
+
+{% endblock %}
+

@@ -1,0 +1,29 @@
+{
+  "name": "UraniumReborn",
+  "homepage": "https://github.com/narain280493/UraniumReborn",
+  "authors": [
+    "Athithyaa <athithyapanchapakesan@gmail.com>"
+  ],
+  "description": "Foundations of software engineering project",
+  "main": "",
+  "keywords": [
+    "flask",
+    "bower",
+    "reactjs",
+    "postgres",
+    "FSE"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.6",
+    "react": "^15.1.0"
+  }
+}

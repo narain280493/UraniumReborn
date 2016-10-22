@@ -1,0 +1,6 @@
+.idea/
+UraniumReborn.iml
+models/__init__.pyc
+models/faculty.pyc
+models/project.pyc
+server/forms.pyc

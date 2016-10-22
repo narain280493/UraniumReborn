@@ -1,0 +1,32 @@
+{
+  "name": "uraniumreborn",
+  "version": "1.0.0",
+  "description": "foundations of software engineering project",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/narain280493/UraniumReborn.git"
+  },
+  "keywords": [
+    "bower",
+    "reactjs",
+    "flask",
+    "FSE",
+    "nodejs"
+  ],
+  "author": "Athithyaa Panchapakesan Rajeswari",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/narain280493/UraniumReborn/issues"
+  },
+  "homepage": "https://github.com/narain280493/UraniumReborn#readme",
+  "devDependencies": {
+    "bower": "^1.7.9"
+  }
+}
