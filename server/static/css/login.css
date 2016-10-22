@@ -5,12 +5,12 @@
     background-position: 0% 50%;
     background-size: cover;
     background-repeat: no-repeat;
-    color: white;
+    color: black;
     width:30%;
    min-height: 250px;
   left: 33%;
   position: relative;
-    text-shadow: black 0.2em 0.2em 0.2em;
+   /* text-shadow: black 0.2em 0.2em 0.2em;*/
     padding-top: 40px;
     margin-top: 150px;
 
