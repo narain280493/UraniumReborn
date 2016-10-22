@@ -1,38 +1,56 @@
 <!DOCTYPE html>
 <html>
-  <head lang="en">
-    <meta charset="UTF-8">
-    <title>Discovery Learning Apprenticeship Program</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="../static/css/style.css">
-    <link rel="stylesheet" type="text/css" href="../static/css/login.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="{{ url_for('static', filename='bower_components/react/react.js') }}"></script>
-    <script src="{{ url_for('static', filename='bower_components/react/react-dom.js') }}"></script>
-    <script src="{{ url_for('static', filename='bower_components/reactabular/dist/reactabular.js') }}"></script>
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/JSXTransformer.js"></script>
-  </head>
-  <body>
-    <nav class="navbar navbar-inverse" style="background: #420013 ">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="#">Discovery Learning Apprenticeship Program</a>
-        </div>
-        <ul class="nav navbar-nav">
-          <li class="active"><a href="./">Home</a></li>
-          <li><a href="#">Student form</a></li>
-            <li><a href="#">Faculty form</a></li>
-          <li><a href="./listofprojects">List of Projects</a></li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-          <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-          <li><a href="login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-        </ul>
-      </div>
-    </nav>
-    {% block content %}
-    {% endblock %}
-  </body>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>Discovery Learning Apprenticeship Program</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="../static/css/style.css">
+  <link rel="stylesheet" type="text/css" href="../static/css/login.css">
+  <!--<script src="../static/bower_components/js/login.js"></script>-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="{{ url_for('static', filename='bower_components/react/react.js') }}"></script>
+  <script src="{{ url_for('static', filename='bower_components/react/react-dom.js') }}"></script>
+  <script src="{{ url_for('static', filename='bower_components/reactabular/dist/reactabular.js') }}"></script>
+  <script src="{{ url_for('static', filename='bower_components/react-bootstrap/react-bootstrap.js') }}"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/JSXTransformer.js">
+  </script>
+
+  <script type="text/jsx">
+    var Form = ReactBootstrap.Form
+    var FormGroup = ReactBootstrap.FormGroup
+    var Col = ReactBootstrap.Col
+    var ControlLabel = ReactBootstrap.ControlLabel
+    var FormControl = ReactBootstrap.FormControl
+    var Checkbox = ReactBootstrap.Checkbox
+    var Button = ReactBootstrap.Button
+    var HelpBlock = ReactBootstrap.HelpBlock
+  </script>
+</head>
+<body >
+
+<!-- scripts -->
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.1.0/react.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.1.0/react-dom.min.js"></script>-->
+<nav class="navbar navbar-inverse" style="background: #f4bc42 ">
+  <div class="container-fluid" >
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Discovery Learning Apprenticeship Program</a>
+    </div>
+    <ul class="nav navbar-nav" style="font color:black">
+      <li class="active"><a href="#">Home</a></li>
+      <li><a href="student">Student form</a></li>
+      <li><a href="faculty">Faculty form</a></li>
+      <li><a href="listofprojects">List of Projects</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+
+    </ul>
+  </div>
+</nav>
+{% block content %}
+{% endblock %}
+</body>
 </html>

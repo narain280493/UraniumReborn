@@ -2,3 +2,4 @@ sqlalchemy
 Flask
 Flask-SQLAlchemy
 psycopg2
+flask_wtf
