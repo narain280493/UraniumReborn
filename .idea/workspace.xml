@@ -2,577 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a505c42e-1a5e-4d39-9d6c-3c6f06eb3375" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app_tests.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/forms.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/faculty.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/hello_backup.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/home.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/listofprojects.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/login.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/navigation.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/signup.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/student.html" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/app.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/flaskr_tests.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/forms.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/.bower.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/CHANGELOG.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/Gemfile" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/Gemfile.lock" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/Gruntfile.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/ISSUE_TEMPLATE.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/LICENSE" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/bower.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/dist/css/bootstrap-theme.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/dist/css/bootstrap-theme.css.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/dist/css/bootstrap-theme.min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/dist/css/bootstrap-theme.min.css.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/dist/css/bootstrap.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/dist/css/bootstrap.css.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/dist/css/bootstrap.min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/dist/css/bootstrap.min.css.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.eot" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.woff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/dist/js/bootstrap.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/dist/js/bootstrap.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/dist/js/npm.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/fonts/glyphicons-halflings-regular.eot" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/fonts/glyphicons-halflings-regular.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/fonts/glyphicons-halflings-regular.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/fonts/glyphicons-halflings-regular.woff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/fonts/glyphicons-halflings-regular.woff2" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/grunt/.jshintrc" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/grunt/bs-commonjs-generator.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/grunt/bs-glyphicons-data-generator.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/grunt/bs-lessdoc-parser.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/grunt/bs-raw-files-generator.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/grunt/change-version.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/grunt/configBridge.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/grunt/npm-shrinkwrap.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/grunt/sauce_browsers.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/js/.jscsrc" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/js/.jshintrc" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/js/affix.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/js/alert.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/js/button.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/js/carousel.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/js/collapse.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/js/dropdown.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/js/modal.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/js/popover.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/js/scrollspy.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/js/tab.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/js/tooltip.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/js/transition.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/less/.csscomb.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/less/.csslintrc" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/less/alerts.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/less/badges.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/less/bootstrap.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/less/breadcrumbs.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/less/button-groups.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/less/buttons.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/less/carousel.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/less/close.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/less/code.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/less/component-animations.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/less/dropdowns.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/less/forms.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/less/glyphicons.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/less/grid.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/less/input-groups.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/less/jumbotron.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/less/labels.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/less/list-group.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/less/media.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/less/mixins.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/less/mixins/alerts.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/less/mixins/background-variant.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/less/mixins/border-radius.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/less/mixins/buttons.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/less/mixins/center-block.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/less/mixins/clearfix.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/less/mixins/forms.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/less/mixins/gradients.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/less/mixins/grid-framework.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/less/mixins/grid.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/less/mixins/hide-text.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/less/mixins/image.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/less/mixins/labels.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/less/mixins/list-group.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/less/mixins/nav-divider.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/less/mixins/nav-vertical-align.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/less/mixins/opacity.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/less/mixins/pagination.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/less/mixins/panels.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/less/mixins/progress-bar.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/less/mixins/reset-filter.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/less/mixins/reset-text.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/less/mixins/resize.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/less/mixins/responsive-visibility.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/less/mixins/size.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/less/mixins/tab-focus.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/less/mixins/table-row.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/less/mixins/text-emphasis.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/less/mixins/text-overflow.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/less/mixins/vendor-prefixes.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/less/modals.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/less/navbar.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/less/navs.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/less/normalize.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/less/pager.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/less/pagination.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/less/panels.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/less/popovers.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/less/print.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/less/progress-bars.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/less/responsive-embed.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/less/responsive-utilities.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/less/scaffolding.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/less/tables.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/less/theme.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/less/thumbnails.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/less/tooltip.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/less/type.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/less/utilities.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/less/variables.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/less/wells.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/nuget/MyGet.ps1" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/nuget/bootstrap.less.nuspec" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/nuget/bootstrap.nuspec" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/package.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/bootstrap/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/jquery/.bower.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/jquery/AUTHORS.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/jquery/LICENSE.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/jquery/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/jquery/bower.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/jquery/dist/core.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/jquery/dist/jquery.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/jquery/dist/jquery.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/jquery/dist/jquery.min.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/jquery/dist/jquery.slim.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/jquery/dist/jquery.slim.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/jquery/dist/jquery.slim.min.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/jquery/external/sizzle/LICENSE.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/jquery/external/sizzle/dist/sizzle.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/jquery/external/sizzle/dist/sizzle.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/jquery/external/sizzle/dist/sizzle.min.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/jquery/src/.eslintrc.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/jquery/src/ajax.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/jquery/src/ajax/jsonp.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/jquery/src/ajax/load.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/jquery/src/ajax/parseXML.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/jquery/src/ajax/script.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/jquery/src/ajax/var/location.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/jquery/src/ajax/var/nonce.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/jquery/src/ajax/var/rquery.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/jquery/src/ajax/xhr.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/jquery/src/attributes.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/jquery/src/attributes/attr.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/jquery/src/attributes/classes.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/jquery/src/attributes/prop.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/jquery/src/attributes/support.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/jquery/src/attributes/val.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/jquery/src/callbacks.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/jquery/src/core.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/jquery/src/core/DOMEval.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/jquery/src/core/access.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/jquery/src/core/init.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/jquery/src/core/parseHTML.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/jquery/src/core/ready-no-deferred.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/jquery/src/core/ready.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/jquery/src/core/readyException.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/jquery/src/core/stripAndCollapse.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/jquery/src/core/support.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/jquery/src/core/var/rsingleTag.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/jquery/src/css.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/jquery/src/css/addGetHookIf.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/jquery/src/css/adjustCSS.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/jquery/src/css/curCSS.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/jquery/src/css/hiddenVisibleSelectors.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/jquery/src/css/showHide.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/jquery/src/css/support.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/jquery/src/css/var/cssExpand.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/jquery/src/css/var/getStyles.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/jquery/src/css/var/isHiddenWithinTree.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/jquery/src/css/var/rmargin.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/jquery/src/css/var/rnumnonpx.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/jquery/src/css/var/swap.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/jquery/src/data.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/jquery/src/data/Data.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/jquery/src/data/var/acceptData.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/jquery/src/data/var/dataPriv.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/jquery/src/data/var/dataUser.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/jquery/src/deferred.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/jquery/src/deferred/exceptionHook.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/jquery/src/deprecated.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/jquery/src/dimensions.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/jquery/src/effects.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/jquery/src/effects/Tween.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/jquery/src/effects/animatedSelector.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/jquery/src/event.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/jquery/src/event/ajax.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/jquery/src/event/alias.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/jquery/src/event/focusin.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/jquery/src/event/support.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/jquery/src/event/trigger.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/jquery/src/exports/amd.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/jquery/src/exports/global.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/jquery/src/jquery.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/jquery/src/manipulation.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/jquery/src/manipulation/_evalUrl.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/jquery/src/manipulation/buildFragment.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/jquery/src/manipulation/getAll.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/jquery/src/manipulation/setGlobalEval.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/jquery/src/manipulation/support.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/jquery/src/manipulation/var/rcheckableType.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/jquery/src/manipulation/var/rscriptType.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/jquery/src/manipulation/var/rtagName.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/jquery/src/manipulation/wrapMap.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/jquery/src/offset.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/jquery/src/queue.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/jquery/src/queue/delay.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/jquery/src/selector-native.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/jquery/src/selector-sizzle.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/jquery/src/selector.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/jquery/src/serialize.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/jquery/src/traversing.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/jquery/src/traversing/findFilter.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/jquery/src/traversing/var/dir.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/jquery/src/traversing/var/rneedsContext.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/jquery/src/traversing/var/siblings.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/jquery/src/var/ObjectFunctionString.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/jquery/src/var/arr.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/jquery/src/var/class2type.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/jquery/src/var/concat.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/jquery/src/var/document.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/jquery/src/var/documentElement.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/jquery/src/var/fnToString.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/jquery/src/var/getProto.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/jquery/src/var/hasOwn.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/jquery/src/var/indexOf.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/jquery/src/var/pnum.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/jquery/src/var/push.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/jquery/src/var/rcssNum.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/jquery/src/var/rnothtmlwhite.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/jquery/src/var/slice.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/jquery/src/var/support.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/jquery/src/var/toString.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/jquery/src/wrap.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/react/.bower.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/react/LICENSE" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/react/PATENTS" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/react/bower.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/react/react-dom-server.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/react/react-dom-server.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/react/react-dom.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/react/react-dom.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/react/react-with-addons.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/react/react-with-addons.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/react/react.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/react/react.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/.babelrc" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/.bithoundrc" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/.bower.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/.eslintignore" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/.eslintrc.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/.gitignore" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/.travis.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/CNAME" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/CONTRIBUTING.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/CONTRIBUTORS.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/LICENSE.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/dist/reactabular.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/dist/reactabular.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/dist/reactabular.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/dist/reactabular.min.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/docs/column-definition/cell.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/docs/column-definition/formatters.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/docs/column-definition/header.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/docs/column-definition/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/docs/column-definition/introduction.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/docs/column-definition/nested-columns.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/docs/column-definition/property.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/docs/column-definition/props.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/docs/column-definition/transforms.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/docs/contributing/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/docs/data/countries.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/docs/data/definitions.jsx" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/docs/data/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/docs/data/paginating.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/docs/documentation.jsx" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/docs/examples/all-features.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/docs/examples/crud-redux.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/docs/examples/crud.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/docs/examples/excel.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/docs/examples/expand-column-to-fit.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/docs/examples/fixed-width-columns.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/docs/examples/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/docs/examples/infinite-scrolling.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/docs/examples/multiple-async-instances.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/docs/features/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/docs/features/inline-editing.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/docs/helpers/Paginator.jsx" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/docs/helpers/PerPage.jsx" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/docs/helpers/PrimaryControls.jsx" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/docs/helpers/generate_parents.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/docs/helpers/generate_rows.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/docs/helpers/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/docs/helpers/paginate.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/docs/index.jsx" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/docs/installing.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/docs/main.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/docs/pages.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/docs/table/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/docs/table/introduction.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/docs/table/overriding-default-elements.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/docs/table/styling.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/images/kenandy.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/images/logo.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/images/survivejs.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/lerna.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/lib/post_install.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/react-edit/CHANGELOG.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/react-edit/LICENSE" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/react-edit/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/react-edit/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/react-edit/src/boolean.jsx" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/react-edit/src/dropdown.jsx" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/react-edit/src/edit.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/react-edit/src/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/react-edit/src/input.jsx" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/react-edit/tests/boolean_test.jsx" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/react-edit/tests/dropdown_test.jsx" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/react-edit/tests/edit_test.jsx" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/react-edit/tests/input_test.jsx" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-dnd/CHANGELOG.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-dnd/LICENSE" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-dnd/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-dnd/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-dnd/src/header.jsx" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-dnd/src/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-dnd/src/move.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-dnd/src/row.jsx" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-easy/CHANGELOG.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-easy/LICENSE" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-easy/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-easy/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-easy/src/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-easy/src/table.jsx" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-easy/src/types.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-easy/style.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-highlight/CHANGELOG.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-highlight/LICENSE" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-highlight/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-highlight/__tests__/cell_test.jsx" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-highlight/__tests__/highlighter_test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-highlight/__tests__/value_test.jsx" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-highlight/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-highlight/src/cell.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-highlight/src/highlighter.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-highlight/src/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-highlight/src/value.jsx" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-resizable/CHANGELOG.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-resizable/LICENSE" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-resizable/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-resizable/__tests__/resizable_column_test.jsx" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-resizable/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-resizable/src/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-resizable/src/resizable_column.jsx" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-resizable/style.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-resolve/CHANGELOG.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-resolve/LICENSE" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-resolve/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-resolve/__tests__/by_function_test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-resolve/__tests__/index_test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-resolve/__tests__/nested_test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-resolve/__tests__/resolve_test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-resolve/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-resolve/src/_index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-resolve/src/by_function.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-resolve/src/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-resolve/src/nested.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-resolve/src/resolve.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-search-columns/CHANGELOG.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-search-columns/LICENSE" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-search-columns/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-search-columns/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-search-columns/src/index.jsx" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-search-field/CHANGELOG.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-search-field/LICENSE" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-search-field/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-search-field/__tests__/search_test.jsx" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-search-field/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-search-field/src/Search.jsx" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-search-field/src/SearchOptions.jsx" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-search-field/src/index.jsx" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-search/CHANGELOG.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-search/LICENSE" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-search/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-search/__tests__/_column_matches_test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-search/__tests__/matches_test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-search/__tests__/multiple_columns_test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-search/__tests__/single_column_test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-search/__tests__/strategies_test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-search/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-search/src/_column_matches.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-search/src/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-search/src/matches.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-search/src/multiple_columns.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-search/src/single_column.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-search/src/strategies.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-select/CHANGELOG.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-select/LICENSE" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-select/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-select/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-select/src/Select.jsx" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-select/src/by-arrow-keys.jsx" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-select/src/index.jsx" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-select/src/row.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-sort/CHANGELOG.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-sort/LICENSE" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-sort/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-sort/__tests__/by_column_test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-sort/__tests__/by_columns_prioritize_last_sorted_test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-sort/__tests__/by_columns_test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-sort/__tests__/header_test.jsx" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-sort/__tests__/reset_test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-sort/__tests__/sort_test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-sort/__tests__/sorter_test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-sort/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-sort/src/by_column.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-sort/src/by_columns.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-sort/src/by_columns_prioritize_last_sorted.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-sort/src/default_order.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-sort/src/header.jsx" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-sort/src/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-sort/src/reset.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-sort/src/sort.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-sort/src/sorter.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-sort/src/strategies.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-sort/style.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-sticky/CHANGELOG.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-sticky/LICENSE" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-sticky/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-sticky/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-sticky/src/body.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-sticky/src/header.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-sticky/src/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-table/CHANGELOG.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-table/LICENSE" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-table/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-table/__tests__/body_test.jsx" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-table/__tests__/header_test.jsx" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-table/__tests__/provider_test.jsx" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-table/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-table/src/body-row.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-table/src/body.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-table/src/header-row.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-table/src/header.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-table/src/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-table/src/provider.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-table/src/types.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-tree/CHANGELOG.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-tree/LICENSE" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-tree/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-tree/__tests__/collapse_all_test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-tree/__tests__/expand_all_test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-tree/__tests__/filter_test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-tree/__tests__/get_children_test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-tree/__tests__/get_level_test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-tree/__tests__/get_parents_test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-tree/__tests__/has_children_test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-tree/__tests__/pack_test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-tree/__tests__/search_test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-tree/__tests__/sort_test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-tree/__tests__/unpack_test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-tree/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-tree/src/collapse-all.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-tree/src/expand-all.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-tree/src/filter.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-tree/src/get-children.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-tree/src/get-level.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-tree/src/get-parents.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-tree/src/has-children.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-tree/src/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-tree/src/pack.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-tree/src/search.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-tree/src/sort.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-tree/src/toggle-children.jsx" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-tree/src/unpack.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-tree/style.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-utils/CHANGELOG.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-utils/LICENSE" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-utils/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-utils/__tests__/count_row_span_test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-utils/__tests__/evaluate_transforms_test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-utils/__tests__/merge_class_names_test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-utils/__tests__/resolve_body_columns_test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-utils/__tests__/resolve_header_rows_test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-utils/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-utils/src/count-row-span.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-utils/src/evaluate-transforms.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-utils/src/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-utils/src/merge-class-names.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-utils/src/merge-prop-pair.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-utils/src/resolve-body-columns.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-utils/src/resolve-header-rows.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-utils/src/resolve-row-key.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-virtualized/CHANGELOG.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-virtualized/LICENSE" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-virtualized/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-virtualized/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-virtualized/src/body-row.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-virtualized/src/body-wrapper.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-virtualized/src/body.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-virtualized/src/calculate-average-height.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-virtualized/src/calculate-rows.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-virtualized/src/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-virtualized/src/types.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-visibility-toggles/CHANGELOG.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-visibility-toggles/LICENSE" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-visibility-toggles/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-visibility-toggles/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-visibility-toggles/src/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-visibility-toggles/src/visibility-toggles.jsx" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular-visibility-toggles/style.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular/CHANGELOG.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular/LICENSE" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/packages/reactabular/src/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/style.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/templates/index.ejs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/bower_components/reactabular/webpack.config.babel.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/css/login.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/css/style.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/static/js/login.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/templates/faculty.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/templates/hello_backup.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/templates/home.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/templates/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/templates/listofprojects.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/templates/login.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/templates/navigation.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/templates/signup.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/templates/student.html" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/UraniumReborn.iml" afterPath="$PROJECT_DIR$/.idea/UraniumReborn.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.travis.yml" afterPath="$PROJECT_DIR$/.travis.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Procfile" afterPath="$PROJECT_DIR$/Procfile" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/config.properties" afterPath="$PROJECT_DIR$/database/config.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/database.py" afterPath="$PROJECT_DIR$/database/database.py" />
     </list>
     <ignored path="UraniumReborn.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -652,11 +83,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name=".travis.yml" pinned="false" current-in-tab="false">
+      <file leaf-file-name=".travis.yml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.travis.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+            <state relative-caret-position="68">
+              <caret line="4" column="9" selection-start-line="4" selection-start-column="9" selection-end-line="4" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -672,7 +103,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="config.properties" pinned="false" current-in-tab="true">
+      <file leaf-file-name="config.properties" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/database/config.properties">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="17">
@@ -731,8 +162,8 @@
         <option value="$PROJECT_DIR$/flaskr_tests.py" />
         <option value="$PROJECT_DIR$/app_tests.py" />
         <option value="$PROJECT_DIR$/app.py" />
-        <option value="$PROJECT_DIR$/.travis.yml" />
         <option value="$PROJECT_DIR$/database/config.properties" />
+        <option value="$PROJECT_DIR$/.travis.yml" />
       </list>
     </option>
   </component>
@@ -1687,8 +1118,16 @@
       <workItem from="1477110706203" duration="1495000" />
       <workItem from="1477112670646" duration="2738000" />
       <workItem from="1477120483679" duration="819000" />
-      <workItem from="1477177948449" duration="3830000" />
+      <workItem from="1477177948449" duration="4145000" />
     </task>
+    <task id="LOCAL-00001" summary="adding some simple testcases to try out travis">
+      <created>1477181860573</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1477181860573</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1721,11 +1160,11 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9701000" />
+    <option name="totallyTimeSpent" value="10016000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1735,7 +1174,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32919255" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27639753" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27639753" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Mongo Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1774,7 +1213,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="rectifying travis and updating requirements" />
-    <option name="LAST_COMMIT_MESSAGE" value="rectifying travis and updating requirements" />
+    <MESSAGE value="adding some simple testcases to try out travis" />
+    <option name="LAST_COMMIT_MESSAGE" value="adding some simple testcases to try out travis" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -2159,18 +1599,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.travis.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/config.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="1" column="9" selection-start-line="1" selection-start-column="9" selection-end-line="1" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.travis.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="9" selection-start-line="4" selection-start-column="9" selection-end-line="4" selection-end-column="9" />
           <folding />
         </state>
       </provider>
