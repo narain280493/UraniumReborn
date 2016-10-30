@@ -19,7 +19,7 @@ class AppTestCase(unittest.TestCase):
 
     def test_home_page(self):
         rv = self.app.get("/")
-        assert b'Whether helping develop new diagnostic techniques' in rv.data
+        assert b'Password' in rv.data
 
     def test_post_request(self):
         self.app.post("/listofprojects",

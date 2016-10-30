@@ -4,8 +4,6 @@ from sqlalchemy.ext.declarative import declarative_base
 import os
 from urlparse import urlparse
 
-
-
 def get_username(file):
     f = open(file)
     uname = ""

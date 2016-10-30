@@ -1,10 +1,14 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, session, redirect, url_for
 from forms import SignupForm
 from database.database import db_session, init_db
 import os
 import json
 from models.faculty import faculty
 from models.project import project
+from models.loginpage import loginpage
+from werkzeug import generate_password_hash, check_password_hash
+from sqlalchemy import and_
+
 
 tmpl_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'templates')
 app = Flask("UraniumReborn", template_folder=tmpl_dir)
@@ -18,40 +22,109 @@ def shutdown_session(exception=None):
 app.secret_key = "dev-key"
 
 
-@app.route('/')
+@app.route('/', methods=['GET', 'POST'])
 def index():
-    return render_template('home.html')
-
+    if request.method == 'GET':
+        print "get"
+        #print session['email']
+        if 'email' in session:
+            print "email"
+            return render_template('home.html')
+        else:
+            print "else"
+            return render_template('login.html')
 
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
     form = SignupForm()
     if request.method == 'POST':
+
         if form.validate() == False:
             return render_template('signup.html', form=form)
         else:
-            return "Dummy Signup"
+            #print form.email.data, form.first_name.data
+            name = form.first_name.data+ ' '+ form.last_name.data
+            existingUser = loginpage.query.filter_by(username=form.email.data.lower()).first()
+
+            # check whether user already exists
+            if existingUser:
+                print "existing user"
+                return redirect(url_for('signup'))
+
+            else:
+                #print name, form.password.data
+                newuser = loginpage(form.email.data, name, form.password.data)
+                #newuser = loginpage('abc', 'def', 'ghi')
+                #print form.email.data
+                db_session.add(newuser)
+                db_session.commit()
+                session['email'] = form.email.data
+                session['name'] = name
+                return redirect(url_for('index'))
+
     elif request.method == 'GET':
+
+        if 'email' in session:
+            return redirect(url_for('index'))
         return render_template('signup.html', form=form)
 
+#TO-DO: Write authentication code for login
 
-@app.route('/login')
+@app.route('/login', methods=['GET', 'POST'])
 def login():
-    return render_template('login.html')
+    if request.method == 'POST':
 
+        email = request.form.get('useremail')
+        passwd = request.form.get('password')
+        print email, passwd
+        user = loginpage.query.filter_by(username=email.lower()).first()
+
+        print user, user.passwdhash, check_password_hash(user.passwdhash,passwd)
+        if user and check_password_hash(user.passwdhash,passwd):
+            print "valid"
+            session['email'] = email
+            session['name'] = user.name
+            return redirect(url_for('index'))
+        else:
+            print "blahhh"
+            return redirect(url_for('login'))
+    else:
+
+        if 'email' in session:
+            print "already logged in"
+            return redirect(url_for('index'))
+
+        return render_template('login.html')
+
+@app.route('/logout')
+def signout():
+
+    if 'email' not in session:
+        return render_template('login.html')
+
+    session.pop('email', None)
+    session.pop('name', None)
+    return render_template('login.html')
 
 @app.route('/student')
 def student():
+    if 'email' not in session:
+        return redirect(url_for('index'))
     return render_template('student.html')
 
 
 @app.route('/faculty')
 def faculty_page():
+    if 'email' not in session:
+        return redirect(url_for('index'))
+
     return render_template('faculty.html')
 
 
 @app.route('/listofprojects', methods=['GET', 'POST'])
 def listofprojects():
+    if 'email' not in session:
+        return redirect(url_for('index'))
     if request.method == 'POST':
         f_first_name = request.form.get('facultyFirstName', None)
         f_last_name = request.form.get('facultyLastName', None)
@@ -193,6 +266,7 @@ def listofprojects():
             rows.append(row)
 
     return render_template('listofprojects.html', pRows=rows)
+
 
 
 if __name__ == '__main__':

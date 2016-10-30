@@ -429,10 +429,19 @@
         <li > <a href="faculty">Faculty form</a></li>
       <li > <a href="listofprojects">List of Projects</a></li>
     </ul>
-    <ul class="nav navbar-nav navbar-right">
-      <li><a href="login"><span class="glyphicon glyphicon-log-in "></span> Login</a></li>
+      {% if 'email' not in session %}
+          <ul class="nav navbar-nav navbar-right">
+              <li><a href="login"><span class="glyphicon glyphicon-log-in "></span> Login</a></li>
+              <li><a href="signup"><span class="glyphicon glyphicon-log-in "></span> Signup</a></li>
+          </ul>
 
-    </ul>
+      {% else %}
+          <ul class="nav navbar-nav navbar-right">
+              <li> <a href="/"> {% print session['name'] %} </a></li>
+              <li><a href="logout"><span class="glyphicon glyphicon-log-in "></span> Logout</a></li>
+          </ul>
+      {% endif %}
+
   </div>
 </nav>
 {% block content %}
