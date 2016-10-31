@@ -45,13 +45,14 @@ class AppTestCase(unittest.TestCase):
         ), follow_redirects=True)
 
     def test_home_page(self):
+        self.test_signup()
         rv_login = self.test_login()
-        print rv_login.data
         assert b'Whether helping develop new diagnostic techniques' in rv_login.data
         rv = self.app.get("/")
         assert b'Whether helping develop new diagnostic techniques' in rv.data
 
     def test_post_request(self):
+        self.test_signup()
         rv_login = self.test_login()
         assert b'Whether helping develop new diagnostic techniques' in rv_login.data
         self.app.post("/listofprojects",
