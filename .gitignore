@@ -4,3 +4,5 @@ models/__init__.pyc
 models/faculty.pyc
 models/project.pyc
 server/forms.pyc
+database/database.py
+database/config.properties
