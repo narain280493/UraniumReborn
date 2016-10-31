@@ -46,6 +46,7 @@ class AppTestCase(unittest.TestCase):
 
     def test_home_page(self):
         rv_login = self.test_login()
+        print rv_login.data
         assert b'Whether helping develop new diagnostic techniques' in rv_login.data
         rv = self.app.get("/")
         assert b'Whether helping develop new diagnostic techniques' in rv.data
