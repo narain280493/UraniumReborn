@@ -22,10 +22,7 @@ class loginpage(Base):
         #self.f_id = p_f_id
         self.username = user_name
         self.name = login_name
-        self.passwdhash = generate_password_hash(password)
-
-    def check_password(self, password):
-        return check_password_hash(self.passwdhash, password)
+        self.passwdhash = generate_password_hash(password, method='pbkdf2:sha256', salt_length=8)
 
     def __repr__(self):
         print "repr"

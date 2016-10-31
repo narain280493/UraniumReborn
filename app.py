@@ -6,12 +6,19 @@ import json
 from models.faculty import faculty
 from models.project import project
 from models.loginpage import loginpage
-from werkzeug import generate_password_hash, check_password_hash
-from sqlalchemy import and_
+from werkzeug import check_password_hash
+from datetime import timedelta
 
 
 tmpl_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'templates')
 app = Flask("UraniumReborn", template_folder=tmpl_dir)
+app.secret_key = "dev-key"
+
+
+@app.before_request
+def make_session_permanent():
+    session.permanent = True
+    app.permanent_session_lifetime = timedelta(minutes=5)
 
 
 @app.teardown_appcontext
@@ -19,43 +26,31 @@ def shutdown_session(exception=None):
     db_session.remove()
 
 
-app.secret_key = "dev-key"
-
-
 @app.route('/', methods=['GET', 'POST'])
 def index():
     if request.method == 'GET':
-        print "get"
-        #print session['email']
         if 'email' in session:
-            print "email"
             return render_template('home.html')
         else:
-            print "else"
             return render_template('login.html')
+
 
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
     form = SignupForm()
     if request.method == 'POST':
 
-        if form.validate() == False:
+        if not form.validate():
             return render_template('signup.html', form=form)
         else:
-            #print form.email.data, form.first_name.data
-            name = form.first_name.data+ ' '+ form.last_name.data
+            name = form.first_name.data + ' ' + form.last_name.data
             existingUser = loginpage.query.filter_by(username=form.email.data.lower()).first()
 
             # check whether user already exists
             if existingUser:
-                print "existing user"
                 return redirect(url_for('signup'))
-
             else:
-                #print name, form.password.data
                 newuser = loginpage(form.email.data, name, form.password.data)
-                #newuser = loginpage('abc', 'def', 'ghi')
-                #print form.email.data
                 db_session.add(newuser)
                 db_session.commit()
                 session['email'] = form.email.data
@@ -68,43 +63,36 @@ def signup():
             return redirect(url_for('index'))
         return render_template('signup.html', form=form)
 
-#TO-DO: Write authentication code for login
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
-
         email = request.form.get('useremail')
         passwd = request.form.get('password')
-        print email, passwd
         user = loginpage.query.filter_by(username=email.lower()).first()
 
-        print user, user.passwdhash, check_password_hash(user.passwdhash,passwd)
-        if user and check_password_hash(user.passwdhash,passwd):
-            print "valid"
+        if user and check_password_hash(user.passwdhash, passwd):
             session['email'] = email
             session['name'] = user.name
             return redirect(url_for('index'))
         else:
-            print "blahhh"
             return redirect(url_for('login'))
     else:
-
         if 'email' in session:
-            print "already logged in"
             return redirect(url_for('index'))
 
         return render_template('login.html')
 
+
 @app.route('/logout')
 def signout():
-
     if 'email' not in session:
         return render_template('login.html')
 
     session.pop('email', None)
     session.pop('name', None)
     return render_template('login.html')
+
 
 @app.route('/student')
 def student():
@@ -172,7 +160,6 @@ def listofprojects():
         p_dept_n_value = ",".join(p_dept_n)
 
         p_amt_sup = request.form.get('amountOfSupervision', None)
-        # print p_amt_sup
         p_amt_sup_value = None
         if p_amt_sup == "little":
             p_amt_sup_value = "Very little supervision; student will need to work largely independently"
@@ -266,7 +253,6 @@ def listofprojects():
             rows.append(row)
 
     return render_template('listofprojects.html', pRows=rows)
-
 
 
 if __name__ == '__main__':
