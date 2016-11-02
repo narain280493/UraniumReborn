@@ -3,37 +3,37 @@
 {% block content %}
 
 <div class="container">
-    <form class="form-horizontal" action="/listofprojects" method="post" id="facultyform" >
+    <form class="form-horizontal" action="/listofprojects" method="post" id="facultyform" enctype='application/json'>
 
-        <div class="well" >
+        <div class="well" id="faculty1">
             <h2 style="text-align: center">Faculty Member Info</h2>
             <div>&nbsp</div>
 
             <div class="form-group">
-                <label class="control-label col-md-2" for="facultyFirstName">First Name</label>
+                <label class="control-label col-md-2" for="faculty[FirstName]">First Name</label>
                 <div class="col-md-5">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                        <input type="text" class="form-control" name="facultyFirstName" placeholder="First Name">
+                        <input type="text" class="form-control" name="faculty[FirstName]" placeholder="First Name">
                     </div>
                 </div></div>
 
             <div class="form-group">
-                <label class="control-label col-md-2" for="facultyLastName">Last Name</label>
+                <label class="control-label col-md-2" for="faculty[LastName]">Last Name</label>
                 <div class="col-md-5">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                        <input type="text" class="form-control" name="facultyLastName" placeholder="Last Name">
+                        <input type="text" class="form-control" name="faculty[LastName]" placeholder="Last Name">
                     </div>
                 </div></div>
 
             <div class="form-group">
-                <label class="control-label col-md-2" for="facultyPhone">Phone</label>
+                <label class="control-label col-md-2" for="faculty[Phone]">Phone</label>
                 <div class="col-md-5">
                     <label>
                         <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
-                            <input type="tel" class="form-control" size="10" maxlength="10" name="facultyPhone" data-format="+1 (ddd) ddd-dddd">
+                            <input type="tel" class="form-control" size="10" maxlength="10" name="faculty[Phone]" data-format="+1 (ddd) ddd-dddd">
                         </div>
                     </label>
                 </div>
@@ -41,24 +41,24 @@
 
 
             <div class="form-group">
-                <label class="control-label col-md-2" for="facultyEmail">Email</label>
+                <label class="control-label col-md-2" for="faculty[Email]">Email</label>
                 <div class="col-md-5">
                     <label>
                         <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                            <input class="form-control" type="email" size="30" name="facultyEmail">
+                            <input class="form-control" type="email" size="30" name="faculty[Email]">
                     </label>
                 </div>
             </div>
         </div>
 
         <div class="form-group">
-            <label class="control-label col-md-2" for="facultyDepartment">Department/Program</label>
+            <label class="control-label col-md-2" for="faculty[Department]">Department/Program</label>
             <div class="col-md-5">
                 <label>
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
-                        <select class="form-control" name="facultyDepartment">
+                        <select class="form-control" name="faculty[Department]">
 
                             <option value="">Please Select</option>
                             <option value="Aerospace Engineering">Aerospace Engineering</option>
@@ -113,54 +113,54 @@
     <h2 style="text-align: center">Second Faculty Member (Optional)</h2>
     <div>&nbsp</div>
     <div class="form-group">
-        <label class="control-label col-md-2" for="secondFacultyFirstName">First Name:</label>
+        <label class="control-label col-md-2" for="secondFaculty[FirstName]">First Name:</label>
         <div class="col-md-5">
             <div class="input-group">
                 <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                <input type="text" class="form-control" name="secondFacultyFirstName" placeholder="First Name">
+                <input type="text" class="form-control" name="secondFaculty[FirstName]" placeholder="First Name">
             </div>
         </div></div>
 
     <div class="form-group">
-        <label class="control-label col-md-2" for="secondFacultyLastName">Last Name:</label>
+        <label class="control-label col-md-2" for="secondFaculty[LastName]">Last Name:</label>
         <div class="col-md-5">
             <div class="input-group">
                 <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                <input type="text" class="form-control" name="secondFacultyLastName" placeholder="Last Name">
+                <input type="text" class="form-control" name="secondFaculty[LastName]" placeholder="Last Name">
             </div>
         </div></div>
 
     <div class="form-group">
-        <label class="control-label col-md-2" for="secondFacultyPhone">Phone: </label>
+        <label class="control-label col-md-2" for="secondFaculty[Phone]">Phone: </label>
         <div class="col-md-5">
             <label>
                 <div class="input-group">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
-                    <input type="tel" class="form-control" size="10" maxlength="10" name="secondFacultyPhone"
+                    <input type="tel" class="form-control" size="10" maxlength="10" name="secondFaculty[Phone]"
                            data-format="+1 (ddd) ddd-dddd">
             </label>
         </div></div>
 </div>
 
 <div class="form-group">
-    <label class="control-label col-md-2" for="secondFacultyEmail">Email:</label>
+    <label class="control-label col-md-2" for="secondFaculty[Email]">Email:</label>
     <div class="col-md-5">
         <label>
             <div class="input-group">
                 <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                <input class="form-control" type="email" size="30" name="secondFacultyEmail">
+                <input class="form-control" type="email" size="30" name="secondFaculty[Email]">
                 </div>
         </label>
     </div>
 </div>
 
 <div class="form-group">
-    <label class="control-label col-md-2" for="secondFacultyDepartment">Department/Program:</label>
+    <label class="control-label col-md-2" for="secondFaculty[Department]">Department/Program:</label>
     <div class="col-md-5">
         <label>
             <div class="input-group">
                 <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
-                <select class="form-control" name="secondFacultyDepartment">
+                <select class="form-control" name="secondFaculty[Department]">
                     <option value="Aerospace Engineering">Aerospace Engineering</option>
                     <option value="Applied Mathematics">Applied Mathematics</option>
                     <option value="Architectural Engineering">Architectural Engineering</option>
@@ -189,20 +189,20 @@
     <div>&nbsp</div>
 
     <div class="form-group">
-        <label class="control-label col-md-2" for="gradStudentFirstName">First Name:</label>
+        <label class="control-label col-md-2" for="gradStudent[FirstName]">First Name:</label>
         <div class="col-md-5">
             <div class="input-group">
                 <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                <input type="text" class="form-control" name="gradStudentFirstName" placeholder="First Name">
+                <input type="text" class="form-control" name="gradStudent[FirstName]" placeholder="First Name">
             </div>
         </div></div>
 
     <div class="form-group">
-        <label class="control-label col-md-2" for="gradStudentLastName">Last Name:</label>
+        <label class="control-label col-md-2" for="gradStudent[LastName]">Last Name:</label>
         <div class="col-md-5">
             <div class="input-group">
                 <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                <input type="text" class="form-control" name="gradStudentLastName" placeholder="Last Name">
+                <input type="text" class="form-control" name="gradStudent[LastName]" placeholder="Last Name">
             </div>
         </div></div>
 
@@ -219,18 +219,18 @@
 </div>
 
 <div class="form-group">
-    <label class="control-label col-md-2" for="gradStudentEmail">Email:</label>
+    <label class="control-label col-md-2" for="gradStudent[Email]">Email:</label>
     <div class="col-md-5">
         <label>
             <div class="input-group">
                 <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                <input class="form-control" type="email" size="30" name="gradStudentEmail">
+                <input class="form-control" type="email" size="30" name="gradStudent[Email]">
         </label>
     </div></div>
 </div>
 
 <div class="form-group">
-    <label class="control-label col-md-2" for="gradStudentDepartment">Department/Program:</label>
+    <label class="control-label col-md-2" for="gradStudent[Department]">Department/Program:</label>
     <div class="col-md-5">
         <label>
             <div class="input-group">
