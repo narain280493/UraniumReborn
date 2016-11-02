@@ -3,32 +3,93 @@
 {% block content %}
 <script type="text/jsx">
     var Table = Reactabular.Table;
+    var sort = Reactabular.sort;
+    var orderBy = _.orderBy;
     const crows = JSON.parse('{{pRows|tojson}}');
-    const columns = [
-        {
-            property: 'Faculty Name',
-            header: {
-                label: 'Faculty Name'
-            }
-        },
-        {
-            property: 'Project Name',
-            header: {
-                label: 'Project Name'
-            }
-        },
-        {
-            property: 'Project Description',
-            header: {
-                label: 'Project Description'
-            }
-        }
-    ];
 
-    ReactDOM.render(<Table.Provider className="table table-striped well" columns={columns}>
-        <Table.Header />
-        <Table.Body rows={crows} rowKey="id" />
-    </Table.Provider>,document.getElementById("projectList"))
+    class ProjectSortTable extends React.Component {
+        constructor(props) {
+            super(props);
+            const getSortingColumns = () => this.state.sortingColumns || {};
+            const sortable = sort.sort({
+                getSortingColumns,
+                onSort: selectedColumn => {
+                    this.setState({
+                        sortingColumns: sort.byColumns({
+                            sortingColumns: this.state.sortingColumns, selectedColumn
+                        })
+                    })
+                }
+            });
+            const resetable = sort.reset({
+                event: 'onDoubleClick',
+                getSortingColumns,
+                onReset: ({sortingColumns}) => this.setState({sortingColumns})
+            });
+            this.state = {
+                // Sort the first column in a descending way by default.
+                // "asc" would work too and you can set multiple if you want.
+                sortingColumns: {
+                    0: {
+                        direction: 'desc',
+                        position: 0
+                    }
+                },
+                columns: [
+                    {
+                        property: 'Faculty Name',
+                        header: {
+                            label: 'Faculty Name',
+                            transforms: [sortable],
+                            format: sort.header({
+                                sortable,
+                                getSortingColumns
+                            })
+                        }
+                    },
+                    {
+                        property: 'Project Name',
+                        header: {
+                            label: 'Project Name',
+                            transforms: [sortable],
+                            format: sort.header({
+                                sortable,
+                                getSortingColumns
+                            })
+                        }
+                    },
+                    {
+                        property: 'Project Description',
+                        header: {
+                            label: 'Project Description'
+                        }
+                    }
+                ],
+                rows: crows
+            };
+        }
+
+        render(){
+            const {rows, columns, sortingColumns} = this.state;
+            const sortedRows = sort.sorter({
+                columns,
+                sortingColumns,
+                sort: orderBy
+            })(rows);
+            return(
+                <div>
+                    <Table.Provider className="table table-striped well" columns={columns}>
+                        <Table.Header />
+                        <Table.Body rows={sortedRows} rowKey="id" />
+                    </Table.Provider>
+                </div>
+            );
+        }
+    }
+
+    ReactDOM.render(<ProjectSortTable>
+
+    </ProjectSortTable>,document.getElementById("projectList"))
 </script>
 <div id="projectList">
 
