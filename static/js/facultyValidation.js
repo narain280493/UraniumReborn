@@ -15,7 +15,7 @@ $(document).ready(function() {
                 'faculty[FirstName]': {
                     validators: {
                         stringLength: {
-                            min: 2,
+                            min: 3,
                         },
                         notEmpty: {
                             message: 'Please supply your first name'
@@ -25,7 +25,7 @@ $(document).ready(function() {
                 'faculty[LastName]': {
                     validators: {
                         stringLength: {
-                            min: 2,
+                            min: 3,
                         },
                         notEmpty: {
                             message: 'Please supply your last name'

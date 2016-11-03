@@ -21,7 +21,7 @@ function priorWorkdisablechackebox(){
 function financestextboxdisabled(){
     var f = document.getElementById("isNotSure");
     if(f.checked)
-        document.getElementById("apprenticeship[Finances[speedType]]").disabled = true;
+        document.getElementById("apprenticeship[speedType]").disabled = true;
     else
-        document.getElementById("apprenticeship[Finances[speedType]]").disabled = false;
+        document.getElementById("apprenticeship[speedType]").disabled = false;
 }

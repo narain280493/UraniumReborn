@@ -14,7 +14,7 @@ $(document).ready(function() {
                 'student[FirstName]': {
                     validators: {
                         stringLength: {
-                            min: 2,
+                            min: 3,
                         },
                         notEmpty: {
                             message: 'Please supply your first name'
