@@ -3,7 +3,7 @@
 {% block content %}
 
 <div class="container">
-    <form class="form-horizontal" action=" " method="post"  id="studentform">
+    <form class="form-horizontal" action=" " method="post"  id="studentform" enctype='application/json'>
         <fieldset>
 
             <div class="well">
@@ -44,7 +44,7 @@
                    <label class="control-label col-md-2" for="student[Gender]">Gender</label>
                    <div class="col-md-5">
                      <div class="radio">
-                       <label><input type="radio" name="student[Gender]">Male</label>
+                       <label><input type="radio" name="student[Gender]" required>Male</label>
                      </div>
                      <div class="radio">
                        <label><input type="radio" name="student[Gender]">Female</label>
@@ -70,7 +70,7 @@
                   <label class="control-label col-md-2" for="student[isSpanishOrigin]">Are you Hispanic, Chicano, Mexican, Latino, Cuban, Puerto Rican, South or Central American, or Spanish Origin?</label>
                   <div class="col-md-5">
                     <div class="radio">
-                      <label><input type="radio" name="student[isSpanishOrigin]">Yes</label>
+                      <label><input type="radio" name="student[isSpanishOrigin]" required>Yes</label>
                     </div>
                     <div class="radio">
                       <label><input type="radio" name="student[isSpanishOrigin]">No</label>
@@ -417,7 +417,7 @@
             <div class="form-group">
                 <label class="control-label col-md-2" for="student[GPA]">GPA: </label>
                 <div class="col-md-5">
-                    <input type="number" class="form-control" size="5" maxlength="5" name="student[GPA]" step="any" placeholder = "x.xxx">
+                    <input  type="number" step="any" class="form-control" size="5" maxlength="5" min=0 max=4 name="student[GPA]" placeholder = "x.xxx">
                 </div>
             </div>
 
@@ -490,7 +490,7 @@
                     <label class="control-label col-md-2" for="student[isAppliedBefore]">Have you applied for Discovery Learning Apprenticeship before?</label>
                     <div class="col-md-5">
                         <div class="radio">
-                            <label><input type="radio" name="student[isAppliedBefore]">Yes</label>
+                            <label><input type="radio" name="student[isAppliedBefore]" required>Yes</label>
                         </div>
                         <div class="radio">
                             <label><input type="radio" name="student[isAppliedBefore]">No</label>
