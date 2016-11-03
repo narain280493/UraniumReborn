@@ -3,7 +3,7 @@
 {% block content %}
 
 <div class="container">
-    <form class="form-horizontal" action=" " method="post"  id="studentform">
+    <form class="form-horizontal" action=" " method="post"  id="studentform" enctype='application/json'>
         <fieldset>
 
             <div class="well">
@@ -11,26 +11,26 @@
                 <div>&nbsp</div>
 
                 <div class="form-group">
-                    <label class="control-label col-md-2" for="firstname">First Name</label>
+                    <label class="control-label col-md-2" for="student[FirstName]">First Name</label>
                     <div class="col-md-5">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                            <input type="text" name="firstname" class="form-control" placeholder="First Name">
+                            <input type="text" name="student[FirstName]" class="form-control" placeholder="First Name">
                         </div>
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label class="control-label col-md-2" for="lastName">Last Name</label>
+                    <label class="control-label col-md-2" for="student[LastName]">Last Name</label>
                     <div class="col-md-5">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                            <input type="text" class="form-control" name="lastName" placeholder="Last Name"></div>
+                            <input type="text" class="form-control" name="student[LastName]" placeholder="Last Name"></div>
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <label class="control-label col-md-2" for="gender"> Gender </label>
+                <!-- <div class="form-group">
+                    <label class="control-label col-md-2" for="student[gender]"> Gender </label>
                     <div class="col-md-5">
                         <div class="btn-group">
                             <button type="button" class="btn btn-primary" >Male</button>
@@ -38,22 +38,22 @@
                             <button type="button" class="btn btn-primary">Other</button>
                         </div>
                     </div>
-                </div>
-
-                <!-- <div class="form-group">
-                   <label class="control-label col-md-2" for="gender">Gender</label>
-                   <div class="col-md-5">
-                     <div class="radio">
-                       <label><input type="radio" name="gender">Male</label>
-                     </div>
-                     <div class="radio">
-                       <label><input type="radio" name="gender">Female</label>
-                     </div>
-                   </div>
-                 </div> -->
-
+                </div> -->
 
                 <div class="form-group">
+                   <label class="control-label col-md-2" for="student[Gender]">Gender</label>
+                   <div class="col-md-5">
+                     <div class="radio">
+                       <label><input type="radio" name="student[Gender]" value="Male" required>Male</label>
+                     </div>
+                     <div class="radio">
+                       <label><input type="radio" name="student[Gender]" value="Female" >Female</label>
+                     </div>
+                   </div>
+                </div>
+
+
+                <!-- <div class="form-group">
                     <label class="control-label col-md-2" for="isSpanishOrigin"> Are you Hispanic, Chicano, Mexican, Latino, Cuban, Puerto Rican, South or Central American, or Spanish Origin? </label>
                     <div class="col-md-5"></br>
                         </br>
@@ -63,49 +63,49 @@
                             <button type="button" class="btn btn-primary">Do not wish to disclose</button>
                         </div>
                     </div>
-                </div>
+                </div> -->
 
-                <!--
-                    <div class="form-group">
-                      <label class="control-label col-md-2" for="isSpanishOrigin">Are you Hispanic, Chicano, Mexican, Latino, Cuban, Puerto Rican, South or Central American, or Spanish Origin?</label>
-                      <div class="col-md-5">
-                        <div class="radio">
-                          <label><input type="radio" name="isSpanishOrigin">Yes</label>
-                        </div>
-                        <div class="radio">
-                          <label><input type="radio" name="isSpanishOrigin">No</label>
-                        </div>
-                        <div class="radio">
-                          <label><input type="radio" name="isSpanishOrigin">Do not wish to disclose</label>
-                        </div>
-                      </div>
-                    </div> -->
+
+                <div class="form-group">
+                  <label class="control-label col-md-2" for="student[isSpanishOrigin]">Are you Hispanic, Chicano, Mexican, Latino, Cuban, Puerto Rican, South or Central American, or Spanish Origin?</label>
+                  <div class="col-md-5">
+                    <div class="radio">
+                      <label><input type="radio" name="student[isSpanishOrigin]" value="Yes" required>Yes</label>
+                    </div>
+                    <div class="radio">
+                      <label><input type="radio" name="student[isSpanishOrigin]" value="No">No</label>
+                    </div>
+                    <div class="radio">
+                      <label><input type="radio" name="student[isSpanishOrigin]" value="Do not wish to disclose">Do not wish to disclose</label>
+                    </div>
+                  </div>
+                </div>
 
 
 
                 <div class="form-group">
-                    <label class="control-label col-md-2" for="race">Please check your race (select all that apply): </label>
+                    <label class="control-label col-md-2" for="student[Race][]">Please check your race (select all that apply): </label>
                     <div class="col-md-5">
                         <div class="checkbox">
-                            <label><input type="checkbox" name="race">American Indian or Alaskan Native</label>
+                            <label><input type="checkbox" name="student[Race][]" value="American Indian or Alaskan Native">American Indian or Alaskan Native</label>
                         </div>
                         <div class="checkbox">
-                            <label><input type="checkbox" name="race">Black or African-American</label>
+                            <label><input type="checkbox" name="student[Race][]" value="Black or African-American">Black or African-American</label>
                         </div>
                         <div class="checkbox">
-                            <label><input type="checkbox" name="race">Native Hawaiian or other Pacific Islander</label>
+                            <label><input type="checkbox" name="student[Race][]" value="Native Hawaiian or other Pacific Islander">Native Hawaiian or other Pacific Islander</label>
                         </div>
                         <div class="checkbox">
-                            <label><input type="checkbox" name="race">Asian</label>
+                            <label><input type="checkbox" name="student[Race][]" value="Asian">Asian</label>
                         </div>
                         <div class="checkbox">
-                            <label><input type="checkbox" name="race">White</label>
+                            <label><input type="checkbox" name="student[Race][]" value="White">White</label>
                         </div>
                         <div class="checkbox">
-                            <label><input type="checkbox" name="race">Other</label>
+                            <label><input type="checkbox" name="student[Race][]" value="Other">Other</label>
                         </div>
                         <div class="checkbox">
-                            <label><input type="checkbox" name="race">Do not wish to disclose</label>
+                            <label><input type="checkbox" name="student[Race][]" value="Do not wish to disclose">Do not wish to disclose</label>
                         </div>
                     </div>
                 </div>
@@ -122,41 +122,41 @@
                     <h4>&nbsp&nbsp&nbsp&nbspLocal Address</h4>
 
                     <div class="form-group">
-                        <label class="control-label col-md-2" for="localAddressLine1">Address Line 1</label>
+                        <label class="control-label col-md-2" for="student[LocalAddressLine1]">Address Line 1</label>
                         <div class="col-md-5" inputGroupContainer>
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
-                                <input type="text" class="form-control" name="localAddressLine1" placeholder="Number, Street" >
+                                <input type="text" class="form-control" name="student[LocalAddressLine1]" placeholder="Number, Street" >
                             </div>
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label class="control-label col-md-2" for="localAddressLine2">Address Line 2</label>
+                        <label class="control-label col-md-2" for="student[LocalAddressLine2]">Address Line 2</label>
                         <div class="col-md-5">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
-                                <input type="text" class="form-control" name="localAddressLine2" placeholder="Apt" >
+                                <input type="text" class="form-control" name="student[LocalAddressLine2]" placeholder="Apt" >
                             </div>
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label class="control-label col-md-2" for="localAddressCity">City</label>
+                        <label class="control-label col-md-2" for="student[LocalAddressCity]">City</label>
                         <div class="col-md-5">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
-                                <input type="text" class="form-control" name="localAddressCity" placeholder="Boulder" >
+                                <input type="text" class="form-control" name="student[LocalAddressCity]" placeholder="Boulder" >
                             </div>
                         </div>
                     </div>
 
             <div class="form-group">
-                <label class="control-label col-md-2" for="localAddressState">State</label>
+                <label class="control-label col-md-2" for="student[LocalAddressState]">State</label>
                 <div class="col-md-5 selectContainer">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
-                        <select name="localAddressState" class="form-control" >
+                        <select name="student[LocalAddressState]" class="form-control" >
                             <option value=" " >Please select your state</option>
                             <option value ="Alabama"> Alabama</option>
                                 <option value ="Alaska">  Alaska</option>
@@ -216,11 +216,11 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="control-label col-md-2" for="localAddressZip">Zip</label>
+                        <label class="control-label col-md-2" for="student[LocalAddressZip]">Zip</label>
                         <div class="col-md-5">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
-                                <input type="text" class="form-control" name="localAddressZip" placeholder="Zip" >
+                                <input type="text" class="form-control" name="student[LocalAddressZip]" placeholder="Zip" >
                             </div>
                         </div>
                     </div>
@@ -232,41 +232,41 @@
                     <h4>&nbsp&nbsp&nbsp&nbspSummer Address (if different)</h4>
 
                     <div class="form-group">
-                        <label class="control-label col-md-2" for="summerAddressLine1">Address Line 1</label>
+                        <label class="control-label col-md-2" for="student[SummerAddressLine1]">Address Line 1</label>
                         <div class="col-md-5">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
-                                <input type="text" class="form-control" name="summerAddressLine1" placeholder="Number, Street" >
+                                <input type="text" class="form-control" name="student[SummerAddressLine1]" placeholder="Number, Street" >
                             </div>
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label class="control-label col-md-2" for="summerAddressLine2">Address Line 2</label>
+                        <label class="control-label col-md-2" for="student[SummerAddressLine2]">Address Line 2</label>
                         <div class="col-md-5">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
-                                <input type="text" class="form-control" name="summerAddressLine2" placeholder="Apt">
+                                <input type="text" class="form-control" name="student[SummerAddressLine2]" placeholder="Apt">
                             </div>
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label class="control-label col-md-2" for="summerAddressCity">City</label>
+                        <label class="control-label col-md-2" for="student[SummerAddressCity]">City</label>
                         <div class="col-md-5">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
-                                <input type="text" class="form-control" name="summerAddressCity" placeholder="Boulder" >
+                                <input type="text" class="form-control" name="student[SummerAddressCity]" placeholder="Boulder" >
                             </div>
                         </div>
                     </div>
 
           <div class="form-group">
-                <label class="control-label col-md-2" for="summerAddressState">State</label>
+                <label class="control-label col-md-2" for="student[SummerAddressState]">State</label>
                 <div class="col-md-5 selectContainer">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
-                        <select name="summerAddressState" class="form-control" >
+                        <select name="student[SummerAddressState]" class="form-control" >
                             <option value=" " >Please select your state</option>
                            <option value ="Alabama"> Alabama</option>
                                 <option value ="Alaska">  Alaska</option>
@@ -325,32 +325,32 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="control-label col-md-2" for="summerAddressZip">Zip</label>
+                        <label class="control-label col-md-2" for="student[SummerAddressZip]">Zip</label>
                         <div class="col-md-5">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
-                                <input type="text" class="form-control" name="summerAddressZip" placeholder="Zip" >
+                                <input type="text" class="form-control" name="student[SummerAddressZip]" placeholder="Zip" >
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label class="control-label col-md-2" for="phone">Phone: </label>
+                    <label class="control-label col-md-2" for="student[Phone]">Phone: </label>
                     <div class="col-md-5">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
-                            <input type="tel" class="form-control" size="10" maxlength="10" name="phone" data-format="+1 (ddd) ddd-dddd">
+                            <input type="tel" class="form-control" size="10" maxlength="10" name="student[Phone]" data-format="+1 (ddd) ddd-dddd">
                         </div>
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label class="control-label col-md-2" for="email">Email:</label>
+                    <label class="control-label col-md-2" for="student[Email]">Email:</label>
                     <div class="col-md-5">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                            <input class="form-control" type="email" size="30" class="form-control" name="email">
+                            <input class="form-control" type="email" size="30" class="form-control" name="student[Email]">
                         </div>
                     </div>
                 </div>
@@ -364,9 +364,9 @@
 
                 <p> Please carefully enter your academic information. If you are still open option, indicate which major you plan to enter. </p>
                 <div class="form-group">
-                    <label class="control-label col-md-2" for="primaryMajor">Primary Major:</label>
+                    <label class="control-label col-md-2" for="student[PrimaryMajor]">Primary Major:</label>
                 <div class="col-md-5">
-                    <select class="form-control  selectpicker" name="primaryMajor" placeholder="Select Major">
+                    <select class="form-control  selectpicker" name="student[PrimaryMajor]" placeholder="Select Major">
                         <option>Aerospace Engineering</option>
                         <option>Applied Mathematics</option>
                         <option>Architectural Engineering</option>
@@ -386,9 +386,9 @@
             </div>
 
             <div class="form-group">
-                <label class="control-label col-md-2" for="secondaryMajor">Secondary Major:</label>
+                <label class="control-label col-md-2" for="student[SecondaryMajor]">Secondary Major:</label>
                 <div class="col-md-5">
-                    <select class="form-control  selectpicker" name="secondaryMajor">
+                    <select class="form-control  selectpicker" name="student[SecondaryMajor]">
                         <option>Aerospace Engineering</option>
                         <option>Applied Mathematics</option>
                         <option>Architectural Engineering</option>
@@ -408,23 +408,23 @@
             </div>
 
             <div class="form-group">
-                <label class="control-label col-md-2" for="studentId">Student ID: </label>
+                <label class="control-label col-md-2" for="student[Id]">Student ID: </label>
                 <div class="col-md-5">
-                    <input type="number" class="form-control" size="9" maxlength="9" name="studentId" placeholder = "123456789">
+                    <input type="number" class="form-control" size="9" maxlength="9" name="student[Id]" placeholder = "123456789">
                 </div>
             </div>
 
             <div class="form-group">
-                <label class="control-label col-md-2" for="gpa">GPA: </label>
+                <label class="control-label col-md-2" for="student[GPA]">GPA: </label>
                 <div class="col-md-5">
-                    <input type="number" class="form-control" size="5" maxlength="5" name="gpa" step="any" placeholder = "x.xxx">
+                    <input  type="number" step="any" class="form-control" size="5" maxlength="5" min=0 max=4 name="student[GPA]" placeholder = "x.xxx">
                 </div>
             </div>
 
             <div class="form-group">
-                <label class="control-label col-md-2" for="schoolLevel">Level in school as of next Fall:</label>
+                <label class="control-label col-md-2" for="student[SchoolLevel]">Level in school as of next Fall:</label>
                 <div class="col-md-5">
-                    <select class="form-control  selectpicker" name="secondaryMajor">
+                    <select class="form-control  selectpicker" name="student[SchoolLevel]">
                         <option>Freshman</option>
                         <option>Sophomore</option>
                         <option>Junior</option>
@@ -435,9 +435,9 @@
             </div>
 
             <div class="form-group">
-                <label class="control-label col-md-2" for="graduationDate">Anticipated Graduation Date:</label>
+                <label class="control-label col-md-2" for="student[GraduationDate]">Anticipated Graduation Date:</label>
                 <div class="col-md-5">
-                    <select class="form-control" name="graduationMonth">
+                    <select class="form-control" name="student[GraduationMonth]">
                         <option value="">Month</option>
                         <option value="May">May</option>
                         <option value="August">August</option>
@@ -445,7 +445,7 @@
                     </select>
                 </div>
                 <div class="col-md-5">
-                    <select class="form-control  selectpicker" name="graduationYear">
+                    <select class="form-control  selectpicker" name="student[GraduationYear]">
                         <option value="">Year</option>
                         <option value="2016">2016</option>
                         <option value="2017">2017</option>
@@ -457,19 +457,19 @@
                 </div>
             </div>
 
-<!--            <div class="form-group">
-                <label class="control-label col-md-2" for="isResearchExperience">Do you have research experience?</label>
+            <div class="form-group">
+                <label class="control-label col-md-2" for="student[isResearchExperience]">Do you have research experience?</label>
                 <div class="col-md-5">
                     <div class="radio">
-                        <label><input type="radio" name="isResearchExperience" required>Yes</label>
+                        <label><input type="radio" name="student[isResearchExperience]" value="Yes" required>Yes</label>
                     </div>
                     <div class="radio">
-                        <label><input type="radio" name="isResearchExperience">No (This will not affect your eligibility)</label>
+                        <label><input type="radio" name="student[isResearchExperience]" value="No">No (This will not affect your eligibility)</label>
                     </div>
                 </div>
-            </div> -->
+            </div>
 
-                <div class="form-group">
+                <!-- <div class="form-group">
                     <label class="control-label col-md-2" for="isResearchExperience"> Do you have research experience? </label>
                     <div class="col-md-5"></br>
                         <div class="btn-group">
@@ -477,7 +477,7 @@
                             <button type="button" class="btn btn-primary">No (This will not affect your eligibility)</button>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
 
             <div>&nbsp</div>
@@ -486,21 +486,21 @@
                 <h2 style="text-align: center">Apprenticeship Information</h2>
                 <div>&nbsp</div>
 
-               <!-- <div class="form-group">
-                    <label class="control-label col-md-2" for="isAppliedBefore">Have you applied for Discovery Learning Apprenticeship before?</label>
+               <div class="form-group">
+                    <label class="control-label col-md-2" for="student[isAppliedBefore]">Have you applied for Discovery Learning Apprenticeship before?</label>
                     <div class="col-md-5">
                         <div class="radio">
-                            <label><input type="radio" name="isAppliedBefore">Yes</label>
+                            <label><input type="radio" name="student[isAppliedBefore]" value="Yes" required>Yes</label>
                         </div>
                         <div class="radio">
-                            <label><input type="radio" name="isAppliedBefore">No</label>
+                            <label><input type="radio" name="student[isAppliedBefore]" value="No">No</label>
                         </div>
                     </div>
-                </div> -->
+               </div>
 
 
 
-                <div class="form-group">
+                <!-- <div class="form-group">
                     <label class="control-label col-md-2" for="isAppliedBefore"> Have you applied for Discovery Learning Apprenticeship before? </label>
                     <div class="col-md-5"></br>
                         <div class="btn-group">
@@ -508,15 +508,15 @@
                             <button type="button" class="btn btn-primary">No </button>
                         </div>
                     </div>
-                </div>
+                </div> -->
 
 
 
 
                 <div class="form-group">
-                    <label class="control-label col-md-2" for="otherFallEmployment">Other Fall Employment Planned:</label>
+                    <label class="control-label col-md-2" for="student[OtherFallEmployment]">Other Fall Employment Planned:</label>
                     <div class="col-md-5">
-                        <textarea class="form-control" rows="5" name="otherFallEmployment"></textarea>
+                        <textarea class="form-control" rows="5" name="student[OtherFallEmployment]"></textarea>
                     </div>
                 </div>
 
@@ -529,44 +529,44 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="control-label col-md-2" for="projectPreferences">(1 is most interested, 5 is moderately interested):</label>
+                    <label class="control-label col-md-2" for="student[ProjectPreferences]">(1 is most interested, 5 is moderately interested):</label>
                     <div class="col-md-5">
-                        <label for="projectPreference1">1:</label>
-                        <select class="form-control" name="projectPreference1">
-                            <option>Select Project</option>
+                        <label for="student[ProjectPreference1]">1:</label>
+                        <select class="form-control" name="student[ProjectPreference1]">
+                            <option value="">Select Project</option>
                         </select>
-                        <label for="projectPreference2">2:</label>
-                        <select class="form-control" name="projectPreference2">
-                            <option>Select Project</option>
+                        <label for="student[ProjectPreference2]">2:</label>
+                        <select class="form-control" name="student[ProjectPreference2]">
+                            <option value="">Select Project</option>
                         </select>
-                        <label for="projectPreference3">3:</label>
-                        <select class="form-control" name="projectPreference3">
-                            <option>Select Project</option>
+                        <label for="student[ProjectPreference3]">3:</label>
+                        <select class="form-control" name="student[ProjectPreference3]">
+                            <option value="">Select Project</option>
                         </select>
-                        <label for="projectPreference4">4:</label>
-                        <select class="form-control" name="projectPreference4">
-                            <option>Select Project</option>
+                        <label for="student[ProjectPreference4]">4:</label>
+                        <select class="form-control" name="student[ProjectPreference4]">
+                            <option value="">Select Project</option>
                         </select>
-                        <label for="projectPreference5">5:</label>
-                        <select class="form-control" name="projectPreference5">
-                            <option>Select Project</option>
+                        <label for="student[ProjectPreference5]">5:</label>
+                        <select class="form-control" name="student[ProjectPreference5]">
+                            <option value="">Select Project</option>
                         </select>
                     </div>
                 </div>
 
-                   <!-- <div class="form-group">
-                        <label class="control-label col-md-2" for="isBackgroundCheckDone">Have you had a background check done?</label>
-                        <div class="col-md-5">
-                            <div class="radio">
-                                <label><input type="radio" name="isBackgroundCheckDone">Yes</label>
-                            </div>
-                            <div class="radio">
-                                <label><input type="radio" name="isBackgroundCheckDone">No</label>
-                            </div>
+               <div class="form-group">
+                    <label class="control-label col-md-2" for="student[isBackgroundCheckDone]">Have you had a background check done?</label>
+                    <div class="col-md-5">
+                        <div class="radio">
+                            <label><input type="radio" name="student[isBackgroundCheckDone]" required value="Yes">Yes</label>
                         </div>
-                    </div> -->
+                        <div class="radio">
+                            <label><input type="radio" name="student[isBackgroundCheckDone]" value="No">No</label>
+                        </div>
+                    </div>
+                </div>
 
-                <div class="form-group">
+                <!-- <div class="form-group">
                     <label class="control-label col-md-2" for="isBackgroundCheckDone"> Have you had a background check done?</label>
                     <div class="col-md-5"></br>
                         <div class="btn-group">
@@ -574,34 +574,34 @@
                             <button type="button" class="btn btn-primary">No </button>
                         </div>
                     </div>
-                </div>
+                </div> -->
 
 
                 <div class="form-group">
-                    <label class="control-label col-md-2" for="lastBackgroundCheckDate">If yes, when? (Take your best guess if not sure)</label>
+                    <label class="control-label col-md-2" for="student[LastBackgroundCheckDate]">If yes, when? (Take your best guess if not sure)</label>
                     <div class="col-md-5">
-                        <input type="text" class="form-control" name="lastBackgroundCheckMonth" placeholder="MMM">
-                        <input type="text" class="form-control" name="lastBackgroundCheckYear" placeholder="YYYY">
+                        <input type="text" class="form-control" name="student[LastBackgroundCheckMonth]" placeholder="MMM">
+                        <input type="text" class="form-control" name="student[LastBackgroundCheckYear]" placeholder="YYYY">
                     </div>
                 </div>
 
 
 
 
-    <!--                <div class="form-group">
-                        <label class="control-label col-md-2" for="isHarassmentTrainingDone">Have you had Discrimination and Harassment Awareness training yet (at CU) done?</label>
-                        <div class="col-md-5">
-                            <div class="radio">
-                                <label><input type="radio" name="isHarassmentTrainingDone">Yes</label>
-                            </div>
-                            <div class="radio">
-                                <label><input type="radio" name="isHarassmentTrainingDone">No</label>
-                            </div>
-                        </div>
-                    </div> -->
-
-
                 <div class="form-group">
+                    <label class="control-label col-md-2" for="student[isHarassmentTrainingDone]">Have you had Discrimination and Harassment Awareness training yet (at CU) done?</label>
+                    <div class="col-md-5">
+                        <div class="radio">
+                            <label><input type="radio" name="student[isHarassmentTrainingDone]" required value="Yes">Yes</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="student[isHarassmentTrainingDone]" required value="No">No</label>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- <div class="form-group">
                     <label class="control-label col-md-2" for="isHarassmentTrainingDone"> Have you had Discrimination and Harassment Awareness training yet (at CU) done?</label>
                     <div class="col-md-5"></br>
                         <div class="btn-group">
@@ -609,15 +609,15 @@
                             <button type="button" class="btn btn-primary">No </button>
                         </div>
                     </div>
-                </div>
+                </div> -->
 
                 <div class="form-group">
 
 
-                        <label class="control-label col-md-2" for="lastHarassmentTrainingDate">If yes, when? (Take your best guess if not sure)</label>
+                        <label class="control-label col-md-2" for="student[LastHarassmentTrainingDate]">If yes, when? (Take your best guess if not sure)</label>
                         <div class="col-md-5">
-                            <input type="text" class="form-control" name="lastHarassmentTrainingMonth" placeholder="MMM">
-                            <input type="text" class="form-control" name="lastHarassmentTrainingYear" placeholder="YYYY">
+                            <input type="text" class="form-control" name="student[LastHarassmentTrainingMonth]" placeholder="MMM">
+                            <input type="text" class="form-control" name="student[LastHarassmentTrainingYear]" placeholder="YYYY">
                         </div>
 
                 </div>
@@ -635,23 +635,23 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="control-label col-md-2" for="skill1">1:</label>
+                    <label class="control-label col-md-2" for="student[Skill1]">1:</label>
                     <div class="col-md-5">
-                        <input class="form-control" type="text" size="30" maxlength="75" class="form-control" name="skill1">
+                        <input class="form-control" type="text" size="30" maxlength="75" class="form-control" name="student[Skill1]">
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label class="control-label col-md-2" for="skill2">2:</label>
+                    <label class="control-label col-md-2" for="student[Skill2]">2:</label>
                     <div class="col-md-5">
-                        <input class="form-control" type="text" size="30" maxlength="75" class="form-control" name="skill2">
+                        <input class="form-control" type="text" size="30" maxlength="75" class="form-control" name="student[Skill2]">
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label class="control-label col-md-2" for="skill3">3:</label>
+                    <label class="control-label col-md-2" for="student[Skill3]">3:</label>
                     <div class="col-md-5">
-                        <input class="form-control" type="text" size="30" maxlength="75" class="form-control" name="skill3">
+                        <input class="form-control" type="text" size="30" maxlength="75" class="form-control" name="student[Skill3]">
                     </div>
                 </div>
 
@@ -660,19 +660,19 @@
                     <p>&nbsp&nbsp&nbsp&nbsp&nbspClick <a href="Writing%20Tips%20for%20Cover%20Letters%20and%20Resumes.doc" target="_blank">here</a> for some tips, which we highly recommend you review before submitting your cover letter and resume. </p>
 
                     <div class="form-group">
-                        <label class="control-label col-md-2" for="resumeFile">Resume:</label>
+                        <label class="control-label col-md-2" for="student[ResumeFile]">Resume:</label>
                         <div class="col-md-5">
                             <label class="btn btn-file">
-                                <input type="file" name="resumeFile" name="resumeFile" onclick="Submit_Click" />
+                                <input type="file" name="student[ResumeFile]" onclick="Submit_Click" />
                             </label>
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label class="control-label col-md-2" for="coverLetterFile">Cover Letter:</label>
+                        <label class="control-label col-md-2" for="student[CoverLetterFile]">Cover Letter:</label>
                         <div class="col-md-5">
                             <label class="btn btn-file">
-                                <input type="file" name="coverLetterFile" name="coverLetterFile" onclick="Submit_Click" />
+                                <input type="file" name="student[CoverLetterFile]" onclick="Submit_Click" />
                             </label>
                         </div>
                     </div>
@@ -694,9 +694,6 @@
 </div>
 
 <!-- TODO
-Secondary Major - description to be added
-required fields check
-data validation
 Add Writing%20Tips%20for%20Cover%20Letters%20and%20Resumes.doc to server
 -->
 
