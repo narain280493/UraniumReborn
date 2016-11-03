@@ -14,7 +14,7 @@ class project(Base):
     WebLink = Column(String(100))
     specialRequirements = Column(String(1200))
     Description = Column(String(1200))
-    Department = Column(String(500))
+    fieldOfStudy = Column(String(500))
     amountOfSupervision = Column(String(100))
     supervisor = Column(String(100))
     primaryNature = Column(String(100))
@@ -22,9 +22,10 @@ class project(Base):
     desiredStudent = Column(String(100))
     speedType = Column(String(100))
     accountingContactName = Column(String(100))
-    fac = relationship("faculty", back_populates="projects")
-    secfac = relationship("faculty", back_populates="projects")
-    gradstud = relationship("faculty", back_populates="projects")
+    fac = relationship("faculty", foreign_keys='project.f_id', back_populates="projects")
+    secfac = relationship("faculty", foreign_keys='project.sf_id', back_populates="projects")
+    gradstud = relationship("faculty", foreign_keys='project.g_id', back_populates="projects")
 
     def __repr__(self):
-        return self.title
+        return "<Title:" + self.Title + ">"
+

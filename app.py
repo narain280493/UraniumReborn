@@ -113,26 +113,19 @@ def faculty_page():
 
 def constructProject(inpJson):
     inpJson[u'id'] = str(uuid.uuid1())
-
-    if 'specialRequirements' in inpJson.keys():
-        inpJson['specialRequirements'] = str(inpJson['specialRequirements'])
-    else:
-        inpJson['specialRequirements'] = ""
-
-    if 'isDevelopingCommunities' in inpJson.keys():
-        inpJson['isDevelopingCommunities'] = inpJson['isDevelopingCommunities'] == no if False else True
-    else:
-        inpJson['isDevelopingCommunities'] = False
-
+    inpJson['specialRequirements'] = str(inpJson['specialRequirements'])
+    inpJson['fieldOfStudy'] = str(inpJson['fieldOfStudy'])
+    inpJson['isDevelopingCommunities'] = inpJson['isDevelopingCommunities'] == "Yes" if True else False
+    inpJson['isDevelopingCommunities'] = False
     return inpJson
 
 
 def constructFaculty(inpJson, isgrad):
-    if inpJson['FirstName'] == '':
+    if inpJson['FirstName'] != '':
         inpJson[u'id'] = str(uuid.uuid1())
         inpJson[u'is_grad'] = isgrad
         if 'isSupervisedBefore' in inpJson.keys():
-            inpJson['isSupervisedBefore'] = inpJson['isSupervisedBefore'] == "no" if False else True
+            inpJson['isSupervisedBefore'] = inpJson['isSupervisedBefore'] == "Yes" if True else False
         else:
             inpJson['isSupervisedBefore'] = False
         return inpJson
@@ -142,8 +135,8 @@ def constructFaculty(inpJson, isgrad):
 
 @app.route('/listofprojects', methods=['GET', 'POST'])
 def listofprojects():
-    if 'email' not in session:
-        return redirect(url_for('index'))
+##    if 'email' not in session:
+##        return redirect(url_for('index'))
 
     if request.method == 'POST':
         reqData = request.get_data()
@@ -167,8 +160,14 @@ def listofprojects():
             projJson = constructProject(reqDataJson['apprenticeship'])
 
         fac = fSchema.load(facultyJson, session=db_session).data
-        secfac = fSchema.load(secFacultyJson, session=db_session).data
-        gradStud = fSchema.load(gradStudentJson, session=db_session).data
+        if secFacultyJson:
+            secfac = fSchema.load(secFacultyJson, session=db_session).data
+        else:
+            secfac = None
+        if gradStudentJson:
+            gradStud = fSchema.load(gradStudentJson, session=db_session).data
+        else:
+            gradStud = None
         proj = pSchema.load(projJson, session=db_session).data
 
         db_session.add(fac)
@@ -190,7 +189,7 @@ def listofprojects():
 
     for f in facs:
         for p in f.projects:
-            row = {"Faculty Name": f.FirstName + f.LastName, "id": p.id, "Project Name": p.Title,
+            row = {"Faculty Name": f.FirstName + " " + f.LastName, "id": p.id, "Project Name": p.Title,
                    "Project Description": p.Description}
             rows.append(row)
 
