@@ -20,25 +20,25 @@
   function primarynaturedisablechackebox(){
     var pn = document.getElementById("otherPrimaryNature");
     if(pn.checked)
-      document.getElementById("otherNatureOfWork").disabled = false;
+      document.getElementById("apprenticeship[otherNatureOfWork]").disabled = false;
     else
-     document.getElementById("otherNatureOfWork").disabled = true;    
+     document.getElementById("apprenticeship[otherNatureOfWork]").disabled = true;
   }
 
    function priorWorkdisablechackebox(){
     var pw = document.getElementById("otherPrimaryWork");
     if(pw.checked)
-      document.getElementById("otherAmountOfWork").disabled = false;
+      document.getElementById("apprenticeship[otherAmountOfWork]").disabled = false;
     else
-     document.getElementById("otherAmountOfWork").disabled = true;    
+     document.getElementById("apprenticeship[otherAmountOfWork]").disabled = true;
   }
 
     function financestextboxdisabled(){
     var f = document.getElementById("isNotSure");
     if(f.checked)
-      document.getElementById("speedType").disabled = true;
+      document.getElementById("apprenticeship[Finances[speedType]]").disabled = true;
     else
-     document.getElementById("speedType").disabled = false;    
+     document.getElementById("apprenticeship[Finances[speedType]]").disabled = false;
   }
 </script>
   <script>
@@ -237,7 +237,7 @@
                                   }
                               },
 
-                                 secondFacultyFirstName: {
+                                 'secondFaculty[FirstName]': {
                             validators: {
                                 stringLength: {
                                     min: 2,
@@ -247,7 +247,7 @@
                                 }
                             }
                         },
-                        secondFacultyLastName: {
+                        'secondFaculty[LastName]': {
                             validators: {
                                 stringLength: {
                                     min: 2,
@@ -257,7 +257,7 @@
                                 }
                             }
                         },
-                        secondFacultyEmail: {
+                        'secondFaculty[Email]': {
                             validators: {
                                 notEmpty: {
                                     message: 'Please supply your email address'
@@ -267,7 +267,7 @@
                                 }
                             }
                         },
-                        secondFacultyPhone: {
+                        'secondFaculty[Phone]': {
                             validators: {
                                 notEmpty: {
                                     message: 'Please supply your phone number'
@@ -279,7 +279,7 @@
                             }
                         },
 
-                                 secondFacultyDepartment: {
+                                 'secondFaculty[Department]': {
                               validators: {
                                  notEmpty: {
                              message: 'Please select the department'
@@ -287,7 +287,7 @@
                                   }
                               },
 
-                        gradStudentFirstName: {
+                        'gradStudent[FirstName]': {
                             validators: {
                                 stringLength: {
                                     min: 2,
@@ -297,7 +297,7 @@
                                 }
                             }
                         },
-                        gradStudentLastName: {
+                        'gradStudent[LastName]': {
                             validators: {
                                 stringLength: {
                                     min: 2,
@@ -307,7 +307,7 @@
                                 }
                             }
                         },
-                        gradStudentEmail: {
+                        'gradStudent[Email]': {
                             validators: {
                                 notEmpty: {
                                     message: 'Please supply your email address'
@@ -317,7 +317,7 @@
                                 }
                             }
                         },
-                        gradStudentPhone: {
+                        'gradStudent[Phone]': {
                             validators: {
                                 notEmpty: {
                                     message: 'Please supply your phone number'
@@ -328,7 +328,7 @@
                                 }
                             }
                         },
-         gradStudentDepartment: {
+         'gradStudent[Department]': {
                               validators: {
                                  notEmpty: {
                              message: 'Please select the department'
@@ -337,7 +337,7 @@
                               },
 
 
-                                     apprenticeshipTitle: {
+                                     'apprenticeship[Title]': {
                             validators: {
                                 stringLength: {
 
@@ -351,7 +351,7 @@
                         },
 
 
-                                       apprenticeshipDescription: {
+                                       'apprenticeship[Description]': {
                             validators: {
                                 stringLength: {
 
@@ -365,7 +365,7 @@
                         },
 
 
-              'fieldOfStudy[]': {
+              'apprenticeship[fieldOfStudy[]]': {
                 validators: {
                     choice: {
                         min: 1,
@@ -375,7 +375,7 @@
             },
 
 
-            apprenticeshipWeblink: {
+            'apprenticeship[Weblink]': {
                 validators: {
                     uri: {
                         message: 'The entered URL is not valid'
