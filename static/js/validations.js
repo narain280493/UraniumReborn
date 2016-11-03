@@ -322,7 +322,7 @@ $(document).ready(function() {
                 },
 
 
-                'apprenticeship[fieldOfStudy[]]': {
+                'apprenticeship[fieldOfStudy][]': {
                     validators: {
                         choice: {
                             min: 1,
