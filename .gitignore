@@ -1,4 +1,4 @@
-.idea/
+.idea/*
 UraniumReborn.iml
 models/__init__.pyc
 models/faculty.pyc
@@ -6,3 +6,10 @@ models/project.pyc
 server/forms.pyc
 database/database.py
 database/config.properties
+ma_schema/projectschema.pyc
+__pycache__/
+app.pyc
+database/__pycache__/
+ma_schema/__init__.pyc
+ma_schema/facultyschema.pyc
+models/__pycache__/
