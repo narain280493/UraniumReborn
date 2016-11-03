@@ -187,7 +187,7 @@
                     },
 
                     fields: {
-                        facultyFirstName: {
+                        'faculty[FirstName]': {
                             validators: {
                                 stringLength: {
                                     min: 2,
@@ -197,7 +197,7 @@
                                 }
                             }
                         },
-                        facultyLastName: {
+                        'faculty[LastName]': {
                             validators: {
                                 stringLength: {
                                     min: 2,
@@ -207,7 +207,7 @@
                                 }
                             }
                         },
-                        facultyEmail: {
+                        'faculty[Email]': {
                             validators: {
                                 notEmpty: {
                                     message: 'Please supply your email address'
@@ -217,7 +217,7 @@
                                 }
                             }
                         },
-                        facultyPhone: {
+                        'faculty[Phone]': {
                             validators: {
                                 notEmpty: {
                                     message: 'Please supply your phone number'
@@ -229,7 +229,7 @@
                             }
                         },
 
-                               facultyDepartment: {
+                               'faculty[Department]': {
                               validators: {
                                  notEmpty: {
                              message: 'Please select the department'
