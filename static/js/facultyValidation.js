@@ -67,9 +67,7 @@ $(document).ready(function() {
                         stringLength: {
                             min: 2,
                         },
-                        notEmpty: {
-                            message: 'Please supply your first name'
-                        }
+
                     }
                 },
                 'secondFaculty[LastName]': {
@@ -77,16 +75,12 @@ $(document).ready(function() {
                         stringLength: {
                             min: 2,
                         },
-                        notEmpty: {
-                            message: 'Please supply your last name'
-                        }
+
                     }
                 },
                 'secondFaculty[Email]': {
                     validators: {
-                        notEmpty: {
-                            message: 'Please supply your email address'
-                        },
+
                         emailAddress: {
                             message: 'Please supply a valid email address'
                         }
@@ -94,9 +88,6 @@ $(document).ready(function() {
                 },
                 'secondFaculty[Phone]': {
                     validators: {
-                        notEmpty: {
-                            message: 'Please supply your phone number'
-                        },
                         phone: {
                             country: 'US',
                             message: 'Please supply a vaild phone number with area code'
@@ -106,9 +97,7 @@ $(document).ready(function() {
 
                 'secondFaculty[Department]': {
                     validators: {
-                        notEmpty: {
-                            message: 'Please select the department'
-                        }
+
                     }
                 },
 
@@ -117,9 +106,7 @@ $(document).ready(function() {
                         stringLength: {
                             min: 2,
                         },
-                        notEmpty: {
-                            message: 'Please supply your first name'
-                        }
+
                     }
                 },
                 'gradStudent[LastName]': {
@@ -127,16 +114,12 @@ $(document).ready(function() {
                         stringLength: {
                             min: 2,
                         },
-                        notEmpty: {
-                            message: 'Please supply your last name'
-                        }
+
                     }
                 },
                 'gradStudent[Email]': {
                     validators: {
-                        notEmpty: {
-                            message: 'Please supply your email address'
-                        },
+
                         emailAddress: {
                             message: 'Please supply a valid email address'
                         }
@@ -144,9 +127,7 @@ $(document).ready(function() {
                 },
                 'gradStudent[Phone]': {
                     validators: {
-                        notEmpty: {
-                            message: 'Please supply your phone number'
-                        },
+
                         phone: {
                             country: 'US',
                             message: 'Please supply a vaild phone number with area code'
@@ -155,9 +136,7 @@ $(document).ready(function() {
                 },
                 'gradStudent[Department]': {
                     validators: {
-                        notEmpty: {
-                            message: 'Please select the department'
-                        }
+
                     }
                 },
 
