@@ -76,6 +76,27 @@ body {
     }
 }
 
+table .sort {
+    cursor: pointer;
+    cursor: hand;
+}
+table .sort .sort:after {
+    padding-left: 1em;
+    font-size: 0.5em;
+}
+table .sort .sort-none:after {
+    content: '\21D5';
+    padding-left: 0.5em;
+    font-size: 1em;
+}
+table .sort .sort-asc:after {
+    content: '\25BC';
 
+}
+table .sort .sort-desc:after {
+    content: '\25B2';
+}
 
-
+table .sort-order {
+    color: whitesmoke
+}
