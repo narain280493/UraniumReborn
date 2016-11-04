@@ -6,6 +6,8 @@ from models.project import project
 from models.loginpage import loginpage
 from ma_schema.facultyschema import facultyschema
 from ma_schema.projectschema import projectschema
+from ma_schema.studentschema import studentschema
+from ma_schema.studentapplication import studentapplicationschema
 from werkzeug import check_password_hash
 from datetime import timedelta
 import os
@@ -36,6 +38,30 @@ def index():
         else:
             return render_template('login.html')
 
+    if request.method == 'POST':
+        reqData = request.get_data()
+        reqDataJson = json.loads(reqData)
+
+        sSchema = studentschema()
+        appSchema = studentapplicationschema()
+
+        studentJson = None
+        applicationJson = None
+
+        if 'student' in reqDataJson.keys():
+            studentJson = constructFaculty(reqDataJson['student'], False)
+        if 'application' in reqDataJson.keys():
+            applicationJson = constructApplication(reqDataJson['student'], False)
+
+        stu = sSchema.load(studentJson, session=db_session).data
+        stuapp = appSchema.load(applicationJson, session=db_session).data
+
+        db_session.add(stu)
+        stuapp.s_id = stu.id
+
+        db_session.commit()
+        db_session.add(stuapp)
+        db_session.commit()
 
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
@@ -116,7 +142,7 @@ def constructProject(inpJson):
     inpJson['specialRequirements'] = str(inpJson['specialRequirements'])
     inpJson['fieldOfStudy'] = str(inpJson['fieldOfStudy'])
     inpJson['isDevelopingCommunities'] = inpJson['isDevelopingCommunities'] == "Yes" if True else False
-    inpJson['isDevelopingCommunities'] = False
+    inpJson['isDevelopingCommunities'] = False ## what's this?
     return inpJson
 
 
@@ -131,6 +157,45 @@ def constructFaculty(inpJson, isgrad):
         return inpJson
     else:
         return None
+
+def constructStudent(inpJson):
+
+    if inpJson['FirstName'] != '':
+        inpJson[u'id'] = str(uuid.uuid1())
+
+        if 'isResearchExperience' in inpJson.keys():
+            inpJson['isResearchExperience'] = inpJson['isResearchExperience'] == "Yes" if True else False
+        else:
+            inpJson['isResearchExperience'] = False
+
+        inpJson['Race'] = str(inpJson['Race'])
+
+        if 'isAppliedBefore' in inpJson.keys():
+            inpJson['isAppliedBefore'] = inpJson['isAppliedBefore'] == "Yes" if True else False
+        else:
+            inpJson['isAppliedBefore'] = False
+
+        if 'isBackgroundCheckDone' in inpJson.keys():
+            inpJson['isBackgroundCheckDone'] = inpJson['isBackgroundCheckDone'] == "Yes" if True else False
+        else:
+            inpJson['isBackgroundCheckDone'] = False
+
+
+        if 'isHarassmentTrainingDone' in inpJson.keys():
+            inpJson['isHarassmentTrainingDone'] = inpJson['isHarassmentTrainingDone'] == "Yes" if True else False
+        else:
+            inpJson['isHarassmentTrainingDone'] = False
+
+        return inpJson
+
+    else:
+        return None
+
+def constructApplication(inpJson):
+    inpJson[u'id'] = str(uuid.uuid1())
+
+
+
 
 
 @app.route('/listofprojects', methods=['GET', 'POST'])
@@ -159,6 +224,8 @@ def listofprojects():
         if 'apprenticeship' in reqDataJson.keys():
             projJson = constructProject(reqDataJson['apprenticeship'])
 
+
+
         fac = fSchema.load(facultyJson, session=db_session).data
         if secFacultyJson:
             secfac = fSchema.load(secFacultyJson, session=db_session).data
@@ -168,6 +235,7 @@ def listofprojects():
             gradStud = fSchema.load(gradStudentJson, session=db_session).data
         else:
             gradStud = None
+
         proj = pSchema.load(projJson, session=db_session).data
 
         db_session.add(fac)

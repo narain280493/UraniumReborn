@@ -15,7 +15,7 @@ class student(Base):
     FirstName = Column(String(100))
     LastName = Column(String(100))
     Gender = Column(String(10))
-    isSpanishOrigin = Column(Boolean)
+    isSpanishOrigin = Column(String(20))
     Race = Column(String(100))
 
     ## address
@@ -35,11 +35,21 @@ class student(Base):
     ## academic info
     PrimaryMajor = Column(String(100))
     SecondaryMajor = Column(String(100))
-    GPA = Column(Boolean)
+    GPA = Column(String(10))
     StudentId = Column(String(20))
     SchoolLevel = Column(String(20))
     GraduationMonth = Column(String(20))
     GraduationYear = Column(String(5))
     isResearchExperience =Column(Boolean)
 
+    isAppliedBefore = Column(Boolean)
+    isBackgroundCheckDone = Column(Boolean)
+    LastBackgroundCheckMonth = Column(String(20))
+    LastBackgroundCheckYear = Column(String(5))
+    isHarassmentTrainingDone = Column(Boolean)
+    LastHarassmentTrainingMonth = Column(String(20))
+    LastHarassmentTrainingYear = Column(String(5))
     students = relationship("student", back_populates="stuapp", primaryjoin="student.id==studentapplication.s_id")
+
+    def __repr__(self):
+        return "<student:" + self.FirstName + ">"
