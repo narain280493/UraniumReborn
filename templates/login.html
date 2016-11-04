@@ -3,9 +3,32 @@
 {% block content %}
 
 <form class="form-horizontal" action="/login" method="post" id="loginform" enctype='application/json'>
+  <div class="well">
+    <div class="form-group">
+      <label class="control-label col-md-2" for="login[Email]">Email</label>
+      <div class="col-md-5">
+        <label>
+          <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+            <input class="form-control" type="email" size="30" name="login[Email]" placeholder="email@colorado.edu">
+          </div>
+        </label>
+      </div>
+    </div>
 
+    <div class="form-group">
+      <label class="control-label col-md-2" for="login[Password]">Password</label>
+      <div class="col-md-5">
+        <label>
+          <div class="input-group">
+            <input type="password" class="form-control" id="login[Password]" name="login[Password]" placeholder="Password">
+          </div>
+        </label>
+      </div>
+    </div>
+  </div>
 
-<div class="form-group">
+  <div class="form-group">
   <div>
     <button type="submit" class="btn center-block btn-default">login</button>
   </div>
