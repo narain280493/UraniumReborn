@@ -3,11 +3,13 @@ from forms import SignupForm
 from database.database import db_session, init_db
 from models.faculty import faculty
 from models.project import project
+from models.student import student
+from models.studentapplication import studentapplication
 from models.loginpage import loginpage
 from ma_schema.facultyschema import facultyschema
 from ma_schema.projectschema import projectschema
 from ma_schema.studentschema import studentschema
-from ma_schema.studentapplication import studentapplicationschema
+from ma_schema.studentapplicationschema import studentapplicationschema
 from werkzeug import check_password_hash
 from datetime import timedelta
 import os
@@ -49,9 +51,9 @@ def index():
         applicationJson = None
 
         if 'student' in reqDataJson.keys():
-            studentJson = constructFaculty(reqDataJson['student'], False)
+            studentJson = constructStudent(reqDataJson['student'])
         if 'application' in reqDataJson.keys():
-            applicationJson = constructApplication(reqDataJson['student'], False)
+            applicationJson = constructApplication(reqDataJson['application'])
 
         stu = sSchema.load(studentJson, session=db_session).data
         stuapp = appSchema.load(applicationJson, session=db_session).data
@@ -193,6 +195,7 @@ def constructStudent(inpJson):
 
 def constructApplication(inpJson):
     inpJson[u'id'] = str(uuid.uuid1())
+    return inpJson
 
 
 

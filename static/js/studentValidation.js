@@ -104,7 +104,7 @@ $(document).ready(function() {
                     validators: {
                         choice: {
                             min: 1,
-                            max: 1,
+                            max: 3,
                             message: 'Please choose a option'
                         }
                     }

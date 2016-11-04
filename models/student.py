@@ -49,7 +49,7 @@ class student(Base):
     isHarassmentTrainingDone = Column(Boolean)
     LastHarassmentTrainingMonth = Column(String(20))
     LastHarassmentTrainingYear = Column(String(5))
-    students = relationship("student", back_populates="stuapp", primaryjoin="student.id==studentapplication.s_id")
+    students = relationship("studentapplication", back_populates="stuapp", primaryjoin="student.id==studentapplication.s_id")
 
     def __repr__(self):
         return "<student:" + self.FirstName + ">"
