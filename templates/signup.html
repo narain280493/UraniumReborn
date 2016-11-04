@@ -1,6 +1,92 @@
 {% extends "navigation.html" %}
 
 {% block content %}
+<div class="container">
+<form class="form-horizontal" action="/signup" method="post" id="signupform" enctype='application/json'>
+
+	<div class="well">
+		<h2 style="text-align: center">Create an account</h2>
+		<div>&nbsp</div>
+
+		<div class="form-group">
+			<label class="control-label col-md-2" for="newUser[FirstName]">First Name</label>
+			<div class="col-md-5">
+				<div class="input-group">
+					<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+					<input type="text" class="form-control" name="newUser[FirstName]" placeholder="First Name">
+				</div>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label class="control-label col-md-2" for="newUser[LastName]">Last Name</label>
+			<div class="col-md-5">
+				<div class="input-group">
+					<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+					<input type="text" class="form-control" name="newUser[LastName]" placeholder="Last Name">
+				</div>
+			</div>
+		</div>
+
+
+		<div class="form-group">
+			<label class="control-label col-md-2" for="newUser[Email]">Email</label>
+			<div class="col-md-5">
+				<label>
+					<div class="input-group">
+						<span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+						<input class="form-control" type="email" size="30" name="newUser[Email]" placeholder="email@colorado.edu">
+					</div>
+				</label>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label class="control-label col-md-2" for="newUser[Password]">Password</label>
+			<div class="col-md-5">
+				<label>
+					<div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+						<input type="password" class="form-control" id="newUser[Password]" name="newUser[Password]" placeholder="Password">
+					</div>
+				</label>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label class="control-label col-md-2" for="confirmPassword">Confirm Password</label>
+			<div class="col-md-5">
+				<label>
+					<div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+						<input type="password" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="Re-enter Password">
+					</div>
+				</label>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label class="control-label col-md-2" for="newUser[UserType]">Choose user type</label>
+			<div class="col-md-5">
+				<div class="radio">
+					<label><input type="radio" name="newUser[UserType]" value="Faculty" required>Faculty</label>
+				</div>
+				<div class="radio">
+					<label><input type="radio" name="newUser[UserType]" value="Student" required>Student</label>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	<div class="form-group">
+		<div>
+			<button type="submit" class="btn center-block btn-default">Sign up</button>
+		</div>
+	</div>
+
+		</form>
+	</div>
 
 {% endblock %}
 
