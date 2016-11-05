@@ -44,7 +44,7 @@ $(document).ready(function() {
                 },
 
 
-                'newUser[Password]': {
+                'signupInfo[Password]': {
                     validators: {
 
                         stringLength: {
