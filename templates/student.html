@@ -3,7 +3,7 @@
 {% block content %}
 
 <div class="container">
-    <form class="form-horizontal" action=" " method="post"  id="studentform" enctype='application/json'>
+    <form class="form-horizontal" action="/" method="post"  id="studentform" enctype='application/json'>
         <fieldset>
 
             <div class="well">
@@ -669,7 +669,7 @@
                         <label class="control-label col-md-2" for="application[ResumeFile]">Resume:</label>
                         <div class="col-md-5">
                             <label class="btn btn-file">
-                                <input type="file" name="application[ResumeFile]" onclick="Submit_Click" />
+                                <input type="file" id="file-input" name="application[ResumeFile]" onclick="Submit_Click" />
                             </label>
                         </div>
                     </div>
@@ -678,7 +678,7 @@
                         <label class="control-label col-md-2" for="application[CoverLetterFile]">Cover Letter:</label>
                         <div class="col-md-5">
                             <label class="btn btn-file">
-                                <input type="file" name="application[CoverLetterFile]" onclick="Submit_Click" />
+                                <input type="file" id="file-input1" name="application[CoverLetterFile]" onclick="Submit_Click" />
                             </label>
                         </div>
                     </div>
@@ -698,6 +698,8 @@
         </fieldset>
     </form>
 </div>
+
+
 
 <!-- TODO
 Add Writing%20Tips%20for%20Cover%20Letters%20and%20Resumes.doc to server

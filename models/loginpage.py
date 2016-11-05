@@ -1,7 +1,5 @@
 from database.database import Base
 from sqlalchemy import Column, String, ForeignKey
-import uuid
-from werkzeug import generate_password_hash, check_password_hash
 
 
 # TO:DO needs a one to one mapping faculty to login

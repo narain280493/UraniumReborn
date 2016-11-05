@@ -2,14 +2,22 @@ from flask import Flask, render_template, request, session, redirect, url_for
 from database.database import db_session, init_db
 from models.faculty import faculty
 from models.project import project
+from models.student import student
+from models.studentapplication import studentapplication
+from models.fileurl import fileurl
 from models.loginpage import loginpage
 from ma_schema.facultyschema import facultyschema
 from ma_schema.projectschema import projectschema
+from ma_schema.studentschema import studentschema
+from ma_schema.studentapplicationschema import studentapplicationschema
+from ma_schema.fileurlschema import fileurlschema
 from werkzeug import check_password_hash
 from datetime import timedelta
 import os
 import uuid
 import json
+import boto3
+
 
 tmpl_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'templates')
 app = Flask("UraniumReborn", template_folder=tmpl_dir)
@@ -35,6 +43,31 @@ def index():
         else:
             return render_template('login.html')
 
+    if request.method == 'POST':
+        reqData = request.get_data()
+        reqDataJson = json.loads(reqData)
+
+        sSchema = studentschema()
+        appSchema = studentapplicationschema()
+
+        studentJson = None
+        applicationJson = None
+
+        if 'student' in reqDataJson.keys():
+            studentJson = constructStudent(reqDataJson['student'])
+        if 'application' in reqDataJson.keys():
+            applicationJson = constructApplication(reqDataJson['application'])
+
+        stu = sSchema.load(studentJson, session=db_session).data
+        stuapp = appSchema.load(applicationJson, session=db_session).data
+
+        db_session.add(stu)
+        stuapp.s_id = stu.id
+
+        db_session.commit()
+        db_session.add(stuapp)
+        db_session.commit()
+        return render_template('home.html')
 
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
@@ -57,6 +90,53 @@ def signup():
             return redirect(url_for('index'))
         return render_template('signup.html')
 
+@app.route('/sign-s3/')
+def sign_s3():
+    urlSchema = fileurlschema()
+
+    # Load necessary information into the application
+    S3_BUCKET = os.environ.get('S3_BUCKET')
+
+    # Load required data from the request
+    file_name = request.args.get('file-name')
+    file_name2 = request.args.get('file-name2')
+
+    # Initialise the S3 client
+    s3 = boto3.client('s3')
+    # Generate and return the presigned URL
+    presigned_post = s3.generate_presigned_post(
+        Bucket=S3_BUCKET,
+        Key=file_name
+    )
+
+    presigned_post2 = s3.generate_presigned_post(
+        Bucket=S3_BUCKET,
+        Key=file_name2
+    )
+
+    url1 = "https://"+S3_BUCKET+".s3.amazonaws.com/"+file_name
+    url2 = "https://"+S3_BUCKET+".s3.amazonaws.com/"+file_name2
+
+    result = {}
+    resume_url = url1
+    coverletter_url = url2
+    email = session['email']
+    result['resume_url'] = resume_url
+    result['coverletter_url'] = coverletter_url
+    result['email_id'] =  email
+    result[u'id'] = str(uuid.uuid1())
+    furl = urlSchema.load(result, session=db_session).data
+
+    db_session.add(furl)
+    db_session.commit()
+
+    # Return the data to the client
+    return json.dumps({
+        'data1': presigned_post,
+        'url1': 'https://%s.s3.amazonaws.com/%s' % (S3_BUCKET, file_name),
+        'data2': presigned_post2,
+        'url2':'https://%s.s3.amazonaws.com/%s' % (S3_BUCKET, file_name2)
+    })
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -108,9 +188,8 @@ def constructProject(inpJson):
     inpJson['specialRequirements'] = str(inpJson['specialRequirements'])
     inpJson['fieldOfStudy'] = str(inpJson['fieldOfStudy'])
     inpJson['isDevelopingCommunities'] = inpJson['isDevelopingCommunities'] == "Yes" if True else False
-    inpJson['isDevelopingCommunities'] = False
+    inpJson['isDevelopingCommunities'] = False ## what's this?
     return inpJson
-
 
 def constructFaculty(inpJson, isgrad):
     if inpJson['FirstName'] != '':
@@ -124,6 +203,42 @@ def constructFaculty(inpJson, isgrad):
     else:
         return None
 
+def constructStudent(inpJson):
+
+    if inpJson['FirstName'] != '':
+        inpJson[u'id'] = str(uuid.uuid1())
+
+        if 'isResearchExperience' in inpJson.keys():
+            inpJson['isResearchExperience'] = inpJson['isResearchExperience'] == "Yes" if True else False
+        else:
+            inpJson['isResearchExperience'] = False
+
+        inpJson['Race'] = str(inpJson['Race'])
+
+        if 'isAppliedBefore' in inpJson.keys():
+            inpJson['isAppliedBefore'] = inpJson['isAppliedBefore'] == "Yes" if True else False
+        else:
+            inpJson['isAppliedBefore'] = False
+
+        if 'isBackgroundCheckDone' in inpJson.keys():
+            inpJson['isBackgroundCheckDone'] = inpJson['isBackgroundCheckDone'] == "Yes" if True else False
+        else:
+            inpJson['isBackgroundCheckDone'] = False
+
+
+        if 'isHarassmentTrainingDone' in inpJson.keys():
+            inpJson['isHarassmentTrainingDone'] = inpJson['isHarassmentTrainingDone'] == "Yes" if True else False
+        else:
+            inpJson['isHarassmentTrainingDone'] = False
+
+        return inpJson
+
+    else:
+        return None
+
+def constructApplication(inpJson):
+    inpJson[u'id'] = str(uuid.uuid1())
+    return inpJson
 
 @app.route('/listofprojects', methods=['GET', 'POST'])
 def listofprojects():
@@ -160,6 +275,7 @@ def listofprojects():
             gradStud = fSchema.load(gradStudentJson, session=db_session).data
         else:
             gradStud = None
+
         proj = pSchema.load(projJson, session=db_session).data
 
         db_session.add(fac)
