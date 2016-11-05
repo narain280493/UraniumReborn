@@ -39,6 +39,7 @@ def shutdown_session(exception=None):
 @app.route('/', methods=['GET', 'POST'])
 def index():
     if request.method == 'GET':
+        print session['email']
         if 'email' in session:
             return render_template('home.html')
         else:
@@ -60,9 +61,10 @@ def index():
             applicationJson = constructApplication(reqDataJson['application'])
 
         stu = sSchema.load(studentJson, session=db_session).data
+        stu.id = session['uid']
         stuapp = appSchema.load(applicationJson, session=db_session).data
 
-        db_session.add(stu)
+        db_session.merge(stu)
         stuapp.s_id = stu.id
 
         db_session.commit()
@@ -127,21 +129,21 @@ def signup():
             userJson['SchoolLevel'] = ""
             userJson['GraduationMonth'] = ""
             userJson['GraduationYear'] = ""
-            userJson['isResearchExperience'] = ""
-            userJson['isAppliedBefore'] = ""
-            userJson['isBackgroundCheckDone'] = ""
+            userJson['isResearchExperience'] = False
+            userJson['isAppliedBefore'] = False
+            userJson['isBackgroundCheckDone'] = False
             userJson['LastBackgroundCheckMonth'] = ""
             userJson['LastBackgroundCheckYear'] = ""
-            userJson['isHarassmentTrainingDone'] = ""
+            userJson['isHarassmentTrainingDone'] = False
             userJson['LastHarassmentTrainingMonth'] = ""
             userJson['LastHarassmentTrainingYear'] = ""
             userJson['resumeURL'] = ""
             loginPageJson['f_id'] = None
             loginPageJson['s_id'] = userJson['id']
-            stud = sSchema.load(userJson, session=db_session)
+            stud = sSchema.load(userJson, session=db_session).data
             db_session.add(stud)
             db_session.commit()
-            lgn = lSchema.load(loginPageJson, session=db_session)
+            lgn = lSchema.load(loginPageJson, session=db_session).data
             lgn.s_id = stud.id
             db_session.add(lgn)
             db_session.commit()
@@ -239,6 +241,8 @@ def signout():
 
     session.pop('email', None)
     session.pop('name', None)
+    session.pop('utype', None)
+    session.pop('uid', None)
     return render_template('login.html')
 
 
@@ -352,8 +356,8 @@ def listofprojects():
             gradStud = None
 
         proj = pSchema.load(projJson, session=db_session).data
-
-        db_session.add(fac)
+        fac.id = session['uid']
+        db_session.merge(fac)
         proj.f_id = fac.id
 
         if secfac:

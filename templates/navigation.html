@@ -36,9 +36,12 @@
     </div>
     <ul class="nav navbar-nav">
       <li ><a  href="/">Home</a></li>
+        {% if session['utype']=='Student' %}
       <li ><a href="student">Student form</a></li>
-        <li > <a href="faculty">Faculty form</a></li>
-      <li > <a href="listofprojects">List of Projects</a></li>
+        {% elif session['utype']=='Faculty' %}
+      <li ><a href="faculty">Faculty form</a></li>
+        {% endif %}
+      <li ><a href="listofprojects">List of Projects</a></li>
     </ul>
       {% if 'email' not in session %}
           <ul class="nav navbar-nav navbar-right">
