@@ -184,7 +184,7 @@ def login():
         return render_template('login.html')
 
 
-@app.route('/sign-s3/')
+@app.route('/sign-s3/', methods=['GET', 'POST'])
 def sign_s3():
     urlSchema = fileurlschema()
 
@@ -196,27 +196,16 @@ def sign_s3():
     file_name2 = request.args.get('file-name2')
 
     # Initialise the S3 client
-    s3 = boto3.client('s3', region_name='us-east-1')
+    s3 = boto3.client('s3')
+
     # Generate and return the presigned URL
-    presigned_post = s3.generate_presigned_post(
-        Bucket=S3_BUCKET,
-        Key=file_name
-    )
-
-    presigned_post2 = s3.generate_presigned_post(
-        Bucket=S3_BUCKET,
-        Key=file_name2
-    )
-
-    url1 = "https://" + S3_BUCKET + ".s3-us-west-2.amazonaws.com/" + file_name
-    url2 = "https://" + S3_BUCKET + ".s3-us-west-2.amazonaws.com/" + file_name2
+    presigned_post = s3.generate_presigned_url('get_object', Params={'Bucket': S3_BUCKET, 'Key': file_name}, ExpiresIn=100)
+    presigned_post2 = s3.generate_presigned_url('get_object', Params={'Bucket': S3_BUCKET, 'Key': file_name2}, ExpiresIn=100)
 
     result = {}
-    resume_url = url1
-    coverletter_url = url2
     email = session['email']
-    result['resume_url'] = resume_url
-    result['coverletter_url'] = coverletter_url
+    result['resume_url'] = "https://" + S3_BUCKET + ".s3.amazonaws.com/" + file_name
+    result['coverletter_url'] = "https://" + S3_BUCKET + ".s3.amazonaws.com/" + file_name2
     result['email_id'] = email
     result[u'id'] = str(uuid.uuid1())
     furl = urlSchema.load(result, session=db_session).data
@@ -226,10 +215,8 @@ def sign_s3():
 
     # Return the data to the client
     return json.dumps({
-        'data1': presigned_post,
-        'url1': 'https://%s.s3-us-west-2.amazonaws.com/%s' % (S3_BUCKET, file_name),
-        'data2': presigned_post2,
-        'url2': 'https://%s.s3-us-west-2.amazonaws.com/%s' % (S3_BUCKET, file_name2)
+        'url1': presigned_post,
+        'url2': presigned_post2
     })
 
 
