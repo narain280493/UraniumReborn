@@ -196,7 +196,7 @@ def sign_s3():
     file_name2 = request.args.get('file-name2')
 
     # Initialise the S3 client
-    s3 = boto3.client('s3', region_name='us-west-2')
+    s3 = boto3.client('s3', region_name='us-east-1')
     # Generate and return the presigned URL
     presigned_post = s3.generate_presigned_post(
         Bucket=S3_BUCKET,
