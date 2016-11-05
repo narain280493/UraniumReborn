@@ -102,9 +102,10 @@ def signup():
             loginPageJson['f_id'] = userJson['id']
             loginPageJson['s_id'] = None
             fac = fSchema.load(userJson, session=db_session).data
-            lgn = lSchema.load(loginPageJson, session=db_session).data
             db_session.add(fac)
             db_session.commit()
+            lgn = lSchema.load(loginPageJson, session=db_session).data
+            lgn.f_id = fac.id
             db_session.add(lgn)
             db_session.commit()
         else:
@@ -138,9 +139,10 @@ def signup():
             loginPageJson['f_id'] = None
             loginPageJson['s_id'] = userJson['id']
             stud = sSchema.load(userJson, session=db_session)
-            lgn = lSchema.load(loginPageJson, session=db_session)
             db_session.add(stud)
             db_session.commit()
+            lgn = lSchema.load(loginPageJson, session=db_session)
+            lgn.s_id = stud.id
             db_session.add(lgn)
             db_session.commit()
         session['name'] = userJson['FirstName'] + " " + userJson['LastName']
