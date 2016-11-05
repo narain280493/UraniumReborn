@@ -174,6 +174,7 @@ $(document).ready(function() {
             var file2 = document.getElementById('file-input1').files;
             $.ajax({
                type: "GET",
+               crossDomain: true,
                url: `/sign-s3?file-name=` + $(file)[0].name + `&file-type=` + $(file)[0].type + `&file-value=Resume&file-name2=`+ $(file2)[0].name +`&file-type2=`+ $(file2)[0].type +`&file-value2=CoverLetter`,
                success: function(data,status){
                    pdata = JSON.parse(data);
