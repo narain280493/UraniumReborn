@@ -55,7 +55,8 @@ $(document).ready(function() {
 
             // Use Ajax to submit form data
             $.post($form.attr('action'), $form.serializeJSON(), function(result) {
-                console.log(result);
+                if(result['status'] == 'OK')
+                    window.location.replace("/")
             }, 'json');
         });
 

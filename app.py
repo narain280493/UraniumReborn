@@ -39,7 +39,6 @@ def shutdown_session(exception=None):
 @app.route('/', methods=['GET', 'POST'])
 def index():
     if request.method == 'GET':
-        print session['email']
         if 'email' in session:
             return render_template('home.html')
         else:
@@ -88,7 +87,7 @@ def signup():
         existingUser = loginpage.query.filter_by(Email=userJson['Email'].lower()).first()
 
         if existingUser:
-            return redirect(url_for('signup'))
+            return json.dumps({'status': 'existing user'})
 
         userJson['id'] = str(uuid.uuid1())
         userJson['Phone'] = ""
@@ -151,10 +150,10 @@ def signup():
         session['email'] = userJson['Email']
         session['utype'] = loginPageJson['UserType']
         session['uid'] = userJson['id']
-        return redirect(url_for('index'))
+        return json.dumps({'status':'OK'})
     elif request.method == 'GET':
         if 'email' in session:
-            return redirect(url_for('index'))
+            return json.dumps({'status': 'OK'})
         return render_template('signup.html')
 
 
@@ -175,12 +174,12 @@ def login():
             elif lgn.UserType == 'Student':
                 session['name'] = lgn.stud.FirstName + " " + lgn.stud.LastName
                 session['uid'] = lgn.s_id
-            return redirect(url_for('index'))
+            return json.dumps({'status': 'OK'})
         else:
-            return redirect(url_for('login'))
+            return json.dumps({'status': 'Login Failed'})
     else:
         if 'email' in session:
-            return redirect(url_for('index'))
+            return json.dumps({'status': 'OK'})
 
         return render_template('login.html')
 
@@ -243,7 +242,7 @@ def signout():
     session.pop('name', None)
     session.pop('utype', None)
     session.pop('uid', None)
-    return render_template('login.html')
+    return redirect(url_for('login'))
 
 
 @app.route('/student')
