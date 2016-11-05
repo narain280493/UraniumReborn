@@ -182,9 +182,7 @@ $(document).ready(function() {
                                 document.getElementById('preview').src = url2;
                                 document.getElementById('avatar-url').value = url2;
                             }
-                            else{
-                                alert('Could not upload file2.');
-                            }
+             
                         }
                     };
 
