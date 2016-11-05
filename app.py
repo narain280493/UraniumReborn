@@ -227,9 +227,9 @@ def sign_s3():
     # Return the data to the client
     return json.dumps({
         'data1': presigned_post,
-        'url1': 'https://%s.s3.amazonaws.com/%s' % (S3_BUCKET, file_name),
+        'url1': 'https://%s.s3-us-west-2.amazonaws.com/%s' % (S3_BUCKET, file_name),
         'data2': presigned_post2,
-        'url2': 'https://%s.s3.amazonaws.com/%s' % (S3_BUCKET, file_name2)
+        'url2': 'https://%s.s3-us-west-2.amazonaws.com/%s' % (S3_BUCKET, file_name2)
     })
 
 
