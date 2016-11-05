@@ -205,9 +205,7 @@ $(document).ready(function() {
                             const response = JSON.parse(xhr.responseText);
                             uploadFile(file, response.data1, response.url1, file2, response.data2, response.url2);
                         }
-                        else{
-                            alert('Could not get signed URL.');
-                        }
+                    
                     }
                 };
                 xhr.send();
