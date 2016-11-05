@@ -2,10 +2,13 @@
 UraniumReborn.iml
 models/__init__.pyc
 models/faculty.pyc
+models/loginpage.pyc
 models/project.pyc
 server/forms.pyc
 database/database.py
+database/database.pyc
 database/config.properties
+database/__init__.pyc
 ma_schema/projectschema.pyc
 __pycache__/
 app.pyc

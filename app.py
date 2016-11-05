@@ -1,5 +1,4 @@
 from flask import Flask, render_template, request, session, redirect, url_for
-from forms import SignupForm
 from database.database import db_session, init_db
 from models.faculty import faculty
 from models.project import project
@@ -39,31 +38,24 @@ def index():
 
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
-    form = SignupForm()
     if request.method == 'POST':
-
-        if not form.validate():
-            return render_template('signup.html', form=form)
+        reqData = request.get_data()
+        loginPageJson = reqData['signupInfo']
+        userJson = reqData['newUser']
+        if loginPageJson['UserType'] == 'Faculty':
+            userJson['id'] = uuid.uuid1()
+            userJson['Phone'] = ""
+            userJson['Department'] = ""
+            userJson['is_grad'] = False
+            userJson['isSupervisedBefore'] = False
         else:
-            name = form.first_name.data + ' ' + form.last_name.data
-            existingUser = loginpage.query.filter_by(username=form.email.data.lower()).first()
 
-            # check whether user already exists
-            if existingUser:
-                return redirect(url_for('signup'))
-            else:
-                newuser = loginpage(form.email.data, name, form.password.data)
-                db_session.add(newuser)
-                db_session.commit()
-                session['email'] = form.email.data
-                session['name'] = name
-                return redirect(url_for('index'))
+
 
     elif request.method == 'GET':
-
         if 'email' in session:
             return redirect(url_for('index'))
-        return render_template('signup.html', form=form)
+        return render_template('signup.html')
 
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -135,8 +127,8 @@ def constructFaculty(inpJson, isgrad):
 
 @app.route('/listofprojects', methods=['GET', 'POST'])
 def listofprojects():
-##    if 'email' not in session:
-##        return redirect(url_for('index'))
+    if 'email' not in session:
+      return redirect(url_for('index'))
 
     if request.method == 'POST':
         reqData = request.get_data()
