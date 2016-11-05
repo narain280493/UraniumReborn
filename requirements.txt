@@ -2,5 +2,7 @@ sqlalchemy
 Flask
 Flask-SQLAlchemy
 psycopg2
-flask_wtf
 Flask-Testing
+marshmallow-sqlalchemy
+flask-marshmallow
+boto3

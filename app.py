@@ -1,14 +1,24 @@
 from flask import Flask, render_template, request, session, redirect, url_for
-from forms import SignupForm
 from database.database import db_session, init_db
-import os
-import json
 from models.faculty import faculty
 from models.project import project
+from models.student import student
+from models.studentapplication import studentapplication
+from models.fileurl import fileurl
 from models.loginpage import loginpage
+from ma_schema.facultyschema import facultyschema
+from ma_schema.projectschema import projectschema
+from ma_schema.studentschema import studentschema
+from ma_schema.loginpageschema import loginpageschema
+from ma_schema.studentapplicationschema import studentapplicationschema
+from ma_schema.fileurlschema import fileurlschema
 from werkzeug import check_password_hash
+from werkzeug import generate_password_hash
 from datetime import timedelta
-
+import os
+import uuid
+import json
+import boto3
 
 tmpl_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'templates')
 app = Flask("UraniumReborn", template_folder=tmpl_dir)
@@ -18,7 +28,7 @@ app.secret_key = "dev-key"
 @app.before_request
 def make_session_permanent():
     session.permanent = True
-    app.permanent_session_lifetime = timedelta(minutes=5)
+    app.permanent_session_lifetime = timedelta(minutes=30)
 
 
 @app.teardown_appcontext
@@ -34,54 +44,193 @@ def index():
         else:
             return render_template('login.html')
 
+    if request.method == 'POST':
+        reqData = request.get_data()
+        reqDataJson = json.loads(reqData)
+
+        sSchema = studentschema()
+        appSchema = studentapplicationschema()
+
+        studentJson = None
+        applicationJson = None
+
+        if 'student' in reqDataJson.keys():
+            studentJson = constructStudent(reqDataJson['student'])
+        if 'application' in reqDataJson.keys():
+            applicationJson = constructApplication(reqDataJson['application'])
+
+        stu = sSchema.load(studentJson, session=db_session).data
+        stu.id = session['uid']
+        stuapp = appSchema.load(applicationJson, session=db_session).data
+
+        db_session.merge(stu)
+        stuapp.s_id = stu.id
+
+        db_session.commit()
+        db_session.add(stuapp)
+        db_session.commit()
+        return render_template('home.html')
+
 
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
-    form = SignupForm()
     if request.method == 'POST':
+        reqData = json.loads(request.get_data())
 
-        if not form.validate():
-            return render_template('signup.html', form=form)
+        fSchema = facultyschema()
+        lSchema = loginpageschema()
+        sSchema = studentschema()
+
+        loginPageJson = reqData['signupInfo']
+        userJson = reqData['newUser']
+
+        existingUser = loginpage.query.filter_by(Email=userJson['Email'].lower()).first()
+
+        if existingUser:
+            return json.dumps({'status': 'existing user'})
+
+        userJson['id'] = str(uuid.uuid1())
+        userJson['Phone'] = ""
+        userJson['Department'] = ""
+        loginPageJson['Email'] = userJson['Email']
+        loginPageJson['Password'] = generate_password_hash(loginPageJson['Password'], method='pbkdf2:sha256',
+                                                           salt_length=8)
+        loginPageJson['id'] = str(uuid.uuid1())
+
+        if loginPageJson['UserType'] == 'Faculty':
+            userJson['is_grad'] = False
+            userJson['isSupervisedBefore'] = False
+            loginPageJson['f_id'] = userJson['id']
+            loginPageJson['s_id'] = None
+            fac = fSchema.load(userJson, session=db_session).data
+            db_session.add(fac)
+            db_session.commit()
+            lgn = lSchema.load(loginPageJson, session=db_session).data
+            lgn.f_id = fac.id
+            db_session.add(lgn)
+            db_session.commit()
         else:
-            name = form.first_name.data + ' ' + form.last_name.data
-            existingUser = loginpage.query.filter_by(username=form.email.data.lower()).first()
-
-            # check whether user already exists
-            if existingUser:
-                return redirect(url_for('signup'))
-            else:
-                newuser = loginpage(form.email.data, name, form.password.data)
-                db_session.add(newuser)
-                db_session.commit()
-                session['email'] = form.email.data
-                session['name'] = name
-                return redirect(url_for('index'))
-
+            userJson['Student_id'] = ""
+            userJson['LocalAddressLine1'] = ""
+            userJson['LocalAddressLine2'] = ""
+            userJson['LocalAddressCity'] = ""
+            userJson['LocalAddressState'] = ""
+            userJson['LocalAddressZip'] = ""
+            userJson['SummerAddressLine_1'] = ""
+            userJson['SummerAddressLine_2'] = ""
+            userJson['SummerAddressCity'] = ""
+            userJson['SummerAddressState'] = ""
+            userJson['SummerAddressZip'] = ""
+            userJson['PrimaryMajor'] = ""
+            userJson['SecondaryMajor'] = ""
+            userJson['GPA'] = ""
+            userJson['StudentId'] = ""
+            userJson['SchoolLevel'] = ""
+            userJson['GraduationMonth'] = ""
+            userJson['GraduationYear'] = ""
+            userJson['isResearchExperience'] = False
+            userJson['isAppliedBefore'] = False
+            userJson['isBackgroundCheckDone'] = False
+            userJson['LastBackgroundCheckMonth'] = ""
+            userJson['LastBackgroundCheckYear'] = ""
+            userJson['isHarassmentTrainingDone'] = False
+            userJson['LastHarassmentTrainingMonth'] = ""
+            userJson['LastHarassmentTrainingYear'] = ""
+            userJson['resumeURL'] = ""
+            loginPageJson['f_id'] = None
+            loginPageJson['s_id'] = userJson['id']
+            stud = sSchema.load(userJson, session=db_session).data
+            db_session.add(stud)
+            db_session.commit()
+            lgn = lSchema.load(loginPageJson, session=db_session).data
+            lgn.s_id = stud.id
+            db_session.add(lgn)
+            db_session.commit()
+        session['name'] = userJson['FirstName'] + " " + userJson['LastName']
+        session['email'] = userJson['Email']
+        session['utype'] = loginPageJson['UserType']
+        session['uid'] = userJson['id']
+        return json.dumps({'status':'OK'})
     elif request.method == 'GET':
-
         if 'email' in session:
-            return redirect(url_for('index'))
-        return render_template('signup.html', form=form)
+            return json.dumps({'status': 'OK'})
+        return render_template('signup.html')
 
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
-        email = request.form.get('useremail')
-        passwd = request.form.get('password')
-        user = loginpage.query.filter_by(username=email.lower()).first()
+        credinfo = json.loads(request.get_data())
+        email = credinfo['useremail']
+        pwd = credinfo['password']
+        lgn = loginpage.query.filter_by(Email=email.lower()).first()
 
-        if user and check_password_hash(user.passwdhash, passwd):
+        if lgn and check_password_hash(lgn.Password, pwd):
             session['email'] = email
-            session['name'] = user.name
-            return redirect(url_for('index'))
+            session['utype'] = lgn.UserType
+            if lgn.UserType == 'Faculty':
+                session['name'] = lgn.fac.FirstName + " " + lgn.fac.LastName
+                session['uid'] = lgn.f_id
+            elif lgn.UserType == 'Student':
+                session['name'] = lgn.stud.FirstName + " " + lgn.stud.LastName
+                session['uid'] = lgn.s_id
+            return json.dumps({'status': 'OK'})
         else:
-            return redirect(url_for('login'))
+            return json.dumps({'status': 'Login Failed'})
     else:
         if 'email' in session:
-            return redirect(url_for('index'))
+            return json.dumps({'status': 'OK'})
 
         return render_template('login.html')
+
+
+@app.route('/sign-s3/')
+def sign_s3():
+    urlSchema = fileurlschema()
+
+    # Load necessary information into the application
+    S3_BUCKET = os.environ.get('S3_BUCKET')
+
+    # Load required data from the request
+    file_name = request.args.get('file-name')
+    file_name2 = request.args.get('file-name2')
+
+    # Initialise the S3 client
+    s3 = boto3.client('s3')
+    # Generate and return the presigned URL
+    presigned_post = s3.generate_presigned_post(
+        Bucket=S3_BUCKET,
+        Key=file_name
+    )
+
+    presigned_post2 = s3.generate_presigned_post(
+        Bucket=S3_BUCKET,
+        Key=file_name2
+    )
+
+    url1 = "https://" + S3_BUCKET + ".s3.amazonaws.com/" + file_name
+    url2 = "https://" + S3_BUCKET + ".s3.amazonaws.com/" + file_name2
+
+    result = {}
+    resume_url = url1
+    coverletter_url = url2
+    email = session['email']
+    result['resume_url'] = resume_url
+    result['coverletter_url'] = coverletter_url
+    result['email_id'] = email
+    result[u'id'] = str(uuid.uuid1())
+    furl = urlSchema.load(result, session=db_session).data
+
+    db_session.add(furl)
+    db_session.commit()
+
+    # Return the data to the client
+    return json.dumps({
+        'data1': presigned_post,
+        'url1': 'https://%s.s3.amazonaws.com/%s' % (S3_BUCKET, file_name),
+        'data2': presigned_post2,
+        'url2': 'https://%s.s3.amazonaws.com/%s' % (S3_BUCKET, file_name2)
+    })
 
 
 @app.route('/logout')
@@ -91,7 +240,9 @@ def signout():
 
     session.pop('email', None)
     session.pop('name', None)
-    return render_template('login.html')
+    session.pop('utype', None)
+    session.pop('uid', None)
+    return redirect(url_for('login'))
 
 
 @app.route('/student')
@@ -109,138 +260,114 @@ def faculty_page():
     return render_template('faculty.html')
 
 
+def constructProject(inpJson):
+    inpJson[u'id'] = str(uuid.uuid1())
+    inpJson['specialRequirements'] = str(inpJson['specialRequirements'])
+    inpJson['fieldOfStudy'] = str(inpJson['fieldOfStudy'])
+    inpJson['isDevelopingCommunities'] = inpJson['isDevelopingCommunities'] == "Yes" if True else False
+    inpJson['isDevelopingCommunities'] = False  ## what's this?
+    return inpJson
+
+
+def constructFaculty(inpJson, isgrad):
+    if inpJson['FirstName'] != '':
+        inpJson[u'id'] = str(uuid.uuid1())
+        inpJson[u'is_grad'] = isgrad
+        if 'isSupervisedBefore' in inpJson.keys():
+            inpJson['isSupervisedBefore'] = inpJson['isSupervisedBefore'] == "Yes" if True else False
+        else:
+            inpJson['isSupervisedBefore'] = False
+        return inpJson
+    else:
+        return None
+
+
+def constructStudent(inpJson):
+    if inpJson['FirstName'] != '':
+        inpJson[u'id'] = str(uuid.uuid1())
+
+        if 'isResearchExperience' in inpJson.keys():
+            inpJson['isResearchExperience'] = inpJson['isResearchExperience'] == "Yes" if True else False
+        else:
+            inpJson['isResearchExperience'] = False
+
+        inpJson['Race'] = str(inpJson['Race'])
+
+        if 'isAppliedBefore' in inpJson.keys():
+            inpJson['isAppliedBefore'] = inpJson['isAppliedBefore'] == "Yes" if True else False
+        else:
+            inpJson['isAppliedBefore'] = False
+
+        if 'isBackgroundCheckDone' in inpJson.keys():
+            inpJson['isBackgroundCheckDone'] = inpJson['isBackgroundCheckDone'] == "Yes" if True else False
+        else:
+            inpJson['isBackgroundCheckDone'] = False
+
+        if 'isHarassmentTrainingDone' in inpJson.keys():
+            inpJson['isHarassmentTrainingDone'] = inpJson['isHarassmentTrainingDone'] == "Yes" if True else False
+        else:
+            inpJson['isHarassmentTrainingDone'] = False
+
+        return inpJson
+    else:
+        return None
+
+
+def constructApplication(inpJson):
+    inpJson[u'id'] = str(uuid.uuid1())
+    return inpJson
+
+
 @app.route('/listofprojects', methods=['GET', 'POST'])
 def listofprojects():
     if 'email' not in session:
         return redirect(url_for('index'))
+
     if request.method == 'POST':
-        f_first_name = request.form.get('facultyFirstName', None)
-        f_last_name = request.form.get('facultyLastName', None)
+        reqData = request.get_data()
+        reqDataJson = json.loads(reqData)
 
-        name = f_first_name + ' ' + f_last_name
+        fSchema = facultyschema()
+        pSchema = projectschema()
 
-        f_ph = request.form.get('facultyPhone', None)
-        f_email = request.form.get('facultyEmail', None)
-        f_dept = str(request.form.get('facultyDepartment', None))
-        sf = None
-        g = None
+        facultyJson = None
+        secFacultyJson = None
+        gradStudentJson = None
+        projJson = None
 
-        sf_first_name = request.form.get('secondFacultyFirstName', "")
-        sf_last_name = request.form.get('secondFacultyLastName', "")
+        if 'faculty' in reqDataJson.keys():
+            facultyJson = constructFaculty(reqDataJson['faculty'], False)
+        if 'secondFaculty' in reqDataJson.keys():
+            secFacultyJson = constructFaculty(reqDataJson['secondFaculty'], False)
+        if 'gradStudent' in reqDataJson.keys():
+            gradStudentJson = constructFaculty(reqDataJson['gradStudent'], True)
+        if 'apprenticeship' in reqDataJson.keys():
+            projJson = constructProject(reqDataJson['apprenticeship'])
 
-        sf_name = sf_first_name + ' ' + sf_last_name
-
-        sf_ph = request.form.get('secondFacultyPhone', None)
-        sf_email = request.form.get('secondFacultyEmail', None)
-        sf_dept = str(request.form.get('secondDepartment', None))
-
-        g_first_name = request.form.get('gradStudentFirstName', "")
-        g_last_name = request.form.get('gradStudentLastName', "")
-
-        g_name = g_first_name + ' ' + g_last_name
-        g_ph = request.form.get('gradStudentPhone', None)
-        g_email = request.form.get('gradStudentEmail', None)
-        g_dept = str(request.form.get('gradStudentDepartment', None))
-        is_focus = request.form.get('isDevelopingCommunities', False)
-
-        is_focus_value = False
-        if is_focus == "yes":
-            is_focus_value = True
-
-        p_title = request.form.get('apprenticeshipTitle', None)
-        p_website = request.form.get('apprenticeshipWeblink', None)
-        p_req = request.form.get('specialRequirements1', "") + '::' + request.form.get('specialRequirements2',
-                                                                                       "") + '::' + request.form.get(
-            'specialRequirements3', "") + '::' + request.form.get('specialRequirements4',
-                                                                  "") + '::' + request.form.get(
-            'specialRequirements5', "")
-
-        p_desc = request.form.get('apprenticeshipDescription', None)
-        p_dept_n = request.form.getlist('fieldOfStudy[]')
-        p_dept_n_value = ",".join(p_dept_n)
-
-        p_amt_sup = request.form.get('amountOfSupervision', None)
-        p_amt_sup_value = None
-        if p_amt_sup == "little":
-            p_amt_sup_value = "Very little supervision; student will need to work largely independently"
-        elif p_amt_sup == "moderate":
-            p_amt_sup_value = "Moderate amount of supervision and interaction with others"
+        fac = fSchema.load(facultyJson, session=db_session).data
+        if secFacultyJson:
+            secfac = fSchema.load(secFacultyJson, session=db_session).data
         else:
-            p_amt_sup_value = "Good deal of supervision; student will work as an integral part of a research team"
-
-        p_sup_prov = request.form.get('supervisor', None)
-        p_sup_prov_value = None
-
-        if p_sup_prov == "faculty":
-            p_sup_prov_value = "Faculty"
-        elif p_sup_prov == "graduateStudent":
-            p_sup_prov_value = "Graduate Student"
+            secfac = None
+        if gradStudentJson:
+            gradStud = fSchema.load(gradStudentJson, session=db_session).data
         else:
-            p_sup_prov_value = "Combination of Faculty and Graduate Students"
+            gradStud = None
 
-        p_nat_w = request.form.get('primaryNature', None)
+        proj = pSchema.load(projJson, session=db_session).data
+        fac.id = session['uid']
+        db_session.merge(fac)
+        proj.f_id = fac.id
 
-        p_nat_w_value = None
+        if secfac:
+            db_session.add(secfac)
+            proj.sf_id = secfac.id
+        if gradStud:
+            db_session.add(gradStud)
+            proj.g_id = gradStud.id
 
-        if p_nat_w == "theoretical":
-            p_nat_w_value = "Theoretical, most work on paper/electronic medium"
-        elif p_nat_w == "experimental":
-            p_nat_w_value = "Experimental, requiring hands-on work in a lab"
-        elif p_nat_w == "fieldBased":
-            p_nat_w_value = "Field based, requiring hands-on work in the field"
-        elif p_nat_w == "computerRelated":
-            p_nat_w_value = "Computer-related, involving coding/analysis"
-        elif p_nat_w == "combination":
-            p_nat_w_value = "Combination of several types of work"
-        else:
-            p_nat_w_value = request.form.get('otherNatureOfWork', None)
-
-        p_amt_pr = request.form.get('priorWork', None)
-        p_amt_pr_value = None
-
-        if p_amt_pr == "none":
-            p_amt_pr_value = "No prior work; student will be starting from basic idea"
-        elif p_amt_pr == "some":
-            p_amt_pr_value = "Some prior work; student will build on work of others"
-        elif p_amt_pr == "wellEstablished":
-            p_amt_pr_value = "Well-established body of work; student will refine/improved upon efforts of others"
-        else:
-            p_amt_pr_value = request.form.get('otherAmountOfWork', None)
-
-        p_n_spec_stud = request.form.get('desiredStudent', None)
-
-        p_sp_typ = request.form.get('speedType', None)
-        if p_sp_typ == '':
-            p_sp_typ = request.form.get('isNotSure', None)
-
-        p_acc_cnt = request.form.get('accountingContactName', None)
-
-        f_has_sup_dla = request.form.get('isSupervisedBefore', "no")
-
-        f_has_sup_dla_value = False
-        if f_has_sup_dla == "yes":
-            f_has_sup_dla_value = True
-        else:
-            f_has_sup_dla_value = False
-
-        f = faculty(name, f_ph, f_email, f_dept, False, f_has_sup_dla_value)
-
-        if sf_name:
-            sf = faculty(sf_name, sf_ph, sf_email, sf_dept, False, False)
-        if g_name:
-            g = faculty(g_name, g_ph, g_email, g_dept, True, False)
-
-        p = project(p_title, f.get_id(), is_focus_value, p_website, p_req, p_desc, p_dept_n_value, p_amt_sup_value,
-                    p_sup_prov_value, p_nat_w_value, p_amt_pr_value,
-                    p_n_spec_stud, p_sp_typ, p_acc_cnt)
-
-        db_session.add(f)
-        if g:
-            db_session.add(g)
-        if sf:
-            db_session.add(sf)
         db_session.commit()
-        db_session.add(p)
+        db_session.add(proj)
         db_session.commit()
 
     facs = faculty.query.all()
@@ -248,8 +375,8 @@ def listofprojects():
 
     for f in facs:
         for p in f.projects:
-            row = {"Faculty Name": f.faculty_name, "id": p.id, "Project Name": p.title,
-                   "Project Description": p.description}
+            row = {"Faculty Name": f.FirstName + " " + f.LastName, "id": p.id, "Project Name": p.Title,
+                   "Project Description": p.Description}
             rows.append(row)
 
     return render_template('listofprojects.html', pRows=rows)

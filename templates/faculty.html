@@ -3,98 +3,85 @@
 {% block content %}
 
 <div class="container">
-    <form class="form-horizontal" action="/listofprojects" method="post" id="facultyform" >
+    <form class="form-horizontal" action="/listofprojects" method="post" id="facultyform" enctype='application/json'>
 
-        <div class="well" >
+        <div class="well">
             <h2 style="text-align: center">Faculty Member Info</h2>
             <div>&nbsp</div>
 
             <div class="form-group">
-                <label class="control-label col-md-2" for="facultyFirstName">First Name</label>
+                <label class="control-label col-md-2" for="faculty[FirstName]">First Name</label>
                 <div class="col-md-5">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                        <input type="text" class="form-control" name="facultyFirstName" placeholder="First Name">
+                        <input type="text" class="form-control" name="faculty[FirstName]" placeholder="First Name">
                     </div>
-                </div></div>
+                </div>
+            </div>
 
             <div class="form-group">
-                <label class="control-label col-md-2" for="facultyLastName">Last Name</label>
+                <label class="control-label col-md-2" for="faculty[LastName]">Last Name</label>
                 <div class="col-md-5">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                        <input type="text" class="form-control" name="facultyLastName" placeholder="Last Name">
+                        <input type="text" class="form-control" name="faculty[LastName]" placeholder="Last Name">
                     </div>
-                </div></div>
+                </div>
+            </div>
 
             <div class="form-group">
-                <label class="control-label col-md-2" for="facultyPhone">Phone</label>
+                <label class="control-label col-md-2" for="faculty[Phone]">Phone</label>
                 <div class="col-md-5">
                     <label>
                         <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
-                            <input type="tel" class="form-control" size="10" maxlength="10" name="facultyPhone" data-format="+1 (ddd) ddd-dddd">
+                            <input type="tel" class="form-control" size="10" maxlength="10" name="faculty[Phone]" data-format="+1 (ddd) ddd-dddd">
                         </div>
                     </label>
                 </div>
             </div>
 
-
             <div class="form-group">
-                <label class="control-label col-md-2" for="facultyEmail">Email</label>
+                <label class="control-label col-md-2" for="faculty[Email]">Email</label>
                 <div class="col-md-5">
                     <label>
                         <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                            <input class="form-control" type="email" size="30" name="facultyEmail">
+                            <input class="form-control" type="email" size="30" name="faculty[Email]">
+                        </div>
                     </label>
                 </div>
             </div>
-        </div>
 
-        <div class="form-group">
-            <label class="control-label col-md-2" for="facultyDepartment">Department/Program</label>
-            <div class="col-md-5">
-                <label>
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
-                        <select class="form-control" name="facultyDepartment">
+            <div class="form-group">
+                <label class="control-label col-md-2" for="faculty[Department]">Department/Program</label>
+                <div class="col-md-5">
+                    <label>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+                            <select class="form-control" name="faculty[Department]">
+                                <option value="">Please Select</option>
+                                <option value="Aerospace Engineering">Aerospace Engineering</option>
+                                <option value="Applied Mathematics">Applied Mathematics</option>
+                                <option value="Architectural Engineering">Architectural Engineering</option>
+                                <option value="Chemical Engineering">Chemical Engineering</option>
+                                <option value="Chemical & Biological Engineering">Chemical & Biological Engineering</option>
+                                <option value="Civil Engineering">Civil Engineering</option>
+                                <option value="Computer Science">Computer Science</option>
+                                <option value="Electrical Engineering">Electrical Engineering</option>
+                                <option value="Electrical and Computer Engineering">Electrical and Computer Engineering</option>
+                                <option value="Engineering Physics">Engineering Physics</option>
+                                <option value="Environmental Engineering">Environmental Engineering</option>
+                                <option value="Engineering Plus">Engineering Plus</option>
+                                <option value="Mechanical Engineering">MechanicalEngineering</option>
+                                <option value="Technology, Arts & Media">Technology, Arts & Media</option>
 
-                            <option value="">Please Select</option>
-                            <option value="Aerospace Engineering">Aerospace Engineering</option>
-                            <option value="Applied Mathematics">Applied Mathematics</option>
-                            <option value="Architectural Engineering">Architectural Engineering</option>
-                            <option value="Chemical Engineering">Chemical Engineering</option>
-                            <option value="Chemical & Biological Engineering">Chemical & Biological Engineering</option>
-                            <option value="Civil Engineering">Civil Engineering</option>
-                            <option value="Computer Science">Computer Science</option>
-                            <option value="Electrical Engineering">Electrical Engineering</option>
-                            <option value="Electrical and Computer Engineering">Electrical and Computer Engineering</option>
-                            <option value="Engineering Physics">Engineering Physics</option>
-                            <option value="Environmental Engineering">Environmental Engineering</option>
-                            <option value="Engineering Plus">Engineering Plus</option>
-                            <option value="Mechanical Engineering">MechanicalEngineering</option>
-                            <option value="Technology, Arts & Media">Technology, Arts & Media</option>
-
-                        </select>
-                    </div>
-                </label>
-            </div>
-        </div>
-      
-                        <div class="form-group">
-                            <label class="control-label col-md-2" for="isDevelopingCommunities">Does this project have a focus on Engineering for Developing Communities?</label>
-                            <div class="col-md-5">
-                                <div class="radio">
-                                    <label><input type="radio" name="isDevelopingCommunities" value="yes" required>Yes</label>
-                                </div>
-                                <div class="radio">
-                                    <label><input type="radio" name="isDevelopingCommunities" value="no" required>No</label>
-                                </div>
-                            </div>
+                            </select>
                         </div>
-                   
- 
+                    </label>
+                </div>
+            </div>
+
 <!--
         <div class="form-group">
             <label class="control-label col-md-2" for="isDevelopingCommunities"> Does this project have a focus on Engineering for Developing Communities? </label>
@@ -105,412 +92,442 @@
 
                 </div>
             </div></div>-->
-</div> 
+        </div>
 
-<div>&nbsp</div>
+        <div>&nbsp</div>
 
-<div class="well">
-    <h2 style="text-align: center">Second Faculty Member (Optional)</h2>
-    <div>&nbsp</div>
-    <div class="form-group">
-        <label class="control-label col-md-2" for="secondFacultyFirstName">First Name:</label>
-        <div class="col-md-5">
-            <div class="input-group">
-                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                <input type="text" class="form-control" name="secondFacultyFirstName" placeholder="First Name">
-            </div>
-        </div></div>
+        <div class="well">
+            <h2 style="text-align: center">Second Faculty Member (Optional)</h2>
 
-    <div class="form-group">
-        <label class="control-label col-md-2" for="secondFacultyLastName">Last Name:</label>
-        <div class="col-md-5">
-            <div class="input-group">
-                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                <input type="text" class="form-control" name="secondFacultyLastName" placeholder="Last Name">
-            </div>
-        </div></div>
+            <div>&nbsp</div>
 
-    <div class="form-group">
-        <label class="control-label col-md-2" for="secondFacultyPhone">Phone: </label>
-        <div class="col-md-5">
-            <label>
-                <div class="input-group">
-                    <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
-                    <input type="tel" class="form-control" size="10" maxlength="10" name="secondFacultyPhone"
-                           data-format="+1 (ddd) ddd-dddd">
-            </label>
-        </div></div>
-</div>
-
-<div class="form-group">
-    <label class="control-label col-md-2" for="secondFacultyEmail">Email:</label>
-    <div class="col-md-5">
-        <label>
-            <div class="input-group">
-                <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                <input class="form-control" type="email" size="30" name="secondFacultyEmail">
+            <div class="form-group">
+                <label class="control-label col-md-2" for="secondFaculty[FirstName]">First Name:</label>
+                <div class="col-md-5">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                        <input type="text" class="form-control" name="secondFaculty[FirstName]" placeholder="First Name">
+                    </div>
                 </div>
-        </label>
-    </div>
-</div>
+            </div>
 
-<div class="form-group">
-    <label class="control-label col-md-2" for="secondFacultyDepartment">Department/Program:</label>
-    <div class="col-md-5">
-        <label>
-            <div class="input-group">
-                <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
-                <select class="form-control" name="secondFacultyDepartment">
-                    <option value="Aerospace Engineering">Aerospace Engineering</option>
-                    <option value="Applied Mathematics">Applied Mathematics</option>
-                    <option value="Architectural Engineering">Architectural Engineering</option>
-                    <option value="Chemical Engineering">Chemical Engineering</option>
-                    <option value="Chemical & Biological Engineering">Chemical & Biological Engineering</option>
-                    <option value="Civil Engineering">Civil Engineering</option>
-                    <option value="Computer Science">Computer Science</option>
-                    <option value="Electrical Engineering">Electrical Engineering</option>
-                    <option value="Electrical and Computer Engineering">Electrical and Computer Engineering</option>
-                    <option value="Engineering Physics">Engineering Physics</option>
-                    <option value="Environmental Engineering">Environmental Engineering</option>
-                    <option value="Engineering Plus">Engineering Plus</option>
-                    <option value="Mechanical Engineering">MechanicalEngineering</option>
-                    <option value="Technology, Arts & Media">Technology, Arts & Media</option>
-                </select>
+            <div class="form-group">
+                <label class="control-label col-md-2" for="secondFaculty[LastName]">Last Name:</label>
+                <div class="col-md-5">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                        <input type="text" class="form-control" name="secondFaculty[LastName]" placeholder="Last Name">
+                    </div>
                 </div>
-        </label>
-    </div>
-</div>
-</div>
-
-<div>&nbsp</div>
-
-<div class="well">
-    <h2 style="text-align: center">Grad Student / Post Doc Info</h2>
-    <div>&nbsp</div>
-
-    <div class="form-group">
-        <label class="control-label col-md-2" for="gradStudentFirstName">First Name:</label>
-        <div class="col-md-5">
-            <div class="input-group">
-                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                <input type="text" class="form-control" name="gradStudentFirstName" placeholder="First Name">
             </div>
-        </div></div>
 
-    <div class="form-group">
-        <label class="control-label col-md-2" for="gradStudentLastName">Last Name:</label>
-        <div class="col-md-5">
-            <div class="input-group">
-                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                <input type="text" class="form-control" name="gradStudentLastName" placeholder="Last Name">
+            <div class="form-group">
+                <label class="control-label col-md-2" for="secondFaculty[Phone]">Phone: </label>
+                <div class="col-md-5">
+                    <label>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
+                            <input type="tel" class="form-control" size="10" maxlength="10" name="secondFaculty[Phone]" data-format="+1 (ddd) ddd-dddd">
+                        </div>
+                    </label>
+                </div>
             </div>
-        </div></div>
 
-    <div class="form-group">
-        <label class="control-label col-md-2" for="gradStudentPhone">Phone: </label>
-        <div class="col-md-5">
-            <label>
-                <div class="input-group">
-                    <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
-                    <input type="tel" class="form-control" size="10" maxlength="10" name="gradStudentPhone"
-                           data-format="+1 (ddd) ddd-dddd">
-            </label>
-        </div></div>
-</div>
-
-<div class="form-group">
-    <label class="control-label col-md-2" for="gradStudentEmail">Email:</label>
-    <div class="col-md-5">
-        <label>
-            <div class="input-group">
-                <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                <input class="form-control" type="email" size="30" name="gradStudentEmail">
-        </label>
-    </div></div>
-</div>
-
-<div class="form-group">
-    <label class="control-label col-md-2" for="gradStudentDepartment">Department/Program:</label>
-    <div class="col-md-5">
-        <label>
-            <div class="input-group">
-                <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
-                <select class="form-control" name="gradStudentDepartment">
-                    <option value="Aerospace Engineering">Aerospace Engineering</option>
-                    <option value="Applied Mathematics">Applied Mathematics</option>
-                    <option value="Architectural Engineering">Architectural Engineering</option>
-                    <option value="Chemical Engineering">Chemical Engineering</option>
-                    <option value="Chemical & Biological Engineering">Chemical & Biological Engineering</option>
-                    <option value="Civil Engineering">Civil Engineering</option>
-                    <option value="Computer Science">Computer Science</option>
-                    <option value="Electrical Engineering">Electrical Engineering</option>
-                    <option value="Electrical and Computer Engineering">Electrical and Computer Engineering</option>
-                    <option value="Engineering Physics">Engineering Physics</option>
-                    <option value="Environmental Engineering">Environmental Engineering</option>
-                    <option value="Engineering Plus">Engineering Plus</option>
-                    <option value="Mechanical Engineering">MechanicalEngineering</option>
-                    <option value="Technology, Arts & Media">Technology, Arts & Media</option>
-                </select></div>
-        </label>
-    </div>
-</div>
-</div>
-
-<div>&nbsp</div>
-
-<div class="well">
-    <h2 style="text-align: center">Apprenticeship Information</h2>
-    <div>&nbsp</div>
-
-    <div class="form-group">
-        <label class="control-label col-md-2" for="apprenticeshipTitle">Title(max 80 characters):</label>
-        <div class="col-md-5">
-            <div class="input-group">
-                <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
-                <input type="text" class="form-control" maxlength="80" name="apprenticeshipTitle" placeholder="Title for the apprenticeship">
+            <div class="form-group">
+                <label class="control-label col-md-2" for="secondFaculty[Email]">Email:</label>
+                <div class="col-md-5">
+                    <label>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                            <input class="form-control" type="email" size="30" name="secondFaculty[Email]">
+                            </div>
+                    </label>
+                </div>
             </div>
-        </div></div>
 
-    <div class="form-group">
-        <label class="control-label col-md-2" for="apprenticeshipDescription">Description(max 1200 characters):</label>
-        <div class="col-md-5">
-            <label>
-                <div class="input-group">
-                    <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
-                            <textarea class="form-control" rows="5" maxlength="1200"
-                                      name="apprenticeshipDescription"></textarea>
-            </label>
-        </div>
-    </div></div>
-
-<div class="form-group">
-    <label class="control-label col-md-2" for="apprenticeshipWeblink">Weblink:</label>
-    <div class="col-md-5">
-        <div class="input-group">
-            <span class="input-group-addon"><i class="glyphicon glyphicon-globe"></i></span>
-            <input type="text" class="form-control" name="apprenticeshipWeblink" placeholder="">
-        </div>
-    </div></div>
-
-<div class="form-group">
-    <label class="control-label col-md-2" for="specialRequirements">Special Requirements to be met by applicants:</label>
-    <div class="col-md-5">
-        <div>
-            <label for="specialRequirements1">1:
-                <textarea class="form-control" rows="2" name="specialRequirements1"></textarea></label>
-        </div>
-        <div>
-            <label for="specialRequirements2">2:
-                <textarea class="form-control" rows="2" name="specialRequirements2"></textarea></label>
-        </div>
-        <div>
-            <label for="specialRequirements3">3:
-                <textarea class="form-control" rows="2" name="specialRequirements3"></textarea></label>
-        </div>
-        <div>
-            <label for="specialRequirements4">4:
-                <textarea class="form-control" rows="2" name="specialRequirements4"></textarea></label>
-        </div>
-        <div>
-            <label for="specialRequirements5">5:
-                <textarea class="form-control" rows="2" name="specialRequirements5"></textarea></label>
-        </div>
-    </div>
-</div>
-
-<div class="form-group">
-    <label class="control-label col-md-2" for="fieldOfStudy">From which areas do you wish to recruit students?</label>
-    <div class="col-md-5">
-        <div class="checkbox">
-            <label><input name="fieldOfStudy[]" type="checkbox"  value="Aerospace Engineering">Aerospace Engineering</label>
-        </div>
-        <div class="checkbox">
-            <label><input name="fieldOfStudy[]" type="checkbox" value="Applied Mathematics">Applied Mathematics</label>
-        </div>
-        <div class="checkbox">
-            <label><input name="fieldOfStudy[]" type="checkbox" value="Architectural Engineering">Architectural Engineering</label>
-        </div>
-        <div class="checkbox">
-            <label><input name="fieldOfStudy[]" type="checkbox" value="Chemical Engineering">Chemical Engineering</label>
-        </div>
-        <div class="checkbox">
-            <label><input name="fieldOfStudy[]" type="checkbox" value="Civil Engineering">Civil Engineering</label>
-        </div>
-        <div class="checkbox">
-            <label><input name="fieldOfStudy[]" type="checkbox" value="Computer Science">Computer Science</label>
-        </div>
-        <div class="checkbox">
-            <label><input name="fieldOfStudy[]" type="checkbox" value="Chemical & Biological Engineering">Chemical & Biological Engineering</label>
-        </div>
-        <div class="checkbox">
-            <label><input name="fieldOfStudy[]" type="checkbox" value="Electrical and Computer Engineering">Electrical and Computer Engineering</label>
-        </div>
-        <div class="checkbox">
-            <label><input name="fieldOfStudy[]" type="checkbox" value="Electrical Engineering">Electrical Engineering</label>
-        </div>
-        <div class="checkbox">
-            <label><input name="fieldOfStudy[]" type="checkbox" value="Engineering Physics">Engineering Physics</label>
-        </div>
-        <div class="checkbox">
-            <label><input name="fieldOfStudy[]" type="checkbox" value="Environmental Engineering">Environmental Engineering</label>
-        </div>
-        <div class="checkbox">
-            <label><input name="fieldOfStudy[]" type="checkbox" value="Chemical & Biological Engineering">Chemical & Biological Engineering</label>
-        </div>
-        <div class="checkbox">
-            <label><input name="fieldOfStudy[]" type="checkbox" value="Mechanical Engineering">Mechanical Engineering</label>
-        </div>
-        <div class="checkbox">
-            <label><input name="fieldOfStudy[]" type="checkbox" value="Technology, Arts & Media">Technology, Arts & Media</label>
-        </div>
-    </div>
-</div>
-
-<div class="form-group">
-    <label class="control-label col-md-2" for="amountOfSupervision">Amount of supervision required / interaction available:</label>
-    <div class="col-md-5">
-        <div class="radio">
-            <label><input type="radio" name="amountOfSupervision" value="little" required>Very little supervision; student will need to work largely independently</label>
-        </div>
-        <div class="radio">
-            <label><input type="radio" name="amountOfSupervision" value="moderate">Moderate amount of supervision and interaction with others</label>
-        </div>
-        <div class="radio">
-            <label><input type="radio" name="amountOfSupervision" value="good">Good deal of supervision; student will work as an integral part of a research team</label>
-        </div>
-    </div>
-</div>
-
-<div class="form-group">
-    <label class="control-label col-md-2" for="supervisor">Primary supervision provided by:</label>
-    <div class="col-md-5">
-        <div class="radio">
-            <label><input type="radio" name="supervisor" value="faculty" required>Faculty</label>
-        </div>
-        <div class="radio">
-            <label><input type="radio" name="supervisor" value="graduateStudent">Graduate Student</label>
-        </div>
-        <div class="radio">
-            <label><input type="radio" name="supervisor" value="combination">Combination of Faculty and Graduate Students</label>
-        </div>
-    </div>
-</div>
-
-<div class="form-group">
-    <label class="control-label col-md-2" for="primaryNature">Primary Nature of work:</label>
-    <div class="col-md-5">
-        <div class="radio">
-            <label><input type="radio" name="primaryNature" value="theoretical" required onchange="primarynaturedisablechackebox();">Theoretical, most work on paper/electronic medium</label>
-        </div>
-        <div class="radio">
-            <label><input type="radio" name="primaryNature" value="experimental" onchange="primarynaturedisablechackebox();">Experimental, requiring hands-on work in a lab</label>
-        </div>
-        <div class="radio">
-            <label><input type="radio" name="primaryNature" value="fieldBased" onchange="primarynaturedisablechackebox();">Field based, requiring hands-on work in the field</label>
-        </div>
-        <div class="radio">
-            <label><input type="radio" name="primaryNature" value="computerRelated" onchange="primarynaturedisablechackebox();">Computer-related, involving coding/analysis</label>
-        </div>
-        <div class="radio">
-            <label><input type="radio" name="primaryNature" value="combination" onchange="primarynaturedisablechackebox();">Combination of several types of work</label>
-        </div>
-        <div class="radio">
-            <label><input type="radio" name="primaryNature" id ="otherPrimaryNature" value="other"  onchange="primarynaturedisablechackebox();">Other, specify:</label>
-        </div>
-        <div class="col-md-10">
-            <input type="text" class="form-control" name="otherNatureOfWork" id="otherNatureOfWork" placeholder="Nature of Work" disabled="disabled">
-        </div>
-    </div>
-</div>
-
-<div class="form-group">
-    <label class="control-label col-md-2" for="priorWork" >Amount of prior work conducted in association with the project:</label>
-    <div class="col-md-5">
-        <div class="radio">
-            <label><input type="radio" name="priorWork" value="none" required onchange="priorWorkdisablechackebox()">No prior work; student will be starting from basic idea</label>
-        </div>
-        <div class="radio">
-            <label><input type="radio" name="priorWork" value="some" onchange="priorWorkdisablechackebox()">Some prior work; student will build on work of others</label>
-        </div>
-        <div class="radio">
-            <label><input type="radio" name="priorWork" value="wellEstablished" onchange="priorWorkdisablechackebox()">Well-established body of work; student will refine/improved upon efforts of others</label>
-        </div>
-        <div class="radio">
-            <label><input type="radio" name="priorWork" value="other" id="otherPrimaryWork" onchange="priorWorkdisablechackebox()">Other, specify</label>
-        </div>
-        <div class="col-md-10">
-            <input type="text" class="form-control" name="otherAmountOfWork" id="otherAmountOfWork" placeholder="Amount of Work" disabled="disabled">
-        </div>
-    </div>
-</div>
-
-<div class="form-group">
-    &nbsp;
-</div>
-
-<div class="form-group">
-    <label class="control-label col-md-2" for="desiredStudent">Name of the desired Student:</label>
-    <div class="col-md-5">
-        <input type="text" class="form-control" name="desiredStudent" placeholder="Name">
-        <p><i>Be sure to ask the particular student to apply!</i></p>
-    </div>
-</div>
-</div>
-
-<div>&nbsp</div>
-
-<div class="well">
-    <h2 style="text-align: center">Finances</h2>
-    <div>&nbsp</div>
-
-    <div class="form-group">
-        <label class="control-label col-md-2" for="speedType">What speed type will you use for your 50% match of the funding?</label>
-        <div class="col-md-5">
-            <label><input type="text" class="form-control" id="speedType" name="speedType" onchange="financestextboxdisabled()"> </label>
-
-            <label>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp OR </label>
-        </div>
-        
-            
-
-        <div class="checkbox col-md-5">
-            <label><input name="speedType" type="checkbox" id="isNotSure" value="isNotSure" onchange="financestextboxdisabled()">Not Sure</label>
-        </div>
-    </div>
-    <div class="form-group">
-        <label class="control-label col-md-2" for="accountingContactName">Accounting contact name for your project:</label>
-        <div class="col-md-5">
-            <label><input type="text" class="form-control" name="accountingContactName"> </label>
-        </div>
-    </div>
-</div>
-
-<div>&nbsp</div>
-
-<div class="well">
-    <h2 style="text-align: center">Other</h2>
-    <div>&nbsp</div>
-
-    <div class="form-group">
-        <label class="control-label col-md-2" for="isSupervisedBefore">Have you supervised a Discovery Learning Apprentice in the past?</label>
-        <div class="col-md-5">
-            <div class="radio">
-                <label><input type="radio" name="isSupervisedBefore" value="yes" required>Yes</label>
-            </div>
-            <div class="radio">
-                <label><input type="radio" name="isSupervisedBefore" value="no">No</label>
+            <div class="form-group">
+                <label class="control-label col-md-2" for="secondFaculty[Department]">Department/Program:</label>
+                <div class="col-md-5">
+                    <label>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+                            <select class="form-control" name="secondFaculty[Department]">
+                                <option value="">Please Select</option>
+                                <option value="Aerospace Engineering">Aerospace Engineering</option>
+                                <option value="Applied Mathematics">Applied Mathematics</option>
+                                <option value="Architectural Engineering">Architectural Engineering</option>
+                                <option value="Chemical Engineering">Chemical Engineering</option>
+                                <option value="Chemical & Biological Engineering">Chemical & Biological Engineering</option>
+                                <option value="Civil Engineering">Civil Engineering</option>
+                                <option value="Computer Science">Computer Science</option>
+                                <option value="Electrical Engineering">Electrical Engineering</option>
+                                <option value="Electrical and Computer Engineering">Electrical and Computer Engineering</option>
+                                <option value="Engineering Physics">Engineering Physics</option>
+                                <option value="Environmental Engineering">Environmental Engineering</option>
+                                <option value="Engineering Plus">Engineering Plus</option>
+                                <option value="Mechanical Engineering">MechanicalEngineering</option>
+                                <option value="Technology, Arts & Media">Technology, Arts & Media</option>
+                            </select>
+                            </div>
+                    </label>
+                </div>
             </div>
         </div>
-    </div>
-</div>
-<div class="alert alert-success" role="alert" id="success_message">Success <i class="glyphicon glyphicon-thumbs-up"></i> Thanks for contacting us, we will get back to you shortly.</div></div>
-<div class="form-group">
-    <div>
-        <button type="submit" class="btn center-block btn-default">Submit</button>
-    </div>
-</div>
 
-</form>
+        <div>&nbsp</div>
+
+        <div class="well">
+            <h2 style="text-align: center">Grad Student / Post Doc Info</h2>
+
+            <div>&nbsp</div>
+
+            <div class="form-group">
+                <label class="control-label col-md-2" for="gradStudent[FirstName]">First Name:</label>
+                <div class="col-md-5">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                        <input type="text" class="form-control" name="gradStudent[FirstName]" placeholder="First Name">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-2" for="gradStudent[LastName]">Last Name:</label>
+                <div class="col-md-5">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                        <input type="text" class="form-control" name="gradStudent[LastName]" placeholder="Last Name">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-2" for="gradStudent[Phone]">Phone: </label>
+                <div class="col-md-5">
+                    <label>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
+                            <input type="tel" class="form-control" size="10" maxlength="10" name="gradStudent[Phone]"
+                                   data-format="+1 (ddd) ddd-dddd">
+                        </div>
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group">
+            <label class="control-label col-md-2" for="gradStudent[Email]">Email:</label>
+            <div class="col-md-5">
+                <label>
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                        <input class="form-control" type="email" size="30" name="gradStudent[Email]">
+                    </div>
+                </label>
+            </div>
+        </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-2" for="gradStudent[Department]">Department/Program:</label>
+                <div class="col-md-5">
+                    <label>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+                            <select class="form-control" name="gradStudent[Department]">
+                                <option value="">Please Select</option>
+                                <option value="Aerospace Engineering">Aerospace Engineering</option>
+                                <option value="Applied Mathematics">Applied Mathematics</option>
+                                <option value="Architectural Engineering">Architectural Engineering</option>
+                                <option value="Chemical Engineering">Chemical Engineering</option>
+                                <option value="Chemical & Biological Engineering">Chemical & Biological Engineering</option>
+                                <option value="Civil Engineering">Civil Engineering</option>
+                                <option value="Computer Science">Computer Science</option>
+                                <option value="Electrical Engineering">Electrical Engineering</option>
+                                <option value="Electrical and Computer Engineering">Electrical and Computer Engineering</option>
+                                <option value="Engineering Physics">Engineering Physics</option>
+                                <option value="Environmental Engineering">Environmental Engineering</option>
+                                <option value="Engineering Plus">Engineering Plus</option>
+                                <option value="Mechanical Engineering">MechanicalEngineering</option>
+                                <option value="Technology, Arts & Media">Technology, Arts & Media</option>
+                            </select>
+                        </div>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div>&nbsp</div>
+
+        <div class="well">
+            <h2 style="text-align: center">Apprenticeship Information</h2>
+            <div>&nbsp</div>
+
+            <div class="form-group">
+                <label class="control-label col-md-2" for="apprenticeship[Title]">Title(max 80 characters):</label>
+                <div class="col-md-5">
+                    <label>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
+                            <input type="text" class="form-control" maxlength="80" name="apprenticeship[Title]" placeholder="Title for the apprenticeship">
+                        </div>
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-2" for="apprenticeship[Description]">Description(max 1200 characters):</label>
+                <div class="col-md-5">
+                    <label>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
+                                    <textarea class="form-control" rows="5" maxlength="1200"
+                                              name="apprenticeship[Description]"></textarea>
+                        </div>
+                    </label>
+            </div></div>
+
+            <div class="form-group">
+                <label class="control-label col-md-2" for="apprenticeship[Weblink]">Weblink:</label>
+                <div class="col-md-5">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-globe"></i></span>
+                        <input type="text" class="form-control" name="apprenticeship[Weblink]" placeholder="">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-2" for="apprenticeship[isDevelopingCommunities]">Does this project have a focus on Engineering for Developing Communities?</label>
+                <div class="col-md-5">
+                    <div class="radio">
+                        <label><input type="radio" name="apprenticeship[isDevelopingCommunities]" value="Yes" required>Yes</label>
+                    </div>
+                    <div class="radio">
+                        <label><input type="radio" name="apprenticeship[isDevelopingCommunities]" value="No" required>No</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-2" for="apprenticeship[specialRequirements]">Special Requirements to be met by applicants:</label>
+                <div class="col-md-5">
+                    <div>
+                        <label for="apprenticeship[specialRequirements][0]">1:
+                            <textarea class="form-control" rows="2" name="apprenticeship[specialRequirements][0]"></textarea></label>
+                    </div>
+                    <div>
+                        <label for="apprenticeship[specialRequirements][1]">2:
+                            <textarea class="form-control" rows="2" name="apprenticeship[specialRequirements][1]"></textarea></label>
+                    </div>
+                    <div>
+                        <label for="apprenticeship[specialRequirements][2]">3:
+                            <textarea class="form-control" rows="2" name="apprenticeship[specialRequirements][2]"></textarea></label>
+                    </div>
+                    <div>
+                        <label for="apprenticeship[specialRequirements][3]">4:
+                            <textarea class="form-control" rows="2" name="apprenticeship[specialRequirements][3]"></textarea></label>
+                    </div>
+                    <div>
+                        <label for="apprenticeship[specialRequirements][4]">5:
+                            <textarea class="form-control" rows="2" name="apprenticeship[specialRequirements][4]"></textarea></label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-2" for="apprenticeship[fieldOfStudy]">From which areas do you wish to recruit students?</label>
+                <div class="col-md-5">
+                    <div class="checkbox">
+                        <label><input name="apprenticeship[fieldOfStudy][]" type="checkbox"  value="Aerospace Engineering" required>Aerospace Engineering</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input name="apprenticeship[fieldOfStudy][]" type="checkbox" value="Applied Mathematics">Applied Mathematics</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input name="apprenticeship[fieldOfStudy][]" type="checkbox" value="Architectural Engineering">Architectural Engineering</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input name="apprenticeship[fieldOfStudy][]" type="checkbox" value="Chemical Engineering">Chemical Engineering</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input name="apprenticeship[fieldOfStudy][]" type="checkbox" value="Civil Engineering">Civil Engineering</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input name="apprenticeship[fieldOfStudy][]" type="checkbox" value="Computer Science">Computer Science</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input name="apprenticeship[fieldOfStudy][]" type="checkbox" value="Chemical & Biological Engineering">Chemical & Biological Engineering</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input name="apprenticeship[fieldOfStudy][]" type="checkbox" value="Electrical and Computer Engineering">Electrical and Computer Engineering</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input name="apprenticeship[fieldOfStudy][]" type="checkbox" value="Electrical Engineering">Electrical Engineering</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input name="apprenticeship[fieldOfStudy][]" type="checkbox" value="Engineering Physics">Engineering Physics</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input name="apprenticeship[fieldOfStudy][]" type="checkbox" value="Environmental Engineering">Environmental Engineering</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input name="apprenticeship[fieldOfStudy][]" type="checkbox" value="Chemical & Biological Engineering">Chemical & Biological Engineering</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input name="apprenticeship[fieldOfStudy][]" type="checkbox" value="Mechanical Engineering">Mechanical Engineering</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input name="apprenticeship[fieldOfStudy][]" type="checkbox" value="Technology, Arts & Media">Technology, Arts & Media</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-2" for="apprenticeship[amountOfSupervision]">Amount of supervision required / interaction available:</label>
+                <div class="col-md-5">
+                    <div class="radio">
+                        <label><input type="radio" name="apprenticeship[amountOfSupervision]" value="Very little supervision; student will need to work largely independently" required>Very little supervision; student will need to work largely independently</label>
+                    </div>
+                    <div class="radio">
+                        <label><input type="radio" name="apprenticeship[amountOfSupervision]" value="Moderate amount of supervision and interaction with others">Moderate amount of supervision and interaction with others</label>
+                    </div>
+                    <div class="radio">
+                        <label><input type="radio" name="apprenticeship[amountOfSupervision]" value="Good deal of supervision; student will work as an integral part of a research team">Good deal of supervision; student will work as an integral part of a research team</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-2" for="apprenticeship[supervisor]">Primary supervision provided by:</label>
+                <div class="col-md-5">
+                    <div class="radio">
+                        <label><input type="radio" name="apprenticeship[supervisor]" value="Faculty" required>Faculty</label>
+                    </div>
+                    <div class="radio">
+                        <label><input type="radio" name="apprenticeship[supervisor]" value="Graduate Student">Graduate Student</label>
+                    </div>
+                    <div class="radio">
+                        <label><input type="radio" name="apprenticeship[supervisor]" value="Combination of Faculty and Graduate Students">Combination of Faculty and Graduate Students</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-2" for="apprenticeship[primaryNature]">Primary Nature of work:</label>
+                <div class="col-md-5">
+                    <div class="radio">
+                        <label><input type="radio" name="apprenticeship[primaryNature]" value="Theoretical, most work on paper/electronic medium<" required onchange="primarynaturedisablechackebox();">Theoretical, most work on paper/electronic medium</label>
+                    </div>
+                    <div class="radio">
+                        <label><input type="radio" name="apprenticeship[primaryNature]" value="Experimental, requiring hands-on work in a lab" onchange="primarynaturedisablechackebox();">Experimental, requiring hands-on work in a lab</label>
+                    </div>
+                    <div class="radio">
+                        <label><input type="radio" name="apprenticeship[primaryNature]" value="Field based, requiring hands-on work in the field" onchange="primarynaturedisablechackebox();">Field based, requiring hands-on work in the field</label>
+                    </div>
+                    <div class="radio">
+                        <label><input type="radio" name="apprenticeship[primaryNature]" value="Computer-related, involving coding/analysis" onchange="primarynaturedisablechackebox();">Computer-related, involving coding/analysis</label>
+                    </div>
+                    <div class="radio">
+                        <label><input type="radio" name="apprenticeship[primaryNature]" value="Combination of several types of work" onchange="primarynaturedisablechackebox();">Combination of several types of work</label>
+                    </div>
+                    <div class="radio">
+                        <label><input type="radio" name="apprenticeship[primaryNature]" id ="otherPrimaryNature" value=""  onchange="primarynaturedisablechackebox();">Other, specify:</label>
+                    </div>
+                    <div class="col-md-10">
+                        <input type="text" class="form-control" name="apprenticeship[primaryNature]" id="apprenticeship[otherNatureOfWork]" placeholder="Nature of Work" disabled="disabled">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-2" for="apprenticeship[priorWork]" >Amount of prior work conducted in association with the project:</label>
+                <div class="col-md-5">
+                    <div class="radio">
+                        <label><input type="radio" name="apprenticeship[priorWork]" value="No prior work; student will be starting from basic idea" required onchange="priorWorkdisablechackebox()">No prior work; student will be starting from basic idea</label>
+                    </div>
+                    <div class="radio">
+                        <label><input type="radio" name="apprenticeship[priorWork]" value="Some prior work; student will build on work of others" onchange="priorWorkdisablechackebox()">Some prior work; student will build on work of others</label>
+                    </div>
+                    <div class="radio">
+                        <label><input type="radio" name="apprenticeship[priorWork]" value="Well-established body of work; student will refine/improved upon efforts of others" onchange="priorWorkdisablechackebox()">Well-established body of work; student will refine/improved upon efforts of others</label>
+                    </div>
+                    <div class="radio">
+                        <label><input type="radio" name="apprenticeship[priorWork]" value="" id="otherPrimaryWork" onchange="priorWorkdisablechackebox()">Other, specify</label>
+                    </div>
+                    <div class="col-md-10">
+                        <input type="text" class="form-control" name="apprenticeship[priorWork]" id="apprenticeship[otherAmountOfWork]" placeholder="Amount of Work" disabled="disabled">
+                    </div>
+                </div>
+            </div>
+
+            <div>&nbsp;</div>
+
+            <div class="form-group">
+            <label class="control-label col-md-2" for="apprenticeship[desiredStudent]">Name of the desired Student:</label>
+            <div class="col-md-5">
+                <input type="text" class="form-control" name="apprenticeship[desiredStudent]" placeholder="Name">
+                <p><i>Be sure to ask the particular student to apply!</i></p>
+            </div>
+        </div>
+
+        </div>
+
+        <div>&nbsp</div>
+
+        <div class="well">
+            <h2 style="text-align: center">Finances</h2>
+
+            <div>&nbsp</div>
+
+            <div class="form-group">
+                <label class="control-label col-md-2" for="apprenticeship[speedType]">What speed type will you use for your 50% match of the funding?</label>
+                <div class="col-md-5">
+                    <label><input type="text" class="form-control" id="apprenticeship[speedType]" name="apprenticeship[speedType]" onchange="financestextboxdisabled()"> </label>
+
+                    <label>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp OR </label>
+                </div>
+
+                <div class="checkbox col-md-5">
+                    <label><input name="apprenticeship[speedType]" type="checkbox" id="isNotSure" value="isNotSure" onchange="financestextboxdisabled()">Not Sure</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-2" for="apprenticeship[accountingContactName]">Accounting contact name for your project:</label>
+                <div class="col-md-5">
+                    <label><input type="text" class="form-control" name="apprenticeship[accountingContactName]"> </label>
+                </div>
+            </div>
+        </div>
+
+        <div>&nbsp</div>
+
+        <div class="well">
+            <h2 style="text-align: center">Other</h2>
+            <div>&nbsp</div>
+
+            <div class="form-group">
+                <label class="control-label col-md-2" for="faculty[isSupervisedBefore]">Have you supervised a Discovery Learning Apprentice in the past?</label>
+                <div class="col-md-5">
+                    <div class="radio">
+                        <label><input type="radio" name="faculty[isSupervisedBefore]" value="yes" required>Yes</label>
+                    </div>
+                    <div class="radio">
+                        <label><input type="radio" name="faculty[isSupervisedBefore]" value="no">No</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="alert alert-success" role="alert" id="success_message">
+            Success <i class="glyphicon glyphicon-thumbs-up"></i>
+            Thanks for contacting us, we will get back to you shortly.
+        </div>
+
+        <div class="form-group">
+            <div>
+                <button type="submit" class="btn center-block btn-default">Submit</button>
+            </div>
+        </div>
+    </form>
 </div>
 
 
