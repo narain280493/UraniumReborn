@@ -5,16 +5,20 @@ from models.faculty import faculty
 from models.project import project
 from models.student import student
 from models.studentapplication import studentapplication
+from models.fileurl import fileurl
 from models.loginpage import loginpage
 from ma_schema.facultyschema import facultyschema
 from ma_schema.projectschema import projectschema
 from ma_schema.studentschema import studentschema
 from ma_schema.studentapplicationschema import studentapplicationschema
+from ma_schema.fileurlschema import fileurlschema
 from werkzeug import check_password_hash
 from datetime import timedelta
 import os
 import uuid
 import json
+import boto3
+
 
 tmpl_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'templates')
 app = Flask("UraniumReborn", template_folder=tmpl_dir)
@@ -64,6 +68,7 @@ def index():
         db_session.commit()
         db_session.add(stuapp)
         db_session.commit()
+        return render_template('home.html')
 
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
@@ -93,6 +98,54 @@ def signup():
             return redirect(url_for('index'))
         return render_template('signup.html', form=form)
 
+@app.route('/sign-s3/')
+def sign_s3():
+
+    urlSchema = fileurlschema()
+
+    # Load necessary information into the application
+    S3_BUCKET = os.environ.get('S3_BUCKET')
+
+    # Load required data from the request
+    file_name = request.args.get('file-name')
+    file_name2 = request.args.get('file-name2')
+
+    # Initialise the S3 client
+    s3 = boto3.client('s3')
+    # Generate and return the presigned URL
+    presigned_post = s3.generate_presigned_post(
+        Bucket=S3_BUCKET,
+        Key=file_name
+    )
+
+    presigned_post2 = s3.generate_presigned_post(
+        Bucket=S3_BUCKET,
+        Key=file_name2
+    )
+
+    url1 = "https://"+S3_BUCKET+".s3.amazonaws.com/"+file_name
+    url2 = "https://"+S3_BUCKET+".s3.amazonaws.com/"+file_name2
+
+    result = {}
+    resume_url = url1
+    coverletter_url = url2
+    email = session['email']
+    result['resume_url'] = resume_url
+    result['coverletter_url'] = coverletter_url
+    result['email_id'] =  email
+    result[u'id'] = str(uuid.uuid1())
+    furl = urlSchema.load(result, session=db_session).data
+
+    db_session.add(furl)
+    db_session.commit()
+
+    # Return the data to the client
+    return json.dumps({
+        'data1': presigned_post,
+        'url1': 'https://%s.s3.amazonaws.com/%s' % (S3_BUCKET, file_name),
+        'data2': presigned_post2,
+        'url2':'https://%s.s3.amazonaws.com/%s' % (S3_BUCKET, file_name2)
+    })
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
