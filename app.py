@@ -208,8 +208,8 @@ def sign_s3():
         Key=file_name2
     )
 
-    url1 = "https://" + S3_BUCKET + ".s3.amazonaws.com/" + file_name
-    url2 = "https://" + S3_BUCKET + ".s3.amazonaws.com/" + file_name2
+    url1 = "https://" + S3_BUCKET + ".s3-us-west-2.amazonaws.com/" + file_name
+    url2 = "https://" + S3_BUCKET + ".s3-us-west-2.amazonaws.com/" + file_name2
 
     result = {}
     resume_url = url1
