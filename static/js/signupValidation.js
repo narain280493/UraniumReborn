@@ -67,7 +67,7 @@ $(document).ready(function() {
 
 
                         identical: {
-                            field: 'newUser[Password]',
+                            field: 'signupInfo[Password]',
                             message: 'The password does not match'
                         }
                     }
