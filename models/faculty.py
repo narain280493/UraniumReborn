@@ -15,6 +15,7 @@ class faculty(Base):
     is_grad = Column(Boolean)
     isSupervisedBefore = Column(Boolean)
     projects = relationship("project", back_populates="fac", primaryjoin="faculty.id==project.f_id")
+    cred = relationship("loginpage", back_populates="fac")
 
     def __repr__(self):
         return "<faculty:" + self.FirstName + " " + self.LastName + ">"

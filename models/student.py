@@ -40,7 +40,7 @@ class student(Base):
     SchoolLevel = Column(String(20))
     GraduationMonth = Column(String(20))
     GraduationYear = Column(String(5))
-    isResearchExperience =Column(Boolean)
+    isResearchExperience = Column(Boolean)
 
     isAppliedBefore = Column(Boolean)
     isBackgroundCheckDone = Column(Boolean)
@@ -51,6 +51,7 @@ class student(Base):
     LastHarassmentTrainingYear = Column(String(5))
     resumeURL = Column(String(100))
     students = relationship("studentapplication", back_populates="stuapp", primaryjoin="student.id==studentapplication.s_id")
+    cred = relationship("loginpage", back_populates="stud")
 
     def __repr__(self):
         return "<student:" + self.FirstName + ">"

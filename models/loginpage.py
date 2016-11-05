@@ -1,5 +1,6 @@
 from database.database import Base
 from sqlalchemy import Column, String, ForeignKey
+from sqlalchemy.orm import relationship
 
 
 # TO:DO needs a one to one mapping faculty to login
@@ -16,6 +17,8 @@ class loginpage(Base):
     s_id = Column(String, ForeignKey("student.id"), nullable=True)
     Password = Column(String(300))
     UserType = Column(String(300))
+    fac = relationship("faculty", back_populates="cred")
+    stud = relationship("student", back_populates="cred")
 
     def __repr__(self):
-        return self.username
+        return self.id

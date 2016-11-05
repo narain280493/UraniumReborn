@@ -9,15 +9,16 @@ from models.loginpage import loginpage
 from ma_schema.facultyschema import facultyschema
 from ma_schema.projectschema import projectschema
 from ma_schema.studentschema import studentschema
+from ma_schema.loginpageschema import loginpageschema
 from ma_schema.studentapplicationschema import studentapplicationschema
 from ma_schema.fileurlschema import fileurlschema
 from werkzeug import check_password_hash
+from werkzeug import generate_password_hash
 from datetime import timedelta
 import os
 import uuid
 import json
 import boto3
-
 
 tmpl_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'templates')
 app = Flask("UraniumReborn", template_folder=tmpl_dir)
@@ -69,26 +70,116 @@ def index():
         db_session.commit()
         return render_template('home.html')
 
+
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
     if request.method == 'POST':
-        reqData = request.get_data()
+        reqData = json.loads(request.get_data())
+
+        fSchema = facultyschema()
+        lSchema = loginpageschema()
+        sSchema = studentschema()
+
         loginPageJson = reqData['signupInfo']
         userJson = reqData['newUser']
+
+        existingUser = loginpage.query.filter_by(Email=userJson['Email'].lower()).first()
+
+        if existingUser:
+            return redirect(url_for('signup'))
+
+        userJson['id'] = str(uuid.uuid1())
+        userJson['Phone'] = ""
+        userJson['Department'] = ""
+        loginPageJson['Email'] = userJson['Email']
+        loginPageJson['Password'] = generate_password_hash(loginPageJson['Password'], method='pbkdf2:sha256',
+                                                           salt_length=8)
+        loginPageJson['id'] = str(uuid.uuid1())
+
         if loginPageJson['UserType'] == 'Faculty':
-            userJson['id'] = uuid.uuid1()
-            userJson['Phone'] = ""
-            userJson['Department'] = ""
             userJson['is_grad'] = False
             userJson['isSupervisedBefore'] = False
+            loginPageJson['f_id'] = userJson['id']
+            loginPageJson['s_id'] = None
+            fac = fSchema.load(userJson, session=db_session).data
+            lgn = lSchema.load(loginPageJson, session=db_session).data
+            db_session.add(fac)
+            db_session.commit()
+            db_session.add(lgn)
+            db_session.commit()
         else:
-
-
-
+            userJson['Student_id'] = ""
+            userJson['LocalAddressLine1'] = ""
+            userJson['LocalAddressLine2'] = ""
+            userJson['LocalAddressCity'] = ""
+            userJson['LocalAddressState'] = ""
+            userJson['LocalAddressZip'] = ""
+            userJson['SummerAddressLine_1'] = ""
+            userJson['SummerAddressLine_2'] = ""
+            userJson['SummerAddressCity'] = ""
+            userJson['SummerAddressState'] = ""
+            userJson['SummerAddressZip'] = ""
+            userJson['PrimaryMajor'] = ""
+            userJson['SecondaryMajor'] = ""
+            userJson['GPA'] = ""
+            userJson['StudentId'] = ""
+            userJson['SchoolLevel'] = ""
+            userJson['GraduationMonth'] = ""
+            userJson['GraduationYear'] = ""
+            userJson['isResearchExperience'] = ""
+            userJson['isAppliedBefore'] = ""
+            userJson['isBackgroundCheckDone'] = ""
+            userJson['LastBackgroundCheckMonth'] = ""
+            userJson['LastBackgroundCheckYear'] = ""
+            userJson['isHarassmentTrainingDone'] = ""
+            userJson['LastHarassmentTrainingMonth'] = ""
+            userJson['LastHarassmentTrainingYear'] = ""
+            userJson['resumeURL'] = ""
+            loginPageJson['f_id'] = None
+            loginPageJson['s_id'] = userJson['id']
+            stud = sSchema.load(userJson, session=db_session)
+            lgn = lSchema.load(loginPageJson, session=db_session)
+            db_session.add(stud)
+            db_session.commit()
+            db_session.add(lgn)
+            db_session.commit()
+        session['name'] = userJson['FirstName'] + " " + userJson['LastName']
+        session['email'] = userJson['Email']
+        session['utype'] = loginPageJson['UserType']
+        session['uid'] = userJson['id']
+        return redirect(url_for('index'))
     elif request.method == 'GET':
         if 'email' in session:
             return redirect(url_for('index'))
         return render_template('signup.html')
+
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        credinfo = json.loads(request.get_data())
+        email = credinfo['useremail']
+        pwd = credinfo['password']
+        lgn = loginpage.query.filter_by(Email=email.lower()).first()
+
+        if lgn and check_password_hash(lgn.Password, pwd):
+            session['email'] = email
+            session['utype'] = lgn.UserType
+            if lgn.UserType == 'Faculty':
+                session['name'] = lgn.fac.FirstName + " " + lgn.fac.LastName
+                session['uid'] = lgn.f_id
+            elif lgn.UserType == 'Student':
+                session['name'] = lgn.stud.FirstName + " " + lgn.stud.LastName
+                session['uid'] = lgn.s_id
+            return redirect(url_for('index'))
+        else:
+            return redirect(url_for('login'))
+    else:
+        if 'email' in session:
+            return redirect(url_for('index'))
+
+        return render_template('login.html')
+
 
 @app.route('/sign-s3/')
 def sign_s3():
@@ -114,8 +205,8 @@ def sign_s3():
         Key=file_name2
     )
 
-    url1 = "https://"+S3_BUCKET+".s3.amazonaws.com/"+file_name
-    url2 = "https://"+S3_BUCKET+".s3.amazonaws.com/"+file_name2
+    url1 = "https://" + S3_BUCKET + ".s3.amazonaws.com/" + file_name
+    url2 = "https://" + S3_BUCKET + ".s3.amazonaws.com/" + file_name2
 
     result = {}
     resume_url = url1
@@ -123,7 +214,7 @@ def sign_s3():
     email = session['email']
     result['resume_url'] = resume_url
     result['coverletter_url'] = coverletter_url
-    result['email_id'] =  email
+    result['email_id'] = email
     result[u'id'] = str(uuid.uuid1())
     furl = urlSchema.load(result, session=db_session).data
 
@@ -135,27 +226,8 @@ def sign_s3():
         'data1': presigned_post,
         'url1': 'https://%s.s3.amazonaws.com/%s' % (S3_BUCKET, file_name),
         'data2': presigned_post2,
-        'url2':'https://%s.s3.amazonaws.com/%s' % (S3_BUCKET, file_name2)
+        'url2': 'https://%s.s3.amazonaws.com/%s' % (S3_BUCKET, file_name2)
     })
-
-@app.route('/login', methods=['GET', 'POST'])
-def login():
-    if request.method == 'POST':
-        email = request.form.get('useremail')
-        passwd = request.form.get('password')
-        user = loginpage.query.filter_by(username=email.lower()).first()
-
-        if user and check_password_hash(user.passwdhash, passwd):
-            session['email'] = email
-            session['name'] = user.name
-            return redirect(url_for('index'))
-        else:
-            return redirect(url_for('login'))
-    else:
-        if 'email' in session:
-            return redirect(url_for('index'))
-
-        return render_template('login.html')
 
 
 @app.route('/logout')
@@ -188,8 +260,9 @@ def constructProject(inpJson):
     inpJson['specialRequirements'] = str(inpJson['specialRequirements'])
     inpJson['fieldOfStudy'] = str(inpJson['fieldOfStudy'])
     inpJson['isDevelopingCommunities'] = inpJson['isDevelopingCommunities'] == "Yes" if True else False
-    inpJson['isDevelopingCommunities'] = False ## what's this?
+    inpJson['isDevelopingCommunities'] = False  ## what's this?
     return inpJson
+
 
 def constructFaculty(inpJson, isgrad):
     if inpJson['FirstName'] != '':
@@ -203,8 +276,8 @@ def constructFaculty(inpJson, isgrad):
     else:
         return None
 
-def constructStudent(inpJson):
 
+def constructStudent(inpJson):
     if inpJson['FirstName'] != '':
         inpJson[u'id'] = str(uuid.uuid1())
 
@@ -225,25 +298,25 @@ def constructStudent(inpJson):
         else:
             inpJson['isBackgroundCheckDone'] = False
 
-
         if 'isHarassmentTrainingDone' in inpJson.keys():
             inpJson['isHarassmentTrainingDone'] = inpJson['isHarassmentTrainingDone'] == "Yes" if True else False
         else:
             inpJson['isHarassmentTrainingDone'] = False
 
         return inpJson
-
     else:
         return None
+
 
 def constructApplication(inpJson):
     inpJson[u'id'] = str(uuid.uuid1())
     return inpJson
 
+
 @app.route('/listofprojects', methods=['GET', 'POST'])
 def listofprojects():
     if 'email' not in session:
-      return redirect(url_for('index'))
+        return redirect(url_for('index'))
 
     if request.method == 'POST':
         reqData = request.get_data()
