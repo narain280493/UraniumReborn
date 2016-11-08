@@ -19,6 +19,8 @@ import os
 import uuid
 import json
 import boto3
+from botocore.client import Config
+
 
 tmpl_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'templates')
 app = Flask("UraniumReborn", template_folder=tmpl_dir)
@@ -196,11 +198,11 @@ def sign_s3():
     file_name2 = request.args.get('file-name2')
 
     # Initialise the S3 client
-    s3 = boto3.client('s3')
+    s3 = boto3.client('s3','us-west-2', config=Config(signature_version='s3v4'))
 
     # Generate and return the presigned URL
-    presigned_post = s3.generate_presigned_url('get_object', Params={'Bucket': S3_BUCKET, 'Key': file_name}, ExpiresIn=100)
-    presigned_post2 = s3.generate_presigned_url('get_object', Params={'Bucket': S3_BUCKET, 'Key': file_name2}, ExpiresIn=100)
+    presigned_post = s3.generate_presigned_url('get_object', Params={'Bucket': S3_BUCKET, 'Key': file_name}, ExpiresIn=100,HttpMethod='PUT')
+    presigned_post2 = s3.generate_presigned_url('get_object', Params={'Bucket': S3_BUCKET, 'Key': file_name2}, ExpiresIn=100,HttpMethod='PUT')
 
     result = {}
     email = session['email']

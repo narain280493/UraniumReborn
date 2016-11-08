@@ -184,7 +184,6 @@ $(document).ready(function() {
         }
 
         getSignedRequest();
-
     });
 
 
