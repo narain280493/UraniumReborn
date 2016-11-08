@@ -20,10 +20,12 @@ import uuid
 import json
 import boto3
 from botocore.client import Config
+from flask_cors import CORS,cross_origin
 
 
 tmpl_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'templates')
 app = Flask("UraniumReborn", template_folder=tmpl_dir)
+cors = CORS(app, resources={r"/sign-s3/*": {"origins": "*"}})
 app.secret_key = "dev-key"
 
 
@@ -198,11 +200,11 @@ def sign_s3():
     file_name2 = request.args.get('file-name2')
 
     # Initialise the S3 client
-    s3 = boto3.client('s3','us-west-2', config=Config(signature_version='s3v4'))
+    s3 = boto3.client('s3', 'us-west-2', config=Config(signature_version='s3v4'))
 
     # Generate and return the presigned URL
-    presigned_post = s3.generate_presigned_url('get_object', Params={'Bucket': S3_BUCKET, 'Key': file_name}, ExpiresIn=100,HttpMethod='PUT')
-    presigned_post2 = s3.generate_presigned_url('get_object', Params={'Bucket': S3_BUCKET, 'Key': file_name2}, ExpiresIn=100,HttpMethod='PUT')
+    presigned_post = s3.generate_presigned_url('get_object', Params={'Bucket': S3_BUCKET, 'Key': file_name}, ExpiresIn=3600, HttpMethod='PUT')
+    presigned_post2 = s3.generate_presigned_url('get_object', Params={'Bucket': S3_BUCKET, 'Key': file_name2}, ExpiresIn=3600, HttpMethod='PUT')
 
     result = {}
     email = session['email']

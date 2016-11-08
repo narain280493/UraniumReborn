@@ -6,3 +6,4 @@ Flask-Testing
 marshmallow-sqlalchemy
 flask-marshmallow
 boto3
+flask-cors
