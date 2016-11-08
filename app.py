@@ -188,7 +188,7 @@ def login():
         return render_template('login.html')
 
 
-@app.route('/sign-s3', methods=['GET', 'POST'])
+@app.route('/sign-s3/', methods=['GET', 'POST'])
 def sign_s3():
     urlSchema = fileurlschema()
 
