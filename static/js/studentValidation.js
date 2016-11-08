@@ -175,7 +175,7 @@ $(document).ready(function() {
             $.ajax({
                type: "GET",
                crossDomain: true,
-               url: `/sign-s3?file-name=` + $(file)[0].name + `&file-type=` + $(file)[0].type + `&file-value=Resume&file-name2=`+ $(file2)[0].name +`&file-type2=`+ $(file2)[0].type +`&file-value2=CoverLetter`,
+               url: `/sign-s3/?file-name=` + $(file)[0].name + `&file-type=` + $(file)[0].type + `&file-value=Resume&file-name2=`+ $(file2)[0].name +`&file-type2=`+ $(file2)[0].type +`&file-value2=CoverLetter`,
                success: function(data,status){
                    pdata = JSON.parse(data);
                    uploadFile(file, pdata.url1, file2, pdata.url2);
