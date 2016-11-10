@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1f862e1b-30d9-4495-ad14-0955337e5bb0" name="Default" comment="">
+    <list default="true" id="1a14b210-5648-42f8-ae5c-f453473715fc" name="Default" comment="Debug Upload functionality - works?">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/UraniumReborn.iml" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.py" afterPath="$PROJECT_DIR$/app.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/css/style.css" afterPath="$PROJECT_DIR$/static/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/listofprojects.html" afterPath="$PROJECT_DIR$/templates/listofprojects.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/student.html" afterPath="$PROJECT_DIR$/templates/student.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/config.properties" afterPath="$PROJECT_DIR$/database/config.properties" />
     </list>
     <ignored path="UraniumReborn.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -19,9 +19,8 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/UraniumReborn$app.coverage" NAME="app Coverage Results" MODIFIED="1478762232751" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/UraniumReborn$app.coverage" NAME="app Coverage Results" MODIFIED="1478642122812" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
@@ -32,6 +31,7 @@
     <option name="SORT_POSITIONED" value="false" />
     <option name="SHOW_TABLE_DETAILS" value="true" />
     <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
@@ -39,66 +39,77 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="app.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="studentValidation.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/js/studentValidation.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2655">
+              <caret line="178" column="29" selection-start-line="178" selection-start-column="29" selection-end-line="178" selection-end-column="29" />
+              <folding>
+                <marker date="1478764643000" expanded="true" signature="0:45" ph="/** Created by ranganathan on 11/3/16. ...*/" />
+                <marker date="1478764643000" expanded="true" signature="76:6398" ph="{...}" />
+                <marker date="1478764643000" expanded="true" signature="119:3835" ph="{...}" />
+                <marker date="1478764643000" expanded="true" signature="148:325" ph="{&quot;valid&quot;: 'glyphicon glyphicon-ok'...}" />
+                <marker date="1478764643000" expanded="true" signature="348:3825" ph="{...}" />
+                <marker date="1478764643000" expanded="true" signature="388:697" ph="{...}" />
+                <marker date="1478764643000" expanded="true" signature="422:679" ph="{...}" />
+                <marker date="1478764643000" expanded="true" signature="462:525" ph="{...}" />
+                <marker date="1478764643000" expanded="true" signature="561:657" ph="{&quot;message&quot;: 'Please supply your first name'...}" />
+                <marker date="1478764643000" expanded="true" signature="738:1046" ph="{...}" />
+                <marker date="1478764643000" expanded="true" signature="772:1028" ph="{...}" />
+                <marker date="1478764643000" expanded="true" signature="812:875" ph="{...}" />
+                <marker date="1478764643000" expanded="true" signature="911:1006" ph="{&quot;message&quot;: 'Please supply your last name'...}" />
+                <marker date="1478764643000" expanded="true" signature="1082:1433" ph="{...}" />
+                <marker date="1478764643000" expanded="true" signature="1116:1415" ph="{...}" />
+                <marker date="1478764643000" expanded="true" signature="1152:1251" ph="{&quot;message&quot;: 'Please supply your email address'...}" />
+                <marker date="1478764643000" expanded="true" signature="1291:1393" ph="{&quot;message&quot;: 'Please supply a valid email address'...}" />
+                <marker date="1478764643000" expanded="true" signature="1469:1869" ph="{...}" />
+                <marker date="1478764643000" expanded="true" signature="1503:1851" ph="{...}" />
+                <marker date="1478764643000" expanded="true" signature="1539:1637" ph="{&quot;message&quot;: 'Please supply your phone number'...}" />
+                <marker date="1478764643000" expanded="true" signature="1670:1829" ph="{&quot;country&quot;: 'US'...}" />
+                <marker date="1478764643000" expanded="true" signature="1917:2230" ph="{...}" />
+                <marker date="1478764643000" expanded="true" signature="1951:2212" ph="{...}" />
+                <marker date="1478764643000" expanded="true" signature="1991:2054" ph="{...}" />
+                <marker date="1478764643000" expanded="true" signature="2090:2190" ph="{&quot;message&quot;: 'Please supply your street address'...}" />
+                <marker date="1478764643000" expanded="true" signature="2277:2580" ph="{...}" />
+                <marker date="1478764643000" expanded="true" signature="2311:2562" ph="{...}" />
+                <marker date="1478764643000" expanded="true" signature="2351:2414" ph="{...}" />
+                <marker date="1478764643000" expanded="true" signature="2450:2540" ph="{&quot;message&quot;: 'Please supply your city'...}" />
+                <marker date="1478764643000" expanded="true" signature="2628:2829" ph="{...}" />
+                <marker date="1478764643000" expanded="true" signature="2662:2811" ph="{...}" />
+                <marker date="1478764643000" expanded="true" signature="2698:2789" ph="{&quot;message&quot;: 'Please select your state'...}" />
+                <marker date="1478764643000" expanded="true" signature="2875:3254" ph="{...}" />
+                <marker date="1478764643000" expanded="true" signature="2909:3236" ph="{...}" />
+                <marker date="1478764643000" expanded="true" signature="2945:3039" ph="{&quot;message&quot;: 'Please supply your zip code'...}" />
+                <marker date="1478764643000" expanded="true" signature="3074:3214" ph="{&quot;country&quot;: 'US'...}" />
+                <marker date="1478764643000" expanded="true" signature="3297:3498" ph="{...}" />
+                <marker date="1478764643000" expanded="true" signature="3331:3480" ph="{...}" />
+                <marker date="1478764643000" expanded="true" signature="3367:3458" ph="{&quot;message&quot;: 'Please select your state'...}" />
+                <marker date="1478764643000" expanded="true" signature="3536:3805" ph="{...}" />
+                <marker date="1478764643000" expanded="true" signature="3570:3787" ph="{...}" />
+                <marker date="1478764643000" expanded="true" signature="3604:3765" ph="{&quot;message&quot;: 'Please choose a option'...}" />
+                <marker date="1478764643000" expanded="true" signature="3880:6392" ph="{...}" />
+                <marker date="1478764643000" expanded="true" signature="4481:4618" ph="/*...*/" />
+                <marker date="1478764643000" expanded="true" signature="4675:5684" ph="{...}" />
+                <marker date="1478764643000" expanded="true" signature="4701:5092" ph="{&quot;type&quot;: 'PUT'...}" />
+                <marker date="1478764643000" expanded="true" signature="5007:5074" ph="{...}" />
+                <marker date="1478764643000" expanded="true" signature="5188:5581" ph="{&quot;type&quot;: 'PUT'...}" />
+                <marker date="1478764643000" expanded="true" signature="5496:5563" ph="{...}" />
+                <marker date="1478764643000" expanded="true" signature="5721:6357" ph="{...}" />
+                <marker date="1478764643000" expanded="true" signature="5880:6345" ph="{&quot;type&quot;: &quot;GET&quot;...}" />
+                <marker date="1478764643000" expanded="true" signature="6200:6331" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="248" column="56" selection-start-line="248" selection-start-column="56" selection-end-line="248" selection-end-column="56" />
+            <state relative-caret-position="285">
+              <caret line="132" column="44" selection-start-line="132" selection-start-column="44" selection-end-line="132" selection-end-column="44" />
               <folding>
                 <element signature="e#0#77#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="listofprojects.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/listofprojects.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="243">
-              <caret line="72" column="45" selection-start-line="72" selection-start-column="45" selection-end-line="72" selection-end-column="45" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="faculty.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/faculty.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="122">
-              <caret line="298" column="172" selection-start-line="298" selection-start-column="105" selection-end-line="298" selection-end-column="172" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="project.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/models/project.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="36" selection-start-line="9" selection-start-column="36" selection-end-line="9" selection-end-column="36" />
-              <folding>
-                <element signature="e#0#34#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="student.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/student.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="192">
-              <caret line="551" column="61" selection-start-line="551" selection-start-column="61" selection-end-line="551" selection-end-column="61" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="studentValidation.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/static/js/studentValidation.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="188" column="0" selection-start-line="188" selection-start-column="0" selection-end-line="188" selection-end-column="0" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -107,6 +118,11 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
   </component>
   <component name="GradleLocalSettings">
     <option name="externalProjectsViewState">
@@ -116,13 +132,9 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/static/js/signupValidation.js" />
+        <option value="$PROJECT_DIR$/database/config.properties" />
         <option value="$PROJECT_DIR$/static/js/studentValidation.js" />
-        <option value="$PROJECT_DIR$/requirements.txt" />
-        <option value="$PROJECT_DIR$/static/css/style.css" />
-        <option value="$PROJECT_DIR$/templates/listofprojects.html" />
         <option value="$PROJECT_DIR$/app.py" />
-        <option value="$PROJECT_DIR$/templates/student.html" />
       </list>
     </option>
   </component>
@@ -132,11 +144,13 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
+  <component name="NodeModulesDirectoryManager">
+    <handled-path value="$PROJECT_DIR$/node_modules" />
+  </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1382" />
-    <option name="height" value="754" />
+    <option name="y" value="23" />
+    <option name="width" value="1280" />
+    <option name="height" value="701" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -163,6 +177,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -191,7 +207,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
+              <option name="myItemId" value="static" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -206,56 +226,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="static" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="UraniumReborn" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="UraniumReborn" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="static" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="UraniumReborn" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="UraniumReborn" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="static" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bower_components" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="UraniumReborn" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="UraniumReborn" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="models" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -275,19 +245,16 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="database.main" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="js-jscs-nodeInterpreter" value="C:\Program Files\nodejs\node.exe" />
-    <property name="SearchEverywhereHistoryKey" value="data&#9;ACTION&#9;ActivateDatabaseToolWindow" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="PostgreSQL" />
+    <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
   </component>
   <component name="RestoreUpdateTree" date="Moments ago" ActionInfo="_Update">
     <UpdatedFiles>
@@ -303,7 +270,12 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="false" />
           <option name="myId" value="UPDATED" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/workspace.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/app.py</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/static/css/style.css</PATH>
           <PATH vcs="Git" revision="">$PROJECT_DIR$/static/js/studentValidation.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/listofprojects.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/student.html</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Created" />
@@ -437,8 +409,13 @@
       <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
       <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
       <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="DEBUGGER_TYPE" value="Java" />
       <option name="USE_LAST_SELECTED_DEVICE" value="false" />
       <option name="PREFERRED_AVD" value="" />
+      <Java />
+      <Profilers>
+        <option name="GAPID_DISABLE_PCS" value="false" />
+      </Profilers>
       <option name="DEEP_LINK" value="" />
       <option name="ACTIVITY_CLASS" value="" />
       <method />
@@ -457,8 +434,13 @@
       <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
       <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
       <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="DEBUGGER_TYPE" value="Java" />
       <option name="USE_LAST_SELECTED_DEVICE" value="false" />
       <option name="PREFERRED_AVD" value="" />
+      <Java />
+      <Profilers>
+        <option name="GAPID_DISABLE_PCS" value="false" />
+      </Profilers>
       <method />
     </configuration>
     <configuration default="true" type="Applet" factoryName="Applet">
@@ -543,6 +525,9 @@
       <listeners />
       <method />
     </configuration>
+    <configuration default="true" type="Cold Fusion runner description" factoryName="Cold Fusion" custom_browser="" web_path="">
+      <method />
+    </configuration>
     <configuration default="true" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="myFilePath" />
@@ -601,7 +586,7 @@
           <option name="browser" value="a7bb68e0-33c0-4d6f-a81a-aac1fdb870c8" />
           <option name="launcherType" value="OSDefault" />
           <option name="newPlayerInstance" value="false" />
-          <option name="playerPath" value="FlashPlayerDebugger.exe" />
+          <option name="playerPath" value="/Applications/Flash Player Debugger.app" />
         </LauncherParameters>
       </option>
       <option name="mobileRunTarget" value="Emulator" />
@@ -624,7 +609,7 @@
           <option name="browser" value="a7bb68e0-33c0-4d6f-a81a-aac1fdb870c8" />
           <option name="launcherType" value="OSDefault" />
           <option name="newPlayerInstance" value="false" />
-          <option name="playerPath" value="FlashPlayerDebugger.exe" />
+          <option name="playerPath" value="/Applications/Flash Player Debugger.app" />
         </LauncherParameters>
       </option>
       <option name="moduleName" value="" />
@@ -747,9 +732,6 @@
       <envs />
       <method />
     </configuration>
-    <configuration default="true" type="NodeJSConfigurationType" factoryName="Node.js" path-to-node="project" working-dir="">
-      <method />
-    </configuration>
     <configuration default="true" type="PyBehaveRunConfigurationType" factoryName="Behave">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -802,36 +784,6 @@
       <option name="SHMEM_ADDRESS" value="javadebug" />
       <option name="HOST" value="localhost" />
       <option name="PORT" value="5005" />
-      <method />
-    </configuration>
-    <configuration default="true" type="ScalaTestRunConfiguration" factoryName="ScalaTest">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="" />
-      <setting name="path" value="" />
-      <setting name="package" value="" />
-      <setting name="vmparams" value="" />
-      <setting name="params" value="" />
-      <setting name="workingDirectory" value="" />
-      <setting name="searchForTest" value="Across module dependencies" />
-      <setting name="testName" value="" />
-      <setting name="testKind" value="Class" />
-      <setting name="showProgressMessages" value="true" />
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="true" type="Specs2RunConfiguration" factoryName="Specs2">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="" />
-      <setting name="path" value="" />
-      <setting name="package" value="" />
-      <setting name="vmparams" value="" />
-      <setting name="params" value="" />
-      <setting name="workingDirectory" value="" />
-      <setting name="searchForTest" value="Across module dependencies" />
-      <setting name="testName" value="" />
-      <setting name="testKind" value="Class" />
-      <setting name="showProgressMessages" value="true" />
-      <envs />
       <method />
     </configuration>
     <configuration default="true" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
@@ -909,19 +861,6 @@
       <module name="UraniumReborn" />
       <method />
     </configuration>
-    <configuration default="true" type="executeSpecs" factoryName="Gauge Execution">
-      <setting name="environment" value="" />
-      <setting name="specsToExecute" value="" />
-      <setting name="tags" value="" />
-      <setting name="parallelNodes" value="" />
-      <setting name="execInParallel" value="false" />
-      <setting name="programParameters" value="" />
-      <setting name="workingDirectory" value="" />
-      <setting name="moduleName" value="" />
-      <envMap />
-      <setting name="rowsRange" value="" />
-      <method />
-    </configuration>
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
       <node-interpreter>project</node-interpreter>
       <node-options />
@@ -936,19 +875,6 @@
       <scripts />
       <node-interpreter value="project" />
       <envs />
-      <method />
-    </configuration>
-    <configuration default="true" type="mocha-javascript-test-runner" factoryName="Mocha">
-      <node-interpreter>project</node-interpreter>
-      <node-options />
-      <working-directory />
-      <pass-parent-env>true</pass-parent-env>
-      <envs />
-      <ui>bdd</ui>
-      <extra-mocha-options />
-      <test-kind>DIRECTORY</test-kind>
-      <test-directory />
-      <recursive>false</recursive>
       <method />
     </configuration>
     <configuration default="true" type="osgi.bnd.run" factoryName="Run Launcher">
@@ -1067,21 +993,6 @@
       <option name="USE_KEYWORD" value="false" />
       <method />
     </configuration>
-    <configuration default="true" type="uTestRunConfiguration" factoryName="utest">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="" />
-      <setting name="path" value="" />
-      <setting name="package" value="" />
-      <setting name="vmparams" value="" />
-      <setting name="params" value="" />
-      <setting name="workingDirectory" value="" />
-      <setting name="searchForTest" value="Across module dependencies" />
-      <setting name="testName" value="" />
-      <setting name="testKind" value="Class" />
-      <setting name="showProgressMessages" value="true" />
-      <envs />
-      <method />
-    </configuration>
     <list size="1">
       <item index="0" class="java.lang.String" itemvalue="Python.app" />
     </list>
@@ -1091,101 +1002,63 @@
       </list>
     </recent_temporary>
   </component>
-  <component name="SbtLocalSettings">
-    <option name="modificationStamps">
-      <map>
-        <entry key="$USER_HOME$/Documents/GitHub/lab1-atpa2251_lab1" value="1472080168501" />
-        <entry key="$USER_HOME$/Documents/GitHub/lab1-lab1-dan-corwin" value="1473440756726" />
-        <entry key="$USER_HOME$/Documents/GitHub/pppl-lab3" value="1474605671371" />
-        <entry key="$PROJECT_DIR$/../pppl-lab4" value="1476205427763" />
-        <entry key="$PROJECT_DIR$/../pppl-lab5" value="1477548734210" />
-      </map>
-    </option>
-    <option name="externalProjectsViewState">
-      <projects_view />
-    </option>
-  </component>
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
   </component>
-  <component name="SvnConfiguration">
-    <configuration />
-  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="1f862e1b-30d9-4495-ad14-0955337e5bb0" name="Default" comment="" />
-      <created>1478333098362</created>
+      <changelist id="1a14b210-5648-42f8-ae5c-f453473715fc" name="Default" comment="" />
+      <created>1478585780461</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1478333098362</updated>
-      <workItem from="1478333100042" duration="1657000" />
-      <workItem from="1478373021793" duration="14376000" />
-      <workItem from="1478399105163" duration="17000" />
-      <workItem from="1478633548921" duration="4573000" />
-      <workItem from="1478709520660" duration="3243000" />
-      <workItem from="1478735917864" duration="22062000" />
+      <updated>1478585780461</updated>
+      <workItem from="1478585781947" duration="8053000" />
+      <workItem from="1478636511656" duration="366000" />
+      <workItem from="1478640694746" duration="2703000" />
+      <workItem from="1478764609280" duration="461000" />
     </task>
-    <task id="LOCAL-00001" summary="Hotfix: Validation changes and s3 region change">
-      <created>1478333258766</created>
+    <task id="LOCAL-00001" summary="Debug Upload functionality">
+      <created>1478598786818</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1478333258766</updated>
+      <updated>1478598786818</updated>
     </task>
-    <task id="LOCAL-00002" summary="Hotfix: Validation changes and s3 region change">
-      <created>1478385667674</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1478385667674</updated>
-    </task>
-    <task id="LOCAL-00003" summary="Hotfix: allowing cross domain requests">
-      <created>1478387435186</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1478387435186</updated>
-    </task>
-    <task id="LOCAL-00004" summary="Hotfix: allowing cross domain requests">
-      <created>1478636045686</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1478636045686</updated>
-    </task>
-    <option name="localTasksCounter" value="5" />
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="45928000" />
+    <option name="totallyTimeSpent" value="11583000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
+    <frame x="0" y="23" width="1280" height="701" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="SBT Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.329582" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27652735" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Mongo Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32980332" sideWeight="0.4916067" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run with VisualVM" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="SBT Execute" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5083933" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329582" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug with VisualVM" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32840723" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32840723" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24959612" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32956383" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39901477" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32840723" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -1200,69 +1073,173 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Hotfix: Validation changes and s3 region change" />
-    <MESSAGE value="Hotfix: allowing cross domain requests" />
-    <option name="LAST_COMMIT_MESSAGE" value="Hotfix: allowing cross domain requests" />
+    <MESSAGE value="Debug Upload functionality - works?" />
+    <MESSAGE value="Debug Upload functionality" />
+    <option name="LAST_COMMIT_MESSAGE" value="Debug Upload functionality" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="python-line">
-          <url>file://$PROJECT_DIR$/app.py</url>
-          <line>205</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="python-line">
-          <url>file://$PROJECT_DIR$/app.py</url>
-          <line>242</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-      </breakpoints>
-      <option name="time" value="6" />
+      <option name="time" value="4" />
     </breakpoint-manager>
-    <watches-manager />
+    <watches-manager>
+      <configuration name="PythonConfigurationType">
+        <watch expression="presigned_post" language="Python" />
+        <watch expression="presigned_post" language="Python" />
+        <watch expression="presigned_post['url']" language="Python" />
+      </configuration>
+    </watches-manager>
+  </component>
+  <component name="antWorkspaceConfiguration">
+    <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
+    <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/static/js/studentValidation.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2655">
+          <caret line="177" column="29" selection-start-line="177" selection-start-column="29" selection-end-line="177" selection-end-column="29" />
+          <folding>
+            <marker date="1478764643000" expanded="true" signature="0:45" ph="/** Created by ranganathan on 11/3/16. ...*/" />
+            <marker date="1478764643000" expanded="true" signature="76:6398" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="119:3835" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="148:325" ph="{&quot;valid&quot;: 'glyphicon glyphicon-ok'...}" />
+            <marker date="1478764643000" expanded="true" signature="348:3825" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="388:697" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="422:679" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="462:525" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="561:657" ph="{&quot;message&quot;: 'Please supply your first name'...}" />
+            <marker date="1478764643000" expanded="true" signature="738:1046" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="772:1028" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="812:875" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="911:1006" ph="{&quot;message&quot;: 'Please supply your last name'...}" />
+            <marker date="1478764643000" expanded="true" signature="1082:1433" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="1116:1415" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="1152:1251" ph="{&quot;message&quot;: 'Please supply your email address'...}" />
+            <marker date="1478764643000" expanded="true" signature="1291:1393" ph="{&quot;message&quot;: 'Please supply a valid email address'...}" />
+            <marker date="1478764643000" expanded="true" signature="1469:1869" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="1503:1851" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="1539:1637" ph="{&quot;message&quot;: 'Please supply your phone number'...}" />
+            <marker date="1478764643000" expanded="true" signature="1670:1829" ph="{&quot;country&quot;: 'US'...}" />
+            <marker date="1478764643000" expanded="true" signature="1917:2230" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="1951:2212" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="1991:2054" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="2090:2190" ph="{&quot;message&quot;: 'Please supply your street address'...}" />
+            <marker date="1478764643000" expanded="true" signature="2277:2580" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="2311:2562" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="2351:2414" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="2450:2540" ph="{&quot;message&quot;: 'Please supply your city'...}" />
+            <marker date="1478764643000" expanded="true" signature="2628:2829" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="2662:2811" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="2698:2789" ph="{&quot;message&quot;: 'Please select your state'...}" />
+            <marker date="1478764643000" expanded="true" signature="2875:3254" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="2909:3236" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="2945:3039" ph="{&quot;message&quot;: 'Please supply your zip code'...}" />
+            <marker date="1478764643000" expanded="true" signature="3074:3214" ph="{&quot;country&quot;: 'US'...}" />
+            <marker date="1478764643000" expanded="true" signature="3297:3498" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="3331:3480" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="3367:3458" ph="{&quot;message&quot;: 'Please select your state'...}" />
+            <marker date="1478764643000" expanded="true" signature="3536:3805" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="3570:3787" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="3604:3765" ph="{&quot;message&quot;: 'Please choose a option'...}" />
+            <marker date="1478764643000" expanded="true" signature="3880:6392" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="4481:4618" ph="/*...*/" />
+            <marker date="1478764643000" expanded="true" signature="4675:5684" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="4701:5092" ph="{&quot;type&quot;: 'PUT'...}" />
+            <marker date="1478764643000" expanded="true" signature="5007:5074" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="5188:5581" ph="{&quot;type&quot;: 'PUT'...}" />
+            <marker date="1478764643000" expanded="true" signature="5496:5563" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="5721:6357" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="5880:6345" ph="{&quot;type&quot;: &quot;GET&quot;...}" />
+            <marker date="1478764643000" expanded="true" signature="6200:6331" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4522">
-          <caret line="266" column="30" selection-start-line="266" selection-start-column="30" selection-end-line="266" selection-end-column="30" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#0#77#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/listofprojects.html">
+    <entry file="file://$PROJECT_DIR$/static/js/studentValidation.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/requirements.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="10" selection-start-line="8" selection-start-column="10" selection-end-line="8" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/fileurl.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="2655">
+          <caret line="177" column="30" selection-start-line="177" selection-start-column="30" selection-end-line="177" selection-end-column="30" />
           <folding>
-            <element signature="e#0#34#0" expanded="false" />
+            <marker date="1478764643000" expanded="true" signature="0:45" ph="/** Created by ranganathan on 11/3/16. ...*/" />
+            <marker date="1478764643000" expanded="true" signature="76:6398" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="119:3835" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="148:325" ph="{&quot;valid&quot;: 'glyphicon glyphicon-ok'...}" />
+            <marker date="1478764643000" expanded="true" signature="348:3825" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="388:697" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="422:679" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="462:525" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="561:657" ph="{&quot;message&quot;: 'Please supply your first name'...}" />
+            <marker date="1478764643000" expanded="true" signature="738:1046" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="772:1028" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="812:875" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="911:1006" ph="{&quot;message&quot;: 'Please supply your last name'...}" />
+            <marker date="1478764643000" expanded="true" signature="1082:1433" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="1116:1415" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="1152:1251" ph="{&quot;message&quot;: 'Please supply your email address'...}" />
+            <marker date="1478764643000" expanded="true" signature="1291:1393" ph="{&quot;message&quot;: 'Please supply a valid email address'...}" />
+            <marker date="1478764643000" expanded="true" signature="1469:1869" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="1503:1851" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="1539:1637" ph="{&quot;message&quot;: 'Please supply your phone number'...}" />
+            <marker date="1478764643000" expanded="true" signature="1670:1829" ph="{&quot;country&quot;: 'US'...}" />
+            <marker date="1478764643000" expanded="true" signature="1917:2230" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="1951:2212" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="1991:2054" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="2090:2190" ph="{&quot;message&quot;: 'Please supply your street address'...}" />
+            <marker date="1478764643000" expanded="true" signature="2277:2580" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="2311:2562" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="2351:2414" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="2450:2540" ph="{&quot;message&quot;: 'Please supply your city'...}" />
+            <marker date="1478764643000" expanded="true" signature="2628:2829" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="2662:2811" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="2698:2789" ph="{&quot;message&quot;: 'Please select your state'...}" />
+            <marker date="1478764643000" expanded="true" signature="2875:3254" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="2909:3236" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="2945:3039" ph="{&quot;message&quot;: 'Please supply your zip code'...}" />
+            <marker date="1478764643000" expanded="true" signature="3074:3214" ph="{&quot;country&quot;: 'US'...}" />
+            <marker date="1478764643000" expanded="true" signature="3297:3498" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="3331:3480" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="3367:3458" ph="{&quot;message&quot;: 'Please select your state'...}" />
+            <marker date="1478764643000" expanded="true" signature="3536:3805" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="3570:3787" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="3604:3765" ph="{&quot;message&quot;: 'Please choose a option'...}" />
+            <marker date="1478764643000" expanded="true" signature="3880:6392" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="4481:4618" ph="/*...*/" />
+            <marker date="1478764643000" expanded="true" signature="4675:5684" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="4701:5092" ph="{&quot;type&quot;: 'PUT'...}" />
+            <marker date="1478764643000" expanded="true" signature="5007:5074" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="5188:5581" ph="{&quot;type&quot;: 'PUT'...}" />
+            <marker date="1478764643000" expanded="true" signature="5496:5563" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="5721:6357" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="5880:6345" ph="{&quot;type&quot;: &quot;GET&quot;...}" />
+            <marker date="1478764643000" expanded="true" signature="6200:6331" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/student.html">
+    <entry file="file://$PROJECT_DIR$/app.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="11407">
-          <caret line="671" column="98" selection-start-line="671" selection-start-column="98" selection-end-line="671" selection-end-column="98" />
+        <state relative-caret-position="3330">
+          <caret line="222" column="0" selection-start-line="222" selection-start-column="0" selection-end-line="222" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#77#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/anaconda/lib/python2.7/site-packages/flask/app.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1271,226 +1248,230 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <marker date="1478764643000" expanded="true" signature="0:45" ph="/** Created by ranganathan on 11/3/16. ...*/" />
+            <marker date="1478764643000" expanded="true" signature="76:6398" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="119:3835" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="148:325" ph="{&quot;valid&quot;: 'glyphicon glyphicon-ok'...}" />
+            <marker date="1478764643000" expanded="true" signature="348:3825" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="388:697" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="422:679" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="462:525" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="561:657" ph="{&quot;message&quot;: 'Please supply your first name'...}" />
+            <marker date="1478764643000" expanded="true" signature="738:1046" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="772:1028" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="812:875" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="911:1006" ph="{&quot;message&quot;: 'Please supply your last name'...}" />
+            <marker date="1478764643000" expanded="true" signature="1082:1433" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="1116:1415" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="1152:1251" ph="{&quot;message&quot;: 'Please supply your email address'...}" />
+            <marker date="1478764643000" expanded="true" signature="1291:1393" ph="{&quot;message&quot;: 'Please supply a valid email address'...}" />
+            <marker date="1478764643000" expanded="true" signature="1469:1869" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="1503:1851" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="1539:1637" ph="{&quot;message&quot;: 'Please supply your phone number'...}" />
+            <marker date="1478764643000" expanded="true" signature="1670:1829" ph="{&quot;country&quot;: 'US'...}" />
+            <marker date="1478764643000" expanded="true" signature="1917:2230" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="1951:2212" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="1991:2054" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="2090:2190" ph="{&quot;message&quot;: 'Please supply your street address'...}" />
+            <marker date="1478764643000" expanded="true" signature="2277:2580" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="2311:2562" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="2351:2414" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="2450:2540" ph="{&quot;message&quot;: 'Please supply your city'...}" />
+            <marker date="1478764643000" expanded="true" signature="2628:2829" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="2662:2811" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="2698:2789" ph="{&quot;message&quot;: 'Please select your state'...}" />
+            <marker date="1478764643000" expanded="true" signature="2875:3254" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="2909:3236" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="2945:3039" ph="{&quot;message&quot;: 'Please supply your zip code'...}" />
+            <marker date="1478764643000" expanded="true" signature="3074:3214" ph="{&quot;country&quot;: 'US'...}" />
+            <marker date="1478764643000" expanded="true" signature="3297:3498" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="3331:3480" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="3367:3458" ph="{&quot;message&quot;: 'Please select your state'...}" />
+            <marker date="1478764643000" expanded="true" signature="3536:3805" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="3570:3787" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="3604:3765" ph="{&quot;message&quot;: 'Please choose a option'...}" />
+            <marker date="1478764643000" expanded="true" signature="3880:6392" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="4481:4618" ph="/*...*/" />
+            <marker date="1478764643000" expanded="true" signature="4675:5684" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="4701:5092" ph="{&quot;type&quot;: 'PUT'...}" />
+            <marker date="1478764643000" expanded="true" signature="5007:5074" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="5188:5581" ph="{&quot;type&quot;: 'PUT'...}" />
+            <marker date="1478764643000" expanded="true" signature="5496:5563" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="5721:6357" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="5880:6345" ph="{&quot;type&quot;: &quot;GET&quot;...}" />
+            <marker date="1478764643000" expanded="true" signature="6200:6331" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4522">
-          <caret line="266" column="30" selection-start-line="266" selection-start-column="30" selection-end-line="266" selection-end-column="30" />
+        <state relative-caret-position="3300">
+          <caret line="220" column="0" selection-start-line="220" selection-start-column="0" selection-end-line="220" selection-end-column="0" />
           <folding>
             <element signature="e#0#77#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/requirements.txt">
+    <entry file="file://$USER_HOME$/anaconda/lib/python2.7/site-packages/flask/app.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="10" selection-start-line="8" selection-start-column="10" selection-end-line="8" selection-end-column="10" />
+        <state relative-caret-position="27525">
+          <caret line="1835" column="0" selection-start-line="1835" selection-start-column="0" selection-end-line="1835" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/models/fileurl.py">
+    <entry file="file://$PROJECT_DIR$/app_tests.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#34#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/student.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="11407">
-          <caret line="671" column="98" selection-start-line="671" selection-start-column="98" selection-end-line="671" selection-end-column="98" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/studentValidation.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2992">
-          <caret line="176" column="33" selection-start-line="176" selection-start-column="33" selection-end-line="176" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#77#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/fileurl.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#34#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/student.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="11407">
-          <caret line="671" column="98" selection-start-line="671" selection-start-column="98" selection-end-line="671" selection-end-column="98" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/studentValidation.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2992">
-          <caret line="176" column="33" selection-start-line="176" selection-start-column="33" selection-end-line="176" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#77#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/fileurl.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#34#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/student.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="11407">
-          <caret line="671" column="98" selection-start-line="671" selection-start-column="98" selection-end-line="671" selection-end-column="98" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/signupValidation.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="424">
-          <caret line="69" column="46" selection-start-line="69" selection-start-column="46" selection-end-line="69" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/fileurl.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#34#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/database/config.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="15">
+          <caret line="1" column="21" selection-start-line="1" selection-start-column="21" selection-end-line="1" selection-end-column="21" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/72491615-d111-4208-b17b-a68d6315342f/console.sql">
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/2599d79b-2ab9-46fc-b8b6-c44a233a375f/console.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="dbDummy://dbtable:/b7aa354c/72491615-d111-4208-b17b-a68d6315342f/fse_db.public.fileurl">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
+    <entry file="dbDummy://dbtable:/e986a8cd/2599d79b-2ab9-46fc-b8b6-c44a233a375f/fse_db.public.fileurl">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
         </state>
       </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/css/style.css">
+    <entry file="file://$USER_HOME$/anaconda/lib/python2.7/BaseHTTPServer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="86" column="19" selection-start-line="86" selection-start-column="19" selection-end-line="86" selection-end-column="19" />
+        <state relative-caret-position="127">
+          <caret line="340" column="0" selection-start-line="340" selection-start-column="0" selection-end-line="340" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/anaconda/lib/python2.7/SocketServer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1012">
+          <caret line="224" column="0" selection-start-line="224" selection-start-column="0" selection-end-line="224" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/e986a8cd/2599d79b-2ab9-46fc-b8b6-c44a233a375f/fse_db.public.login">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/anaconda/lib/python2.7/site-packages/werkzeug/serving.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="142">
+          <caret line="182" column="0" selection-start-line="182" selection-start-column="0" selection-end-line="182" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/anaconda/lib/python2.7/site-packages/flask/app.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="349">
+          <caret line="1831" column="30" selection-start-line="1831" selection-start-column="30" selection-end-line="1831" selection-end-column="30" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/requirements.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="10" selection-start-line="8" selection-start-column="10" selection-end-line="8" selection-end-column="10" />
-          <folding />
+        <state relative-caret-position="120">
+          <caret line="8" column="7" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/faculty.html">
+    <entry file="file://$PROJECT_DIR$/static/js/studentValidation.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="122">
-          <caret line="298" column="172" selection-start-line="298" selection-start-column="105" selection-end-line="298" selection-end-column="172" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/project.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="36" selection-start-line="9" selection-start-column="36" selection-end-line="9" selection-end-column="36" />
+        <state relative-caret-position="2655">
+          <caret line="178" column="29" selection-start-line="178" selection-start-column="29" selection-end-line="178" selection-end-column="29" />
           <folding>
-            <element signature="e#0#34#0" expanded="true" />
+            <marker date="1478764643000" expanded="true" signature="0:45" ph="/** Created by ranganathan on 11/3/16. ...*/" />
+            <marker date="1478764643000" expanded="true" signature="76:6398" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="119:3835" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="148:325" ph="{&quot;valid&quot;: 'glyphicon glyphicon-ok'...}" />
+            <marker date="1478764643000" expanded="true" signature="348:3825" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="388:697" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="422:679" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="462:525" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="561:657" ph="{&quot;message&quot;: 'Please supply your first name'...}" />
+            <marker date="1478764643000" expanded="true" signature="738:1046" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="772:1028" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="812:875" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="911:1006" ph="{&quot;message&quot;: 'Please supply your last name'...}" />
+            <marker date="1478764643000" expanded="true" signature="1082:1433" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="1116:1415" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="1152:1251" ph="{&quot;message&quot;: 'Please supply your email address'...}" />
+            <marker date="1478764643000" expanded="true" signature="1291:1393" ph="{&quot;message&quot;: 'Please supply a valid email address'...}" />
+            <marker date="1478764643000" expanded="true" signature="1469:1869" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="1503:1851" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="1539:1637" ph="{&quot;message&quot;: 'Please supply your phone number'...}" />
+            <marker date="1478764643000" expanded="true" signature="1670:1829" ph="{&quot;country&quot;: 'US'...}" />
+            <marker date="1478764643000" expanded="true" signature="1917:2230" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="1951:2212" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="1991:2054" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="2090:2190" ph="{&quot;message&quot;: 'Please supply your street address'...}" />
+            <marker date="1478764643000" expanded="true" signature="2277:2580" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="2311:2562" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="2351:2414" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="2450:2540" ph="{&quot;message&quot;: 'Please supply your city'...}" />
+            <marker date="1478764643000" expanded="true" signature="2628:2829" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="2662:2811" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="2698:2789" ph="{&quot;message&quot;: 'Please select your state'...}" />
+            <marker date="1478764643000" expanded="true" signature="2875:3254" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="2909:3236" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="2945:3039" ph="{&quot;message&quot;: 'Please supply your zip code'...}" />
+            <marker date="1478764643000" expanded="true" signature="3074:3214" ph="{&quot;country&quot;: 'US'...}" />
+            <marker date="1478764643000" expanded="true" signature="3297:3498" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="3331:3480" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="3367:3458" ph="{&quot;message&quot;: 'Please select your state'...}" />
+            <marker date="1478764643000" expanded="true" signature="3536:3805" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="3570:3787" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="3604:3765" ph="{&quot;message&quot;: 'Please choose a option'...}" />
+            <marker date="1478764643000" expanded="true" signature="3880:6392" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="4481:4618" ph="/*...*/" />
+            <marker date="1478764643000" expanded="true" signature="4675:5684" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="4701:5092" ph="{&quot;type&quot;: 'PUT'...}" />
+            <marker date="1478764643000" expanded="true" signature="5007:5074" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="5188:5581" ph="{&quot;type&quot;: 'PUT'...}" />
+            <marker date="1478764643000" expanded="true" signature="5496:5563" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="5721:6357" ph="{...}" />
+            <marker date="1478764643000" expanded="true" signature="5880:6345" ph="{&quot;type&quot;: &quot;GET&quot;...}" />
+            <marker date="1478764643000" expanded="true" signature="6200:6331" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="248" column="56" selection-start-line="248" selection-start-column="56" selection-end-line="248" selection-end-column="56" />
+        <state relative-caret-position="285">
+          <caret line="132" column="44" selection-start-line="132" selection-start-column="44" selection-end-line="132" selection-end-column="44" />
           <folding>
             <element signature="e#0#77#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/listofprojects.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="72" column="45" selection-start-line="72" selection-start-column="45" selection-end-line="72" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/student.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="551" column="61" selection-start-line="551" selection-start-column="61" selection-end-line="551" selection-end-column="61" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/studentValidation.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="188" column="0" selection-start-line="188" selection-start-column="0" selection-end-line="188" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>

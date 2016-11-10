@@ -188,7 +188,7 @@ def login():
         return render_template('login.html')
 
 
-@app.route('/sign-s3/', methods=['GET', 'POST'])
+@app.route('/sign-s3', methods=['GET', 'POST'])
 def sign_s3():
     urlSchema = fileurlschema()
 
@@ -208,12 +208,14 @@ def sign_s3():
 
     result = {}
     email = session['email']
+
     result['resume_url'] = "https://" + S3_BUCKET + ".s3.amazonaws.com/" + file_name
     result['coverletter_url'] = "https://" + S3_BUCKET + ".s3.amazonaws.com/" + file_name2
     result['email_id'] = email
     result[u'id'] = str(uuid.uuid1())
     furl = urlSchema.load(result, session=db_session).data
 
+    ## TODO Need to write logic to avoid multiple records for same student uploading resume twice. Perform update
     db_session.add(furl)
     db_session.commit()
 
