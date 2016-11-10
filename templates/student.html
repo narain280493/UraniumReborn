@@ -533,23 +533,33 @@
                     <div class="col-md-5">
                         <label for="application[ProjectPreference1]">1:</label>
                         <select class="form-control" name="application[ProjectPreference1]">
-                            <option value="">Select Project</option>
+                            {% for p in pList %}
+                            <option value={{p["pid"]}}>{{p["Title"]}}</option>
+                            {% endfor %}
                         </select>
                         <label for="application[ProjectPreference2]">2:</label>
                         <select class="form-control" name="application[ProjectPreference2]">
-                            <option value="">Select Project</option>
+                            {% for p in pList %}
+                            <option value={{p["pid"]}}>{{p["Title"]}}</option>
+                            {% endfor %}
                         </select>
                         <label for="application[ProjectPreference3]">3:</label>
                         <select class="form-control" name="application[ProjectPreference3]">
-                            <option value="">Select Project</option>
+                            {% for p in pList %}
+                            <option value={{p["pid"]}}>{{p["Title"]}}</option>
+                            {% endfor %}
                         </select>
                         <label for="application[ProjectPreference4]">4:</label>
                         <select class="form-control" name="application[ProjectPreference4]">
-                            <option value="">Select Project</option>
+                            {% for p in pList %}
+                            <option value={{p["pid"]}}>{{p["Title"]}}</option>
+                            {% endfor %}
                         </select>
                         <label for="application[ProjectPreference5]">5:</label>
                         <select class="form-control" name="application[ProjectPreference5]">
-                            <option value="">Select Project</option>
+                            {% for p in pList %}
+                            <option value={{p["pid"]}}>{{p["Title"]}}</option>
+                            {% endfor %}
                         </select>
                     </div>
                 </div>

@@ -240,7 +240,13 @@ def signout():
 def student():
     if 'email' not in session:
         return redirect(url_for('index'))
-    return render_template('student.html')
+    pList = project.query.with_entities(project.id, project.Title)
+    pListJ = []
+
+    for pid, ptit in pList:
+        pListJ.append({"pid": pid, "Title": ptit})
+
+    return render_template('student.html', pList=pListJ)
 
 
 @app.route('/faculty')
@@ -314,12 +320,12 @@ def listofprojects():
     if 'email' not in session:
         return redirect(url_for('index'))
 
+    fSchema = facultyschema()
+    pSchema = projectschema()
+
     if request.method == 'POST':
         reqData = request.get_data()
         reqDataJson = json.loads(reqData)
-
-        fSchema = facultyschema()
-        pSchema = projectschema()
 
         facultyJson = None
         secFacultyJson = None
@@ -370,7 +376,12 @@ def listofprojects():
                    "Project Description": p.Description}
             rows.append(row)
 
-    return render_template('listofprojects.html', pRows=rows)
+    projs = project.query.all()
+    projsL = []
+    for p in projs:
+        projsL.append(pSchema.dump(obj=p).data)
+
+    return render_template('listofprojects.html', pRows=rows, pFRows=projsL)
 
 
 if __name__ == '__main__':

@@ -7,6 +7,85 @@
     var orderBy = _.orderBy;
     const crows = JSON.parse('{{pRows|tojson}}');
 
+    class ProjectModal extends React.Component {
+        constructor(props){
+            super(props);
+            this.rowjson = JSON.parse(this.props.rowDet);
+            this.projDetails = JSON.parse('{{pFRows|tojson|safe}}');
+            this.renderableRow = this.getRenderableRow();
+            this.focusDevCommString = this.renderableRow["isDevelopingCommunities"] ? "This project has a focus on Engineering for Developing Communities" : "This project does not have a focus on Engineering for Developing Communities"
+            this.specRec = this.getSpecRec();
+            this.fStudy = this.getFStudy();
+        }
+        getRenderableRow(){
+            const p_id = this.rowjson["id"];
+            var cnt = 0;
+            for(cnt=0;cnt<this.projDetails.length;cnt++){
+                if(p_id == this.projDetails[cnt]["id"])
+                        return this.projDetails[cnt];
+
+            }
+            return null;
+        }
+        getSpecRec(){
+            var specRec = this.renderableRow["specialRequirements"];
+            specRec = specRec.replace(new RegExp("u",'g'),"");
+            specRec = specRec.replace(new RegExp("'",'g'),"\"");
+            specRec = JSON.parse(specRec);
+            var cnt = 0;
+            var specRecH = [];
+            specRecH.push(<ul className="list-group"></ul>);
+            for(cnt=0;cnt<specRec.length;cnt++){
+                specRecH.push(<li className="list-group-item"> {specRec[cnt]} </li>);
+            }
+            return specRecH;
+        }
+        getFStudy(){
+            var fStud = this.renderableRow["fieldOfStudy"];
+            fStud = fStud.replace(new RegExp("u",'g'),"");
+            fStud = fStud.replace(new RegExp("'",'g'),"\"");
+            fStud = JSON.parse(fStud);
+            var fStudH = [];
+            var cnt=0;
+            fStudH.push(<ul className="list-group"></ul>);
+            for(cnt=0;cnt<fStud.length;cnt++){
+                fStudH.push(<li className="list-group-item"> {fStud[cnt]} </li>);
+            }
+            return fStudH;
+        }
+        render(){
+            return (
+                <div className="modal-dialog" role="document">
+                    <div className="modal-content">
+                        <div className="modal-header">
+                            <button type="button" className="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 className="modal-title" id="myModalLabel"><b> {this.renderableRow["Title"]} </b></h4>
+                        </div>
+                        <div className="modal-body">
+                            <h4><b>Project Description</b></h4>
+                            <p>{this.renderableRow["Description"]}
+                            <a className="btn" href={this.renderableRow["WebLink"]}>
+                                <span className="glyphicon glyphicon-link" aria-hidden="true"></span>
+                            </a>
+                            </p>
+                            <hr/>
+                            <h4><b>Field of Study</b></h4>
+                                {this.fStudy}
+                            <hr/>
+                            <h4><b>Special Requirements</b></h4>
+                                {this.specRec}
+                            <hr/>
+                        </div>
+                        <div className="modal-footer">
+                            <h6>Note: </h6>
+                            <p>{this.focusDevCommString}</p>
+                        </div>
+                    </div>
+                </div>
+            );
+        }
+    }
+
     class ProjectSortTable extends React.Component {
         constructor(props) {
             super(props);
@@ -67,6 +146,7 @@
                 ],
                 rows: crows
             };
+            this.onRow = this.onRow.bind(this)
         }
 
         render(){
@@ -78,12 +158,20 @@
             })(rows);
             return(
                 <div>
-                    <Table.Provider className="table table-striped well" columns={columns}>
+                    <Table.Provider className="table table-striped well table-hover" columns={columns}>
                         <Table.Header />
-                        <Table.Body rows={sortedRows} rowKey="id" />
+                        <Table.Body rows={sortedRows} rowKey="id" onRow={this.onRow}/>
                     </Table.Provider>
                 </div>
             );
+        }
+
+        onRow(row, { rowIndex }) {
+            return {
+                className: 'selected-row',
+                onClick: () => {ReactDOM.render(<ProjectModal rowDet={JSON.stringify(row)} />,
+                        document.getElementById("myModal"));$("#myModal").modal("toggle")}
+            };
         }
     }
 
@@ -92,6 +180,10 @@
     </ProjectSortTable>,document.getElementById("projectList"))
 </script>
 <div id="projectList">
+
+</div>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 
 </div>
 
