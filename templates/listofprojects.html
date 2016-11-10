@@ -44,6 +44,7 @@
             var specRecH = [];
             specRecH.push(<ul className="list-group"></ul>);
             for(cnt=0;cnt<specRec.length;cnt++){
+                if(specRec[cnt] != '')
                 specRecH.push(<li className="list-group-item"> {specRec[cnt]} </li>);
             }
             return specRecH;

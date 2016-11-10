@@ -17,7 +17,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/UraniumReborn$app.coverage" NAME="app Coverage Results" MODIFIED="1478779493548" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/UraniumReborn$app.coverage" NAME="app Coverage Results" MODIFIED="1478779971698" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
@@ -51,8 +51,8 @@
       <file leaf-file-name="listofprojects.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/listofprojects.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="19" column="12" selection-start-line="19" selection-start-column="12" selection-end-line="19" selection-end-column="12" />
+            <state relative-caret-position="405">
+              <caret line="59" column="46" selection-start-line="59" selection-start-column="46" selection-end-line="59" selection-end-column="46" />
               <folding />
             </state>
           </provider>
@@ -61,8 +61,8 @@
       <file leaf-file-name="faculty.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/faculty.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="4" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="4" />
+            <state relative-caret-position="225">
+              <caret line="15" column="48" selection-start-line="15" selection-start-column="48" selection-end-line="15" selection-end-column="48" />
               <folding>
                 <element signature="n#style#0;n#h2#0;n#div#0;n#form#0;n#div#0;n#!!top" expanded="true" />
               </folding>
@@ -955,7 +955,7 @@
       <workItem from="1478585781947" duration="8053000" />
       <workItem from="1478636511656" duration="366000" />
       <workItem from="1478640694746" duration="2703000" />
-      <workItem from="1478764609280" duration="6439000" />
+      <workItem from="1478764609280" duration="6862000" />
     </task>
     <task id="LOCAL-00001" summary="Debug Upload functionality">
       <created>1478598786818</created>
@@ -971,11 +971,18 @@
       <option name="project" value="LOCAL" />
       <updated>1478765489439</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="add additional fields to project list view">
+      <created>1478779685961</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1478779685962</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17561000" />
+    <option name="totallyTimeSpent" value="17984000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="701" extended-state="0" />
@@ -1023,7 +1030,8 @@
     <MESSAGE value="Debug Upload functionality - works?" />
     <MESSAGE value="Debug Upload functionality" />
     <MESSAGE value="inital commit on new branch." />
-    <option name="LAST_COMMIT_MESSAGE" value="inital commit on new branch." />
+    <MESSAGE value="add additional fields to project list view" />
+    <option name="LAST_COMMIT_MESSAGE" value="add additional fields to project list view" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1425,8 +1433,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/faculty.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="4" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="4" />
+        <state relative-caret-position="225">
+          <caret line="15" column="48" selection-start-line="15" selection-start-column="48" selection-end-line="15" selection-end-column="48" />
           <folding>
             <element signature="n#style#0;n#h2#0;n#div#0;n#form#0;n#div#0;n#!!top" expanded="true" />
           </folding>
@@ -1435,8 +1443,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/listofprojects.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="12" selection-start-line="19" selection-start-column="12" selection-end-line="19" selection-end-column="12" />
+        <state relative-caret-position="405">
+          <caret line="59" column="46" selection-start-line="59" selection-start-column="46" selection-end-line="59" selection-end-column="46" />
           <folding />
         </state>
       </provider>
