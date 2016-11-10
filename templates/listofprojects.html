@@ -13,9 +13,14 @@
             this.rowjson = JSON.parse(this.props.rowDet);
             this.projDetails = JSON.parse('{{pFRows|tojson|safe}}');
             this.renderableRow = this.getRenderableRow();
+
+            // this is always false -- as nothing is being read.
             this.focusDevCommString = this.renderableRow["isDevelopingCommunities"] ? "This project has a focus on Engineering for Developing Communities" : "This project does not have a focus on Engineering for Developing Communities"
+
             this.specRec = this.getSpecRec();
             this.fStudy = this.getFStudy();
+
+
         }
         getRenderableRow(){
             const p_id = this.rowjson["id"];
@@ -27,6 +32,9 @@
             }
             return null;
         }
+
+        // u getting replaced in normal text as well
+
         getSpecRec(){
             var specRec = this.renderableRow["specialRequirements"];
             specRec = specRec.replace(new RegExp("u",'g'),"");
@@ -59,21 +67,39 @@
                     <div className="modal-content">
                         <div className="modal-header">
                             <button type="button" className="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                            <h4 className="modal-title" id="myModalLabel"><b> {this.renderableRow["Title"]} </b></h4>
+                            <h5 className="modal-title" id="myModalLabel"><b> {this.renderableRow["Title"]} </b></h5>
                         </div>
                         <div className="modal-body">
-                            <h4><b>Project Description</b></h4>
+                            <h5><b>Project Description</b></h5>
                             <p>{this.renderableRow["Description"]}
                             <a className="btn" href={this.renderableRow["WebLink"]}>
                                 <span className="glyphicon glyphicon-link" aria-hidden="true"></span>
                             </a>
                             </p>
                             <hr/>
-                            <h4><b>Field of Study</b></h4>
+                            <h5><b> Faculty</b></h5>
+                            {}
+                            <hr/>
+                            <h5><b>Field of Study</b></h5>
                                 {this.fStudy}
                             <hr/>
-                            <h4><b>Special Requirements</b></h4>
+                            <h5><b>Special Requirements</b></h5>
                                 {this.specRec}
+                            <hr/>
+                            <h5><b> Supervision</b></h5>
+                            {this.renderableRow["amountOfSupervision"]}
+                            <hr/>
+                            <h5><b> Primary Supervision provided by</b></h5>
+                            {this.renderableRow["supervisor"]}
+                            <hr/>
+                            <h5><b> Primary Nature of Work</b></h5>
+                            {this.renderableRow["primaryNature"]}
+                            <hr/>
+                            <h5> <b> Amount of prior work associated with the project</b></h5>
+                            {this.renderableRow["priorWork"]}
+                            <hr/>
+                            <h5> <b>Desired Student</b></h5>
+                            {this.renderableRow["desiredStudent"]}
                             <hr/>
                         </div>
                         <div className="modal-footer">
