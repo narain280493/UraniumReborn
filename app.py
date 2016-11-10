@@ -261,8 +261,8 @@ def faculty_page():
 
 def constructProject(inpJson):
     inpJson[u'id'] = str(uuid.uuid1())
-    inpJson['specialRequirements'] = str(inpJson['specialRequirements'])
-    inpJson['fieldOfStudy'] = str(inpJson['fieldOfStudy'])
+    inpJson['specialRequirements'] = json.dumps(inpJson['specialRequirements'])
+    inpJson['fieldOfStudy'] = json.dumps(inpJson['fieldOfStudy'])
     inpJson['isDevelopingCommunities'] = inpJson['isDevelopingCommunities'] == "Yes" if True else False
     inpJson['isDevelopingCommunities'] = False  ## what's this?
     return inpJson
@@ -381,7 +381,10 @@ def listofprojects():
     projs = project.query.all()
     projsL = []
     for p in projs:
-        projsL.append(pSchema.dump(obj=p).data)
+        pJson = pSchema.dump(obj=p).data
+        pJson["fieldOfStudy"] = json.loads(pJson["fieldOfStudy"])
+        pJson["specialRequirements"] = json.loads(pJson["specialRequirements"])
+        projsL.append(pJson)
 
     return render_template('listofprojects.html', pRows=rows, pFRows=projsL)
 

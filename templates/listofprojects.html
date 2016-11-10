@@ -4,6 +4,8 @@
 <script type="text/jsx">
     var Table = Reactabular.Table;
     var sort = Reactabular.sort;
+    var Search = Reactabular.Search;
+    var search = Reactabular.search;
     var orderBy = _.orderBy;
     const crows = JSON.parse('{{pRows|tojson}}');
 
@@ -33,13 +35,8 @@
             return null;
         }
 
-        // u getting replaced in normal text as well
-
         getSpecRec(){
             var specRec = this.renderableRow["specialRequirements"];
-            specRec = specRec.replace(new RegExp("u",'g'),"");
-            specRec = specRec.replace(new RegExp("'",'g'),"\"");
-            specRec = JSON.parse(specRec);
             var cnt = 0;
             var specRecH = [];
             specRecH.push(<ul className="list-group"></ul>);
@@ -51,9 +48,6 @@
         }
         getFStudy(){
             var fStud = this.renderableRow["fieldOfStudy"];
-            fStud = fStud.replace(new RegExp("u",'g'),"");
-            fStud = fStud.replace(new RegExp("'",'g'),"\"");
-            fStud = JSON.parse(fStud);
             var fStudH = [];
             var cnt=0;
             fStudH.push(<ul className="list-group"></ul>);
@@ -177,14 +171,26 @@
         }
 
         render(){
-            const {rows, columns, sortingColumns} = this.state;
+            const {searchColumn, rows, columns, query, sortingColumns} = this.state;
+            const searchedRows = search.multipleColumns({ columns, query })(rows);
             const sortedRows = sort.sorter({
                 columns,
                 sortingColumns,
                 sort: orderBy
-            })(rows);
+            })(searchedRows);
             return(
                 <div>
+                    <div className="search-container well">
+                        <span className="glyphicon glyphicon-search"></span>
+                        <Search
+                                column={searchColumn}
+                                query={query}
+                                columns={columns}
+                                rows={rows}
+                                onColumnChange={searchColumn => this.setState({ searchColumn })}
+                                onChange={query => this.setState({ query })}
+                        />
+                    </div>
                     <Table.Provider className="table table-striped well table-hover" columns={columns}>
                         <Table.Header />
                         <Table.Body rows={sortedRows} rowKey="id" onRow={this.onRow}/>
@@ -196,7 +202,7 @@
         onRow(row, { rowIndex }) {
             return {
                 className: 'selected-row',
-                onClick: () => {ReactDOM.render(<ProjectModal rowDet={JSON.stringify(row)} />,
+                onClick: () => {$("#myModal").empty();ReactDOM.render(<ProjectModal rowDet={JSON.stringify(row)} />,
                         document.getElementById("myModal"));$("#myModal").modal("toggle")}
             };
         }
