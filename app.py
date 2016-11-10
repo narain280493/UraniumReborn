@@ -264,7 +264,7 @@ def constructProject(inpJson):
     inpJson['specialRequirements'] = json.dumps(inpJson['specialRequirements'])
     inpJson['fieldOfStudy'] = json.dumps(inpJson['fieldOfStudy'])
     inpJson['isDevelopingCommunities'] = inpJson['isDevelopingCommunities'] == "Yes" if True else False
-    inpJson['isDevelopingCommunities'] = False  ## what's this?
+    #inpJson['isDevelopingCommunities'] = False  ## what's this?
     return inpJson
 
 

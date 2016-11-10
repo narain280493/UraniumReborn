@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="1a14b210-5648-42f8-ae5c-f453473715fc" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.py" afterPath="$PROJECT_DIR$/app.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/project.py" afterPath="$PROJECT_DIR$/models/project.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/listofprojects.html" afterPath="$PROJECT_DIR$/templates/listofprojects.html" />
     </list>
     <ignored path="UraniumReborn.iws" />
@@ -17,7 +19,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/UraniumReborn$app.coverage" NAME="app Coverage Results" MODIFIED="1478779971698" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/UraniumReborn$app.coverage" NAME="app Coverage Results" MODIFIED="1478815221612" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
@@ -29,6 +31,16 @@
     <option name="SHOW_TABLE_DETAILS" value="true" />
     <option name="SHOW_EMPTY_GROUPS" value="false" />
     <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <PATH>
+      <PATH_ELEMENT>
+        <option name="myItemId" />
+        <option name="myItemType" value="com.intellij.database.view.DatabaseStructure$Root" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="PostgreSQL - fse_db@localhost" />
+        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
+      </PATH_ELEMENT>
+    </PATH>
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
@@ -36,11 +48,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="app.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="app.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="113">
-              <caret line="244" column="65" selection-start-line="244" selection-start-column="60" selection-end-line="244" selection-end-column="65" />
+            <state relative-caret-position="66">
+              <caret line="264" column="9" selection-start-line="264" selection-start-column="9" selection-end-line="264" selection-end-column="9" />
               <folding>
                 <element signature="e#0#77#0" expanded="true" />
               </folding>
@@ -48,11 +60,26 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="listofprojects.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="listofprojects.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/listofprojects.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="59" column="46" selection-start-line="59" selection-start-column="46" selection-end-line="59" selection-end-column="46" />
+            <state relative-caret-position="-259">
+              <caret line="75" column="29" selection-start-line="75" selection-start-column="29" selection-end-line="75" selection-end-column="29" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="fse_db.public.project" pinned="false" current-in-tab="false">
+        <entry file="dbDummy://dbtable:/e986a8cd/2599d79b-2ab9-46fc-b8b6-c44a233a375f/fse_db.public.project">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true" />
+            </state>
+          </provider>
+          <provider editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -61,8 +88,8 @@
       <file leaf-file-name="faculty.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/faculty.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" column="48" selection-start-line="15" selection-start-column="48" selection-end-line="15" selection-end-column="48" />
+            <state relative-caret-position="118">
+              <caret line="288" column="77" selection-start-line="288" selection-start-column="74" selection-end-line="288" selection-end-column="77" />
               <folding>
                 <element signature="n#style#0;n#h2#0;n#div#0;n#form#0;n#div#0;n#!!top" expanded="true" />
               </folding>
@@ -90,8 +117,9 @@
       <list>
         <option value="$PROJECT_DIR$/database/config.properties" />
         <option value="$PROJECT_DIR$/static/js/studentValidation.js" />
-        <option value="$PROJECT_DIR$/app.py" />
         <option value="$PROJECT_DIR$/templates/faculty.html" />
+        <option value="$PROJECT_DIR$/app.py" />
+        <option value="$PROJECT_DIR$/models/project.py" />
         <option value="$PROJECT_DIR$/templates/listofprojects.html" />
       </list>
     </option>
@@ -135,8 +163,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -179,13 +207,41 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="static" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="UraniumReborn" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="UraniumReborn" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="models" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="UraniumReborn" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="UraniumReborn" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="database" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -210,12 +266,8 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="false" />
           <option name="myId" value="UPDATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/workspace.xml</PATH>
           <PATH vcs="Git" revision="">$PROJECT_DIR$/app.py</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/static/css/style.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/static/js/studentValidation.js</PATH>
           <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/listofprojects.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/student.html</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Created" />
@@ -955,7 +1007,8 @@
       <workItem from="1478585781947" duration="8053000" />
       <workItem from="1478636511656" duration="366000" />
       <workItem from="1478640694746" duration="2703000" />
-      <workItem from="1478764609280" duration="6862000" />
+      <workItem from="1478764609280" duration="7033000" />
+      <workItem from="1478811910389" duration="2848000" />
     </task>
     <task id="LOCAL-00001" summary="Debug Upload functionality">
       <created>1478598786818</created>
@@ -978,11 +1031,18 @@
       <option name="project" value="LOCAL" />
       <updated>1478779685962</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="removed unused list items in special req">
+      <created>1478780069477</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1478780069477</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17984000" />
+    <option name="totallyTimeSpent" value="21003000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="701" extended-state="0" />
@@ -994,13 +1054,13 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.08538588" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26272577" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32840723" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24959612" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32956383" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1187399" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1031,7 +1091,8 @@
     <MESSAGE value="Debug Upload functionality" />
     <MESSAGE value="inital commit on new branch." />
     <MESSAGE value="add additional fields to project list view" />
-    <option name="LAST_COMMIT_MESSAGE" value="add additional fields to project list view" />
+    <MESSAGE value="removed unused list items in special req" />
+    <option name="LAST_COMMIT_MESSAGE" value="removed unused list items in special req" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1050,64 +1111,38 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/app.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3660">
+          <caret line="244" column="65" selection-start-line="244" selection-start-column="60" selection-end-line="244" selection-end-column="65" />
+          <folding>
+            <element signature="e#0#77#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/listofprojects.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/faculty.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="48" selection-start-line="15" selection-start-column="48" selection-end-line="15" selection-end-column="48" />
+          <folding>
+            <element signature="n#style#0;n#h2#0;n#div#0;n#form#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/static/js/studentValidation.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2655">
           <caret line="177" column="29" selection-start-line="177" selection-start-column="29" selection-end-line="177" selection-end-column="29" />
-          <folding>
-            <marker date="1478764643000" expanded="true" signature="0:45" ph="/** Created by ranganathan on 11/3/16. ...*/" />
-            <marker date="1478764643000" expanded="true" signature="76:6398" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="119:3835" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="148:325" ph="{&quot;valid&quot;: 'glyphicon glyphicon-ok'...}" />
-            <marker date="1478764643000" expanded="true" signature="348:3825" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="388:697" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="422:679" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="462:525" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="561:657" ph="{&quot;message&quot;: 'Please supply your first name'...}" />
-            <marker date="1478764643000" expanded="true" signature="738:1046" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="772:1028" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="812:875" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="911:1006" ph="{&quot;message&quot;: 'Please supply your last name'...}" />
-            <marker date="1478764643000" expanded="true" signature="1082:1433" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="1116:1415" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="1152:1251" ph="{&quot;message&quot;: 'Please supply your email address'...}" />
-            <marker date="1478764643000" expanded="true" signature="1291:1393" ph="{&quot;message&quot;: 'Please supply a valid email address'...}" />
-            <marker date="1478764643000" expanded="true" signature="1469:1869" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="1503:1851" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="1539:1637" ph="{&quot;message&quot;: 'Please supply your phone number'...}" />
-            <marker date="1478764643000" expanded="true" signature="1670:1829" ph="{&quot;country&quot;: 'US'...}" />
-            <marker date="1478764643000" expanded="true" signature="1917:2230" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="1951:2212" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="1991:2054" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="2090:2190" ph="{&quot;message&quot;: 'Please supply your street address'...}" />
-            <marker date="1478764643000" expanded="true" signature="2277:2580" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="2311:2562" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="2351:2414" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="2450:2540" ph="{&quot;message&quot;: 'Please supply your city'...}" />
-            <marker date="1478764643000" expanded="true" signature="2628:2829" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="2662:2811" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="2698:2789" ph="{&quot;message&quot;: 'Please select your state'...}" />
-            <marker date="1478764643000" expanded="true" signature="2875:3254" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="2909:3236" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="2945:3039" ph="{&quot;message&quot;: 'Please supply your zip code'...}" />
-            <marker date="1478764643000" expanded="true" signature="3074:3214" ph="{&quot;country&quot;: 'US'...}" />
-            <marker date="1478764643000" expanded="true" signature="3297:3498" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="3331:3480" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="3367:3458" ph="{&quot;message&quot;: 'Please select your state'...}" />
-            <marker date="1478764643000" expanded="true" signature="3536:3805" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="3570:3787" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="3604:3765" ph="{&quot;message&quot;: 'Please choose a option'...}" />
-            <marker date="1478764643000" expanded="true" signature="3880:6392" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="4481:4618" ph="/*...*/" />
-            <marker date="1478764643000" expanded="true" signature="4675:5684" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="4701:5092" ph="{&quot;type&quot;: 'PUT'...}" />
-            <marker date="1478764643000" expanded="true" signature="5007:5074" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="5188:5581" ph="{&quot;type&quot;: 'PUT'...}" />
-            <marker date="1478764643000" expanded="true" signature="5496:5563" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="5721:6357" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="5880:6345" ph="{&quot;type&quot;: &quot;GET&quot;...}" />
-            <marker date="1478764643000" expanded="true" signature="6200:6331" ph="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1125,60 +1160,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2655">
           <caret line="177" column="30" selection-start-line="177" selection-start-column="30" selection-end-line="177" selection-end-column="30" />
-          <folding>
-            <marker date="1478764643000" expanded="true" signature="0:45" ph="/** Created by ranganathan on 11/3/16. ...*/" />
-            <marker date="1478764643000" expanded="true" signature="76:6398" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="119:3835" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="148:325" ph="{&quot;valid&quot;: 'glyphicon glyphicon-ok'...}" />
-            <marker date="1478764643000" expanded="true" signature="348:3825" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="388:697" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="422:679" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="462:525" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="561:657" ph="{&quot;message&quot;: 'Please supply your first name'...}" />
-            <marker date="1478764643000" expanded="true" signature="738:1046" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="772:1028" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="812:875" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="911:1006" ph="{&quot;message&quot;: 'Please supply your last name'...}" />
-            <marker date="1478764643000" expanded="true" signature="1082:1433" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="1116:1415" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="1152:1251" ph="{&quot;message&quot;: 'Please supply your email address'...}" />
-            <marker date="1478764643000" expanded="true" signature="1291:1393" ph="{&quot;message&quot;: 'Please supply a valid email address'...}" />
-            <marker date="1478764643000" expanded="true" signature="1469:1869" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="1503:1851" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="1539:1637" ph="{&quot;message&quot;: 'Please supply your phone number'...}" />
-            <marker date="1478764643000" expanded="true" signature="1670:1829" ph="{&quot;country&quot;: 'US'...}" />
-            <marker date="1478764643000" expanded="true" signature="1917:2230" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="1951:2212" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="1991:2054" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="2090:2190" ph="{&quot;message&quot;: 'Please supply your street address'...}" />
-            <marker date="1478764643000" expanded="true" signature="2277:2580" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="2311:2562" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="2351:2414" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="2450:2540" ph="{&quot;message&quot;: 'Please supply your city'...}" />
-            <marker date="1478764643000" expanded="true" signature="2628:2829" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="2662:2811" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="2698:2789" ph="{&quot;message&quot;: 'Please select your state'...}" />
-            <marker date="1478764643000" expanded="true" signature="2875:3254" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="2909:3236" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="2945:3039" ph="{&quot;message&quot;: 'Please supply your zip code'...}" />
-            <marker date="1478764643000" expanded="true" signature="3074:3214" ph="{&quot;country&quot;: 'US'...}" />
-            <marker date="1478764643000" expanded="true" signature="3297:3498" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="3331:3480" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="3367:3458" ph="{&quot;message&quot;: 'Please select your state'...}" />
-            <marker date="1478764643000" expanded="true" signature="3536:3805" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="3570:3787" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="3604:3765" ph="{&quot;message&quot;: 'Please choose a option'...}" />
-            <marker date="1478764643000" expanded="true" signature="3880:6392" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="4481:4618" ph="/*...*/" />
-            <marker date="1478764643000" expanded="true" signature="4675:5684" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="4701:5092" ph="{&quot;type&quot;: 'PUT'...}" />
-            <marker date="1478764643000" expanded="true" signature="5007:5074" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="5188:5581" ph="{&quot;type&quot;: 'PUT'...}" />
-            <marker date="1478764643000" expanded="true" signature="5496:5563" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="5721:6357" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="5880:6345" ph="{&quot;type&quot;: &quot;GET&quot;...}" />
-            <marker date="1478764643000" expanded="true" signature="6200:6331" ph="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1204,60 +1185,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1478764643000" expanded="true" signature="0:45" ph="/** Created by ranganathan on 11/3/16. ...*/" />
-            <marker date="1478764643000" expanded="true" signature="76:6398" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="119:3835" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="148:325" ph="{&quot;valid&quot;: 'glyphicon glyphicon-ok'...}" />
-            <marker date="1478764643000" expanded="true" signature="348:3825" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="388:697" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="422:679" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="462:525" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="561:657" ph="{&quot;message&quot;: 'Please supply your first name'...}" />
-            <marker date="1478764643000" expanded="true" signature="738:1046" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="772:1028" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="812:875" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="911:1006" ph="{&quot;message&quot;: 'Please supply your last name'...}" />
-            <marker date="1478764643000" expanded="true" signature="1082:1433" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="1116:1415" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="1152:1251" ph="{&quot;message&quot;: 'Please supply your email address'...}" />
-            <marker date="1478764643000" expanded="true" signature="1291:1393" ph="{&quot;message&quot;: 'Please supply a valid email address'...}" />
-            <marker date="1478764643000" expanded="true" signature="1469:1869" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="1503:1851" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="1539:1637" ph="{&quot;message&quot;: 'Please supply your phone number'...}" />
-            <marker date="1478764643000" expanded="true" signature="1670:1829" ph="{&quot;country&quot;: 'US'...}" />
-            <marker date="1478764643000" expanded="true" signature="1917:2230" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="1951:2212" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="1991:2054" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="2090:2190" ph="{&quot;message&quot;: 'Please supply your street address'...}" />
-            <marker date="1478764643000" expanded="true" signature="2277:2580" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="2311:2562" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="2351:2414" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="2450:2540" ph="{&quot;message&quot;: 'Please supply your city'...}" />
-            <marker date="1478764643000" expanded="true" signature="2628:2829" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="2662:2811" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="2698:2789" ph="{&quot;message&quot;: 'Please select your state'...}" />
-            <marker date="1478764643000" expanded="true" signature="2875:3254" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="2909:3236" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="2945:3039" ph="{&quot;message&quot;: 'Please supply your zip code'...}" />
-            <marker date="1478764643000" expanded="true" signature="3074:3214" ph="{&quot;country&quot;: 'US'...}" />
-            <marker date="1478764643000" expanded="true" signature="3297:3498" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="3331:3480" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="3367:3458" ph="{&quot;message&quot;: 'Please select your state'...}" />
-            <marker date="1478764643000" expanded="true" signature="3536:3805" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="3570:3787" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="3604:3765" ph="{&quot;message&quot;: 'Please choose a option'...}" />
-            <marker date="1478764643000" expanded="true" signature="3880:6392" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="4481:4618" ph="/*...*/" />
-            <marker date="1478764643000" expanded="true" signature="4675:5684" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="4701:5092" ph="{&quot;type&quot;: 'PUT'...}" />
-            <marker date="1478764643000" expanded="true" signature="5007:5074" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="5188:5581" ph="{&quot;type&quot;: 'PUT'...}" />
-            <marker date="1478764643000" expanded="true" signature="5496:5563" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="5721:6357" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="5880:6345" ph="{&quot;type&quot;: &quot;GET&quot;...}" />
-            <marker date="1478764643000" expanded="true" signature="6200:6331" ph="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1300,18 +1227,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="dbDummy://dbtable:/e986a8cd/2599d79b-2ab9-46fc-b8b6-c44a233a375f/fse_db.public.fileurl">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/anaconda/lib/python2.7/BaseHTTPServer.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="127">
@@ -1323,18 +1238,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1012">
           <caret line="224" column="0" selection-start-line="224" selection-start-column="0" selection-end-line="224" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/e986a8cd/2599d79b-2ab9-46fc-b8b6-c44a233a375f/fse_db.public.login">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1364,77 +1267,101 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2655">
           <caret line="178" column="29" selection-start-line="178" selection-start-column="29" selection-end-line="178" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/project.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="8" selection-start-line="13" selection-start-column="8" selection-end-line="13" selection-end-column="8" />
           <folding>
-            <marker date="1478764643000" expanded="true" signature="0:45" ph="/** Created by ranganathan on 11/3/16. ...*/" />
-            <marker date="1478764643000" expanded="true" signature="76:6398" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="119:3835" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="148:325" ph="{&quot;valid&quot;: 'glyphicon glyphicon-ok'...}" />
-            <marker date="1478764643000" expanded="true" signature="348:3825" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="388:697" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="422:679" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="462:525" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="561:657" ph="{&quot;message&quot;: 'Please supply your first name'...}" />
-            <marker date="1478764643000" expanded="true" signature="738:1046" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="772:1028" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="812:875" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="911:1006" ph="{&quot;message&quot;: 'Please supply your last name'...}" />
-            <marker date="1478764643000" expanded="true" signature="1082:1433" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="1116:1415" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="1152:1251" ph="{&quot;message&quot;: 'Please supply your email address'...}" />
-            <marker date="1478764643000" expanded="true" signature="1291:1393" ph="{&quot;message&quot;: 'Please supply a valid email address'...}" />
-            <marker date="1478764643000" expanded="true" signature="1469:1869" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="1503:1851" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="1539:1637" ph="{&quot;message&quot;: 'Please supply your phone number'...}" />
-            <marker date="1478764643000" expanded="true" signature="1670:1829" ph="{&quot;country&quot;: 'US'...}" />
-            <marker date="1478764643000" expanded="true" signature="1917:2230" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="1951:2212" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="1991:2054" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="2090:2190" ph="{&quot;message&quot;: 'Please supply your street address'...}" />
-            <marker date="1478764643000" expanded="true" signature="2277:2580" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="2311:2562" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="2351:2414" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="2450:2540" ph="{&quot;message&quot;: 'Please supply your city'...}" />
-            <marker date="1478764643000" expanded="true" signature="2628:2829" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="2662:2811" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="2698:2789" ph="{&quot;message&quot;: 'Please select your state'...}" />
-            <marker date="1478764643000" expanded="true" signature="2875:3254" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="2909:3236" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="2945:3039" ph="{&quot;message&quot;: 'Please supply your zip code'...}" />
-            <marker date="1478764643000" expanded="true" signature="3074:3214" ph="{&quot;country&quot;: 'US'...}" />
-            <marker date="1478764643000" expanded="true" signature="3297:3498" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="3331:3480" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="3367:3458" ph="{&quot;message&quot;: 'Please select your state'...}" />
-            <marker date="1478764643000" expanded="true" signature="3536:3805" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="3570:3787" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="3604:3765" ph="{&quot;message&quot;: 'Please choose a option'...}" />
-            <marker date="1478764643000" expanded="true" signature="3880:6392" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="4481:4618" ph="/*...*/" />
-            <marker date="1478764643000" expanded="true" signature="4675:5684" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="4701:5092" ph="{&quot;type&quot;: 'PUT'...}" />
-            <marker date="1478764643000" expanded="true" signature="5007:5074" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="5188:5581" ph="{&quot;type&quot;: 'PUT'...}" />
-            <marker date="1478764643000" expanded="true" signature="5496:5563" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="5721:6357" ph="{...}" />
-            <marker date="1478764643000" expanded="true" signature="5880:6345" ph="{&quot;type&quot;: &quot;GET&quot;...}" />
-            <marker date="1478764643000" expanded="true" signature="6200:6331" ph="{...}" />
+            <element signature="e#0#34#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="113">
-          <caret line="244" column="65" selection-start-line="244" selection-start-column="60" selection-end-line="244" selection-end-column="65" />
-          <folding>
-            <element signature="e#0#77#0" expanded="true" />
-          </folding>
+    <entry file="dbDummy://dbtable:/e986a8cd/2599d79b-2ab9-46fc-b8b6-c44a233a375f/fse_db.public.login">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/e986a8cd/2599d79b-2ab9-46fc-b8b6-c44a233a375f/fse_db.public.studentapplication">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/e986a8cd/2599d79b-2ab9-46fc-b8b6-c44a233a375f/fse_db.public.fileurl">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/e986a8cd/2599d79b-2ab9-46fc-b8b6-c44a233a375f/fse_db.public.faculty">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/e986a8cd/2599d79b-2ab9-46fc-b8b6-c44a233a375f/fse_db.public.student">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/e986a8cd/2599d79b-2ab9-46fc-b8b6-c44a233a375f/fse_db.public.project">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/faculty.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="48" selection-start-line="15" selection-start-column="48" selection-end-line="15" selection-end-column="48" />
+        <state relative-caret-position="118">
+          <caret line="288" column="77" selection-start-line="288" selection-start-column="74" selection-end-line="288" selection-end-column="77" />
           <folding>
             <element signature="n#style#0;n#h2#0;n#div#0;n#form#0;n#div#0;n#!!top" expanded="true" />
           </folding>
@@ -1443,9 +1370,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/listofprojects.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="59" column="46" selection-start-line="59" selection-start-column="46" selection-end-line="59" selection-end-column="46" />
+        <state relative-caret-position="-259">
+          <caret line="75" column="29" selection-start-line="75" selection-start-column="29" selection-end-line="75" selection-end-column="29" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="264" column="9" selection-start-line="264" selection-start-column="9" selection-end-line="264" selection-end-column="9" />
+          <folding>
+            <element signature="e#0#77#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
