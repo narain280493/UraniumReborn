@@ -15,21 +15,35 @@
             this.rowjson = JSON.parse(this.props.rowDet);
             this.projDetails = JSON.parse('{{pFRows|tojson|safe}}');
             this.renderableRow = this.getRenderableRow();
-
-            // this is always false -- as nothing is being read.
+            this.facultyJson = JSON.parse('{{pRows|tojson}}');
             this.focusDevCommString = this.renderableRow["isDevelopingCommunities"] ? "This project has a focus on Engineering for Developing Communities" : "This project does not have a focus on Engineering for Developing Communities"
 
             this.specRec = this.getSpecRec();
             this.fStudy = this.getFStudy();
-
+            this.renderableFaculty = this.getRenderableFRow()
 
         }
+
         getRenderableRow(){
             const p_id = this.rowjson["id"];
             var cnt = 0;
             for(cnt=0;cnt<this.projDetails.length;cnt++){
                 if(p_id == this.projDetails[cnt]["id"])
                         return this.projDetails[cnt];
+
+            }
+            return null;
+        }
+        getRenderableFRow(){
+            const p_id = this.rowjson["id"];
+            var cnt = 0;
+            for(cnt=0;cnt<this.facultyJson.length;cnt++){
+
+                if(p_id == this.facultyJson[cnt]["id"]){
+                    return this.facultyJson[cnt]['Faculty Name'];
+                }
+
+
 
             }
             return null;
@@ -73,7 +87,7 @@
                             </p>
                             <hr/>
                             <h5><b> Faculty</b></h5>
-                            {}
+                            {this.renderableFaculty}
                             <hr/>
                             <h5><b>Field of Study</b></h5>
                                 {this.fStudy}
