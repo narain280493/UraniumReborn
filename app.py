@@ -134,13 +134,13 @@ def signup():
             userJson['GraduationYear'] = ""
             userJson['isResearchExperience'] = False
             userJson['isAppliedBefore'] = False
-            userJson['isBackgroundCheckDone'] = False
+            userJson['isBackgroundCheckDone'] = ""
             userJson['LastBackgroundCheckMonth'] = ""
             userJson['LastBackgroundCheckYear'] = ""
-            userJson['isHarassmentTrainingDone'] = False
+            userJson['isHarassmentTrainingDone'] = ""
             userJson['LastHarassmentTrainingMonth'] = ""
             userJson['LastHarassmentTrainingYear'] = ""
-            userJson['resumeURL'] = ""
+            userJson['isAvailability'] = ""
             loginPageJson['f_id'] = None
             loginPageJson['s_id'] = userJson['id']
             stud = sSchema.load(userJson, session=db_session).data
@@ -305,16 +305,6 @@ def constructStudent(inpJson):
             inpJson['isAppliedBefore'] = inpJson['isAppliedBefore'] == "Yes" if True else False
         else:
             inpJson['isAppliedBefore'] = False
-
-        if 'isBackgroundCheckDone' in inpJson.keys():
-            inpJson['isBackgroundCheckDone'] = inpJson['isBackgroundCheckDone'] == "Yes" if True else False
-        else:
-            inpJson['isBackgroundCheckDone'] = False
-
-        if 'isHarassmentTrainingDone' in inpJson.keys():
-            inpJson['isHarassmentTrainingDone'] = inpJson['isHarassmentTrainingDone'] == "Yes" if True else False
-        else:
-            inpJson['isHarassmentTrainingDone'] = False
 
         return inpJson
     else:
