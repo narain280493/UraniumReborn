@@ -290,7 +290,7 @@ def constructStudent(inpJson):
         else:
             inpJson['isResearchExperience'] = False
 
-        inpJson['Race'] = str(inpJson['Race'])
+        inpJson['Race'] = json.dumps(inpJson['Race'])
 
         if 'isAppliedBefore' in inpJson.keys():
             inpJson['isAppliedBefore'] = inpJson['isAppliedBefore'] == "Yes" if True else False
