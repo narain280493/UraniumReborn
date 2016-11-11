@@ -4,6 +4,8 @@
 <script type="text/jsx">
     var Table = Reactabular.Table;
     var sort = Reactabular.sort;
+    var Search = Reactabular.Search;
+    var search = Reactabular.search;
     var orderBy = _.orderBy;
     const crows = JSON.parse('{{pRows|tojson}}');
 
@@ -13,10 +15,15 @@
             this.rowjson = JSON.parse(this.props.rowDet);
             this.projDetails = JSON.parse('{{pFRows|tojson|safe}}');
             this.renderableRow = this.getRenderableRow();
+            this.facultyJson = JSON.parse('{{pRows|tojson}}');
             this.focusDevCommString = this.renderableRow["isDevelopingCommunities"] ? "This project has a focus on Engineering for Developing Communities" : "This project does not have a focus on Engineering for Developing Communities"
+
             this.specRec = this.getSpecRec();
             this.fStudy = this.getFStudy();
+            this.renderableFaculty = this.getRenderableFRow()
+
         }
+
         getRenderableRow(){
             const p_id = this.rowjson["id"];
             var cnt = 0;
@@ -27,24 +34,34 @@
             }
             return null;
         }
+        getRenderableFRow(){
+            const p_id = this.rowjson["id"];
+            var cnt = 0;
+            for(cnt=0;cnt<this.facultyJson.length;cnt++){
+
+                if(p_id == this.facultyJson[cnt]["id"]){
+                    return this.facultyJson[cnt]['Faculty Name'];
+                }
+
+
+
+            }
+            return null;
+        }
+
         getSpecRec(){
             var specRec = this.renderableRow["specialRequirements"];
-            specRec = specRec.replace(new RegExp("u",'g'),"");
-            specRec = specRec.replace(new RegExp("'",'g'),"\"");
-            specRec = JSON.parse(specRec);
             var cnt = 0;
             var specRecH = [];
             specRecH.push(<ul className="list-group"></ul>);
             for(cnt=0;cnt<specRec.length;cnt++){
+                if(specRec[cnt] != '')
                 specRecH.push(<li className="list-group-item"> {specRec[cnt]} </li>);
             }
             return specRecH;
         }
         getFStudy(){
             var fStud = this.renderableRow["fieldOfStudy"];
-            fStud = fStud.replace(new RegExp("u",'g'),"");
-            fStud = fStud.replace(new RegExp("'",'g'),"\"");
-            fStud = JSON.parse(fStud);
             var fStudH = [];
             var cnt=0;
             fStudH.push(<ul className="list-group"></ul>);
@@ -59,21 +76,39 @@
                     <div className="modal-content">
                         <div className="modal-header">
                             <button type="button" className="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                            <h4 className="modal-title" id="myModalLabel"><b> {this.renderableRow["Title"]} </b></h4>
+                            <h5 className="modal-title" id="myModalLabel"><b> {this.renderableRow["Title"]} </b></h5>
                         </div>
                         <div className="modal-body">
-                            <h4><b>Project Description</b></h4>
+                            <h5><b>Project Description</b></h5>
                             <p>{this.renderableRow["Description"]}
-                            <a className="btn" href={this.renderableRow["WebLink"]}>
+                            <a className="btn" href={this.renderableRow["Weblink"]}>
                                 <span className="glyphicon glyphicon-link" aria-hidden="true"></span>
                             </a>
                             </p>
                             <hr/>
-                            <h4><b>Field of Study</b></h4>
+                            <h5><b> Faculty</b></h5>
+                            {this.renderableFaculty}
+                            <hr/>
+                            <h5><b>Field of Study</b></h5>
                                 {this.fStudy}
                             <hr/>
-                            <h4><b>Special Requirements</b></h4>
+                            <h5><b>Special Requirements</b></h5>
                                 {this.specRec}
+                            <hr/>
+                            <h5><b> Supervision</b></h5>
+                            {this.renderableRow["amountOfSupervision"]}
+                            <hr/>
+                            <h5><b> Primary Supervision provided by</b></h5>
+                            {this.renderableRow["supervisor"]}
+                            <hr/>
+                            <h5><b> Primary Nature of Work</b></h5>
+                            {this.renderableRow["primaryNature"]}
+                            <hr/>
+                            <h5> <b> Amount of prior work associated with the project</b></h5>
+                            {this.renderableRow["priorWork"]}
+                            <hr/>
+                            <h5> <b>Desired Student</b></h5>
+                            {this.renderableRow["desiredStudent"]}
                             <hr/>
                         </div>
                         <div className="modal-footer">
@@ -150,14 +185,26 @@
         }
 
         render(){
-            const {rows, columns, sortingColumns} = this.state;
+            const {searchColumn, rows, columns, query, sortingColumns} = this.state;
+            const searchedRows = search.multipleColumns({ columns, query })(rows);
             const sortedRows = sort.sorter({
                 columns,
                 sortingColumns,
                 sort: orderBy
-            })(rows);
+            })(searchedRows);
             return(
                 <div>
+                    <div className="search-container well">
+                        <span className="glyphicon glyphicon-search"></span>
+                        <Search
+                                column={searchColumn}
+                                query={query}
+                                columns={columns}
+                                rows={rows}
+                                onColumnChange={searchColumn => this.setState({ searchColumn })}
+                                onChange={query => this.setState({ query })}
+                        />
+                    </div>
                     <Table.Provider className="table table-striped well table-hover" columns={columns}>
                         <Table.Header />
                         <Table.Body rows={sortedRows} rowKey="id" onRow={this.onRow}/>
@@ -169,7 +216,7 @@
         onRow(row, { rowIndex }) {
             return {
                 className: 'selected-row',
-                onClick: () => {ReactDOM.render(<ProjectModal rowDet={JSON.stringify(row)} />,
+                onClick: () => {$("#myModal").empty();ReactDOM.render(<ProjectModal rowDet={JSON.stringify(row)} />,
                         document.getElementById("myModal"));$("#myModal").modal("toggle")}
             };
         }

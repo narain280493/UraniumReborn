@@ -43,13 +43,14 @@ class student(Base):
     isResearchExperience = Column(Boolean)
 
     isAppliedBefore = Column(Boolean)
-    isBackgroundCheckDone = Column(Boolean)
+    isBackgroundCheckDone = Column(String(20))
     LastBackgroundCheckMonth = Column(String(20))
     LastBackgroundCheckYear = Column(String(5))
-    isHarassmentTrainingDone = Column(Boolean)
+    isHarassmentTrainingDone = Column(String(20))
     LastHarassmentTrainingMonth = Column(String(20))
     LastHarassmentTrainingYear = Column(String(5))
-    resumeURL = Column(String(100))
+
+    isAvailability = Column(String(20))
     students = relationship("studentapplication", back_populates="stuapp", primaryjoin="student.id==studentapplication.s_id")
     cred = relationship("loginpage", back_populates="stud")
 

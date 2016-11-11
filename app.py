@@ -134,13 +134,13 @@ def signup():
             userJson['GraduationYear'] = ""
             userJson['isResearchExperience'] = False
             userJson['isAppliedBefore'] = False
-            userJson['isBackgroundCheckDone'] = False
+            userJson['isBackgroundCheckDone'] = ""
             userJson['LastBackgroundCheckMonth'] = ""
             userJson['LastBackgroundCheckYear'] = ""
-            userJson['isHarassmentTrainingDone'] = False
+            userJson['isHarassmentTrainingDone'] = ""
             userJson['LastHarassmentTrainingMonth'] = ""
             userJson['LastHarassmentTrainingYear'] = ""
-            userJson['resumeURL'] = ""
+            userJson['isAvailability'] = ""
             loginPageJson['f_id'] = None
             loginPageJson['s_id'] = userJson['id']
             stud = sSchema.load(userJson, session=db_session).data
@@ -192,15 +192,19 @@ def login():
 def sign_s3():
     urlSchema = fileurlschema()
 
-    # Load necessary information into the application
     S3_BUCKET = os.environ.get('S3_BUCKET')
 
-    # Load required data from the request
     file_name = request.args.get('file-name')
     file_name2 = request.args.get('file-name2')
 
     # Initialise the S3 client
     s3 = boto3.client('s3', 'us-west-2', config=Config(signature_version='s3v4'))
+
+    name = session['name']
+
+    # appending users name before file in order to prevent it from being overwritten by another file with same name.
+    file_name = name + '_'+ file_name
+    file_name2 = name + '_'+ file_name2
 
     # Generate and return the presigned URL
     presigned_post = s3.generate_presigned_url('get_object', Params={'Bucket': S3_BUCKET, 'Key': file_name}, ExpiresIn=3600, HttpMethod='PUT')
@@ -208,16 +212,23 @@ def sign_s3():
 
     result = {}
     email = session['email']
+    fr = fileurl.query.filter_by(email_id=email).first()
     result['resume_url'] = "https://" + S3_BUCKET + ".s3.amazonaws.com/" + file_name
     result['coverletter_url'] = "https://" + S3_BUCKET + ".s3.amazonaws.com/" + file_name2
     result['email_id'] = email
-    result[u'id'] = str(uuid.uuid1())
+
+    # if user has already inserted a resume once - just use existing id
+    if fr:
+        print "exists"
+        result[u'id'] = fr.id
+    else:
+        result[u'id'] = str(uuid.uuid1())
+
     furl = urlSchema.load(result, session=db_session).data
 
-    db_session.add(furl)
+    db_session.merge(furl)
     db_session.commit()
 
-    # Return the data to the client
     return json.dumps({
         'url1': presigned_post,
         'url2': presigned_post2
@@ -259,10 +270,10 @@ def faculty_page():
 
 def constructProject(inpJson):
     inpJson[u'id'] = str(uuid.uuid1())
-    inpJson['specialRequirements'] = str(inpJson['specialRequirements'])
-    inpJson['fieldOfStudy'] = str(inpJson['fieldOfStudy'])
+    inpJson['specialRequirements'] = json.dumps(inpJson['specialRequirements'])
+    inpJson['fieldOfStudy'] = json.dumps(inpJson['fieldOfStudy'])
     inpJson['isDevelopingCommunities'] = inpJson['isDevelopingCommunities'] == "Yes" if True else False
-    inpJson['isDevelopingCommunities'] = False  ## what's this?
+    #inpJson['isDevelopingCommunities'] = False  ## what's this?
     return inpJson
 
 
@@ -288,22 +299,12 @@ def constructStudent(inpJson):
         else:
             inpJson['isResearchExperience'] = False
 
-        inpJson['Race'] = str(inpJson['Race'])
+        inpJson['Race'] = json.dumps(inpJson['Race'])
 
         if 'isAppliedBefore' in inpJson.keys():
             inpJson['isAppliedBefore'] = inpJson['isAppliedBefore'] == "Yes" if True else False
         else:
             inpJson['isAppliedBefore'] = False
-
-        if 'isBackgroundCheckDone' in inpJson.keys():
-            inpJson['isBackgroundCheckDone'] = inpJson['isBackgroundCheckDone'] == "Yes" if True else False
-        else:
-            inpJson['isBackgroundCheckDone'] = False
-
-        if 'isHarassmentTrainingDone' in inpJson.keys():
-            inpJson['isHarassmentTrainingDone'] = inpJson['isHarassmentTrainingDone'] == "Yes" if True else False
-        else:
-            inpJson['isHarassmentTrainingDone'] = False
 
         return inpJson
     else:
@@ -379,7 +380,10 @@ def listofprojects():
     projs = project.query.all()
     projsL = []
     for p in projs:
-        projsL.append(pSchema.dump(obj=p).data)
+        pJson = pSchema.dump(obj=p).data
+        pJson["fieldOfStudy"] = json.loads(pJson["fieldOfStudy"])
+        pJson["specialRequirements"] = json.loads(pJson["specialRequirements"])
+        projsL.append(pJson)
 
     return render_template('listofprojects.html', pRows=rows, pFRows=projsL)
 

@@ -11,7 +11,7 @@ class project(Base):
     g_id = Column(String, ForeignKey("faculty.id"), nullable=True)
     Title = Column(String(100))
     isDevelopingCommunities = Column(Boolean)
-    WebLink = Column(String(100))
+    Weblink = Column(String(100))
     specialRequirements = Column(String(1200))
     Description = Column(String(1200))
     fieldOfStudy = Column(String(500))
