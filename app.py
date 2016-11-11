@@ -188,19 +188,23 @@ def login():
         return render_template('login.html')
 
 
-@app.route('/sign-s3', methods=['GET', 'POST'])
+@app.route('/sign-s3/', methods=['GET', 'POST'])
 def sign_s3():
     urlSchema = fileurlschema()
 
-    # Load necessary information into the application
     S3_BUCKET = os.environ.get('S3_BUCKET')
 
-    # Load required data from the request
     file_name = request.args.get('file-name')
     file_name2 = request.args.get('file-name2')
 
     # Initialise the S3 client
     s3 = boto3.client('s3', 'us-west-2', config=Config(signature_version='s3v4'))
+
+    name = session['name']
+
+    # appending users name before file in order to prevent it from being overwritten by another file with same name.
+    file_name = name + '_'+ file_name
+    file_name2 = name + '_'+ file_name2
 
     # Generate and return the presigned URL
     presigned_post = s3.generate_presigned_url('get_object', Params={'Bucket': S3_BUCKET, 'Key': file_name}, ExpiresIn=3600, HttpMethod='PUT')
@@ -208,18 +212,23 @@ def sign_s3():
 
     result = {}
     email = session['email']
-
+    fr = fileurl.query.filter_by(email_id=email).first()
     result['resume_url'] = "https://" + S3_BUCKET + ".s3.amazonaws.com/" + file_name
     result['coverletter_url'] = "https://" + S3_BUCKET + ".s3.amazonaws.com/" + file_name2
     result['email_id'] = email
-    result[u'id'] = str(uuid.uuid1())
+
+    # if user has already inserted a resume once - just use existing id
+    if fr:
+        print "exists"
+        result[u'id'] = fr.id
+    else:
+        result[u'id'] = str(uuid.uuid1())
+
     furl = urlSchema.load(result, session=db_session).data
 
-    ## TODO Need to write logic to avoid multiple records for same student uploading resume twice. Perform update
-    db_session.add(furl)
+    db_session.merge(furl)
     db_session.commit()
 
-    # Return the data to the client
     return json.dumps({
         'url1': presigned_post,
         'url2': presigned_post2
