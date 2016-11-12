@@ -251,7 +251,7 @@ def signout():
 
 
 @app.route('/student')
-def student():
+def studentpage():
     if 'email' not in session:
         return redirect(url_for('index'))
     pList = project.query.with_entities(project.id, project.Title)
@@ -291,6 +291,52 @@ def constructFaculty(inpJson, isgrad):
         return inpJson
     else:
         return None
+
+@app.route('/matchedview')
+def filterApplications():
+
+    sSchema = studentschema()
+    pSchema = projectschema()
+
+    stud = student.query.all()
+    proj =  project.query.all()
+
+    studList = []
+    for s in stud:
+        sJson = sSchema.dump(obj=s).data
+        gpa = sJson['GPA']
+        isWorkedBefore = sJson['isWorkedBefore']
+        isAvailability = sJson['isAvailability']
+        isMSBSStudent = sJson['isMSBSStudent']
+        if gpa < u'3':
+            continue
+        elif isWorkedBefore == True:
+            continue
+        elif isAvailability == 'Not sure' or isAvailability == 'No':
+            continue
+        elif isMSBSStudent == 'Yes':
+            continue
+        else:
+            studList.append(sJson)
+
+    print studList
+    projPrefList = []
+    projList = []
+    for p in proj:
+        pJson = pSchema.dump(obj=p).data
+
+        id = pJson['id']
+        projPref1 = studentapplication.query.filter_by(ProjectPreference1=id).first()
+        projPref2 = studentapplication.query.filter_by(ProjectPreference2=id).first()
+        projPref3 = studentapplication.query.filter_by(ProjectPreference3=id).first()
+        projPref4 = studentapplication.query.filter_by(ProjectPreference4=id).first()
+        projPref5 = studentapplication.query.filter_by(ProjectPreference5=id).first()
+
+        if projPref1 or projPref2 or projPref3 or projPref4 or projPref5:
+            projList.append(id)
+
+    print projList
+    return render_template('faculty.html')
 
 
 def constructStudent(inpJson):
