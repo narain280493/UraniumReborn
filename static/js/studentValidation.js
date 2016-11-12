@@ -3,6 +3,24 @@
  */
 
 $(document).ready(function() {
+
+    $('select[name="application[ProjectPreference1]"]').change(function () {
+        // hide all optional elements
+        $('.member-type').hide();
+
+
+        $("select[name='application[ProjectPreference1]'] option:selected").each(function () {
+            var value = $(this).val();
+            if(value == "xyz") {
+                $('.member-type').show();
+
+            }
+
+        });
+    });
+
+
+
     $('#studentform').bootstrapValidator({
             feedbackIcons: {
                 valid: 'glyphicon glyphicon-ok',
@@ -182,4 +200,20 @@ $(document).ready(function() {
 
 
 });
+/*
+jQuery(document).ready(function($){
+    $('select[name="application[ProjectPreference1]"]').change(function () {
+        // hide all optional elements
+        $('.member-type').hide();
 
+
+        $("select[name='application[ProjectPreference1]'] option:selected").each(function () {
+            var value = $(this).val();
+            if(value == "SKATER" || value == "HOCKEY" || value == "HOCKEYA") {
+                $('.member-type').show();
+
+           }
+
+        });
+    });
+});*/

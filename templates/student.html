@@ -575,6 +575,19 @@
                             <option value={{p["pid"]}}>{{p["Title"]}}</option>
                             {% endfor %}
                         </select>
+                        <div class="member-type">
+                        <div ><label for="req1"> req1 </label>
+                        <input type="checkbox" class="input-text" name="req" id="req1"  value="true" /></div>
+
+
+                        <div><label for="req2">req2</label>
+                            <input type="checkbox" class="input-text" name="req" id="req2" value="true" /></div>
+
+                        <div> <label for="req3">req3</label>
+                            <input type="checkbox" class="input-text" name="req" id="req3" value="true"/></div>
+
+                        </div>
+
                         <label for="application[ProjectPreference2]">2:</label>
                         <select class="form-control" name="application[ProjectPreference2]">
                             {% for p in pList %}
