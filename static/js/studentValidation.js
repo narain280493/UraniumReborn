@@ -108,12 +108,7 @@ $(document).ready(function() {
                             message: 'Please choose a option'
                         }
                     }
-                },
-
-
-
-
-
+                }
             }
         })
         .on('success.form.bv', function(e) {
@@ -129,10 +124,8 @@ $(document).ready(function() {
             // Get the BootstrapValidator instance
             var bv = $form.data('bootstrapValidator');
 
-            // Use Ajax to submit form data
-            $.post($form.attr('action'), $form.serializeJSON(), function(result) {
-                console.log(result);
-            }, 'json');
+            // upload files
+            getSignedRequest();
 
             /*
                  Function to carry out the actual POST request to S3 using the signed request from the Python app.
@@ -147,26 +140,29 @@ $(document).ready(function() {
                     contentType: 'binary/octet-stream',
                     processData: false,
                     success: function (data,status) {
-                        console.log(status)
+                        console.log(status);
+                        if(status=='success') {
+                            $.ajax({
+                                type: 'PUT',
+                                url: url2,
+                                data: file2[0],
+                                headers: ['x-amz-acl', 'public-read'],
+                                contentType: 'binary/octet-stream',
+                                processData: false,
+                                success: function (data1, status1) {
+                                    console.log(status1);
+                                    if(status=="success") {
+                                        // Use Ajax to submit form data
+                                        $.post($form.attr('action'), $form.serializeJSON(), function (result) {
+                                            if (result['status'] == 'OK')
+                                                window.location.replace("/")
+                                        }, 'json');
+                                    }
+                                }
+                            });
+                        }
                     }
                 });
-
-                //xhr.setRequestHeader('x-amz-acl', 'public-read');
-
-                $.ajax({
-                    type: 'PUT',
-                    url: url2,
-                    data: file2[0],
-                    headers:['x-amz-acl', 'public-read'],
-                    contentType: 'binary/octet-stream',
-                    processData: false,
-                    success: function (data,status) {
-                        console.log(status)
-                    }
-                });
-
-                //xhr2.setRequestHeader('x-amz-acl', 'public-read');
-                
             }
 
         function getSignedRequest(){
@@ -182,8 +178,6 @@ $(document).ready(function() {
                }
             });
         }
-
-        getSignedRequest();
     });
 
 

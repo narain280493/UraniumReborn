@@ -73,7 +73,7 @@ def index():
         db_session.commit()
         db_session.add(stuapp)
         db_session.commit()
-        return render_template('home.html')
+        return json.dumps({'status': 'OK'})
 
 
 @app.route('/signup', methods=['GET', 'POST'])
@@ -154,7 +154,7 @@ def signup():
         session['email'] = userJson['Email']
         session['utype'] = loginPageJson['UserType']
         session['uid'] = userJson['id']
-        return json.dumps({'status':'OK'})
+        return json.dumps({'status': 'OK'})
     elif request.method == 'GET':
         if 'email' in session:
             return json.dumps({'status': 'OK'})
@@ -203,8 +203,8 @@ def sign_s3():
     name = session['name']
 
     # appending users name before file in order to prevent it from being overwritten by another file with same name.
-    file_name = name + '_'+ file_name
-    file_name2 = name + '_'+ file_name2
+    file_name = name + '_' + file_name
+    file_name2 = name + '_' + file_name2
 
     # Generate and return the presigned URL
     presigned_post = s3.generate_presigned_url('get_object', Params={'Bucket': S3_BUCKET, 'Key': file_name}, ExpiresIn=3600, HttpMethod='PUT')
@@ -316,6 +316,23 @@ def constructApplication(inpJson):
     return inpJson
 
 
+@app.route('/projects', methods=['GET', 'POST'])
+def projects():
+    if 'email' not in session:
+        return redirect(url_for('index'))
+
+    projs = project.query.all()
+    pSchema = projectschema()
+    projsL = []
+    for p in projs:
+        pJson = pSchema.dump(obj=p).data
+        pJson["fieldOfStudy"] = json.loads(pJson["fieldOfStudy"])
+        pJson["specialRequirements"] = json.loads(pJson["specialRequirements"])
+        projsL.append(pJson)
+
+    return json.dumps(projsL)
+
+
 @app.route('/listofprojects', methods=['GET', 'POST'])
 def listofprojects():
     if 'email' not in session:
@@ -337,7 +354,7 @@ def listofprojects():
             facultyJson = constructFaculty(reqDataJson['faculty'], False)
         if 'secondFaculty' in reqDataJson.keys():
             secFacultyJson = constructFaculty(reqDataJson['secondFaculty'], False)
-        if 'gradStudent' in reqDataJson.keys():
+        if 'gradStudent' in reqDataJson.    keys():
             gradStudentJson = constructFaculty(reqDataJson['gradStudent'], True)
         if 'apprenticeship' in reqDataJson.keys():
             projJson = constructProject(reqDataJson['apprenticeship'])
