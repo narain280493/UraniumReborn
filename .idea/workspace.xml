@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1a14b210-5648-42f8-ae5c-f453473715fc" name="Default" comment="- made changes to student db model">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/config.properties" afterPath="$PROJECT_DIR$/database/config.properties" />
-    </list>
+    <list default="true" id="1a14b210-5648-42f8-ae5c-f453473715fc" name="Default" comment="- made changes to student db model" />
     <ignored path="UraniumReborn.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -883,7 +879,7 @@
       <workItem from="1478764609280" duration="7033000" />
       <workItem from="1478811910389" duration="23760000" />
       <workItem from="1478922242942" duration="993000" />
-      <workItem from="1478931831376" duration="117000" />
+      <workItem from="1478931831376" duration="223000" />
     </task>
     <task id="LOCAL-00001" summary="Debug Upload functionality">
       <created>1478598786818</created>
@@ -943,7 +939,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="43025000" />
+    <option name="totallyTimeSpent" value="43131000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
