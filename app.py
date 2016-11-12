@@ -134,6 +134,9 @@ def signup():
             userJson['GraduationYear'] = ""
             userJson['isResearchExperience'] = False
             userJson['isAppliedBefore'] = False
+            userJson['isWorkedBefore'] = False
+            userJson['isGoldShirt'] = False
+            userJson['isMSBSStudent'] = False
             userJson['isBackgroundCheckDone'] = ""
             userJson['LastBackgroundCheckMonth'] = ""
             userJson['LastBackgroundCheckYear'] = ""
@@ -305,6 +308,24 @@ def constructStudent(inpJson):
             inpJson['isAppliedBefore'] = inpJson['isAppliedBefore'] == "Yes" if True else False
         else:
             inpJson['isAppliedBefore'] = False
+
+        if 'isWorkedBefore' in inpJson.keys():
+            inpJson['isWorkedBefore'] = inpJson['isWorkedBefore'] == "Yes" if True else False
+        else:
+            inpJson['isWorkedBefore'] = False
+
+        if 'isGoldShirt' in inpJson.keys():
+            inpJson['isGoldShirt'] = inpJson['isGoldShirt'] == "Yes" if True else False
+        else:
+            inpJson['isGoldShirt'] = False
+
+        if 'isMSBSStudent' in inpJson.keys():
+            inpJson['isMSBSStudent'] = inpJson['isGoldShirt'] == "Yes" if True else False
+        else:
+            inpJson['isMSBSStudent'] = False
+
+
+
 
         return inpJson
     else:
