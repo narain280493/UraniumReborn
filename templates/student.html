@@ -570,48 +570,57 @@
                     <label class="control-label col-md-2" for="application[ProjectPreferences]">(1 is most interested, 5 is moderately interested):</label>
                     <div class="col-md-5">
                         <label for="application[ProjectPreference1]">1:</label>
-                        <select class="form-control" name="application[ProjectPreference1]">
+                        <select class="form-control" id="ProjectPreference1" name="application[ProjectPreference1]">
                             {% for p in pList %}
                             <option value={{p["pid"]}}>{{p["Title"]}}</option>
                             {% endfor %}
                         </select>
-                        <div class="member-type">
-                        <div ><label for="req1"> req1 </label>
-                        <input type="checkbox" class="input-text" name="req" id="req1"  value="true" /></div>
-
-
-                        <div><label for="req2">req2</label>
-                            <input type="checkbox" class="input-text" name="req" id="req2" value="true" /></div>
-
-                        <div> <label for="req3">req3</label>
-                            <input type="checkbox" class="input-text" name="req" id="req3" value="true"/></div>
+                        <div  id="ProjectPreference1SpecialRequirements">
 
                         </div>
 
                         <label for="application[ProjectPreference2]">2:</label>
-                        <select class="form-control" name="application[ProjectPreference2]">
+                        <select class="form-control" id="ProjectPreference2" name="application[ProjectPreference2]">
                             {% for p in pList %}
                             <option value={{p["pid"]}}>{{p["Title"]}}</option>
                             {% endfor %}
                         </select>
+
+                        <div  id="ProjectPreference2SpecialRequirements">
+
+                        </div>
+
                         <label for="application[ProjectPreference3]">3:</label>
                         <select class="form-control" name="application[ProjectPreference3]">
                             {% for p in pList %}
                             <option value={{p["pid"]}}>{{p["Title"]}}</option>
                             {% endfor %}
                         </select>
+
+                        <div  id="ProjectPreference3SpecialRequirements">
+
+                        </div>
+
                         <label for="application[ProjectPreference4]">4:</label>
                         <select class="form-control" name="application[ProjectPreference4]">
                             {% for p in pList %}
                             <option value={{p["pid"]}}>{{p["Title"]}}</option>
                             {% endfor %}
                         </select>
+
+                        <div  id="ProjectPreference4SpecialRequirements">
+
+                        </div>
+
                         <label for="application[ProjectPreference5]">5:</label>
                         <select class="form-control" name="application[ProjectPreference5]">
                             {% for p in pList %}
                             <option value={{p["pid"]}}>{{p["Title"]}}</option>
                             {% endfor %}
                         </select>
+                        <div  id="ProjectPreference5SpecialRequirements">
+
+                        </div>
                     </div>
                 </div>
 

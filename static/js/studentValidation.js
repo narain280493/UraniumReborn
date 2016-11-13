@@ -4,20 +4,104 @@
 
 $(document).ready(function() {
 
-    $('select[name="application[ProjectPreference1]"]').change(function () {
-        // hide all optional elements
-        $('.member-type').hide();
+
+    var data1=null;
+        $.ajax({
+        url: 'http://0.0.0.0:5000/projects',
+        type: 'GET',
+        dataType: 'json',
+
+        success: function (data) {
+         data1=data;
+        }
+
+    });
 
 
-        $("select[name='application[ProjectPreference1]'] option:selected").each(function () {
+    $("#ProjectPreference1").change(function () {
+        $("#ProjectPreference1SpecialRequirements").html("<p>Select the requirements that you satisfy:</p>");
+    var pp1 = document.getElementById("ProjectPreference1").value;
+    $.each(data1, function(i, item) {
+        if(pp1 === data1[i].id)
+        {
+            $.each(data1[i].specialRequirements, function(j, item) {
+
+                var spreq = data1[i].specialRequirements[j];
+                if(spreq!="" && spreq!=null)
+                {
+                    var name = "<div class='new-element'>" +
+                        "<input class='chk' value=" + spreq + " type='checkbox' id='application[preference1Requirements][]' name='application[preference1Requirements][]' /> " +
+                        "<label for='chk' >" + spreq + "</label> " +
+                        "</div>";
+
+                    var result = true;
+
+                    $("#ProjectPreference1SpecialRequirements").find("input[type=checkbox]").each(function (index, value) {
+                        if ($($(value).closest("div").children()[1]).text() == spreq) {
+                            result = false;
+                            return;
+                        }
+                    });
+                    if (result)
+                        $("#ProjectPreference1SpecialRequirements").append(name);
+                }
+
+            });
+        }
+    });
+
+
+});
+
+
+
+    $("#ProjectPreference2").change(function () {
+        $("#ProjectPreference2SpecialRequirements").html("<p>Select the requirements that you satisfy:</p>");
+        var pp1 = document.getElementById("ProjectPreference2").value;
+        $.each(data1, function(i, item) {
+            if(pp1 === data1[i].id)
+            {
+                $.each(data1[i].specialRequirements, function(j, item) {
+
+                    var spreq = data1[i].specialRequirements[j];
+                    if(spreq!="" && spreq!=null)
+                    {
+                        var name = "<div class='new-element'>" +
+                            "<input class='chk' value=" + spreq + " type='checkbox' id='application[preference2Requirements][]' name='application[preference2Requirements][]' /> " +
+                            "<label for='chk' >" + spreq + "</label> " +
+                            "</div>";
+
+                        var result = true;
+
+                        $("#ProjectPreference2SpecialRequirements").find("input[type=checkbox]").each(function (index, value) {
+                            if ($($(value).closest("div").children()[1]).text() == spreq) {
+                                result = false;
+                                return;
+                            }
+                        });
+                        if (result)
+                            $("#ProjectPreference2SpecialRequirements").append(name);
+                    }
+
+                });
+            }
+        });
+
+
+    });
+
+
+       // alert(data1[0].Title);
+       /* $("select[name='application[ProjectPreference1]'] option:selected").each(function () {
             var value = $(this).val();
-            if(value == "xyz") {
+            alert(value);
+            alert(data1[0].Title);
+            if(value == data1[0].Title) {
                 $('.member-type').show();
 
             }
 
-        });
-    });
+        });*/
 
 
 
