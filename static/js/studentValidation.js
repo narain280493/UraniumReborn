@@ -6,7 +6,8 @@ $(document).ready(function() {
 
 
     var data1=null;
-        $.ajax({
+
+    $.ajax({
         url: 'http://0.0.0.0:5000/projects',
         type: 'GET',
         dataType: 'json',
@@ -19,50 +20,46 @@ $(document).ready(function() {
 
 
     $("#ProjectPreference1").change(function () {
-        $("#ProjectPreference1SpecialRequirements").html("<p>Select the requirements that you satisfy:</p>");
-    var pp1 = document.getElementById("ProjectPreference1").value;
-    $.each(data1, function(i, item) {
-        if(pp1 === data1[i].id)
-        {
-            $.each(data1[i].specialRequirements, function(j, item) {
+        $("#ProjectPreference1SpecialRequirements").html("");
+        var pp = document.getElementById("ProjectPreference1").value;
+        $.each(data1, function(i, item) {
+            if(pp === data1[i].id)
+            {
+                $("#ProjectPreference1SpecialRequirements").html("<p>Select the requirement(s) that you satisfy:</p>");
+                $.each(data1[i].specialRequirements, function(j, item) {
+                    var spreq = data1[i].specialRequirements[j];
+                    if(spreq!="" && spreq!=null)
+                    {
+                        var name = "<div class='new-element'>" +
+                            "<input class='chk' value=" + spreq + " type='checkbox' id='application[preference1Requirements][]' name='application[preference1Requirements][]' /> " +
+                            "<label for='chk' >" + spreq + "</label> " +
+                            "</div>";
 
-                var spreq = data1[i].specialRequirements[j];
-                if(spreq!="" && spreq!=null)
-                {
-                    var name = "<div class='new-element'>" +
-                        "<input class='chk' value=" + spreq + " type='checkbox' id='application[preference1Requirements][]' name='application[preference1Requirements][]' /> " +
-                        "<label for='chk' >" + spreq + "</label> " +
-                        "</div>";
+                        var result = true;
 
-                    var result = true;
-
-                    $("#ProjectPreference1SpecialRequirements").find("input[type=checkbox]").each(function (index, value) {
-                        if ($($(value).closest("div").children()[1]).text() == spreq) {
-                            result = false;
-                            return;
-                        }
-                    });
-                    if (result)
-                        $("#ProjectPreference1SpecialRequirements").append(name);
-                }
-
-            });
-        }
+                        $("#ProjectPreference1SpecialRequirements").find("input[type=checkbox]").each(function (index, value) {
+                            if ($($(value).closest("div").children()[1]).text() == spreq) {
+                                result = false;
+                                return;
+                            }
+                        });
+                        if (result)
+                            $("#ProjectPreference1SpecialRequirements").append(name);
+                    }
+                });
+            }
+        });
     });
 
 
-});
-
-
-
     $("#ProjectPreference2").change(function () {
-        $("#ProjectPreference2SpecialRequirements").html("<p>Select the requirements that you satisfy:</p>");
-        var pp1 = document.getElementById("ProjectPreference2").value;
+        $("#ProjectPreference2SpecialRequirements").html("");
+        var pp = document.getElementById("ProjectPreference2").value;
         $.each(data1, function(i, item) {
-            if(pp1 === data1[i].id)
+            if(pp === data1[i].id)
             {
+                $("#ProjectPreference2SpecialRequirements").html("<p>Select the requirement(s) that you satisfy:</p>");
                 $.each(data1[i].specialRequirements, function(j, item) {
-
                     var spreq = data1[i].specialRequirements[j];
                     if(spreq!="" && spreq!=null)
                     {
@@ -82,16 +79,115 @@ $(document).ready(function() {
                         if (result)
                             $("#ProjectPreference2SpecialRequirements").append(name);
                     }
-
                 });
             }
         });
-
-
     });
 
 
-       // alert(data1[0].Title);
+
+    $("#ProjectPreference3").change(function () {
+        $("#ProjectPreference3SpecialRequirements").html("");
+        var pp = document.getElementById("ProjectPreference3").value;
+        $.each(data1, function(i, item) {
+            if(pp === data1[i].id)
+            {
+                $("#ProjectPreference3SpecialRequirements").html("<p>Select the requirement(s) that you satisfy:</p>");
+                $.each(data1[i].specialRequirements, function(j, item) {
+                    var spreq = data1[i].specialRequirements[j];
+                    if(spreq!="" && spreq!=null)
+                    {
+                        var name = "<div class='new-element'>" +
+                            "<input class='chk' value=" + spreq + " type='checkbox' id='application[preference3Requirements][]' name='application[preference3Requirements][]' /> " +
+                            "<label for='chk' >" + spreq + "</label> " +
+                            "</div>";
+
+                        var result = true;
+
+                        $("#ProjectPreference3SpecialRequirements").find("input[type=checkbox]").each(function (index, value) {
+                            if ($($(value).closest("div").children()[1]).text() == spreq) {
+                                result = false;
+                                return;
+                            }
+                        });
+                        if (result)
+                            $("#ProjectPreference3SpecialRequirements").append(name);
+                    }
+                });
+            }
+        });
+    });
+
+
+    $("#ProjectPreference4").change(function () {
+        $("#ProjectPreference4SpecialRequirements").html("");
+        var pp = document.getElementById("ProjectPreference4").value;
+        $.each(data1, function(i, item) {
+            if(pp === data1[i].id)
+            {
+                $("#ProjectPreference4SpecialRequirements").html("<p>Select the requirement(s) that you satisfy:</p>");
+                $.each(data1[i].specialRequirements, function(j, item) {
+                    var spreq = data1[i].specialRequirements[j];
+                    if(spreq!="" && spreq!=null)
+                    {
+                        var name = "<div class='new-element'>" +
+                            "<input class='chk' value=" + spreq + " type='checkbox' id='application[preference4Requirements][]' name='application[preference4Requirements][]' /> " +
+                            "<label for='chk' >" + spreq + "</label> " +
+                            "</div>";
+
+                        var result = true;
+
+                        $("#ProjectPreference4SpecialRequirements").find("input[type=checkbox]").each(function (index, value) {
+                            if ($($(value).closest("div").children()[1]).text() == spreq) {
+                                result = false;
+                                return;
+                            }
+                        });
+                        if (result)
+                            $("#ProjectPreference4SpecialRequirements").append(name);
+                    }
+                });
+            }
+        });
+    });
+
+
+    $("#ProjectPreference5").change(function () {
+        $("#ProjectPreference5SpecialRequirements").html("");
+        var pp = document.getElementById("ProjectPreference5").value;
+        $.each(data1, function(i, item) {
+            if(pp === data1[i].id)
+            {
+                $("#ProjectPreference5SpecialRequirements").html("<p>Select the requirement(s) that you satisfy:</p>");
+                $.each(data1[i].specialRequirements, function(j, item) {
+                    var spreq = data1[i].specialRequirements[j];
+                    if(spreq!="" && spreq!=null)
+                    {
+                        var name = "<div class='new-element'>" +
+                            "<input class='chk' value=" + spreq + " type='checkbox' id='application[preference5Requirements][]' name='application[preference5Requirements][]' /> " +
+                            "<label for='chk' >" + spreq + "</label> " +
+                            "</div>";
+
+                        var result = true;
+
+                        $("#ProjectPreference5SpecialRequirements").find("input[type=checkbox]").each(function (index, value) {
+                            if ($($(value).closest("div").children()[1]).text() == spreq) {
+                                result = false;
+                                return;
+                            }
+                        });
+                        if (result)
+                            $("#ProjectPreference5SpecialRequirements").append(name);
+                    }
+                });
+            }
+        });
+    });
+
+
+
+
+    // alert(data1[0].Title);
        /* $("select[name='application[ProjectPreference1]'] option:selected").each(function () {
             var value = $(this).val();
             alert(value);
