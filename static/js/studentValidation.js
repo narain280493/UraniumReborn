@@ -322,7 +322,7 @@ $(document).ready(function() {
             // Get the BootstrapValidator instance
             var bv = $form.data('bootstrapValidator');
 
-            // upload files
+            // upload files and submit form
             getSignedRequest();
 
             /*

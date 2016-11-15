@@ -42,9 +42,6 @@
                 if(p_id == this.facultyJson[cnt]["id"]){
                     return this.facultyJson[cnt]['Faculty Name'];
                 }
-
-
-
             }
             return null;
         }
@@ -170,6 +167,33 @@
                                 sortable,
                                 getSortingColumns
                             })
+                        }
+                    },
+                    {
+                        property: 'Faculty Department',
+                        header: {
+                            label: 'Faculty Department',
+                            transforms: [sortable],
+                            format: sort.header({
+                                sortable,
+                                getSortingColumns
+                            })
+                        }
+                    },
+                    {
+                        property: 'Student Majors',
+                        header: {
+                            label: 'Student Majors'
+                        },
+                        cell:{
+                            property: "Student Majors",
+                            format: (value, extra) => {
+                                return ( <ul>
+                                    {
+                                        value.map( (v) => (<li> {v} </li>))
+                                    }
+                                </ul>)
+                            }
                         }
                     },
                     {

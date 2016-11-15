@@ -20,8 +20,7 @@ import uuid
 import json
 import boto3
 from botocore.client import Config
-from flask_cors import CORS,cross_origin
-
+from flask_cors import CORS, cross_origin
 
 tmpl_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'templates')
 app = Flask("UraniumReborn", template_folder=tmpl_dir)
@@ -210,8 +209,10 @@ def sign_s3():
     file_name2 = name + '_' + file_name2
 
     # Generate and return the presigned URL
-    presigned_post = s3.generate_presigned_url('get_object', Params={'Bucket': S3_BUCKET, 'Key': file_name}, ExpiresIn=3600, HttpMethod='PUT')
-    presigned_post2 = s3.generate_presigned_url('get_object', Params={'Bucket': S3_BUCKET, 'Key': file_name2}, ExpiresIn=3600, HttpMethod='PUT')
+    presigned_post = s3.generate_presigned_url('get_object', Params={'Bucket': S3_BUCKET, 'Key': file_name},
+                                               ExpiresIn=3600, HttpMethod='PUT')
+    presigned_post2 = s3.generate_presigned_url('get_object', Params={'Bucket': S3_BUCKET, 'Key': file_name2},
+                                                ExpiresIn=3600, HttpMethod='PUT')
 
     result = {}
     email = session['email']
@@ -276,7 +277,7 @@ def constructProject(inpJson):
     inpJson['specialRequirements'] = json.dumps(inpJson['specialRequirements'])
     inpJson['fieldOfStudy'] = json.dumps(inpJson['fieldOfStudy'])
     inpJson['isDevelopingCommunities'] = inpJson['isDevelopingCommunities'] == "Yes" if True else False
-    #inpJson['isDevelopingCommunities'] = False  ## what's this?
+    # inpJson['isDevelopingCommunities'] = False  ## what's this?
     return inpJson
 
 
@@ -323,9 +324,6 @@ def constructStudent(inpJson):
             inpJson['isMSBSStudent'] = inpJson['isGoldShirt'] == "Yes" if True else False
         else:
             inpJson['isMSBSStudent'] = False
-
-
-
 
         return inpJson
     else:
@@ -375,7 +373,7 @@ def listofprojects():
             facultyJson = constructFaculty(reqDataJson['faculty'], False)
         if 'secondFaculty' in reqDataJson.keys():
             secFacultyJson = constructFaculty(reqDataJson['secondFaculty'], False)
-        if 'gradStudent' in reqDataJson.    keys():
+        if 'gradStudent' in reqDataJson.keys():
             gradStudentJson = constructFaculty(reqDataJson['gradStudent'], True)
         if 'apprenticeship' in reqDataJson.keys():
             projJson = constructProject(reqDataJson['apprenticeship'])
@@ -412,7 +410,8 @@ def listofprojects():
     for f in facs:
         for p in f.projects:
             row = {"Faculty Name": f.FirstName + " " + f.LastName, "id": p.id, "Project Name": p.Title,
-                   "Project Description": p.Description}
+                   "Project Description": p.Description, "Faculty Department": f.Department,
+                   "Student Majors": json.loads(p.fieldOfStudy)}
             rows.append(row)
 
     projs = project.query.all()
