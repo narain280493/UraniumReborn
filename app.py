@@ -332,6 +332,27 @@ def constructStudent(inpJson):
 
 def constructApplication(inpJson):
     inpJson[u'id'] = str(uuid.uuid1())
+    if 'preference1Requirements' not in inpJson:
+        inpJson['preference1Requirements'] = ''
+    else:
+        inpJson['preference1Requirements'] = json.dumps(inpJson['preference1Requirements'])
+    if 'preference2Requirements' not in inpJson:
+        inpJson['preference2Requirements'] = ''
+    else:
+        inpJson['preference2Requirements'] = json.dumps(inpJson['preference2Requirements'])
+    if 'preference3Requirements' not in inpJson:
+        inpJson['preference3Requirements'] = ''
+    else:
+        inpJson['preference3Requirements'] = json.dumps(inpJson['preference3Requirements'])
+    if 'preference4Requirements' not in inpJson:
+        inpJson['preference4Requirements'] = ''
+    else:
+        inpJson['preference4Requirements'] = json.dumps(inpJson['preference4Requirements'])
+    if 'preference5Requirements' not in inpJson:
+        inpJson['preference5Requirements'] = ''
+    else:
+        inpJson['preference5Requirements'] = json.dumps(inpJson['preference5Requirements'])
+
     return inpJson
 
 

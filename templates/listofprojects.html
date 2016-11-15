@@ -186,11 +186,10 @@
                             label: 'Student Majors'
                         },
                         cell:{
-                            property: "Student Majors",
                             format: (value, extra) => {
                                 return ( <ul>
                                     {
-                                        value.map( (v) => (<li> {v} </li>))
+                                        value.map( (v,i) => (<li key={v}> {v} </li>))
                                     }
                                 </ul>)
                             }

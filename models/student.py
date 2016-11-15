@@ -3,6 +3,7 @@ from sqlalchemy import Column, String
 from sqlalchemy import Boolean
 from sqlalchemy.orm import relationship
 
+
 class student(Base):
     __tablename__ = 'student'
 
@@ -43,7 +44,7 @@ class student(Base):
     isResearchExperience = Column(Boolean)
 
     isAppliedBefore = Column(Boolean)
-    isWorkedBefore =  Column(Boolean)
+    isWorkedBefore = Column(Boolean)
     isGoldShirt = Column(Boolean)
     isMSBSStudent = Column(Boolean)
     isBackgroundCheckDone = Column(String(20))
@@ -54,7 +55,8 @@ class student(Base):
     LastHarassmentTrainingYear = Column(String(5))
 
     isAvailability = Column(String(20))
-    students = relationship("studentapplication", back_populates="stuapp", primaryjoin="student.id==studentapplication.s_id")
+    students = relationship("studentapplication", back_populates="stuapp",
+                            primaryjoin="student.id==studentapplication.s_id")
     cred = relationship("loginpage", back_populates="stud")
 
     def __repr__(self):

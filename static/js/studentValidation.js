@@ -8,7 +8,7 @@ $(document).ready(function() {
     var data1=null;
 
     $.ajax({
-        url: 'http://0.0.0.0:5000/projects',
+        url: '/projects',
         type: 'GET',
         dataType: 'json',
 
