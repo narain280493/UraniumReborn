@@ -7,12 +7,16 @@
     var Search = Reactabular.Search;
     var search = Reactabular.search;
     var orderBy = _.orderBy;
-    const crows = JSON.parse('{{pRows|tojson}}');
+    // TO:DO have to create an endpoint project rows
+    var crows = JSON.parse('{{pRows|tojson}}');
+    crows = crows.map((plist) => {plist["Student Majors"] = plist["Student Majors"].join(","); return plist});
+    console.log(crows);
 
     class ProjectModal extends React.Component {
         constructor(props){
             super(props);
             this.rowjson = JSON.parse(this.props.rowDet);
+            // TO:DO have to change this to projects request
             this.projDetails = JSON.parse('{{pFRows|tojson|safe}}');
             this.renderableRow = this.getRenderableRow();
             this.facultyJson = JSON.parse('{{pRows|tojson}}');
@@ -189,7 +193,7 @@
                             format: (value, extra) => {
                                 return ( <ul>
                                     {
-                                        value.map( (v,i) => (<li key={v}> {v} </li>))
+                                        value.split(',').map( (v,i) => (<li key={v}> {v} </li>))
                                     }
                                 </ul>)
                             }
