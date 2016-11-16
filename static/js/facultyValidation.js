@@ -185,10 +185,7 @@ $(document).ready(function() {
                             message: 'The entered URL is not valid'
                         }
                     }
-                },
-
-
-
+                }
             }
         })
         .on('success.form.bv', function(e) {

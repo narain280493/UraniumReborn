@@ -3,6 +3,204 @@
  */
 
 $(document).ready(function() {
+
+
+    var data1=null;
+
+    $.ajax({
+        url: '/projects',
+        type: 'GET',
+        dataType: 'json',
+
+        success: function (data) {
+         data1=data;
+        }
+
+    });
+
+
+    $("#ProjectPreference1").change(function () {
+        $("#ProjectPreference1SpecialRequirements").html("");
+        var pp = document.getElementById("ProjectPreference1").value;
+        $.each(data1, function(i, item) {
+            if(pp === data1[i].id)
+            {
+                $("#ProjectPreference1SpecialRequirements").html("<p>Select the requirement(s) that you satisfy:</p>");
+                $.each(data1[i].specialRequirements, function(j, item) {
+                    var spreq = data1[i].specialRequirements[j];
+                    if(spreq!="" && spreq!=null)
+                    {
+                        var name = "<div class='new-element'>" +
+                            "<input class='chk' value=" + spreq + " type='checkbox' id='application[preference1Requirements][]' name='application[preference1Requirements][]' /> " +
+                            "<label for='chk' >" + spreq + "</label> " +
+                            "</div>";
+
+                        var result = true;
+
+                        $("#ProjectPreference1SpecialRequirements").find("input[type=checkbox]").each(function (index, value) {
+                            if ($($(value).closest("div").children()[1]).text() == spreq) {
+                                result = false;
+                                return;
+                            }
+                        });
+                        if (result)
+                            $("#ProjectPreference1SpecialRequirements").append(name);
+                    }
+                });
+            }
+        });
+    });
+
+
+    $("#ProjectPreference2").change(function () {
+        $("#ProjectPreference2SpecialRequirements").html("");
+        var pp = document.getElementById("ProjectPreference2").value;
+        $.each(data1, function(i, item) {
+            if(pp === data1[i].id)
+            {
+                $("#ProjectPreference2SpecialRequirements").html("<p>Select the requirement(s) that you satisfy:</p>");
+                $.each(data1[i].specialRequirements, function(j, item) {
+                    var spreq = data1[i].specialRequirements[j];
+                    if(spreq!="" && spreq!=null)
+                    {
+                        var name = "<div class='new-element'>" +
+                            "<input class='chk' value=" + spreq + " type='checkbox' id='application[preference2Requirements][]' name='application[preference2Requirements][]' /> " +
+                            "<label for='chk' >" + spreq + "</label> " +
+                            "</div>";
+
+                        var result = true;
+
+                        $("#ProjectPreference2SpecialRequirements").find("input[type=checkbox]").each(function (index, value) {
+                            if ($($(value).closest("div").children()[1]).text() == spreq) {
+                                result = false;
+                                return;
+                            }
+                        });
+                        if (result)
+                            $("#ProjectPreference2SpecialRequirements").append(name);
+                    }
+                });
+            }
+        });
+    });
+
+
+
+    $("#ProjectPreference3").change(function () {
+        $("#ProjectPreference3SpecialRequirements").html("");
+        var pp = document.getElementById("ProjectPreference3").value;
+        $.each(data1, function(i, item) {
+            if(pp === data1[i].id)
+            {
+                $("#ProjectPreference3SpecialRequirements").html("<p>Select the requirement(s) that you satisfy:</p>");
+                $.each(data1[i].specialRequirements, function(j, item) {
+                    var spreq = data1[i].specialRequirements[j];
+                    if(spreq!="" && spreq!=null)
+                    {
+                        var name = "<div class='new-element'>" +
+                            "<input class='chk' value=" + spreq + " type='checkbox' id='application[preference3Requirements][]' name='application[preference3Requirements][]' /> " +
+                            "<label for='chk' >" + spreq + "</label> " +
+                            "</div>";
+
+                        var result = true;
+
+                        $("#ProjectPreference3SpecialRequirements").find("input[type=checkbox]").each(function (index, value) {
+                            if ($($(value).closest("div").children()[1]).text() == spreq) {
+                                result = false;
+                                return;
+                            }
+                        });
+                        if (result)
+                            $("#ProjectPreference3SpecialRequirements").append(name);
+                    }
+                });
+            }
+        });
+    });
+
+
+    $("#ProjectPreference4").change(function () {
+        $("#ProjectPreference4SpecialRequirements").html("");
+        var pp = document.getElementById("ProjectPreference4").value;
+        $.each(data1, function(i, item) {
+            if(pp === data1[i].id)
+            {
+                $("#ProjectPreference4SpecialRequirements").html("<p>Select the requirement(s) that you satisfy:</p>");
+                $.each(data1[i].specialRequirements, function(j, item) {
+                    var spreq = data1[i].specialRequirements[j];
+                    if(spreq!="" && spreq!=null)
+                    {
+                        var name = "<div class='new-element'>" +
+                            "<input class='chk' value=" + spreq + " type='checkbox' id='application[preference4Requirements][]' name='application[preference4Requirements][]' /> " +
+                            "<label for='chk' >" + spreq + "</label> " +
+                            "</div>";
+
+                        var result = true;
+
+                        $("#ProjectPreference4SpecialRequirements").find("input[type=checkbox]").each(function (index, value) {
+                            if ($($(value).closest("div").children()[1]).text() == spreq) {
+                                result = false;
+                                return;
+                            }
+                        });
+                        if (result)
+                            $("#ProjectPreference4SpecialRequirements").append(name);
+                    }
+                });
+            }
+        });
+    });
+
+
+    $("#ProjectPreference5").change(function () {
+        $("#ProjectPreference5SpecialRequirements").html("");
+        var pp = document.getElementById("ProjectPreference5").value;
+        $.each(data1, function(i, item) {
+            if(pp === data1[i].id)
+            {
+                $("#ProjectPreference5SpecialRequirements").html("<p>Select the requirement(s) that you satisfy:</p>");
+                $.each(data1[i].specialRequirements, function(j, item) {
+                    var spreq = data1[i].specialRequirements[j];
+                    if(spreq!="" && spreq!=null)
+                    {
+                        var name = "<div class='new-element'>" +
+                            "<input class='chk' value=" + spreq + " type='checkbox' id='application[preference5Requirements][]' name='application[preference5Requirements][]' /> " +
+                            "<label for='chk' >" + spreq + "</label> " +
+                            "</div>";
+
+                        var result = true;
+
+                        $("#ProjectPreference5SpecialRequirements").find("input[type=checkbox]").each(function (index, value) {
+                            if ($($(value).closest("div").children()[1]).text() == spreq) {
+                                result = false;
+                                return;
+                            }
+                        });
+                        if (result)
+                            $("#ProjectPreference5SpecialRequirements").append(name);
+                    }
+                });
+            }
+        });
+    });
+
+
+
+
+    // alert(data1[0].Title);
+       /* $("select[name='application[ProjectPreference1]'] option:selected").each(function () {
+            var value = $(this).val();
+            alert(value);
+            alert(data1[0].Title);
+            if(value == data1[0].Title) {
+                $('.member-type').show();
+
+            }
+
+        });*/
+
+
+
     $('#studentform').bootstrapValidator({
             feedbackIcons: {
                 valid: 'glyphicon glyphicon-ok',
@@ -108,12 +306,7 @@ $(document).ready(function() {
                             message: 'Please choose a option'
                         }
                     }
-                },
-
-
-
-
-
+                }
             }
         })
         .on('success.form.bv', function(e) {
@@ -129,10 +322,8 @@ $(document).ready(function() {
             // Get the BootstrapValidator instance
             var bv = $form.data('bootstrapValidator');
 
-            // Use Ajax to submit form data
-            $.post($form.attr('action'), $form.serializeJSON(), function(result) {
-                console.log(result);
-            }, 'json');
+            // upload files and submit form
+            getSignedRequest();
 
             /*
                  Function to carry out the actual POST request to S3 using the signed request from the Python app.
@@ -147,26 +338,29 @@ $(document).ready(function() {
                     contentType: 'binary/octet-stream',
                     processData: false,
                     success: function (data,status) {
-                        console.log(status)
+                        console.log(status);
+                        if(status=='success') {
+                            $.ajax({
+                                type: 'PUT',
+                                url: url2,
+                                data: file2[0],
+                                headers: ['x-amz-acl', 'public-read'],
+                                contentType: 'binary/octet-stream',
+                                processData: false,
+                                success: function (data1, status1) {
+                                    console.log(status1);
+                                    if(status=="success") {
+                                        // Use Ajax to submit form data
+                                        $.post($form.attr('action'), $form.serializeJSON(), function (result) {
+                                            if (result['status'] == 'OK')
+                                                window.location.replace("/")
+                                        }, 'json');
+                                    }
+                                }
+                            });
+                        }
                     }
                 });
-
-                //xhr.setRequestHeader('x-amz-acl', 'public-read');
-
-                $.ajax({
-                    type: 'PUT',
-                    url: url2,
-                    data: file2[0],
-                    headers:['x-amz-acl', 'public-read'],
-                    contentType: 'binary/octet-stream',
-                    processData: false,
-                    success: function (data,status) {
-                        console.log(status)
-                    }
-                });
-
-                //xhr2.setRequestHeader('x-amz-acl', 'public-read');
-                
             }
 
         function getSignedRequest(){
@@ -182,10 +376,24 @@ $(document).ready(function() {
                }
             });
         }
-
-        getSignedRequest();
     });
 
 
 });
+/*
+jQuery(document).ready(function($){
+    $('select[name="application[ProjectPreference1]"]').change(function () {
+        // hide all optional elements
+        $('.member-type').hide();
 
+
+        $("select[name='application[ProjectPreference1]'] option:selected").each(function () {
+            var value = $(this).val();
+            if(value == "SKATER" || value == "HOCKEY" || value == "HOCKEYA") {
+                $('.member-type').show();
+
+           }
+
+        });
+    });
+});*/
