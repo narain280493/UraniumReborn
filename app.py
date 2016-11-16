@@ -20,8 +20,7 @@ import uuid
 import json
 import boto3
 from botocore.client import Config
-from flask_cors import CORS,cross_origin
-
+from flask_cors import CORS, cross_origin
 
 tmpl_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'templates')
 app = Flask("UraniumReborn", template_folder=tmpl_dir)
@@ -73,7 +72,7 @@ def index():
         db_session.commit()
         db_session.add(stuapp)
         db_session.commit()
-        return render_template('home.html')
+        return json.dumps({'status': 'OK'})
 
 
 @app.route('/signup', methods=['GET', 'POST'])
@@ -134,6 +133,9 @@ def signup():
             userJson['GraduationYear'] = ""
             userJson['isResearchExperience'] = False
             userJson['isAppliedBefore'] = False
+            userJson['isWorkedBefore'] = False
+            userJson['isGoldShirt'] = False
+            userJson['isMSBSStudent'] = False
             userJson['isBackgroundCheckDone'] = ""
             userJson['LastBackgroundCheckMonth'] = ""
             userJson['LastBackgroundCheckYear'] = ""
@@ -154,7 +156,7 @@ def signup():
         session['email'] = userJson['Email']
         session['utype'] = loginPageJson['UserType']
         session['uid'] = userJson['id']
-        return json.dumps({'status':'OK'})
+        return json.dumps({'status': 'OK'})
     elif request.method == 'GET':
         if 'email' in session:
             return json.dumps({'status': 'OK'})
@@ -203,12 +205,14 @@ def sign_s3():
     name = session['name']
 
     # appending users name before file in order to prevent it from being overwritten by another file with same name.
-    file_name = name + '_'+ file_name
-    file_name2 = name + '_'+ file_name2
+    file_name = name + '_' + file_name
+    file_name2 = name + '_' + file_name2
 
     # Generate and return the presigned URL
-    presigned_post = s3.generate_presigned_url('get_object', Params={'Bucket': S3_BUCKET, 'Key': file_name}, ExpiresIn=3600, HttpMethod='PUT')
-    presigned_post2 = s3.generate_presigned_url('get_object', Params={'Bucket': S3_BUCKET, 'Key': file_name2}, ExpiresIn=3600, HttpMethod='PUT')
+    presigned_post = s3.generate_presigned_url('get_object', Params={'Bucket': S3_BUCKET, 'Key': file_name},
+                                               ExpiresIn=3600, HttpMethod='PUT')
+    presigned_post2 = s3.generate_presigned_url('get_object', Params={'Bucket': S3_BUCKET, 'Key': file_name2},
+                                                ExpiresIn=3600, HttpMethod='PUT')
 
     result = {}
     email = session['email']
@@ -248,7 +252,7 @@ def signout():
 
 
 @app.route('/student')
-def student():
+def studentpage():
     if 'email' not in session:
         return redirect(url_for('index'))
     pList = project.query.with_entities(project.id, project.Title)
@@ -273,7 +277,7 @@ def constructProject(inpJson):
     inpJson['specialRequirements'] = json.dumps(inpJson['specialRequirements'])
     inpJson['fieldOfStudy'] = json.dumps(inpJson['fieldOfStudy'])
     inpJson['isDevelopingCommunities'] = inpJson['isDevelopingCommunities'] == "Yes" if True else False
-    #inpJson['isDevelopingCommunities'] = False  ## what's this?
+    # inpJson['isDevelopingCommunities'] = False  ## what's this?
     return inpJson
 
 
@@ -288,6 +292,53 @@ def constructFaculty(inpJson, isgrad):
         return inpJson
     else:
         return None
+
+@app.route('/matchedview')
+def filterApplications():
+
+    sSchema = studentschema()
+    pSchema = projectschema()
+
+    stud = student.query.all()
+    proj = project.query.all()
+
+    studList = []
+    for s in stud:
+        sJson = sSchema.dump(obj=s).data
+        gpa = sJson['GPA']
+        isWorkedBefore = sJson['isWorkedBefore']
+        isAvailability = sJson['isAvailability']
+        isMSBSStudent = sJson['isMSBSStudent']
+        if gpa < u'3':
+            continue
+        elif isWorkedBefore == True:
+            continue
+        elif isAvailability == 'Not sure' or isAvailability == 'No':
+            continue
+        elif isMSBSStudent == 'Yes':
+            continue
+        else:
+            studList.append(sJson)
+
+    #print len(studList)
+    projPrefList = []
+    projList = []
+    for p in proj:
+        pJson = pSchema.dump(obj=p).data
+
+        id = pJson['id']
+        projPref1 = studentapplication.query.filter_by(ProjectPreference1=id).first()
+        projPref2 = studentapplication.query.filter_by(ProjectPreference2=id).first()
+        projPref3 = studentapplication.query.filter_by(ProjectPreference3=id).first()
+        projPref4 = studentapplication.query.filter_by(ProjectPreference4=id).first()
+        projPref5 = studentapplication.query.filter_by(ProjectPreference5=id).first()
+
+        if projPref1 or projPref2 or projPref3 or projPref4 or projPref5:
+            projList.append(id)
+
+    #print projList
+    ## loading faculty.html temporarily.
+    return redirect(url_for('index'))
 
 
 def constructStudent(inpJson):
@@ -306,6 +357,21 @@ def constructStudent(inpJson):
         else:
             inpJson['isAppliedBefore'] = False
 
+        if 'isWorkedBefore' in inpJson.keys():
+            inpJson['isWorkedBefore'] = inpJson['isWorkedBefore'] == "Yes" if True else False
+        else:
+            inpJson['isWorkedBefore'] = False
+
+        if 'isGoldShirt' in inpJson.keys():
+            inpJson['isGoldShirt'] = inpJson['isGoldShirt'] == "Yes" if True else False
+        else:
+            inpJson['isGoldShirt'] = False
+
+        if 'isMSBSStudent' in inpJson.keys():
+            inpJson['isMSBSStudent'] = inpJson['isGoldShirt'] == "Yes" if True else False
+        else:
+            inpJson['isMSBSStudent'] = False
+
         return inpJson
     else:
         return None
@@ -313,7 +379,45 @@ def constructStudent(inpJson):
 
 def constructApplication(inpJson):
     inpJson[u'id'] = str(uuid.uuid1())
+    if 'preference1Requirements' not in inpJson:
+        inpJson['preference1Requirements'] = ''
+    else:
+        inpJson['preference1Requirements'] = json.dumps(inpJson['preference1Requirements'])
+    if 'preference2Requirements' not in inpJson:
+        inpJson['preference2Requirements'] = ''
+    else:
+        inpJson['preference2Requirements'] = json.dumps(inpJson['preference2Requirements'])
+    if 'preference3Requirements' not in inpJson:
+        inpJson['preference3Requirements'] = ''
+    else:
+        inpJson['preference3Requirements'] = json.dumps(inpJson['preference3Requirements'])
+    if 'preference4Requirements' not in inpJson:
+        inpJson['preference4Requirements'] = ''
+    else:
+        inpJson['preference4Requirements'] = json.dumps(inpJson['preference4Requirements'])
+    if 'preference5Requirements' not in inpJson:
+        inpJson['preference5Requirements'] = ''
+    else:
+        inpJson['preference5Requirements'] = json.dumps(inpJson['preference5Requirements'])
+
     return inpJson
+
+
+@app.route('/projects', methods=['GET', 'POST'])
+def projects():
+    if 'email' not in session:
+        return redirect(url_for('index'))
+
+    projs = project.query.all()
+    pSchema = projectschema()
+    projsL = []
+    for p in projs:
+        pJson = pSchema.dump(obj=p).data
+        pJson["fieldOfStudy"] = json.loads(pJson["fieldOfStudy"])
+        pJson["specialRequirements"] = json.loads(pJson["specialRequirements"])
+        projsL.append(pJson)
+
+    return json.dumps(projsL)
 
 
 @app.route('/listofprojects', methods=['GET', 'POST'])
@@ -374,7 +478,8 @@ def listofprojects():
     for f in facs:
         for p in f.projects:
             row = {"Faculty Name": f.FirstName + " " + f.LastName, "id": p.id, "Project Name": p.Title,
-                   "Project Description": p.Description}
+                   "Project Description": p.Description, "Faculty Department": f.Department,
+                   "Student Majors": json.loads(p.fieldOfStudy)}
             rows.append(row)
 
     projs = project.query.all()

@@ -499,6 +499,44 @@
                </div>
 
 
+                <div class="form-group">
+                    <label class="control-label col-md-2" for="student[isWorkedBefore]">If yes, were you assigned a project before?</label>
+                    <div class="col-md-5">
+                        <div class="radio">
+                            <label><input type="radio" name="student[isWorkedBefore]" value="Yes" required>Yes</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="student[isWorkedBefore]" value="No">No</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-2" for="student[isGoldShirt]"> Are you a gold shirt student?</label>
+                    <div class="col-md-5">
+                        <div class="radio">
+                            <label><input type="radio" name="student[isGoldShirt]" value="Yes" required>Yes</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="student[isGoldShirt]" value="No">No</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-2" for="student[isMSBSStudent]"> If you are a MS/BS student, are you in the MS phase?</label>
+                    <div class="col-md-5">
+                        <div class="radio">
+                            <label><input type="radio" name="student[isMSBSStudent]" value="Yes" required>Yes</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="student[isMSBSStudent]" value="No">No</label>
+                        </div>
+                    </div>
+                </div>
+
+
+
 
                 <!-- <div class="form-group">
                     <label class="control-label col-md-2" for="isAppliedBefore"> Have you applied for Discovery Learning Apprenticeship before? </label>
@@ -529,38 +567,55 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="control-label col-md-2" for="application[ProjectPreferences]">(1 is most interested, 5 is moderately interested):</label>
+                    <label class="control-label col-md-2" for="application[ProjectPreferences]"><p>Preferred project(s):</br> (1 is most interested, 5 is moderately interested)</p></label>
                     <div class="col-md-5">
                         <label for="application[ProjectPreference1]">1:</label>
-                        <select class="form-control" name="application[ProjectPreference1]">
+                        <select class="form-control" id="ProjectPreference1" name="application[ProjectPreference1]" required>
+                            <option value="">Choose a project</option>
                             {% for p in pList %}
                             <option value={{p["pid"]}}>{{p["Title"]}}</option>
                             {% endfor %}
                         </select>
+                        <div  id="ProjectPreference1SpecialRequirements"></div>
+
                         <label for="application[ProjectPreference2]">2:</label>
-                        <select class="form-control" name="application[ProjectPreference2]">
+                        <select class="form-control" id="ProjectPreference2" name="application[ProjectPreference2]">
+                            <option value="">None</option>
                             {% for p in pList %}
                             <option value={{p["pid"]}}>{{p["Title"]}}</option>
                             {% endfor %}
                         </select>
+
+                        <div  id="ProjectPreference2SpecialRequirements"></div>
+
                         <label for="application[ProjectPreference3]">3:</label>
-                        <select class="form-control" name="application[ProjectPreference3]">
+                        <select class="form-control" id="ProjectPreference3" name="application[ProjectPreference3]">
+                            <option value="">None</option>
                             {% for p in pList %}
                             <option value={{p["pid"]}}>{{p["Title"]}}</option>
                             {% endfor %}
                         </select>
+
+                        <div  id="ProjectPreference3SpecialRequirements"></div>
+
                         <label for="application[ProjectPreference4]">4:</label>
-                        <select class="form-control" name="application[ProjectPreference4]">
+                        <select class="form-control" id="ProjectPreference4" name="application[ProjectPreference4]">
+                            <option value="">None</option>
                             {% for p in pList %}
                             <option value={{p["pid"]}}>{{p["Title"]}}</option>
                             {% endfor %}
                         </select>
+
+                        <div  id="ProjectPreference4SpecialRequirements"></div>
+
                         <label for="application[ProjectPreference5]">5:</label>
-                        <select class="form-control" name="application[ProjectPreference5]">
+                        <select class="form-control" id="ProjectPreference5" name="application[ProjectPreference5]">
+                            <option value="">None</option>
                             {% for p in pList %}
                             <option value={{p["pid"]}}>{{p["Title"]}}</option>
                             {% endfor %}
                         </select>
+                        <div  id="ProjectPreference5SpecialRequirements"></div>
                     </div>
                 </div>
 
