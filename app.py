@@ -300,7 +300,7 @@ def filterApplications():
     pSchema = projectschema()
 
     stud = student.query.all()
-    proj =  project.query.all()
+    proj = project.query.all()
 
     studList = []
     for s in stud:
@@ -320,7 +320,7 @@ def filterApplications():
         else:
             studList.append(sJson)
 
-    print studList
+    #print len(studList)
     projPrefList = []
     projList = []
     for p in proj:
@@ -336,8 +336,9 @@ def filterApplications():
         if projPref1 or projPref2 or projPref3 or projPref4 or projPref5:
             projList.append(id)
 
-    print projList
-    return render_template('faculty.html')
+    #print projList
+    ## loading faculty.html temporarily.
+    return redirect(url_for('index'))
 
 
 def constructStudent(inpJson):
