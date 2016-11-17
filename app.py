@@ -293,8 +293,11 @@ def constructFaculty(inpJson, isgrad):
     else:
         return None
 
-@app.route('/matchedview')
+@app.route('/getMatches')
 def filterApplications():
+
+    data = {}
+
 
     sSchema = studentschema()
     pSchema = projectschema()
@@ -309,6 +312,9 @@ def filterApplications():
         isWorkedBefore = sJson['isWorkedBefore']
         isAvailability = sJson['isAvailability']
         isMSBSStudent = sJson['isMSBSStudent']
+        firstName = sJson['FirstName']
+        lastName = sJson['LastName']
+        name = firstName + ' ' + lastName
         if gpa < u'3':
             continue
         elif isWorkedBefore == True:
@@ -318,10 +324,9 @@ def filterApplications():
         elif isMSBSStudent == 'Yes':
             continue
         else:
+            sJson['Race'] = json.loads(sJson['Race'])
             studList.append(sJson)
 
-    #print len(studList)
-    projPrefList = []
     projList = []
     for p in proj:
         pJson = pSchema.dump(obj=p).data
@@ -334,11 +339,14 @@ def filterApplications():
         projPref5 = studentapplication.query.filter_by(ProjectPreference5=id).first()
 
         if projPref1 or projPref2 or projPref3 or projPref4 or projPref5:
-            projList.append(id)
+            pJson["fieldOfStudy"] = json.loads(pJson["fieldOfStudy"])
+            pJson["specialRequirements"] = json.loads(pJson["specialRequirements"])
+            projList.append(pJson)
 
-    #print projList
-    ## loading faculty.html temporarily.
-    return redirect(url_for('index'))
+    data['student'] = studList
+    data['project'] = projList
+    json_data = json.dumps(data)
+    return json_data
 
 
 def constructStudent(inpJson):
