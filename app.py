@@ -192,7 +192,7 @@ def login():
 
 @app.route('/listmatches', methods=['GET'])
 def listmatches():
-    return render_template('listofmatches.html', pRows=json.loads('[{"Student Name":"test name","Project Name":"test project"}]'))
+    return render_template('listofmatches.html')
 
 
 @app.route('/sign-s3/', methods=['GET', 'POST'])
@@ -313,7 +313,6 @@ def constructFaculty(inpJson, isgrad):
 
 @app.route('/getMatches')
 def filterApplications():
-
     data = {}
     sSchema = studentschema()
     pSchema = projectschema()
