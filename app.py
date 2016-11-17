@@ -190,6 +190,11 @@ def login():
         return render_template('login.html')
 
 
+@app.route('/listmatches', methods=['GET'])
+def listmatches():
+    return render_template('listofmatches.html', pRows=json.loads('[{"Student Name":"test name","Project Name":"test project"}]'))
+
+
 @app.route('/sign-s3/', methods=['GET', 'POST'])
 def sign_s3():
     urlSchema = fileurlschema()
@@ -272,12 +277,24 @@ def faculty_page():
     return render_template('faculty.html')
 
 
+def escape(inpString):
+    inpString = inpString.replace('\"', '\\"')
+    inpString = inpString.replace('\n', '\\n')
+    inpString = inpString.replace('\r', '\\r')
+    inpString = inpString.replace('\a', '\\a')
+    inpString = inpString.replace('\b', '\\b')
+    inpString = inpString.replace('\f', '\\f')
+    inpString = inpString.replace('\r', '\\r')
+    inpString = inpString.replace('\t', '\\t')
+    return inpString
+
+
 def constructProject(inpJson):
     inpJson[u'id'] = str(uuid.uuid1())
+    inpJson['Description'] = escape(inpJson['Description'])
     inpJson['specialRequirements'] = json.dumps(inpJson['specialRequirements'])
     inpJson['fieldOfStudy'] = json.dumps(inpJson['fieldOfStudy'])
     inpJson['isDevelopingCommunities'] = inpJson['isDevelopingCommunities'] == "Yes" if True else False
-    # inpJson['isDevelopingCommunities'] = False  ## what's this?
     return inpJson
 
 
@@ -293,12 +310,11 @@ def constructFaculty(inpJson, isgrad):
     else:
         return None
 
+
 @app.route('/getMatches')
 def filterApplications():
 
     data = {}
-
-
     sSchema = studentschema()
     pSchema = projectschema()
 

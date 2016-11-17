@@ -1,0 +1,41 @@
+{% extends "navigation.html" %}
+
+{% block content %}
+<script type="text/jsx">
+    $.ajax({
+        url: '/getMatches',
+        type: 'GET',
+        dataType: 'json',
+
+        success: function (data) {
+            console.log(data);
+            var projs = data["project"];
+            var rows = data["student"].map((student,index) => {
+                var projName = null;
+                if(index <= projs.length-1){
+                    projName = projs[index]["Title"];
+                }
+                return(
+                {"Student Name":student["FirstName"]+student["LastName"],
+                    "id":student["id"],
+                    "Project Name": projName })});
+            var opts = projs.map((p,index) => {return({"Title":p["Title"], "id":p["id"]})});
+            console.log(rows);
+            console.log(opts);
+            ReactDOM.render(<MatchesTable crows={rows} modalID="matchModal" opts={opts}>
+
+            </MatchesTable>,document.getElementById("matchList"))
+        }
+
+    });
+</script>
+
+<div id="matchList">
+
+</div>
+
+<div class="modal fade" id="matchModal" tabindex="-1" role="dialog" aria-labelledby="matchModalLabel">
+
+</div>
+
+{% endblock %}
