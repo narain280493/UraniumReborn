@@ -55,7 +55,11 @@
             return(
                 <ul className="list-group">
                     {
-                        specRec.map((spec, i) => <li className="list-group-item" key={i}> {spec} </li>)
+                        specRec.map((spec, i) => {
+                            if(spec!=''){
+                                return(<li className="list-group-item" key={i}> {spec} </li>);
+                            }
+                        })
                     }
                 </ul>
             );
