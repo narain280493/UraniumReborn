@@ -8,18 +8,17 @@
     var search = Reactabular.search;
     var orderBy = _.orderBy;
     // TO:DO have to create an endpoint project rows
-    var crows = JSON.parse('{{pRows|tojson}}');
+    var crows = JSON.parse('{{pRows | tojson | safe}}');
     crows = crows.map((plist) => {plist["Student Majors"] = plist["Student Majors"].join(","); return plist});
-    console.log(crows);
 
     class ProjectModal extends React.Component {
         constructor(props){
             super(props);
-            this.rowjson = JSON.parse(this.props.rowDet);
+            this.rowjson = this.props.rowDet;
             // TO:DO have to change this to projects request
-            this.projDetails = JSON.parse('{{pFRows|tojson|safe}}');
+            this.projDetails = JSON.parse('{{pFRows | tojson | safe}}');
             this.renderableRow = this.getRenderableRow();
-            this.facultyJson = JSON.parse('{{pRows|tojson}}');
+            this.facultyJson = JSON.parse('{{pRows | tojson | safe}}');
             this.focusDevCommString = this.renderableRow["isDevelopingCommunities"] ? "This project has a focus on Engineering for Developing Communities" : "This project does not have a focus on Engineering for Developing Communities"
 
             this.specRec = this.getSpecRec();
@@ -28,6 +27,7 @@
 
         }
 
+        // TO:DO change all helper methods to use map
         getRenderableRow(){
             const p_id = this.rowjson["id"];
             var cnt = 0;
@@ -52,24 +52,23 @@
 
         getSpecRec(){
             var specRec = this.renderableRow["specialRequirements"];
-            var cnt = 0;
-            var specRecH = [];
-            specRecH.push(<ul className="list-group"></ul>);
-            for(cnt=0;cnt<specRec.length;cnt++){
-                if(specRec[cnt] != '')
-                specRecH.push(<li className="list-group-item"> {specRec[cnt]} </li>);
-            }
-            return specRecH;
+            return(
+                <ul className="list-group">
+                    {
+                        specRec.map((spec, i) => <li className="list-group-item" key={i}> {spec} </li>)
+                    }
+                </ul>
+            );
         }
         getFStudy(){
             var fStud = this.renderableRow["fieldOfStudy"];
-            var fStudH = [];
-            var cnt=0;
-            fStudH.push(<ul className="list-group"></ul>);
-            for(cnt=0;cnt<fStud.length;cnt++){
-                fStudH.push(<li className="list-group-item"> {fStud[cnt]} </li>);
-            }
-            return fStudH;
+            return(
+               <ul className="list-group">
+                  {
+                     fStud.map((fs,i) => <li className="list-group-item" key={i}> {fs} </li>)
+                  }
+               </ul>
+            );
         }
         render(){
             return (
@@ -243,7 +242,7 @@
         onRow(row, { rowIndex }) {
             return {
                 className: 'selected-row',
-                onClick: () => {$("#myModal").empty();ReactDOM.render(<ProjectModal rowDet={JSON.stringify(row)} />,
+                onClick: () => {$("#myModal").empty();ReactDOM.render(<ProjectModal rowDet={row} />,
                         document.getElementById("myModal"));$("#myModal").modal("toggle")}
             };
         }

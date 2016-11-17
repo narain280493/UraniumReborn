@@ -190,6 +190,11 @@ def login():
         return render_template('login.html')
 
 
+@app.route('/listmatches', methods=['GET'])
+def listmatches():
+    return render_template('listofmatches.html')
+
+
 @app.route('/sign-s3/', methods=['GET', 'POST'])
 def sign_s3():
     urlSchema = fileurlschema()
@@ -272,12 +277,24 @@ def faculty_page():
     return render_template('faculty.html')
 
 
+def escape(inpString):
+    inpString = inpString.replace('\"', '\\"')
+    inpString = inpString.replace('\n', '\\n')
+    inpString = inpString.replace('\r', '\\r')
+    inpString = inpString.replace('\a', '\\a')
+    inpString = inpString.replace('\b', '\\b')
+    inpString = inpString.replace('\f', '\\f')
+    inpString = inpString.replace('\r', '\\r')
+    inpString = inpString.replace('\t', '\\t')
+    return inpString
+
+
 def constructProject(inpJson):
     inpJson[u'id'] = str(uuid.uuid1())
+    inpJson['Description'] = escape(inpJson['Description'])
     inpJson['specialRequirements'] = json.dumps(inpJson['specialRequirements'])
     inpJson['fieldOfStudy'] = json.dumps(inpJson['fieldOfStudy'])
     inpJson['isDevelopingCommunities'] = inpJson['isDevelopingCommunities'] == "Yes" if True else False
-    # inpJson['isDevelopingCommunities'] = False  ## what's this?
     return inpJson
 
 
@@ -293,9 +310,10 @@ def constructFaculty(inpJson, isgrad):
     else:
         return None
 
-@app.route('/matchedview')
-def filterApplications():
 
+@app.route('/getMatches')
+def filterApplications():
+    data = {}
     sSchema = studentschema()
     pSchema = projectschema()
 
@@ -309,6 +327,9 @@ def filterApplications():
         isWorkedBefore = sJson['isWorkedBefore']
         isAvailability = sJson['isAvailability']
         isMSBSStudent = sJson['isMSBSStudent']
+        firstName = sJson['FirstName']
+        lastName = sJson['LastName']
+        name = firstName + ' ' + lastName
         if gpa < u'3':
             continue
         elif isWorkedBefore == True:
@@ -318,10 +339,9 @@ def filterApplications():
         elif isMSBSStudent == 'Yes':
             continue
         else:
+            sJson['Race'] = json.loads(sJson['Race'])
             studList.append(sJson)
 
-    #print len(studList)
-    projPrefList = []
     projList = []
     for p in proj:
         pJson = pSchema.dump(obj=p).data
@@ -334,11 +354,14 @@ def filterApplications():
         projPref5 = studentapplication.query.filter_by(ProjectPreference5=id).first()
 
         if projPref1 or projPref2 or projPref3 or projPref4 or projPref5:
-            projList.append(id)
+            pJson["fieldOfStudy"] = json.loads(pJson["fieldOfStudy"])
+            pJson["specialRequirements"] = json.loads(pJson["specialRequirements"])
+            projList.append(pJson)
 
-    #print projList
-    ## loading faculty.html temporarily.
-    return redirect(url_for('index'))
+    data['student'] = studList
+    data['project'] = projList
+    json_data = json.dumps(data)
+    return json_data
 
 
 def constructStudent(inpJson):
