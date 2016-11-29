@@ -228,7 +228,7 @@ def sign_s3():
 
     # if user has already inserted a resume once - just use existing id
     if fr:
-        print "exists"
+        #print "exists"
         result[u'id'] = fr.id
     else:
         result[u'id'] = str(uuid.uuid1())
@@ -358,10 +358,59 @@ def filterApplications():
             pJson["specialRequirements"] = json.loads(pJson["specialRequirements"])
             projList.append(pJson)
 
-    data['student'] = studList
+    rankedStudList = rankStudents(studList)
+
+    print "Final ranked student List:", rankedStudList
+    #data['student'] = studList
+    data['student'] = rankedStudList
     data['project'] = projList
     json_data = json.dumps(data)
     return json_data
+
+def rankStudents(studList):
+
+    levelDict = {"Freshman":200, "Sophomore": 400, "Junior": 600, "Senior":800, "5th Year Senior":1000}
+    genderDict = {"Male":0, "Female":50}
+    rankDict = {}
+
+    for stud in studList:
+        #print type(stud)
+        score = 0
+
+        score = score + levelDict[stud['SchoolLevel']] + genderDict[stud['Gender']]
+
+        ## add more miinorities if needed
+        if stud['isSpanishOrigin'] == 'Yes' or stud['Race'] == 'Black or African-American':
+            score = score + 50
+
+        if stud['isGoldShirt'] == True:
+            score = score + 50
+
+        if stud['isAppliedBefore'] == True:
+            score = score + 100
+
+        gpa =  float(stud['GPA'])
+        score = score + 100 * gpa
+
+        rankDict[stud['id']] = score
+
+    #print rankDict
+    sortedList = sorted(sorted(rankDict), key=rankDict.get, reverse=True)
+
+    sSchema = studentschema()
+
+    rankedStudentList = []
+    for element in sortedList:
+        s = student.query.filter_by(id=element).first()
+        sJson = sSchema.dump(obj=s).data
+        sJson['Race'] = json.loads(sJson['Race'])
+        rankedStudentList.append(sJson)
+
+    return rankedStudentList
+
+
+
+
 
 
 def constructStudent(inpJson):
