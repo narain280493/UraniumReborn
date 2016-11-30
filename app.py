@@ -359,13 +359,62 @@ def filterApplications():
             projList.append(pJson)
 
     rankedStudList = rankStudents(studList)
-
-    print "Final ranked student List:", rankedStudList
+    print "Ranked:",rankedStudList
+    #print "Final ranked student List:", rankedStudList
     #data['student'] = studList
     data['student'] = rankedStudList
     data['project'] = projList
     json_data = json.dumps(data)
+
+    matchedStudList = matchStudents(rankedStudList,projList)
+
     return json_data
+
+def matchStudents(studList, projList):
+
+    print "in matchstudents"
+    projIdList = []
+    for proj in projList:
+        projIdList.append(proj['id'])
+
+    saSchema = studentapplicationschema()
+    projPrefList = []
+    matchDict = {}
+    #print "stud list",len(studList)
+    #print "proj list",len(projList)
+    for stud in studList:
+        print "matching for student", stud['FirstName']
+        stuApp = studentapplication.query.filter_by(s_id=stud['id']).first()
+        saJson = saSchema.dump(obj=stuApp).data
+        projPrefList.append(saJson['ProjectPreference1'])
+        projPrefList.append(saJson['ProjectPreference2'])
+        projPrefList.append(saJson['ProjectPreference3'])
+        projPrefList.append(saJson['ProjectPreference4'])
+        projPrefList.append(saJson['ProjectPreference5'])
+        print projPrefList
+        for proj in projPrefList:
+            print "Looking at project:", proj
+            if proj in projIdList:
+                matchDict[stud['id']] = proj
+                print "matching done"
+                projIdList.remove(proj)
+                print "Project removed",proj
+                assignedFlag =1
+                break
+    print matchDict
+    return 1
+
+
+
+
+
+
+
+
+
+
+
+
 
 def rankStudents(studList):
 
