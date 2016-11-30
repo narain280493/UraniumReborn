@@ -359,7 +359,7 @@ def filterApplications():
             projList.append(pJson)
 
     rankedStudList = rankStudents(studList)
-    print "Ranked:",rankedStudList
+   # print "Ranked:",rankedStudList
     #print "Final ranked student List:", rankedStudList
     #data['student'] = studList
     data['student'] = rankedStudList
@@ -370,51 +370,58 @@ def filterApplications():
 
     return json_data
 
+def constructProjectPreferences(saJson):
+    projPrefList = []
+    if len(saJson['ProjectPreference1']) > 0:
+        projPrefList.append(saJson['ProjectPreference1'])
+    if len(saJson['ProjectPreference2']) > 0:
+        projPrefList.append(saJson['ProjectPreference2'])
+    if len(saJson['ProjectPreference3']) > 0:
+        projPrefList.append(saJson['ProjectPreference3'])
+    if len(saJson['ProjectPreference4']) > 0:
+        projPrefList.append(saJson['ProjectPreference4'])
+    if len(saJson['ProjectPreference5']) > 0:
+        projPrefList.append(saJson['ProjectPreference5'])
+    return projPrefList
+
 def matchStudents(studList, projList):
 
-    print "in matchstudents"
+    #print "in matchstudents"
     projIdList = []
     for proj in projList:
         projIdList.append(proj['id'])
 
     saSchema = studentapplicationschema()
-    projPrefList = []
+
     matchDict = {}
     #print "stud list",len(studList)
     #print "proj list",len(projList)
+    unassignedStudents = []
+
     for stud in studList:
-        print "matching for student", stud['FirstName']
+        # if there are no projects available, quit here itself.
+        if len(projIdList) ==0:
+            break
+        print "matching for student", stud['FirstName'],stud['id']
         stuApp = studentapplication.query.filter_by(s_id=stud['id']).first()
         saJson = saSchema.dump(obj=stuApp).data
-        projPrefList.append(saJson['ProjectPreference1'])
-        projPrefList.append(saJson['ProjectPreference2'])
-        projPrefList.append(saJson['ProjectPreference3'])
-        projPrefList.append(saJson['ProjectPreference4'])
-        projPrefList.append(saJson['ProjectPreference5'])
-        print projPrefList
+        projPrefList = constructProjectPreferences(saJson)
+        print "Project preference List--",projPrefList
         for proj in projPrefList:
-            print "Looking at project:", proj
             if proj in projIdList:
                 matchDict[stud['id']] = proj
-                print "matching done"
+              #  print "matching done"
                 projIdList.remove(proj)
-                print "Project removed",proj
-                assignedFlag =1
+                print "Project assigned",proj
+                assignedProject = 1
                 break
-    print matchDict
-    return 1
 
+        if assignedProject!=1:
+            unassignedStudents.append(stud)
 
-
-
-
-
-
-
-
-
-
-
+    #print matchDict
+    #print "projects not yet assigned", projIdList
+    return matchDict
 
 def rankStudents(studList):
 
@@ -456,11 +463,6 @@ def rankStudents(studList):
         rankedStudentList.append(sJson)
 
     return rankedStudentList
-
-
-
-
-
 
 def constructStudent(inpJson):
     if inpJson['FirstName'] != '':
