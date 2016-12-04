@@ -320,10 +320,13 @@ def filterApplications():
     stud = student.query.all()
     proj = project.query.all()
 
-    assignedProjects = request.args.get('assigned-projects')
-    assignedStudents = request.args.get('assigned-students')
+    ## get re-assigned projects and students here
+    
+   # assignedProjects = request.args.get('assigned-projects')
+    # #assignedStudents = request.args.get('assigned-students')
 
     studList = []
+
     #filtering students
     for s in stud:
         sJson = sSchema.dump(obj=s).data
@@ -345,6 +348,8 @@ def filterApplications():
             sJson['Race'] = json.loads(sJson['Race'])
             studList.append(sJson)
 
+    ## remove re-assigned student from studList
+
     #filtering projects
     projList = []
     for p in proj:
@@ -362,8 +367,19 @@ def filterApplications():
             pJson["specialRequirements"] = json.loads(pJson["specialRequirements"])
             projList.append(pJson)
 
+    ## remove re-assigned project from ProjList here
+
+    data = {}
     rankedStudList = rankStudents(studList)
-    json_data= matchStudents(rankedStudList,projList)
+    assignedStudents, assignedProjects, assignedStudentProjPreferenceList = matchStudents(rankedStudList,projList)
+
+
+    ## add re-assigned students, projects and projectpreferencelist here
+
+    data['student'] = assignedStudents
+    data['project'] = assignedProjects
+    data['projectPreference'] = assignedStudentProjPreferenceList
+    json_data = json.dumps(data)
 
     return json_data
 
@@ -424,11 +440,7 @@ def matchStudents(studList, projList):
             #keeping track of unassigned students
             unassignedStudents.append(stud)
 
-    data['student'] = assignedStudents
-    data['project'] = assignedProjects
-    data['projectPreference'] = assignedStudentProjPreferenceList
-    json_data = json.dumps(data)
-    return json_data
+    return (assignedStudents, assignedProjects, assignedStudentProjPreferenceList)
 
 def rankStudents(studList):
 
