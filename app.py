@@ -313,14 +313,18 @@ def constructFaculty(inpJson, isgrad):
 
 @app.route('/getMatches')
 def filterApplications():
-    data = {}
+
     sSchema = studentschema()
     pSchema = projectschema()
 
     stud = student.query.all()
     proj = project.query.all()
 
+    assignedProjects = request.args.get('assigned-projects')
+    assignedStudents = request.args.get('assigned-students')
+
     studList = []
+    #filtering students
     for s in stud:
         sJson = sSchema.dump(obj=s).data
         gpa = sJson['GPA']
@@ -329,7 +333,6 @@ def filterApplications():
         isMSBSStudent = sJson['isMSBSStudent']
         firstName = sJson['FirstName']
         lastName = sJson['LastName']
-        name = firstName + ' ' + lastName
         if gpa < u'3':
             continue
         elif isWorkedBefore == True:
@@ -342,6 +345,7 @@ def filterApplications():
             sJson['Race'] = json.loads(sJson['Race'])
             studList.append(sJson)
 
+    #filtering projects
     projList = []
     for p in proj:
         pJson = pSchema.dump(obj=p).data
@@ -359,14 +363,7 @@ def filterApplications():
             projList.append(pJson)
 
     rankedStudList = rankStudents(studList)
-   # print "Ranked:",rankedStudList
-    #print "Final ranked student List:", rankedStudList
-    #data['student'] = studList
-    data['student'] = rankedStudList
-    data['project'] = projList
-    json_data = json.dumps(data)
-
-    matchedStudList = matchStudents(rankedStudList,projList)
+    json_data= matchStudents(rankedStudList,projList)
 
     return json_data
 
@@ -384,44 +381,54 @@ def constructProjectPreferences(saJson):
         projPrefList.append(saJson['ProjectPreference5'])
     return projPrefList
 
+def getProject(project_id):
+    pSchema = projectschema()
+    proj = project.query.filter_by(id=project_id).first()
+    pJson = pSchema.dump(obj=proj).data
+    return pJson
+
 def matchStudents(studList, projList):
 
-    #print "in matchstudents"
+    data = {}
     projIdList = []
     for proj in projList:
         projIdList.append(proj['id'])
 
     saSchema = studentapplicationschema()
 
+
     matchDict = {}
-    #print "stud list",len(studList)
-    #print "proj list",len(projList)
     unassignedStudents = []
+    assignedStudents = []
+    assignedProjects = []
+    assignedStudentProjPreferenceList = []
 
     for stud in studList:
         # if there are no projects available, quit here itself.
         if len(projIdList) ==0:
             break
-        print "matching for student", stud['FirstName'],stud['id']
         stuApp = studentapplication.query.filter_by(s_id=stud['id']).first()
         saJson = saSchema.dump(obj=stuApp).data
         projPrefList = constructProjectPreferences(saJson)
-        print "Project preference List--",projPrefList
         for proj in projPrefList:
             if proj in projIdList:
                 matchDict[stud['id']] = proj
-              #  print "matching done"
                 projIdList.remove(proj)
-                print "Project assigned",proj
                 assignedProject = 1
+                assignedStudents.append(stud)
+                assignedProjects.append(getProject(proj))
+                assignedStudentProjPreferenceList.append(saJson)
                 break
 
         if assignedProject!=1:
+            #keeping track of unassigned students
             unassignedStudents.append(stud)
 
-    #print matchDict
-    #print "projects not yet assigned", projIdList
-    return matchDict
+    data['student'] = assignedStudents
+    data['project'] = assignedProjects
+    data['projectPreference'] = assignedStudentProjPreferenceList
+    json_data = json.dumps(data)
+    return json_data
 
 def rankStudents(studList):
 
@@ -430,12 +437,11 @@ def rankStudents(studList):
     rankDict = {}
 
     for stud in studList:
-        #print type(stud)
         score = 0
 
         score = score + levelDict[stud['SchoolLevel']] + genderDict[stud['Gender']]
 
-        ## add more miinorities if needed
+        ## add more minorities if needed
         if stud['isSpanishOrigin'] == 'Yes' or stud['Race'] == 'Black or African-American':
             score = score + 50
 
@@ -450,7 +456,6 @@ def rankStudents(studList):
 
         rankDict[stud['id']] = score
 
-    #print rankDict
     sortedList = sorted(sorted(rankDict), key=rankDict.get, reverse=True)
 
     sSchema = studentschema()
