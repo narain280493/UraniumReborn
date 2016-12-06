@@ -8,22 +8,42 @@
         dataType: 'json',
 
         success: function (data) {
-            console.log(data);
-            var projs = data["project"];
+            var projs = data["projects"];
+            var aProjs = data["assignedProject"];
+            var projPrefs = data["projectPreference"];
             var rows = data["student"].map((student,index) => {
                 var projName = null;
-                if(index <= projs.length-1){
-                    projName = projs[index]["Title"];
+                if(index <= aProjs.length-1){
+                    var projId = aProjs[index];
+                    var foundP = projs.find( (p) => p.id==projId);
+                    if(foundP) {
+                        projName = foundP.Title
+                    }
                 }
                 return(
                 {"Student Name":student["FirstName"]+student["LastName"],
                     "id":student["id"],
                     "Project Name": projName })});
-            var opts = projs.map((p,index) => {return({"Title":p["Title"], "id":p["id"]})});
-            console.log(rows);
-            console.log(opts);
+            var opts = projPrefs.map((p,index) => {
+                var s_id = data["student"][index]["id"];
+                var iter = ["1","2","3","4","5"];
+                var sPrefs = iter.map((e) => {
+                    var projId = null;
+                    var projName = null;
+                    if(p["ProjectPreference" + e]!='')
+                            projId = p["ProjectPreference" + e];
+                    var foundP = projs.find( (p) => p.id==projId);
+                    if(foundP) {
+                        projName = foundP.Title
+                    }
+                    if(projId != null && projName != null)
+                     return ({"Title":projName, "id": projId});
+                    else
+                     return null;
+                });
+                return ({"s_id": s_id,"prefs": sPrefs});
+            });
             ReactDOM.render(<MatchesTable crows={rows} modalID="matchModal" opts={opts}>
-
             </MatchesTable>,document.getElementById("matchList"))
         }
 

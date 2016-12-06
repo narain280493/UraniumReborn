@@ -3,6 +3,7 @@ from database.database import db_session, init_db
 from models.faculty import faculty
 from models.project import project
 from models.student import student
+from models.overrides import overrides
 from models.studentapplication import studentapplication
 from models.fileurl import fileurl
 from models.loginpage import loginpage
@@ -10,6 +11,7 @@ from ma_schema.facultyschema import facultyschema
 from ma_schema.projectschema import projectschema
 from ma_schema.studentschema import studentschema
 from ma_schema.loginpageschema import loginpageschema
+from ma_schema.overrideschema import overrideschema
 from ma_schema.studentapplicationschema import studentapplicationschema
 from ma_schema.fileurlschema import fileurlschema
 from werkzeug import check_password_hash
@@ -311,9 +313,24 @@ def constructFaculty(inpJson, isgrad):
         return None
 
 
+@app.route('/override', methods=['POST'])
+def overrideMatch():
+    try:
+        oSchema = overrideschema()
+        oDataS = request.get_data()
+        oDataJ = json.loads(oDataS)
+        oObj = oSchema.load(oDataJ, session=db_session).data
+        oObj.s_id = str(oDataJ['s_id'])
+        oObj.p_id = str(oDataJ['p_id'])
+        db_session.merge(oObj)
+        db_session.commit()
+    except Exception:
+        return json.dumps({'status': 'override failed'})
+    return json.dumps({'status': 'OK'})
+
+
 @app.route('/getMatches')
 def filterApplications():
-
     sSchema = studentschema()
     pSchema = projectschema()
 
@@ -367,21 +384,20 @@ def filterApplications():
             pJson["specialRequirements"] = json.loads(pJson["specialRequirements"])
             projList.append(pJson)
 
-    ## remove re-assigned project from ProjList here
-
+    # remove re-assigned project from ProjList here
     data = {}
     rankedStudList = rankStudents(studList)
-    assignedStudents, assignedProjects, assignedStudentProjPreferenceList = matchStudents(rankedStudList,projList)
+    assignedStudents, assignedProjects, assignedStudentProjPreferenceList = matchStudents(rankedStudList, projList)
 
-
-    ## add re-assigned students, projects and projectpreferencelist here
-
+    # add re-assigned students, projects and projectpreferencelist here
     data['student'] = assignedStudents
-    data['project'] = assignedProjects
+    data['assignedProject'] = assignedProjects
+    data['projects'] = projList
     data['projectPreference'] = assignedStudentProjPreferenceList
     json_data = json.dumps(data)
 
     return json_data
+
 
 def constructProjectPreferences(saJson):
     projPrefList = []
@@ -397,21 +413,21 @@ def constructProjectPreferences(saJson):
         projPrefList.append(saJson['ProjectPreference5'])
     return projPrefList
 
+
 def getProject(project_id):
     pSchema = projectschema()
     proj = project.query.filter_by(id=project_id).first()
     pJson = pSchema.dump(obj=proj).data
     return pJson
 
-def matchStudents(studList, projList):
 
+def matchStudents(studList, projList):
     data = {}
     projIdList = []
     for proj in projList:
         projIdList.append(proj['id'])
 
     saSchema = studentapplicationschema()
-
 
     matchDict = {}
     unassignedStudents = []
@@ -421,7 +437,8 @@ def matchStudents(studList, projList):
 
     for stud in studList:
         # if there are no projects available, quit here itself.
-        if len(projIdList) ==0:
+        assignedProject = 0
+        if len(projIdList) == 0:
             break
         stuApp = studentapplication.query.filter_by(s_id=stud['id']).first()
         saJson = saSchema.dump(obj=stuApp).data
@@ -432,18 +449,18 @@ def matchStudents(studList, projList):
                 projIdList.remove(proj)
                 assignedProject = 1
                 assignedStudents.append(stud)
-                assignedProjects.append(getProject(proj))
+                assignedProjects.append(proj)
                 assignedStudentProjPreferenceList.append(saJson)
                 break
 
-        if assignedProject!=1:
-            #keeping track of unassigned students
+        if assignedProject != 1:
+            # keeping track of unassigned students
             unassignedStudents.append(stud)
 
-    return (assignedStudents, assignedProjects, assignedStudentProjPreferenceList)
+    return assignedStudents, assignedProjects, assignedStudentProjPreferenceList
+
 
 def rankStudents(studList):
-
     levelDict = {"Freshman":200, "Sophomore": 400, "Junior": 600, "Senior":800, "5th Year Senior":1000}
     genderDict = {"Male":0, "Female":50}
     rankDict = {}
@@ -480,6 +497,7 @@ def rankStudents(studList):
         rankedStudentList.append(sJson)
 
     return rankedStudentList
+
 
 def constructStudent(inpJson):
     if inpJson['FirstName'] != '':
