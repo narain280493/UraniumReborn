@@ -16,11 +16,9 @@
                 var projName = null;
                 if(index <= aProjs.length-1){
                     var projId = aProjs[index];
-                    console.log(projId)
                     var foundP = projs.find( (p) => p.id==projId);
                     if(foundP) {
                         projName = foundP.Title
-                        console.log(projName)
                     }
                 }
                 return(
@@ -60,5 +58,6 @@
 <div class="modal fade" id="matchModal" tabindex="-1" role="dialog" aria-labelledby="matchModalLabel">
 
 </div>
+
 
 {% endblock %}
