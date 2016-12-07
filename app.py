@@ -314,6 +314,8 @@ def constructFaculty(inpJson, isgrad):
 
 @app.route('/override', methods=['POST'])
 def overrideMatch():
+    if 'email' not in session:
+        return redirect(url_for('index'))
     try:
         oSchema = overrideschema()
         oDataS = request.get_data()
@@ -327,14 +329,54 @@ def overrideMatch():
         return json.dumps({'status': 'override failed'})
     return json.dumps({'status': 'OK'})
 
+
 @app.route('/clearOverride')
 def clearOverride():
+    if 'email' not in session:
+        return redirect(url_for('index'))
     odel = db_session.query(overrides).delete()
     db_session.commit()
     return redirect(url_for('index'))
 
-@app.route('/getMatches', methods=['GET', 'POST'])
+
+@app.route('/getprefdata', methods=["GET"])
+def getPrefData():
+    if 'email' not in session:
+        return redirect(url_for('index'))
+    sSchema = studentschema()
+    pSchema = projectschema()
+    saSchema = studentapplicationschema()
+    studs = student.query.all()
+    projs = project.query.all()
+    sas = studentapplication.query.all()
+    studsJson = [sSchema.dump(obj=s).data for s in studs]
+    projsJson = [pSchema.dump(obj=p).data for p in projs]
+    sasJson = [saSchema.dump(obj=sa).data for sa in sas]
+    studsJsonF = []
+    projsJsonF = []
+    for s in studsJson:
+        s['Race'] = json.dumps(s['Race'])
+        studsJsonF.append(s)
+
+    for p in projsJson:
+        p["fieldOfStudy"] = json.loads(p["fieldOfStudy"])
+        p["specialRequirements"] = json.loads(p["specialRequirements"])
+        projsJsonF.append(p)
+
+    return json.dumps({"students": studsJsonF, "projects": projsJsonF, "prefs": sasJson})
+
+
+@app.route('/preftable')
+def prefTable():
+    if 'email' not in session:
+        return redirect(url_for('index'))
+    return render_template('preferencetable.html')
+
+
+@app.route('/getMatches')
 def filterApplications():
+    if 'email' not in session:
+        return redirect(url_for('index'))
     sSchema = studentschema()
     pSchema = projectschema()
     oSchema = overrideschema()
@@ -423,7 +465,7 @@ def filterApplications():
     # add re-assigned students, projects and projectpreferencelist here
 
     assignedStudents = assignedStudents + overridenStudList
-    assignedProjects  = assignedProjects + overridenProjList
+    assignedProjects = assignedProjects + overridenProjList
     assignedStudentProjPreferenceList = assignedStudentProjPreferenceList + overridenprojPrefList
 
     for id in overridenProjList:
@@ -459,11 +501,13 @@ def getProject(project_id):
     pJson = pSchema.dump(obj=proj).data
     return pJson
 
+
 def getStudent(student_id):
     sSchema = studentschema()
     stud = student.query.filter_by(id=student_id).first()
     sJson = sSchema.dump(obj=stud).data
     return sJson
+
 
 def matchStudents(studList, projList):
     data = {}

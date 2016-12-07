@@ -5,6 +5,7 @@
       <title>Discovery Learning Apprenticeship Program</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <link rel="stylesheet" type="text/css" href="../static/css/login.css">
+      <link rel="stylesheet" type="text/css" href="../static/css/ta">
       <script src="{{ url_for('static', filename='bower_components/jquery/dist/jquery.js')}}"></script>
       <script src="{{ url_for('static', filename='bower_components/jquery-serialize-object/dist/jquery.serialize-object.min.js')}}"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
@@ -22,6 +23,10 @@
       <script src="../static/js/signupValidation.js"></script>
       <script src="../static/js/loginValidation.js"></script>
       <script type="text/jsx" src="../static/js/reactMatch.jsx"></script>
+      <script type="text/jsx" src="../static/js/prefMatrix.jsx"></script>
+      <script type="text/jsx" src="../static/js/xlsx.core.js"></script>
+      <script type="text/jsx" src="../static/js/FileSaver.js"></script>
+      <script type="text/jsx" src="../static/js/tableexport.js"></script>
       <script type="text/javascript" src="../static/js/field-disable.js"></script>
   </head>
 
@@ -43,6 +48,7 @@
       <li ><a href="faculty">Faculty form</a></li>
         {% elif session['utype']=='CEAS' %}
       <li ><a href="listmatches">List of Matches</a></li>
+      <li ><a href="preftable">Preferences Table</a></li>
         {% endif %}
       <li ><a href="listofprojects">List of Projects</a></li>
 
