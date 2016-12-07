@@ -327,8 +327,13 @@ def overrideMatch():
         return json.dumps({'status': 'override failed'})
     return json.dumps({'status': 'OK'})
 
+@app.route('/clearOverride')
+def clearOverride():
+    odel = db_session.query(overrides).delete()
+    db_session.commit()
+    return redirect(url_for('index'))
 
-@app.route('/getMatches')
+@app.route('/getMatches', methods=['GET', 'POST'])
 def filterApplications():
     sSchema = studentschema()
     pSchema = projectschema()
