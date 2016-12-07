@@ -3,6 +3,7 @@ from database.database import db_session, init_db
 from models.faculty import faculty
 from models.project import project
 from models.student import student
+from models.overrides import overrides
 from models.studentapplication import studentapplication
 from models.fileurl import fileurl
 from models.loginpage import loginpage
@@ -10,6 +11,7 @@ from ma_schema.facultyschema import facultyschema
 from ma_schema.projectschema import projectschema
 from ma_schema.studentschema import studentschema
 from ma_schema.loginpageschema import loginpageschema
+from ma_schema.overrideschema import overrideschema
 from ma_schema.studentapplicationschema import studentapplicationschema
 from ma_schema.fileurlschema import fileurlschema
 from werkzeug import check_password_hash
@@ -228,7 +230,6 @@ def sign_s3():
 
     # if user has already inserted a resume once - just use existing id
     if fr:
-        print "exists"
         result[u'id'] = fr.id
     else:
         result[u'id'] = str(uuid.uuid1())
@@ -311,16 +312,98 @@ def constructFaculty(inpJson, isgrad):
         return None
 
 
-@app.route('/getMatches')
-def filterApplications():
-    data = {}
+@app.route('/override', methods=['POST'])
+def overrideMatch():
+    if 'email' not in session:
+        return redirect(url_for('index'))
+    try:
+        oSchema = overrideschema()
+        oDataS = request.get_data()
+        oDataJ = json.loads(oDataS)
+        oObj = oSchema.load(oDataJ, session=db_session).data
+        oObj.s_id = str(oDataJ['s_id'])
+        oObj.p_id = str(oDataJ['p_id'])
+        db_session.merge(oObj)
+        db_session.commit()
+    except Exception:
+        return json.dumps({'status': 'override failed'})
+    return json.dumps({'status': 'OK'})
+
+
+@app.route('/clearOverride')
+def clearOverride():
+    if 'email' not in session:
+        return redirect(url_for('index'))
+    odel = db_session.query(overrides).delete()
+    db_session.commit()
+    return redirect(url_for('index'))
+
+
+@app.route('/getprefdata', methods=["GET"])
+def getPrefData():
+    if 'email' not in session:
+        return redirect(url_for('index'))
     sSchema = studentschema()
     pSchema = projectschema()
+    saSchema = studentapplicationschema()
+    studs = student.query.all()
+    projs = project.query.all()
+    sas = studentapplication.query.all()
+    studsJson = [sSchema.dump(obj=s).data for s in studs]
+    projsJson = [pSchema.dump(obj=p).data for p in projs]
+    sasJson = [saSchema.dump(obj=sa).data for sa in sas]
+    studsJsonF = []
+    projsJsonF = []
+    for s in studsJson:
+        s['Race'] = json.dumps(s['Race'])
+        studsJsonF.append(s)
+
+    for p in projsJson:
+        p["fieldOfStudy"] = json.loads(p["fieldOfStudy"])
+        p["specialRequirements"] = json.loads(p["specialRequirements"])
+        projsJsonF.append(p)
+
+    return json.dumps({"students": studsJsonF, "projects": projsJsonF, "prefs": sasJson})
+
+
+@app.route('/preftable')
+def prefTable():
+    if 'email' not in session:
+        return redirect(url_for('index'))
+    return render_template('preferencetable.html')
+
+
+@app.route('/getMatches')
+def filterApplications():
+    if 'email' not in session:
+        return redirect(url_for('index'))
+    sSchema = studentschema()
+    pSchema = projectschema()
+    oSchema = overrideschema()
+    saSchema = studentapplicationschema()
 
     stud = student.query.all()
     proj = project.query.all()
 
+
+    overridenStudList = []
+    overridenProjList = []
+    overridenprojPrefList = []
+
+
+    ## get re-assigned projects and students here
+    over = overrides.query.all()
+    for o in over:
+        oJson = oSchema.dump(obj=o).data
+        overridenStudList.append(getStudent(oJson['stud']))
+        overridenProjList.append(oJson['proj'])
+        stuApp = studentapplication.query.filter_by(s_id=oJson['stud']).first()
+        saJson = saSchema.dump(obj=stuApp).data
+        overridenprojPrefList.append(saJson)
+
     studList = []
+
+    #filtering students
     for s in stud:
         sJson = sSchema.dump(obj=s).data
         gpa = sJson['GPA']
@@ -329,7 +412,8 @@ def filterApplications():
         isMSBSStudent = sJson['isMSBSStudent']
         firstName = sJson['FirstName']
         lastName = sJson['LastName']
-        name = firstName + ' ' + lastName
+        name = firstName + lastName
+
         if gpa < u'3':
             continue
         elif isWorkedBefore == True:
@@ -342,6 +426,16 @@ def filterApplications():
             sJson['Race'] = json.loads(sJson['Race'])
             studList.append(sJson)
 
+
+    ## remove re-assigned student from studList
+
+    for st in overridenStudList:
+        for s in studList:
+            if s['id'] == st['id']:
+                studList.remove(s)
+
+
+    #filtering projects
     projList = []
     for p in proj:
         pJson = pSchema.dump(obj=p).data
@@ -358,10 +452,139 @@ def filterApplications():
             pJson["specialRequirements"] = json.loads(pJson["specialRequirements"])
             projList.append(pJson)
 
-    data['student'] = studList
-    data['project'] = projList
+    # remove re-assigned project from ProjList here
+    for id in overridenProjList:
+        for p in projList:
+            if p['id'] == id:
+                projList.remove(p)
+
+    data = {}
+    rankedStudList = rankStudents(studList)
+    assignedStudents, assignedProjects, assignedStudentProjPreferenceList = matchStudents(rankedStudList, projList)
+
+    # add re-assigned students, projects and projectpreferencelist here
+
+    assignedStudents = assignedStudents + overridenStudList
+    assignedProjects = assignedProjects + overridenProjList
+    assignedStudentProjPreferenceList = assignedStudentProjPreferenceList + overridenprojPrefList
+
+    for id in overridenProjList:
+        projList.append(getProject(id))
+
+    data['student'] = assignedStudents
+    data['assignedProject'] = assignedProjects
+    data['projects'] = projList
+    data['projectPreference'] = assignedStudentProjPreferenceList
     json_data = json.dumps(data)
+
     return json_data
+
+
+def constructProjectPreferences(saJson):
+    projPrefList = []
+    if len(saJson['ProjectPreference1']) > 0:
+        projPrefList.append(saJson['ProjectPreference1'])
+    if len(saJson['ProjectPreference2']) > 0:
+        projPrefList.append(saJson['ProjectPreference2'])
+    if len(saJson['ProjectPreference3']) > 0:
+        projPrefList.append(saJson['ProjectPreference3'])
+    if len(saJson['ProjectPreference4']) > 0:
+        projPrefList.append(saJson['ProjectPreference4'])
+    if len(saJson['ProjectPreference5']) > 0:
+        projPrefList.append(saJson['ProjectPreference5'])
+    return projPrefList
+
+
+def getProject(project_id):
+    pSchema = projectschema()
+    proj = project.query.filter_by(id=project_id).first()
+    pJson = pSchema.dump(obj=proj).data
+    return pJson
+
+
+def getStudent(student_id):
+    sSchema = studentschema()
+    stud = student.query.filter_by(id=student_id).first()
+    sJson = sSchema.dump(obj=stud).data
+    return sJson
+
+
+def matchStudents(studList, projList):
+    data = {}
+    projIdList = []
+    for proj in projList:
+        projIdList.append(proj['id'])
+
+    saSchema = studentapplicationschema()
+
+    matchDict = {}
+    unassignedStudents = []
+    assignedStudents = []
+    assignedProjects = []
+    assignedStudentProjPreferenceList = []
+
+    for stud in studList:
+        # if there are no projects available, quit here itself.
+        assignedProject = 0
+        if len(projIdList) == 0:
+            break
+        stuApp = studentapplication.query.filter_by(s_id=stud['id']).first()
+        saJson = saSchema.dump(obj=stuApp).data
+        projPrefList = constructProjectPreferences(saJson)
+        for proj in projPrefList:
+            if proj in projIdList:
+                matchDict[stud['id']] = proj
+                projIdList.remove(proj)
+                assignedProject = 1
+                assignedStudents.append(stud)
+                assignedProjects.append(proj)
+                assignedStudentProjPreferenceList.append(saJson)
+                break
+
+        if assignedProject != 1:
+            # keeping track of unassigned students
+            unassignedStudents.append(stud)
+
+    return assignedStudents, assignedProjects, assignedStudentProjPreferenceList
+
+
+def rankStudents(studList):
+    levelDict = {"Freshman":200, "Sophomore": 400, "Junior": 600, "Senior":800, "5th Year Senior":1000}
+    genderDict = {"Male":0, "Female":50}
+    rankDict = {}
+
+    for stud in studList:
+        score = 0
+
+        score = score + levelDict[stud['SchoolLevel']] + genderDict[stud['Gender']]
+
+        ## add more minorities if needed
+        if stud['isSpanishOrigin'] == 'Yes' or stud['Race'] == 'Black or African-American':
+            score = score + 50
+
+        if stud['isGoldShirt'] == True:
+            score = score + 50
+
+        if stud['isAppliedBefore'] == True:
+            score = score + 100
+
+        gpa =  float(stud['GPA'])
+        score = score + 100 * gpa
+
+        rankDict[stud['id']] = score
+
+    sortedList = sorted(sorted(rankDict), key=rankDict.get, reverse=True)
+
+    sSchema = studentschema()
+
+    rankedStudentList = []
+    for element in sortedList:
+        s = student.query.filter_by(id=element).first()
+        sJson = sSchema.dump(obj=s).data
+        sJson['Race'] = json.loads(sJson['Race'])
+        rankedStudentList.append(sJson)
+
+    return rankedStudentList
 
 
 def constructStudent(inpJson):

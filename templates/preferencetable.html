@@ -1,0 +1,28 @@
+{% extends "navigation.html" %}
+
+{% block content %}
+<script type="text/jsx">
+    $.ajax({
+        url: '/getprefdata',
+        type: 'GET',
+        dataType: 'json',
+        success: function (data) {
+            var students = data["students"];
+            var projects = data["projects"];
+            var prefs = data["prefs"];
+            ReactDOM.render(<PreferenceMatrix colHeaders={projects} rowHeaders={students} projPrefs={prefs}
+                                              classNames="table table-striped well table-hover">
+            </PreferenceMatrix>, document.getElementById("prefmat"));
+            $("#prefmat").tableExport({
+                bootstrap: true,
+                formats: ["xlsx"],
+                fileName: "PreferencesTable",
+                position: "bottom"
+            });
+        }})
+</script>
+
+<div id="prefmat">
+
+</div>
+{% endblock %}

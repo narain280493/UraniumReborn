@@ -11,7 +11,21 @@ class MatchModal extends React.Component {
     }
 
     clickEvent(){
-        alert("Modify is still in construction stage. Please check back again later")
+        var selector = document.getElementById("modProjectSelect");
+        var selectedProjID = selector.options[selector.selectedIndex].getAttribute("name");
+        var selectedStudentID = this.props.rowData["id"];
+        var pData = {"s_id":selectedStudentID,"p_id":selectedProjID};
+        $.ajax({
+            url: "/override",
+            method: "POST",
+            data: JSON.stringify(pData),
+            success: (r,data) => {
+                var res = JSON.parse(r);
+                if (res["status"])
+                    res["status"]=="OK"?location.reload():"fail"
+            }
+        });
+        $('#matchModal').modal('toggle');
     }
 
     render(){
@@ -27,20 +41,23 @@ class MatchModal extends React.Component {
                     <p> {this.props.rowData["Student Name"]} </p>
                     <label >Assigned Project:</label>
                     <div>
-                       <select className="form-control"> {
+                       <select id="modProjectSelect" className="form-control"> {
                           this.pOpts.map((pDet, i) => {
-                             if(pDet["Title"]!=this.props.rowData["Project Name"]){
-                                return (<option key={pDet["id"]}> {pDet["Title"]}</option>)
-                             }else{
-                                return (<option key={pDet["id"]} selected="selected"> {pDet["Title"]} </option>)
-                             }
+                              if(pDet!=null){
+                                  if (pDet["Title"] != this.props.rowData["Project Name"]) {
+                                      return (<option key={pDet["id"]} name={pDet["id"]}> {pDet["Title"]}</option>)
+                                  } else {
+                                      return (<option key={pDet["id"]} name={pDet["id"]}
+                                                      selected="selected"> {pDet["Title"]} </option>)
+                                  }
+                              }
                              })
                           }
                        </select>
                     </div>
                 </div>
                 <div className="modal-footer">
-                    <button type="button" className="btn btn-primary" onClick={this.clickEvent} data-dismiss="modal">Modify</button>
+                    <button type="button" className="btn btn-primary" onClick={this.clickEvent.bind(this)} >Modify</button>
                 </div>
             </div>
         </div>
@@ -130,8 +147,8 @@ class MatchesTable extends React.Component {
         <Table.Provider className="table table-striped well table-hover" columns={columns}>
             <Table.Header />
             <Table.Body rows={sortedRows} rowKey="id" onRow={this.onRow}/>
-    </Table.Provider>
-        </div>
+        </Table.Provider>
+     </div>
     );
     }
 
@@ -140,7 +157,8 @@ class MatchesTable extends React.Component {
             className: 'selected-row',
             onClick: () => {
                 $("#" + this.props.modalID).empty();
-                ReactDOM.render(<MatchModal rowData={row} opts={this.props.opts} />,
+                var prefOpts = this.props.opts.find( (e) => e["s_id"]==row["id"]);
+                ReactDOM.render(<MatchModal rowData={row} opts={prefOpts["prefs"]} />,
                     document.getElementById(this.props.modalID));
                 $("#" + this.props.modalID).modal("toggle")
             }
