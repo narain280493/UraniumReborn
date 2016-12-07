@@ -147,8 +147,8 @@ class MatchesTable extends React.Component {
         <Table.Provider className="table table-striped well table-hover" columns={columns}>
             <Table.Header />
             <Table.Body rows={sortedRows} rowKey="id" onRow={this.onRow}/>
-    </Table.Provider>
-        </div>
+        </Table.Provider>
+     </div>
     );
     }
 
