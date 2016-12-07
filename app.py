@@ -418,9 +418,9 @@ def filterApplications():
 
     data = {}
     rankedStudList = rankStudents(studList)
-    assignedStudents, assignedProjects, assignedStudentProjPreferenceList = matchStudents(rankedStudList, projList)
+    assignedStudents, assignedProjects, assignedStudentProjPreferenceList, unassignedStudents, unassignedProjects, unassignedStudentProjPreferenceList = matchStudents(rankedStudList, projList)
 
-    # add re-assigned students, projects and projectpreferencelist here
+    # add re-assigned students, projects and project preferencelist here
 
     assignedStudents = assignedStudents + overridenStudList
     assignedProjects  = assignedProjects + overridenProjList
@@ -433,6 +433,10 @@ def filterApplications():
     data['assignedProject'] = assignedProjects
     data['projects'] = projList
     data['projectPreference'] = assignedStudentProjPreferenceList
+
+    data['unassignedProject'] = unassignedProjects
+    data['unassignedStudent'] = unassignedStudents
+    data['unassignedStudentProjPrefences']= unassignedStudentProjPreferenceList
     json_data = json.dumps(data)
 
     return json_data
@@ -466,7 +470,6 @@ def getStudent(student_id):
     return sJson
 
 def matchStudents(studList, projList):
-    data = {}
     projIdList = []
     for proj in projList:
         projIdList.append(proj['id'])
@@ -475,6 +478,10 @@ def matchStudents(studList, projList):
 
     matchDict = {}
     unassignedStudents = []
+    unassignedStudentProjPreferenceList =[]
+    unassignedProjects = []
+
+
     assignedStudents = []
     assignedProjects = []
     assignedStudentProjPreferenceList = []
@@ -500,8 +507,12 @@ def matchStudents(studList, projList):
         if assignedProject != 1:
             # keeping track of unassigned students
             unassignedStudents.append(stud)
+            unassignedStudentProjPreferenceList.append(saJson)
 
-    return assignedStudents, assignedProjects, assignedStudentProjPreferenceList
+    for id in projIdList:
+        unassignedProjects.append(getProject(id))
+
+    return assignedStudents, assignedProjects, assignedStudentProjPreferenceList, unassignedStudents, unassignedProjects, unassignedStudentProjPreferenceList
 
 
 def rankStudents(studList):
