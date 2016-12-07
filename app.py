@@ -230,7 +230,6 @@ def sign_s3():
 
     # if user has already inserted a resume once - just use existing id
     if fr:
-        #print "exists"
         result[u'id'] = fr.id
     else:
         result[u'id'] = str(uuid.uuid1())
@@ -333,14 +332,27 @@ def overrideMatch():
 def filterApplications():
     sSchema = studentschema()
     pSchema = projectschema()
+    oSchema = overrideschema()
+    saSchema = studentapplicationschema()
 
     stud = student.query.all()
     proj = project.query.all()
 
+
+    overridenStudList = []
+    overridenProjList = []
+    overridenprojPrefList = []
+
+
     ## get re-assigned projects and students here
-    
-   # assignedProjects = request.args.get('assigned-projects')
-    # #assignedStudents = request.args.get('assigned-students')
+    over = overrides.query.all()
+    for o in over:
+        oJson = oSchema.dump(obj=o).data
+        overridenStudList.append(getStudent(oJson['stud']))
+        overridenProjList.append(oJson['proj'])
+        stuApp = studentapplication.query.filter_by(s_id=oJson['stud']).first()
+        saJson = saSchema.dump(obj=stuApp).data
+        overridenprojPrefList.append(saJson)
 
     studList = []
 
@@ -353,6 +365,8 @@ def filterApplications():
         isMSBSStudent = sJson['isMSBSStudent']
         firstName = sJson['FirstName']
         lastName = sJson['LastName']
+        name = firstName + lastName
+
         if gpa < u'3':
             continue
         elif isWorkedBefore == True:
@@ -365,7 +379,14 @@ def filterApplications():
             sJson['Race'] = json.loads(sJson['Race'])
             studList.append(sJson)
 
+
     ## remove re-assigned student from studList
+
+    for st in overridenStudList:
+        for s in studList:
+            if s['id'] == st['id']:
+                studList.remove(s)
+
 
     #filtering projects
     projList = []
@@ -385,11 +406,24 @@ def filterApplications():
             projList.append(pJson)
 
     # remove re-assigned project from ProjList here
+    for id in overridenProjList:
+        for p in projList:
+            if p['id'] == id:
+                projList.remove(p)
+
     data = {}
     rankedStudList = rankStudents(studList)
     assignedStudents, assignedProjects, assignedStudentProjPreferenceList = matchStudents(rankedStudList, projList)
 
     # add re-assigned students, projects and projectpreferencelist here
+
+    assignedStudents = assignedStudents + overridenStudList
+    assignedProjects  = assignedProjects + overridenProjList
+    assignedStudentProjPreferenceList = assignedStudentProjPreferenceList + overridenprojPrefList
+
+    for id in overridenProjList:
+        projList.append(getProject(id))
+
     data['student'] = assignedStudents
     data['assignedProject'] = assignedProjects
     data['projects'] = projList
@@ -420,6 +454,11 @@ def getProject(project_id):
     pJson = pSchema.dump(obj=proj).data
     return pJson
 
+def getStudent(student_id):
+    sSchema = studentschema()
+    stud = student.query.filter_by(id=student_id).first()
+    sJson = sSchema.dump(obj=stud).data
+    return sJson
 
 def matchStudents(studList, projList):
     data = {}

@@ -10,14 +10,17 @@
         success: function (data) {
             var projs = data["projects"];
             var aProjs = data["assignedProject"];
+
             var projPrefs = data["projectPreference"];
             var rows = data["student"].map((student,index) => {
                 var projName = null;
                 if(index <= aProjs.length-1){
                     var projId = aProjs[index];
+                    console.log(projId)
                     var foundP = projs.find( (p) => p.id==projId);
                     if(foundP) {
                         projName = foundP.Title
+                        console.log(projName)
                     }
                 }
                 return(
