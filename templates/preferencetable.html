@@ -3,15 +3,16 @@
 {% block content %}
 <script type="text/jsx">
     $.ajax({
-        url: '/getprefdata',
+        url: '/getMatches',
         type: 'GET',
         dataType: 'json',
         success: function (data) {
-            var students = data["students"];
+            var students = data["student"].concat(data["unassignedStudent"]);
+            var aProjs = data["assignedProject"];
             var projects = data["projects"];
-            var prefs = data["prefs"];
-            ReactDOM.render(<PreferenceMatrix colHeaders={projects} rowHeaders={students} projPrefs={prefs}
-                                              classNames="table table-striped well table-hover">
+            var prefs = data["projectPreference"].concat(data["unassignedStudentProjPrefences"]);
+            ReactDOM.render(<PreferenceMatrix colHeaders={projects} rowHeaders={students} projPrefs={prefs} assignedProjs={aProjs}
+                                              classNames="table table-striped well table-hover table-responsive">
             </PreferenceMatrix>, document.getElementById("prefmat"));
             $("#prefmat").tableExport({
                 bootstrap: true,
@@ -22,7 +23,7 @@
         }})
 </script>
 
-<div id="prefmat">
+<div id="prefmat" style="overflow: auto">
 
 </div>
 {% endblock %}
