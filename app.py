@@ -365,6 +365,7 @@ def filterApplications():
     overridenStudList = []
     overridenProjList = []
     overridenprojPrefList = []
+    rejectStudents = []
 
 
     ## get re-assigned projects and students here
@@ -391,12 +392,16 @@ def filterApplications():
         name = firstName + lastName
 
         if gpa < u'3':
+            rejectStudents.append(sJson)
             continue
         elif isWorkedBefore == True:
+            rejectStudents.append(sJson)
             continue
         elif isAvailability == 'Not sure' or isAvailability == 'No':
+            rejectStudents.append(sJson)
             continue
         elif isMSBSStudent == 'Yes':
+            rejectStudents.append(sJson)
             continue
         else:
             sJson['Race'] = json.loads(sJson['Race'])
@@ -449,6 +454,9 @@ def filterApplications():
     assignedStudents = assignedStudents + overridenStudList
     assignedProjects = assignedProjects + overridenProjList
     assignedStudentProjPreferenceList = assignedStudentProjPreferenceList + overridenprojPrefList
+
+    unassignedStudents = unassignedStudents + rejectStudents
+   # print unassignedStudents
 
     for id in overridenProjList:
         projList.append(getProject(id))
