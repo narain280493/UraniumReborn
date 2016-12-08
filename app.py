@@ -366,6 +366,7 @@ def filterApplications():
     overridenProjList = []
     overridenprojPrefList = []
     rejectStudents = []
+    rejectStudentsProjPrefList = []
 
 
     ## get re-assigned projects and students here
@@ -390,18 +391,24 @@ def filterApplications():
         firstName = sJson['FirstName']
         lastName = sJson['LastName']
         name = firstName + lastName
+        stuApp = studentapplication.query.filter_by(s_id=sJson['id']).first()
+        saJson = saSchema.dump(obj=stuApp).data
 
         if gpa < u'3':
             rejectStudents.append(sJson)
+            rejectStudentsProjPrefList.append(saJson)
             continue
         elif isWorkedBefore == True:
             rejectStudents.append(sJson)
+            rejectStudentsProjPrefList.append(saJson)
             continue
         elif isAvailability == 'Not sure' or isAvailability == 'No':
             rejectStudents.append(sJson)
+            rejectStudentsProjPrefList.append(saJson)
             continue
         elif isMSBSStudent == 'Yes':
             rejectStudents.append(sJson)
+            rejectStudentsProjPrefList.append(saJson)
             continue
         else:
             sJson['Race'] = json.loads(sJson['Race'])
@@ -467,7 +474,7 @@ def filterApplications():
     data['projectPreference'] = assignedStudentProjPreferenceList
     data['unassignedProject'] = unassignedProjects
     data['unassignedStudent'] = unassignedStudents
-    data['unassignedStudentProjPrefences'] = unassignedStudentProjPreferenceList
+    data['unassignedStudentProjPrefences'] = unassignedStudentProjPreferenceList + rejectStudentsProjPrefList
     json_data = json.dumps(data)
 
     return json_data
