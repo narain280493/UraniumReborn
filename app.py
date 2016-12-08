@@ -332,11 +332,14 @@ def overrideMatch():
 
 @app.route('/clearOverride')
 def clearOverride():
-    if 'email' not in session:
-        return redirect(url_for('index'))
-    odel = db_session.query(overrides).delete()
-    db_session.commit()
-    return redirect(url_for('index'))
+    try:
+        if 'email' not in session:
+            return redirect(url_for('index'))
+        odel = db_session.query(overrides).delete()
+        db_session.commit()
+    except Exception:
+        return json.dumps({'status': 'clear failed'})
+    return json.dumps({'status': 'OK'})
 
 
 @app.route('/preftable')

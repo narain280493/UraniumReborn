@@ -45,7 +45,19 @@
                 return ({"s_id": s_id,"prefs": sPrefs});
             });
             ReactDOM.render(<MatchesTable crows={rows} modalID="matchModal" opts={opts}>
-            </MatchesTable>,document.getElementById("matchList"))
+            </MatchesTable>,document.getElementById("matchList"));
+            $("#clearbtn").toggleClass("hidden");
+            $("#clearbtn").click(function () {
+                $.ajax({
+                    url: '/clearOverride',
+                    type: 'GET',
+                    dataType: 'json',
+                    success: function (r,data) {
+                        if (r["status"])
+                            r["status"]=="OK"?location.reload():"fail"
+                    }
+                });
+            });
         }
 
     });
@@ -54,6 +66,7 @@
 <div id="matchList">
 
 </div>
+<button id="clearbtn" type="button" class="btn btn-primary hidden">Clear Overrides</button>
 
 <div class="modal fade" id="matchModal" tabindex="-1" role="dialog" aria-labelledby="matchModalLabel">
 
