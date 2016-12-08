@@ -27,18 +27,24 @@ class PreferenceMatrix extends React.Component {
                         else
                             return false;
                     });
-                    var Title = "&nbsp;";
+                    var Title = "Not Assigned/Eliminated";
                     if(aP)
                         Title = aP["Title"];
                     var pref = this.sProjPrefs.find( (pe) => pe["stuapp"] == re["id"]);
-                    this.colHeaders.map( (ce) => {
-                        var iter = ["1","2","3","4","5"];
-                        var val = iter.find( (con) => ce["id"]==pref["ProjectPreference"+con]);
-                        if(val)
-                            prefCols.push(<td>{val}</td>);
-                        else
+                    if(pref) {
+                        this.colHeaders.map((ce) => {
+                            var iter = ["1", "2", "3", "4", "5"];
+                            var val = iter.find((con) => ce["id"] == pref["ProjectPreference" + con]);
+                            if (val)
+                                prefCols.push(<td>{val}</td>);
+                            else
+                                prefCols.push(<td>&nbsp;</td>);
+                        });
+                    }else{
+                        this.colHeaders.map((ce) => {
                             prefCols.push(<td>&nbsp;</td>);
-                    });
+                        });
+                    }
                     return(<tr style={{textAlign:"center"}}>
                         <td id={re["id"]}> {re["LastName"] + " " + re["FirstName"]} </td>
                         <td> {Title} </td>
