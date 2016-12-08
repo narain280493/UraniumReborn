@@ -339,33 +339,6 @@ def clearOverride():
     return redirect(url_for('index'))
 
 
-@app.route('/getprefdata', methods=["GET"])
-def getPrefData():
-    if 'email' not in session:
-        return redirect(url_for('index'))
-    sSchema = studentschema()
-    pSchema = projectschema()
-    saSchema = studentapplicationschema()
-    studs = student.query.all()
-    projs = project.query.all()
-    sas = studentapplication.query.all()
-    studsJson = [sSchema.dump(obj=s).data for s in studs]
-    projsJson = [pSchema.dump(obj=p).data for p in projs]
-    sasJson = [saSchema.dump(obj=sa).data for sa in sas]
-    studsJsonF = []
-    projsJsonF = []
-    for s in studsJson:
-        s['Race'] = json.dumps(s['Race'])
-        studsJsonF.append(s)
-
-    for p in projsJson:
-        p["fieldOfStudy"] = json.loads(p["fieldOfStudy"])
-        p["specialRequirements"] = json.loads(p["specialRequirements"])
-        projsJsonF.append(p)
-
-    return json.dumps({"students": studsJsonF, "projects": projsJsonF, "prefs": sasJson})
-
-
 @app.route('/preftable')
 def prefTable():
     if 'email' not in session:
@@ -437,6 +410,8 @@ def filterApplications():
 
     #filtering projects
     projList = []
+    fullProjList = []
+
     for p in proj:
         pJson = pSchema.dump(obj=p).data
 
@@ -447,10 +422,14 @@ def filterApplications():
         projPref4 = studentapplication.query.filter_by(ProjectPreference4=id).first()
         projPref5 = studentapplication.query.filter_by(ProjectPreference5=id).first()
 
+        pJson["fieldOfStudy"] = json.loads(pJson["fieldOfStudy"])
+        pJson["specialRequirements"] = json.loads(pJson["specialRequirements"])
+
         if projPref1 or projPref2 or projPref3 or projPref4 or projPref5:
-            pJson["fieldOfStudy"] = json.loads(pJson["fieldOfStudy"])
-            pJson["specialRequirements"] = json.loads(pJson["specialRequirements"])
             projList.append(pJson)
+
+        fullProjList.append(pJson)
+
 
     # remove re-assigned project from ProjList here
     for id in overridenProjList:
@@ -473,12 +452,11 @@ def filterApplications():
 
     data['student'] = assignedStudents
     data['assignedProject'] = assignedProjects
-    data['projects'] = projList
+    data['projects'] = fullProjList
     data['projectPreference'] = assignedStudentProjPreferenceList
-
     data['unassignedProject'] = unassignedProjects
     data['unassignedStudent'] = unassignedStudents
-    data['unassignedStudentProjPrefences']= unassignedStudentProjPreferenceList
+    data['unassignedStudentProjPrefences'] = unassignedStudentProjPreferenceList
     json_data = json.dumps(data)
 
     return json_data
